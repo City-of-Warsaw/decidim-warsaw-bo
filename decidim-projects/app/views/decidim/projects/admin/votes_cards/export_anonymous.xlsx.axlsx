@@ -1,0 +1,9 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row Decidim::Projects::VoteCardAnonymousSerializer.new(nil).headers
+  index = 0
+  @votes.each do |vote_card|
+    sheet.add_row Decidim::Projects::VoteCardAnonymousSerializer.new(vote_card, index+=1).serialize.values, types: [:integer, :string,  :string, :string,  :string, :string,  :string, :string,  :string, :string]
+  end
+  sheet.column_widths 10, 10, 10, 20, 20, 20, 10, 10, 10, 10, 10, 10
+end

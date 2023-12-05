@@ -1,0 +1,345 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require decidim
+ *= require decidim/projects/application
+ *= require decidim/users_extended/application 
+ *= require slick
+ *= require slick-theme
+ *= require leaflet-gesture-handling.min
+ *= require jquery.multiselect
+ *= require autocomplete.min
+ *= require comments
+ *= require elements
+ *= require forms
+ *= require main_page
+ *= require user_profile
+ *= require users
+ *= require map
+ *= require wcag
+ *= require static-pages
+ *= require stats
+ *= require rwd
+ * require_tree .
+ *= require_self
+ */
+
+/* FIX inline colors */
+/* abandoned */
+.scope-373737 {
+  color: #373737;
+}
+.scope-border-373737 {
+  color: #373737;
+}
+/* in_progress */
+.scope-1F72AE {
+  color: #1f72ae;
+}
+.scope-border-1F72AE {
+  color: #1f72ae;
+}
+/* finished */
+.scope-5A7C1B {
+  color: #5a7c1b;
+}
+.scope-border-5A7C1B {
+  color: #5a7c1b;
+}
+/* default color */
+.scope-1F72AE {
+  color: #1f72ae;
+}
+.scope-border-1F72AE {
+  color: #1f72ae;
+}
+
+.icon-blue {
+  color: #1f72ae;
+}
+.icon-gray {
+  color: #373737;
+}
+.icon-green {
+  color: #5a7c1b;
+}
+.icon-default {
+  color: #1f72ae;
+}
+/* *** */
+
+body,
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: Arial, sans-serif !important;
+}
+
+.bb,
+.border-bottom {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.bt,
+.border-top {
+  border-top: 1px solid #d7d7d7;
+}
+
+.bl,
+.border-left {
+  border-left: 1px solid #d7d7d7;
+}
+
+.br,
+.border-right {
+  border-right: 1px solid #d7d7d7;
+}
+
+.off-canvas-wrapper {
+  background-color: #fff;
+}
+
+.off-canvas-wrapper.overflow-visible {
+  overflow: visible;
+}
+
+hr.full-width {
+  margin: 20px auto;
+  width: 100%;
+  border-bottom: 1px solid #b8b8b8;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+::placeholder {
+  color: #494949;
+}
+
+.callout {
+  padding-right: 45px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+dt.light {
+  font-weight: normal;
+}
+
+/* colors */
+.text-color-primary {
+  color: var(--primary);
+}
+
+.text-color-secondary {
+  color: var(--secondary);
+}
+
+.text-red {
+  color: #e72430;
+}
+
+.bg-grey {
+  background-color: #f5f6f7;
+}
+
+/* links */
+.link,
+a {
+  color: var(--primary);
+}
+
+.change-password {
+  text-decoration: underline;
+}
+
+.side-panel__tabs .tabs-title.is-active > [role="tab"],
+.side-panel__tabs .tabs-title.is-active > a {
+  color: #000;
+}
+
+.side-panel__tabs .tabs-title {
+  background-color: #f5f6f7;
+  color: #000;
+}
+
+.side-panel__tabs .tabs-title a:hover {
+  color: #000;
+}
+
+.button.button-link {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+}
+
+.button.button-link:hover,
+.button.button-link:active,
+.button.button-link:focus {
+  text-decoration: underline;
+}
+
+.wrapper .wrapper {
+  padding: 0;
+}
+
+.wrapper--inner {
+  background-color: #f5f6f7;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.topbar__notifications .icon,
+.topbar__conversations .icon,
+.topbar__user__login a::after,
+.topbar__dropmenu > ul > li > a::after,
+.topbar__admin__link a::after {
+  opacity: 0.5;
+}
+
+/* grid */
+#content.full-width-content .wrapper {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#content.full-width-content .wrapper .project-segment:last-of-type {
+  margin-bottom: -50px;
+}
+
+.column.no-p,
+.columns.no-p {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.tooltip {
+  max-width: 300px;
+}
+
+#registration_user_nickname_characters {
+  margin-top: 0;
+}
+
+.wrapper-home {
+  padding: 3rem 1rem;
+}
+
+/* ############### */
+
+.new_conversation .help-text-form-required-fields {
+  display: none;
+}
+
+/***** overwritting grid *****/
+.filters {
+  display: block !important;
+}
+
+.ms-options-wrap.ms-has-selections > button {
+  /* color: var(--primary);
+    font-weight: bold; */
+}
+
+/******** paginate *********/
+.pagination a,
+.pagination button,
+.pagination .current {
+  padding: 0.1875rem 0.825rem;
+  font-size: 20px;
+}
+
+.pagination a:hover,
+.pagination button:hover {
+  color: var(--primary);
+}
+
+.pagination .current {
+  background-color: var(--primary);
+  font-weight: bold;
+}
+
+/*static pages*/
+.tabbed-scroll .tabs-title {
+  background-color: #f5f6f7;
+  color: #000;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.tabbed-scroll .static__content {
+  padding: 10px 20px;
+}
+
+.tabbed-scroll .page-wrapp.is-active .static__content {
+  display: block;
+}
+
+.tabbed-scroll .page-wrapp .static__content {
+  display: none;
+}
+
+.tabbed-scroll .page-wrapp.is-active .tabs-title {
+  /*outline: 2px solid var(--primary);*/
+  color: var(--primary);
+}
+
+.list-header4 {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.label-required {
+  cursor: default;
+}
+
+.switch-paddle {
+  background-color: #919191;
+}
+
+/***** overwritting *****/
+.reveal-overlay {
+  background-color: rgba(26, 25, 29, 0.8);
+}
+
+/*FOR WCAG*/
+.comment__header .author-data__extra button.link-alt:hover .show-for-sr,
+.comment__header .author-data__extra a:hover .show-for-sr {
+  clip: auto !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+  top: -17px;
+  font-size: 12px;
+  padding: 3px 5px !important;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+}

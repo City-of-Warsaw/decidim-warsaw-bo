@@ -1,0 +1,38 @@
+<tr data-id="<%= project_rank.id %>">
+  <td>
+    <%= translated_attribute(project_rank.scope&.name) %>
+    <% if false %>
+      <%= icon 'warning', 'aria-label': '', class: 'text-alert' %>
+    <% end %>
+  </td>
+  <td>
+    <%= project_rank.project.esog_number %>
+  </td>
+
+  <td class="text-left">
+    <%= link_to project_rank.project.title, project_path(project_rank.project) %>
+  </td>
+
+  <td class="text-right">
+    <%= budget_to_currency project_rank.project.budget_value %>
+  </td>
+
+  <td>
+    <strong><%= project_rank.valid_votes_count %></strong> /
+    <%= project_rank.not_verified_votes_count %> /
+    <strong class="text-alert"><%= project_rank.invalid_votes_count %></strong>
+  </td>
+
+  <td>
+    <%= project_rank.votes_in_paper_count %> /
+    <%= project_rank.votes_electronic_count %>
+  </td>
+
+  <td>
+    <%= project_rank.percentage_of_not_verified_votes %>
+  </td>
+
+  <td class="table-list__actions">
+    <%= project_rank_status(project_rank) %>
+  </td>
+</tr>

@@ -1,0 +1,41 @@
+<tr data-id="<%= project.id %>">
+  <td>
+    <%= project.esog_number %><br>
+  </td>
+
+  <td>
+    <%= link_to(decidim_html_escape(project&.title).html_safe, resource_locator(project).path) %><br>
+  </td>
+
+  <td>
+    <%= project.last_implementation_body.html_safe if project.last_implementation_body.present? %><br>
+  </td>
+
+  <td>
+    <strong><%= translated_attribute(project.scope&.scope_type&.name) %></strong>
+    <br>
+    <%= translated_attribute(project.scope&.name) %>
+  </td>
+
+  <td>
+    <%= project.producer_list %>
+  </td>
+  <td>
+    <%= project.implementation_status %>
+  </td>
+
+  <td>
+    <%= l project.updated_at, format: :decidim_short %>
+  </td>
+  <td>
+    <%= project.with_implementation_photos? ? 'Tak' : 'Nie' %>
+  </td>
+
+  <td class="table-list__actions">
+    <% if allowed_to? :implementation, :project, project: project %>
+      <%= icon_link_to "pencil", implementation_path(project), t("actions.edit", scope: "decidim.projects.admin"), class: "action-icon--preview", target: :blank %>
+    <% else %>
+      <span class="action-space icon"></span>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Admin::Evaluation::ReturnToDepartment
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin::Evaluation::ReturnToDepartment";
+  relpath = '../../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Evaluation.html" title="Decidim::Projects::Admin::Evaluation (module)">Evaluation</a></span></span>
+     &raquo; 
+    <span class="title">ReturnToDepartment</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Admin::Evaluation::ReturnToDepartment
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rectify::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rectify::Command</li>
+          
+            <li class="next">Decidim::Projects::Admin::Evaluation::ReturnToDepartment</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A command with all the business logic when a user returns project to previous department.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#current_user-instance_method" title="#current_user (instance method)">#<strong>current_user</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#form-instance_method" title="#form (instance method)">#<strong>form</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#note-instance_method" title="#note (instance method)">#<strong>note</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#previous_department-instance_method" title="#previous_department (instance method)">#<strong>previous_department</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#project-instance_method" title="#project (instance method)">#<strong>project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(form, current_user)  &#x21d2; ReturnToDepartment </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_notification-instance_method" title="#send_notification (instance method)">#<strong>send_notification</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_project_back_to_evaluator-instance_method" title="#send_project_back_to_evaluator (instance method)">#<strong>send_project_back_to_evaluator</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(form, current_user)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::Admin::Evaluation::ReturnToDepartment (class)">ReturnToDepartment</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the command.</p>
+
+<p>form - A form object with the params.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@project</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@previous_department</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_previous_department'>previous_department</span>
+  <span class='ivar'>@new_department</span> <span class='op'>=</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_departments'>departments</span>
+  <span class='ivar'>@current_user</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
+  <span class='ivar'>@note</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="current_user-instance_method">
+  
+    #<strong>current_user</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current_user'>current_user</span>
+  <span class='ivar'>@current_user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="form-instance_method">
+  
+    #<strong>form</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@form</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="note-instance_method">
+  
+    #<strong>note</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_note'>note</span>
+  <span class='ivar'>@note</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="previous_department-instance_method">
+  
+    #<strong>previous_department</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_previous_department'>previous_department</span>
+  <span class='ivar'>@previous_department</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="project-instance_method">
+  
+    #<strong>project</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@project</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="call-instance_method">
+  
+    #<strong>call</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes the command. Broadcasts these events:</p>
+<ul><li>
+<p>:ok when everything is valid, together with the proposal.</p>
+</li><li>
+<p>:invalid if the form wasn&#39;t valid and we couldn&#39;t proceed.</p>
+</li><li>
+<p>:no_previous_department if project has no previous department.</p>
+</li><li>
+<p>:invalid_state if project is a draft or was withdrawn by author.</p>
+</li></ul>
+
+<p>Returns nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:no_previous_department</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_previous_department'>previous_department</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid_state</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="../../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project/POSSIBLE_STATES.html#DRAFT-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::DRAFT (constant)">DRAFT</a></span></span> <span class='op'>||</span>
+                                            <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="../../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Project/POSSIBLE_STATES.html#WITHDRAWN-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::WITHDRAWN (constant)">WITHDRAWN</a></span></span>
+
+  <span class='id identifier rubyid_send_project_back_to_evaluator'>send_project_back_to_evaluator</span>
+  <span class='id identifier rubyid_send_notification'>send_notification</span>
+
+  <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_notification-instance_method">
+  
+    #<strong>send_notification</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_notification'>send_notification</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_previous_department'>previous_department</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_previous_department'>previous_department</span><span class='period'>.</span><span class='id identifier rubyid_coordinators'>coordinators</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='id identifier rubyid_previous_department'>previous_department</span><span class='period'>.</span><span class='id identifier rubyid_coordinators'>coordinators</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_user'>user</span><span class='op'>|</span>
+    <span class='const'><span class='object_link'><a href="../../EvaluationMailer.html" title="Decidim::Projects::EvaluationMailer (class)">EvaluationMailer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_notify'><span class='object_link'><a href="../../EvaluationMailer.html#notify-instance_method" title="Decidim::Projects::EvaluationMailer#notify (method)">notify</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>return_to_department</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver_later'>deliver_later</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_project_back_to_evaluator-instance_method">
+  
+    #<strong>send_project_back_to_evaluator</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/evaluation/return_to_department.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_project_back_to_evaluator'>send_project_back_to_evaluator</span>
+  <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='period'>.</span><span class='id identifier rubyid_traceability'>traceability</span><span class='period'>.</span><span class='id identifier rubyid_perform_action!'>perform_action!</span><span class='lparen'>(</span>
+    <span class='symbol'>:return_to_department</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span>
+    <span class='label'>visibility:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin-only</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_current_department_id'>current_department_id</span> <span class='op'>=</span> <span class='id identifier rubyid_previous_department'>previous_department</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_return_reason'>return_reason</span> <span class='op'>=</span> <span class='id identifier rubyid_note'>note</span> <span class='kw'>if</span> <span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='label'>validate:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_department_assignments'>department_assignments</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>department:</span> <span class='id identifier rubyid_previous_department'>previous_department</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:44 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

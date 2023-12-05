@@ -1,0 +1,8 @@
+<%= decidim_form_for(@form, url: project_project_conflicts_path(project), html: { class: "form new_project project_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("decidim.proejct_conflicts.actions.create") %>
+    <%= link_to 'Anuluj', projects_path, class: "link" %>
+  </div>
+<% end %>

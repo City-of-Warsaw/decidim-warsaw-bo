@@ -1,0 +1,17 @@
+---
+en:
+  decidim:
+    components:
+      admin_extended:
+        name: AdminExtended
+
+    admin:
+      menu:
+        departments: Departments
+      titles:
+        departments: Departments
+      models:
+        departments:
+          fields:
+            name: Name
+            plural: Departments

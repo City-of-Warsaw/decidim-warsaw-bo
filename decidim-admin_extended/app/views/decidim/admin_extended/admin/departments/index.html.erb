@@ -1,0 +1,68 @@
+<div class="card" id="area-types">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.departments" %>
+      <% if allowed_to? :update, :organization, organization: current_organization %>
+        <%= link_to t("actions.add", scope: "decidim.admin"), [:new, :department], class: "button tiny button--title new" %>
+      <% end %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <th><%= t("models.department.fields.name", scope: "decidim.admin") %></th>
+          <th><%= t("models.department.fields.ad_name", scope: "decidim.admin") %></th>
+          <th><%= t("models.department.fields.department_type", scope: "decidim.admin") %></th>
+          <th style="text-align: left;"><%= t("models.department.fields.departments", scope: "decidim.admin") %></th>
+          <th><%= t("models.department.fields.allow_returning_projects", scope: "decidim.admin").html_safe %></th>
+          <th>Aktywny</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% departments.each do |department| %>
+          <tr>
+            <td>
+              <%= department.name %>
+            </td>
+            <td>
+              <%= department.ad_name %>
+            </td>
+            <td>
+              <%= t("activemodel.attributes.department.department_types.#{department.department_type}") %>
+            </td>
+            <td style="text-align: left;">
+              <% if department.departments.any? %>
+                <ul>
+                  <% department.departments.each do |d| %>
+                    <li><%= d.name %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </td>
+            <td>
+              <%= t(department.allow_returning_projects, scope: 'booleans') %>
+            </td>
+            <td>
+              <%= department.active? ? 'Tak' : 'Nie' %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to?(:update, :help_sections, department: department) %>
+                <%= icon_link_to "pencil", [:edit, department], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+              <% else %>
+                (historyczny)
+              <% end %>
+
+              <% if allowed_to?(:destroy, :help_sections, department: department) %>
+                <%= icon_link_to "circle-x", department, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

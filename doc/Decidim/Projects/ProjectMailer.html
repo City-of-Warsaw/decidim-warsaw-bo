@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::ProjectMailer
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::ProjectMailer";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">ProjectMailer</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::ProjectMailer
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">ApplicationMailer</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ApplicationMailer</li>
+          
+            <li class="next">Decidim::Projects::ProjectMailer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/mailers/decidim/projects/project_mailer.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A custom mailer for sending notifications to users when the events considering projects are received.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#appeal_variables_gsub-instance_method" title="#appeal_variables_gsub (instance method)">#<strong>appeal_variables_gsub</strong>(body, appeal, additional_data = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comment_variables_gsub-instance_method" title="#comment_variables_gsub (instance method)">#<strong>comment_variables_gsub</strong>(body, comment)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#implementation_variables_gsub-instance_method" title="#implementation_variables_gsub (instance method)">#<strong>implementation_variables_gsub</strong>(body, implementation)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#loosing_project-instance_method" title="#loosing_project (instance method)">#<strong>loosing_project</strong>(project, email)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#new_body-instance_method" title="#new_body (instance method)">#<strong>new_body</strong>(mail_template, user: nil, project: nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify-instance_method" title="#notify (instance method)">#<strong>notify</strong>(project, action_receiver, body, subject = &#39;Budżet obywatelski - wiadomość z serwisu&#39;, sender = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_author_about_evaluation_result-instance_method" title="#notify_author_about_evaluation_result (instance method)">#<strong>notify_author_about_evaluation_result</strong>(mail_template, user, project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_from_template-instance_method" title="#notify_from_template (instance method)">#<strong>notify_from_template</strong>(resource, action_receiver, mail_template, additional_data = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#project_variables_gsub-instance_method" title="#project_variables_gsub (instance method)">#<strong>project_variables_gsub</strong>(body, project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remind_about_draft_project-instance_method" title="#remind_about_draft_project (instance method)">#<strong>remind_about_draft_project</strong>(mail_template, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remind_about_missing_evaluations-instance_method" title="#remind_about_missing_evaluations (instance method)">#<strong>remind_about_missing_evaluations</strong>(user, projects)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_variables_gsub-instance_method" title="#user_variables_gsub (instance method)">#<strong>user_variables_gsub</strong>(body, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#winning_project-instance_method" title="#winning_project (instance method)">#<strong>winning_project</strong>(project, email)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="appeal_variables_gsub-instance_method">
+  
+    #<strong>appeal_variables_gsub</strong>(body, appeal, additional_data = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_appeal_variables_gsub'>appeal_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_appeal'>appeal</span><span class='comma'>,</span> <span class='id identifier rubyid_additional_data'>additional_data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='id identifier rubyid_appeal'>appeal</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_appeal_url'>appeal_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ResourceLocatorPresenter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'>/appeals/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_appeal'>appeal</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_appeal_body'>appeal_body</span> <span class='op'>=</span> <span class='id identifier rubyid_additional_data'>additional_data</span><span class='lbracket'>[</span><span class='symbol'>:appeal_body</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='id identifier rubyid_appeal'>appeal</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{appeal_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_appeal_url'>appeal_url</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{appeal_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_appeal_body'>appeal_body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comment_variables_gsub-instance_method">
+  
+    #<strong>comment_variables_gsub</strong>(body, comment)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_comment_variables_gsub'>comment_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_comment'>comment</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='id identifier rubyid_comment'>comment</span><span class='period'>.</span><span class='id identifier rubyid_root_commentable'>root_commentable</span>
+  <span class='id identifier rubyid_organization'>organization</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_project_url'>project_url</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ResourceLocatorPresenter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_comment_url'>comment_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_url'>project_url</span><span class='embexpr_end'>}</span><span class='tstring_content'>?commentId=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comment'>comment</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>#comment_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comment'>comment</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_terms_and_conditions_link'>terms_and_conditions_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_page_url'>page_url</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>terms-and-conditions</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>host:</span> <span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{comment_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_comment'>comment</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pl</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{comment_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_comment_url'>comment_url</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{terms_and_conditions_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_terms_and_conditions_link'>terms_and_conditions_link</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="implementation_variables_gsub-instance_method">
+  
+    #<strong>implementation_variables_gsub</strong>(body, implementation)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_implementation_variables_gsub'>implementation_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_implementation'>implementation</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='id identifier rubyid_implementation'>implementation</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_implementation_status'>implementation_status</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_implementation_status'>implementation_status</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+                            <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Odstąpiono od realizacji</span><span class='tstring_end'>&#39;</span></span>
+                          <span class='kw'>elsif</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_implementation_status'>implementation_status</span> <span class='op'>==</span> <span class='int'>5</span>
+                            <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zakończono</span><span class='tstring_end'>&#39;</span></span>
+                          <span class='kw'>else</span>
+                            <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>W trakcie</span><span class='tstring_end'>&#39;</span></span>
+                          <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{implementation_status}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_implementation_status'>implementation_status</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{implementation_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_implementation'>implementation</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="loosing_project-instance_method">
+  
+    #<strong>loosing_project</strong>(project, email)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_loosing_project'>loosing_project</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_mail_template'>mail_template</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended/MailTemplate.html" title="Decidim::AdminExtended::MailTemplate (class)">MailTemplate</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>system_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>result_voting_loosing_project</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="MailTemplateBodyService.html" title="Decidim::Projects::MailTemplateBodyService (class)">MailTemplateBodyService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="MailTemplateBodyService.html#initialize-instance_method" title="Decidim::Projects::MailTemplateBodyService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="MailTemplateBodyService.html#call-instance_method" title="Decidim::Projects::MailTemplateBodyService#call (method)">call</a></span></span>
+
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new_body-instance_method">
+  
+    #<strong>new_body</strong>(mail_template, user: nil, project: nil)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_new_body'>new_body</span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='label'>user:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+    <span class='id identifier rubyid_project_url'>project_url</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ResourceLocatorPresenter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
+    <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_title}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project_url'>project_url</span><span class='rparen'>)</span> <span class='comment'># nie uzywajmy tego
+</span>               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_public_url}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project_url'>project_url</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{edition_year}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_reason_body'>reason_body</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_negative_evaluation_body'>negative_evaluation_body</span>
+    <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{reason_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_reason_body'>reason_body</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_reason_body'>reason_body</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{user_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_public_name'>public_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='id identifier rubyid_body'>body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify-instance_method">
+  
+    #<strong>notify</strong>(project, action_receiver, body, subject = &#39;Budżet obywatelski - wiadomość z serwisu&#39;, sender = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify'>notify</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_action_receiver'>action_receiver</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - wiadomość z serwisu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_sender'>sender</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='ivar'>@action_receiver</span> <span class='op'>=</span> <span class='id identifier rubyid_action_receiver'>action_receiver</span>
+  <span class='ivar'>@sender</span> <span class='op'>=</span> <span class='id identifier rubyid_sender'>sender</span>
+  <span class='ivar'>@project</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='ivar'>@organization_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_root_url'>root_url</span><span class='lparen'>(</span><span class='label'>host:</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='ivar'>@project_path</span> <span class='op'>=</span> <span class='ivar'>@project</span> <span class='op'>?</span> <span class='id identifier rubyid_decidim_projects'>decidim_projects</span><span class='period'>.</span><span class='id identifier rubyid_project_url'>project_url</span><span class='lparen'>(</span><span class='ivar'>@project</span><span class='comma'>,</span> <span class='label'>host:</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='ivar'>@organization_link</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='ivar'>@project</span><span class='rparen'>)</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_implementation_variables_gsub'>implementation_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@body</span><span class='comma'>,</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_implementations'>implementations</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_implementations'>implementations</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='comment'># shared
+</span>  <span class='ivar'>@body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{user_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_public_name'>public_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
+       <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{organization_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+       <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{organization_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@organization_link</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify_author_about_evaluation_result-instance_method">
+  
+    #<strong>notify_author_about_evaluation_result</strong>(mail_template, user, project)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify_author_about_evaluation_result'>notify_author_about_evaluation_result</span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_new_body'>new_body</span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='label'>user:</span> <span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify_from_template-instance_method">
+  
+    #<strong>notify_from_template</strong>(resource, action_receiver, mail_template, additional_data = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify_from_template'>notify_from_template</span><span class='lparen'>(</span><span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='id identifier rubyid_action_receiver'>action_receiver</span><span class='comma'>,</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='id identifier rubyid_additional_data'>additional_data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@mail_template_body</span> <span class='op'>=</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_action_receiver'>action_receiver</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_organization_link'>organization_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_root_url'>root_url</span><span class='lparen'>(</span><span class='label'>host:</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='ivar'>@resource</span> <span class='op'>=</span> <span class='id identifier rubyid_resource'>resource</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='rparen'>)</span>
+          <span class='kw'>elsif</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>Comments</span><span class='op'>::</span><span class='const'>Comment</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_comment_variables_gsub'>comment_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='rparen'>)</span>
+          <span class='kw'>elsif</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Appeal.html" title="Decidim::Projects::Appeal (class)">Appeal</a></span></span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_appeal_variables_gsub'>appeal_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='id identifier rubyid_additional_data'>additional_data</span><span class='rparen'>)</span>
+          <span class='kw'>elsif</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Implementation.html" title="Decidim::Projects::Implementation (class)">Implementation</a></span></span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_implementation_variables_gsub'>implementation_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='rparen'>)</span>
+          <span class='kw'>elsif</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SimpleUser.html" title="Decidim::Projects::SimpleUser (class)">SimpleUser</a></span></span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_user_variables_gsub'>user_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:implementations</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_implementations'>implementations</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_implementation_variables_gsub'>implementation_variables_gsub</span><span class='lparen'>(</span><span class='ivar'>@mail_template_body</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_implementations'>implementations</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='comment'># shared
+</span>  <span class='id identifier rubyid_registration_link'>registration_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_edit_coauthorship_acceptance_url'>edit_coauthorship_acceptance_url</span><span class='lparen'>(</span><span class='ivar'>@user</span><span class='comma'>,</span> <span class='label'>host:</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='ivar'>@body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{user_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_public_name'>public_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{organization_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{organization_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_organization_link'>organization_link</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{registration_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_registration_link'>registration_link</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{password_reset_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_registration_link'>registration_link</span><span class='rparen'>)</span> <span class='comment'># uzywamy nowej rejestracji a nie zmiany hasla
+</span>               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{sender_email}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_additional_data'>additional_data</span><span class='lbracket'>[</span><span class='symbol'>:sender_email</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+               <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{private_message_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_additional_data'>additional_data</span><span class='lbracket'>[</span><span class='symbol'>:private_message_body</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_additional_data'>additional_data</span><span class='lbracket'>[</span><span class='symbol'>:attachments</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_attachments'>attachments</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="project_variables_gsub-instance_method">
+  
+    #<strong>project_variables_gsub</strong>(body, project)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project_variables_gsub'>project_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_organization'>organization</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_project_url'>project_url</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ResourceLocatorPresenter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_reason_body'>reason_body</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_negative_evaluation_body'>negative_evaluation_body</span>
+  <span class='id identifier rubyid_coauthorship_acceptance_link'>coauthorship_acceptance_link</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_url'>project_url</span><span class='embexpr_end'>}</span><span class='tstring_content'>/coauthorship/edit</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_title}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='rparen'>)</span>
+             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{current_department}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_current_department'>current_department</span><span class='op'>&amp;.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># for evaluation
+</span>             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{district_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span> <span class='op'>?</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pl</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='comment'># for evaluation
+</span>             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{evaluation_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>oceny merytorycznej</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># for evaluation
+</span>             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project_url'>project_url</span><span class='rparen'>)</span>
+             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{project_public_url}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project_url'>project_url</span><span class='rparen'>)</span>
+             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{edition_year}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+             <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{coauthorship_acceptance_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_coauthorship_acceptance_link'>coauthorship_acceptance_link</span><span class='rparen'>)</span> <span class='comment'># for Decidim::User coauthorship
+</span>  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{reason_body}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_reason_body'>reason_body</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_reason_body'>reason_body</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+
+  <span class='comment'># for evaluation
+</span>  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{verifier_name}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_evaluator'>evaluator</span><span class='period'>.</span><span class='id identifier rubyid_public_name'>public_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_evaluator'>evaluator</span>
+
+  <span class='id identifier rubyid_body'>body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remind_about_draft_project-instance_method">
+  
+    #<strong>remind_about_draft_project</strong>(mail_template, user)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remind_about_draft_project'>remind_about_draft_project</span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='id identifier rubyid_new_body'>new_body</span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='label'>user:</span> <span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remind_about_missing_evaluations-instance_method">
+  
+    #<strong>remind_about_missing_evaluations</strong>(user, projects)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remind_about_missing_evaluations'>remind_about_missing_evaluations</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_projects'>projects</span><span class='rparen'>)</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='ivar'>@projects</span> <span class='op'>=</span> <span class='id identifier rubyid_projects'>projects</span>
+  <span class='id identifier rubyid_subject'>subject</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - powiadomienie o brakach w ocenie poszczególnych projektów</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="user_variables_gsub-instance_method">
+  
+    #<strong>user_variables_gsub</strong>(body, user)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 163</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_variables_gsub'>user_variables_gsub</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_token'>token</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_organization'>organization</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_activation_link'>activation_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_user_confirmation_url'>user_confirmation_url</span><span class='lparen'>(</span><span class='label'>confirmation_token:</span> <span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>host:</span> <span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_registration_link'>registration_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_new_user_registration_url'>new_user_registration_url</span><span class='lparen'>(</span><span class='label'>host:</span> <span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_password_reset_link'>password_reset_link</span> <span class='op'>=</span> <span class='id identifier rubyid_decidim'>decidim</span><span class='period'>.</span><span class='id identifier rubyid_edit_user_password_url'>edit_user_password_url</span><span class='lparen'>(</span><span class='label'>reset_password_token:</span> <span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='label'>host:</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{registration_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_registration_link'>registration_link</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{activation_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_activation_link'>activation_link</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%{password_reset_link}</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_password_reset_link'>password_reset_link</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="winning_project-instance_method">
+  
+    #<strong>winning_project</strong>(project, email)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/mailers/decidim/projects/project_mailer.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_winning_project'>winning_project</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
+  <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_mail_template'>mail_template</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended/MailTemplate.html" title="Decidim::AdminExtended::MailTemplate (class)">MailTemplate</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>system_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>result_voting_winning_project</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="MailTemplateBodyService.html" title="Decidim::Projects::MailTemplateBodyService (class)">MailTemplateBodyService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="MailTemplateBodyService.html#initialize-instance_method" title="Decidim::Projects::MailTemplateBodyService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_mail_template'>mail_template</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="MailTemplateBodyService.html#call-instance_method" title="Decidim::Projects::MailTemplateBodyService#call (method)">call</a></span></span>
+
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:18 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

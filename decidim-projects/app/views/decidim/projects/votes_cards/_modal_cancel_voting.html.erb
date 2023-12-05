@@ -1,0 +1,26 @@
+<div class="tiny reveal confirm-reveal vote-modal-js"
+     id="cancel-voting-modal"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="cancel-voting-modal-title"
+     aria-describedby="cancel-voting-modal-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="cancel-voting-modal-title">Czy na pewno chcesz anulować głosowanie?</h2>
+  </div>
+  <div class="confirm-content">
+    <div class="confirm-modal-content" id="cancel-voting-modal-content" role="document" tabindex="0">
+      Jeszcze nie zakończyłeś(-aś) głosowania. Przerwanie głosowania w tym momencie spowoduje utratę danych wprowadzonych do tej pory.
+    </div>
+  </div>
+  <div class="confirm-modal-footer reveal__footer">
+    <div class="buttons button--double">
+      <%= link_to "Powróć do głosowania", '/', class: "button mr-s ml-s close-js" %>
+      <%= link_to "Anuluj głosowanie", path_for_canceling_vote(vote_card), class: "button clear black mr-s ml-s" %>
+    </div>
+  </div>
+</div>

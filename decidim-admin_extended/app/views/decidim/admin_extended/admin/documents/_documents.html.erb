@@ -1,0 +1,48 @@
+<% if documents.any? %>
+  <table class="table-list">
+    <thead>
+      <tr>
+        <th><%= t("name", scope: 'decidim.admin_extended.admin.documents.index') %></th>
+        <% if with_folder %>
+          <th><%= t("folder_name", scope: 'decidim.admin_extended.admin.documents.index') %></th>
+        <% end %>
+        <th><%= t("user_roles", scope: 'decidim.admin_extended.admin.documents.index') %></th>
+        <th><%= t("created_at", scope: 'decidim.admin_extended.admin.documents.index') %></th>
+        <% if allowed_to? :update, :documents %><th></th><% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% documents.each do |document| %>
+        <tr>
+          <td>
+            <% if document.file.attached? && document.file.filename.present? %>
+              <%= link_to document.file.filename, direct_link_to(document.file) %>
+            <% end %>
+          </td>
+          <% if with_folder %>
+            <td><%= document.folder&.name %></td>
+          <% end %>
+          <td><%= user_roles_for(document) %></td>
+          <td><%= l document.created_at, format: :decidim_short %></td>
+          <% if allowed_to? :update, :documents %>
+            <td class="table-list__actions">
+              <%= icon_link_to "pencil",
+                               edit_document_path(document),
+                               t("actions.edit_file", scope: "decidim.admin_extended.admin.documents"),
+                               class: "action-icon--edit",
+                               method: :get %>
+              <%= icon_link_to "circle-x",
+                               [document],
+                               t("actions.destroy_file", scope: "decidim.admin_extended.admin.documents"),
+                               class: "action-icon--remove",
+                               method: :delete,
+                               data: { confirm: t("actions.confirm_destroy_file", scope: "decidim.admin_extended.admin.documents") } %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="text-center">Brak dostepnych plików w tym folderze</p>
+<% end %>

@@ -1,0 +1,56 @@
+---
+pl:
+  layouts:
+    decidim:
+      admin:
+        participatory_process:
+          activate_voting: Czy jesteś pewien, że chcesz aktywować głosowanie?
+          start_voting: Aktywuj głosowanie
+  activemodel:
+   attributes:
+     participatory_process:
+       edition_year: Rok edycji
+       project_editing_end_date: Do kiedy użytkownicy mogą edytować swoje projekty?
+       withdrawn_end_date: Do kiedy użytkownicy mogą wycofywać swoje projekty?
+       evaluation_start_date: Od kiedy koordynatorzy mogą przypisywać projekty do oceny?
+       evaluation_end_date: Do kiedy koordynatorzy muszą zatwierdzić oceny?
+       evaluation_cards_submit_end_date: Do kiedy weryfikatorzy mogą oceniać projekty?
+       evaluation_publish_date: Data publikacji ocen
+       appeal_start_date: Od kiedy użytkownicy mogą składać odwołania?
+       appeal_end_date: Do kiedy użytkownicy mogą składać odwołania?
+       reevaluation_cards_submit_end_date: Do kiedy weryfikatorzy mogą robić ponowną ocenę
+       reevaluation_end_date: Do kiedy koordynatorzy mogą zatwierdzic ponowną ocenę
+       reevaluation_publish_date: Data i godzina publikacji wyników ponownej oceny
+       paper_project_submit_end_date: Do kiedy użytkownicy wewnętrzni mogą wprowadzać wersje papierowe projektów?
+       paper_voting_submit_end_date: Do kiedy użytkownicy wewnętrzni mogą wprowadzać wersje papierowe kart do głosowania?
+       status_change_notifications_sending_end_date: Do kiedy można wysyłać powiadomienia o zmianie statusu projektu?
+       show_start_voting_button_at: Data i godzina pokazania przycisku do glosowania
+       show_voting_results_button_at: Data i godzina pokazania przycisku do wyników głosowania
+       global_scope_projects_voting_limit: Maksymalna liczba projektów ogólnomiejskich na jakie może głosować użytkownik
+       district_scope_projects_voting_limit: Maksymalna liczba projektów dzielnicowych na jakie może głosować użytkownik
+       minimum_global_scope_projects_votes: Minimalna liczba oddanych głosów do zakwalifikowania projektu ogólnomiejskiego na listę rankingową
+       minimum_district_scope_projects_votes: Minimalna liczba oddanych głosów do zakwalifikowania projektu dzielnicowego na listę rankingową
+  decidim:
+    admin:
+      endorsement_list:
+        update:
+          success: Zmiany zostały zapisane
+          error: Wystąpił błąd
+        edit:
+          title: Edycja
+          save: Zapisz
+          footer_description: Objaśnienia
+          header_description: Tytuł
+      actions:
+        endorsement_list:
+          edit: Edycja
+          sample_pdf: Pobierz przykładowy pdf
+      participatory_processes:
+        voting_started:
+          success: Głosowanie zostało aktywowane.
+          error: Nie udało się aktywować głosowania.
+      models:
+        participatory_process:
+          fields:
+            edition_year: Rok edycji
+

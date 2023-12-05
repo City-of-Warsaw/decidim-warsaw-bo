@@ -1,0 +1,50 @@
+<div class="row projects-choosing scope-choosing-js" style="display: block">
+  <div class="columns large-12">
+    <legend class="scope-budget-value-info">
+    </legend>
+  </div>
+</div>
+
+<div class="row projects-filtering scope-choosing-js" style="display: block">
+  <div class="instruction-text-center"><%= t(".empty") %></div>
+  <%= render "filters", form: form %>
+</div>
+
+<div class="row projects-list-grid projects-choosing projects-choosing-js" style="display: block">
+  <table id="projects" class="projects-list-table voting">
+    <%= render "list_headers" %>
+    <%= render "projects", projects: @form.no_projects, empty_info: @empty_info %>
+  </table>
+</div>
+
+<div class="voting-bg-grey projects-choosing-js" style="display: block">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="actions text-center">
+        <%= hidden_field_tag :votes_card_votes, votes_card_votes_path(vote_card, global: 0), class: "card-votes-url-js" %>
+        <%= form.hidden_field :district_projects, class: "selected-projects-js" %>
+
+        <%= link_to t(".back"), path_for_wizard_vote(vote_card, 'step_2_info'), class: "button hollow" %>
+        <%= form.submit t(".submit"), class: "button voting-not-finished-js" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= hidden_field_tag :fm, 0, class: "from-map-js" %>
+
+<%= render 'modal_district_not_selected' %>
+<%= render 'modal_district_free_votes', next_step_url: '#' %>
+
+<%= nonced_javascript_tag do %>
+  $(document).ready(function () {
+    document.getElementById("content").scrollIntoView();
+    setTimeout(function (){
+      $('#search-projects-submit').click();
+    }, 1000);
+
+    if (backToMap()) {
+      mapToggle();
+    }
+  });
+<% end %>

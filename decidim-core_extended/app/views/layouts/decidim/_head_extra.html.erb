@@ -1,0 +1,28 @@
+<!-- Google tag (gtag.js) -->
+<% if Rails.env.production? %>
+  <%= nonced_javascript_include_tag 'https://www.googletagmanager.com/gtag/js?id=G-W3X83ZDFE3', async: true %>
+  <%= nonced_javascript_tag do %>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W3X83ZDFE3');
+  <% end %>
+<% end%>
+
+<meta name="csp-nonce" content="<%= _content_security_policy_nonce(:script) %>">
+
+<% if Rails.env.production? %>
+  <%= nonced_javascript_tag do %>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+    var u="//<%=ENV['MATOMO_HOST']%>/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  <% end %>
+<% end %>

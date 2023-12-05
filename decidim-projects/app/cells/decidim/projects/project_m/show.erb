@@ -1,0 +1,12 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <div class="card box-with-target-link-js" data-target="#<%= dom_id(model) %> a" tabindex="0">
+    <%= render :image %>
+
+    <div class="card__content">
+      <%= render :header if has_header? %>
+
+      <%= render :status %>
+    </div>
+    <%= render :footer_new %>
+  </div>
+</div>

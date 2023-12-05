@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Admin::CreateProject
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin::CreateProject";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span>
+     &raquo; 
+    <span class="title">CreateProject</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Admin::CreateProject
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rectify::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rectify::Command</li>
+          
+            <li class="next">Decidim::Projects::Admin::CreateProject</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>AttachmentMethods, <span class='object_link'><a href="../CustomAttachmentsMethods.html" title="Decidim::Projects::CustomAttachmentsMethods (module)">CustomAttachmentsMethods</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/commands/decidim/projects/admin/create_project.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A command with all the business logic when a user creates a new project.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#attachment-instance_method" title="#attachment (instance method)">#<strong>attachment</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute attachment.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#form-instance_method" title="#form (instance method)">#<strong>form</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute form.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#gallery-instance_method" title="#gallery (instance method)">#<strong>gallery</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute gallery.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#project-instance_method" title="#project (instance method)">#<strong>project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute project.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#author_attributes-instance_method" title="#author_attributes (instance method)">#<strong>author_attributes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: author attributes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#author_data_for_project-instance_method" title="#author_data_for_project (instance method)">#<strong>author_data_for_project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#coauthors_attributes-instance_method" title="#coauthors_attributes (instance method)">#<strong>coauthors_attributes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: return coauthors attributes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#create_coauthors-instance_method" title="#create_coauthors (instance method)">#<strong>create_coauthors</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: find or create author.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#create_project-instance_method" title="#create_project (instance method)">#<strong>create_project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: creating project.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#find_or_create_author-instance_method" title="#find_or_create_author (instance method)">#<strong>find_or_create_author</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: find or create author.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(form)  &#x21d2; CreateProject </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#no_data%3F-instance_method" title="#no_data? (instance method)">#<strong>no_data?</strong>(v)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: checking if coauthor params are not empty.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#project_attributes-instance_method" title="#project_attributes (instance method)">#<strong>project_attributes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: project attributes.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../CustomAttachmentsMethods.html" title="Decidim::Projects::CustomAttachmentsMethods (module)">CustomAttachmentsMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../CustomAttachmentsMethods.html#attachment_attrs-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#attachment_attrs (method)">#attachment_attrs</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#attachments_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#attachments_invalid? (method)">#attachments_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#attachments_to_remove-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#attachments_to_remove (method)">#attachments_to_remove</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_attachments-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_attachments (method)">#build_attachments</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_consents_for-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_consents_for (method)">#build_consents_for</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_endorsements_for-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_endorsements_for (method)">#build_endorsements_for</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_files_for-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_files_for (method)">#build_files_for</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_implementation_photos_for-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_implementation_photos_for (method)">#build_implementation_photos_for</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#build_internal_documents_for-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#build_internal_documents_for (method)">#build_internal_documents_for</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#consents_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#consents_invalid? (method)">#consents_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#create_attachments-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#create_attachments (method)">#create_attachments</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#document_cleanup!-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#document_cleanup! (method)">#document_cleanup!</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#documents_attached_to-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#documents_attached_to (method)">#documents_attached_to</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#endorsements_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#endorsements_invalid? (method)">#endorsements_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#files_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#files_invalid? (method)">#files_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#implementation_photos_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#implementation_photos_invalid? (method)">#implementation_photos_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#internal_documents_invalid%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#internal_documents_invalid? (method)">#internal_documents_invalid?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#process_attachments%3F-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#process_attachments? (method)">#process_attachments?</a></span>, <span class='object_link'><a href="../CustomAttachmentsMethods.html#remove_attachments-instance_method" title="Decidim::Projects::CustomAttachmentsMethods#remove_attachments (method)">#remove_attachments</a></span></p>
+
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(form)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::Admin::CreateProject (class)">CreateProject</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the command.</p>
+
+<p>form - A form object with the params.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@documents</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="attachment-instance_method">
+  
+    #<strong>attachment</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute attachment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attachment'>attachment</span>
+  <span class='ivar'>@attachment</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="form-instance_method">
+  
+    #<strong>form</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute form.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@form</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="gallery-instance_method">
+  
+    #<strong>gallery</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute gallery.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gallery'>gallery</span>
+  <span class='ivar'>@gallery</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="project-instance_method">
+  
+    #<strong>project</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute project.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@project</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="author_attributes-instance_method">
+  
+    #<strong>author_attributes</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: author attributes</p>
+
+<p>returns Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 163</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_author_attributes'>author_attributes</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>first_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_first_name'>first_name</span><span class='comma'>,</span>
+    <span class='label'>last_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_last_name'>last_name</span><span class='comma'>,</span>
+    <span class='label'>gender:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='comma'>,</span>
+    <span class='label'>phone_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_phone_number'>phone_number</span><span class='comma'>,</span>
+    <span class='label'>street:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street'>street</span><span class='comma'>,</span>
+    <span class='label'>street_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_number'>street_number</span><span class='comma'>,</span>
+    <span class='label'>flat_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_flat_number'>flat_number</span><span class='comma'>,</span>
+    <span class='label'>zip_code:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_zip_code'>zip_code</span><span class='comma'>,</span>
+    <span class='label'>city:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_city'>city</span><span class='comma'>,</span>
+    <span class='comment'># agreements
+</span>    <span class='label'>email_on_notification:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_email_on_notification'>email_on_notification</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="author_data_for_project-instance_method">
+  
+    #<strong>author_data_for_project</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_author_data_for_project'>author_data_for_project</span>
+  <span class='id identifier rubyid_author_attributes'>author_attributes</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+                            <span class='label'>show_author_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_show_author_name'>show_author_name</span><span class='comma'>,</span>
+                            <span class='label'>inform_author_about_implementations:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_inform_author_about_implementations'>inform_author_about_implementations</span><span class='comma'>,</span>
+                          <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="call-instance_method">
+  
+    #<strong>call</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes the command. Broadcasts these events:</p>
+<ul><li>
+<p>:ok when everything is valid, together with the proposal.</p>
+</li><li>
+<p>:invalid if the form wasn&#39;t valid and we couldn&#39;t proceed.</p>
+</li><li>
+<p>:invalid if the attachments are invalid</p>
+</li></ul>
+
+<p>Returns nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_invalid?'>invalid?</span>
+
+  <span class='id identifier rubyid_build_internal_documents_for'>build_internal_documents_for</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_build_endorsements_for'>build_endorsements_for</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_build_consents_for'>build_consents_for</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_build_files_for'>build_files_for</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_endorsements_invalid?'>endorsements_invalid?</span><span class='lparen'>(</span><span class='label'>max_files_num:</span> <span class='kw'>nil</span><span class='rparen'>)</span> <span class='op'>||</span>
+                                      <span class='id identifier rubyid_consents_invalid?'>consents_invalid?</span><span class='lparen'>(</span><span class='label'>max_files_num:</span> <span class='kw'>nil</span><span class='rparen'>)</span> <span class='op'>||</span>
+                                      <span class='id identifier rubyid_files_invalid?'>files_invalid?</span><span class='lparen'>(</span><span class='label'>max_files_num:</span> <span class='kw'>nil</span><span class='rparen'>)</span> <span class='op'>||</span>
+                                      <span class='id identifier rubyid_internal_documents_invalid?'>internal_documents_invalid?</span>
+
+  <span class='id identifier rubyid_create_project'>create_project</span>
+  <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coauthors_attributes-instance_method">
+  
+    #<strong>coauthors_attributes</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: return coauthors attributes</p>
+
+<p>returns Array of hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coauthors_attributes'>coauthors_attributes</span>
+  <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>email:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_email</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='op'>&amp;.</span><span class='id identifier rubyid_strip'>strip</span><span class='comma'>,</span>
+      <span class='label'>first_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_first_name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>last_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_last_name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>gender:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_gender</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>phone_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_phone_number</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>street:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_street</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>street_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_street_number</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>flat_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_flat_number</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>zip_code:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_zip_code</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>city:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_city</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='comment'># agreements
+</span>      <span class='label'>show_author_name:</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Type</span><span class='op'>::</span><span class='const'>Boolean</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_show_author_name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='label'>inform_author_about_implementations:</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Type</span><span class='op'>::</span><span class='const'>Boolean</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coauthor</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_content'>_inform_author_about_implementations</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:present?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='op'>?</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_coauthors-instance_method">
+  
+    #<strong>create_coauthors</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: find or create author</p>
+
+<p>Method calls command finding or creating user with given coauthors data. It skips calling command if there is no data given</p>
+
+<p>returns Object - Decidim::User or Decidim::Projects::SimpleUser</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194
+195
+196
+197
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 192</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_coauthors'>create_coauthors</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_coauthors_attributes'>coauthors_attributes</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_no_data?'>no_data?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
+
+    <span class='const'><span class='object_link'><a href="../ProjectAuthorsManager.html" title="Decidim::Projects::ProjectAuthorsManager (class)">ProjectAuthorsManager</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../ProjectAuthorsManager.html#initialize-instance_method" title="Decidim::Projects::ProjectAuthorsManager#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_create_coauthor'><span class='object_link'><a href="../ProjectAuthorsManager.html#create_coauthor-instance_method" title="Decidim::Projects::ProjectAuthorsManager#create_coauthor (method)">create_coauthor</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_project-instance_method">
+  
+    #<strong>create_project</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: creating project</p>
+
+<p>Method does not create project version, creates ActionLog. It is responsible for finding or creating User instance and assigning it as author and updating it&#39;s data if it was provided. Method finds or create coauthors and assign them do the project with status &#39;waiting&#39;</p>
+
+<p>returns project</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_project'>create_project</span>
+  <span class='const'>PaperTrail</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='label'>enabled:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='period'>.</span><span class='id identifier rubyid_traceability'>traceability</span><span class='period'>.</span><span class='id identifier rubyid_perform_action!'>perform_action!</span><span class='lparen'>(</span>
+      <span class='symbol'>:create</span><span class='comma'>,</span>
+      <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='comma'>,</span>
+      <span class='ivar'>@current_user</span><span class='comma'>,</span>
+      <span class='label'>visibility:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin-only</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_project_attributes'>project_attributes</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_author'>author</span> <span class='op'>=</span> <span class='id identifier rubyid_find_or_create_author'>find_or_create_author</span>
+      <span class='const'><span class='object_link'><a href="../ProjectAuthorsManager.html" title="Decidim::Projects::ProjectAuthorsManager (class)">ProjectAuthorsManager</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../ProjectAuthorsManager.html#initialize-instance_method" title="Decidim::Projects::ProjectAuthorsManager#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_add_author'><span class='object_link'><a href="../ProjectAuthorsManager.html#add_author-instance_method" title="Decidim::Projects::ProjectAuthorsManager#add_author (method)">add_author</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_author'>author</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_author'>author</span>
+
+      <span class='id identifier rubyid_create_coauthors'>create_coauthors</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+
+      <span class='comment'># clearing, so the values from actual authors can be set for edit forms
+</span>      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_coauthors_data'>coauthors_data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+      <span class='id identifier rubyid_build_internal_documents_for'>build_internal_documents_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_build_endorsements_for'>build_endorsements_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_build_consents_for'>build_consents_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_build_files_for'>build_files_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+      <span class='id identifier rubyid_project'>project</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># associations
+</span>  <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_assigned_categories'>assigned_categories</span>
+  <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_recipients'>recipients</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_recipients'>recipients</span>
+  <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_users'>users</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_current_user'>current_user</span>
+  <span class='ivar'>@attached_to</span> <span class='op'>=</span> <span class='ivar'>@project</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="find_or_create_author-instance_method">
+  
+    #<strong>find_or_create_author</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: find or create author</p>
+
+<p>Method calls command finding or creating user with given author data</p>
+
+<p>returns Object - Decidim::User or Decidim::Projects::SimpleUser</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_find_or_create_author'>find_or_create_author</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../CreateNormalUser.html" title="Decidim::CreateNormalUser (class)">CreateNormalUser</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../../CreateNormalUser.html#initialize-instance_method" title="Decidim::CreateNormalUser#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_current_organization'>current_organization</span><span class='comma'>,</span> <span class='id identifier rubyid_author_attributes'>author_attributes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_find_or_create'><span class='object_link'><a href="../../CreateNormalUser.html#find_or_create-instance_method" title="Decidim::CreateNormalUser#find_or_create (method)">find_or_create</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="no_data?-instance_method">
+  
+    #<strong>no_data?</strong>(v)  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: checking if coauthor params are not empty</p>
+
+<p>Params:</p>
+<ul><li>
+<p>v - Hash</p>
+</li></ul>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206
+207
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 206</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_no_data?'>no_data?</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:first_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:last_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span>
+    <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:phone_number</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:street</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:street_number</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span>
+    <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:flat_number</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:zip_code</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='symbol'>:city</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="project_attributes-instance_method">
+  
+    #<strong>project_attributes</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: project attributes</p>
+
+<p>returns Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project_attributes'>project_attributes</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>evaluator:</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span>
+    <span class='comment'># default
+</span>    <span class='label'>state:</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Project.html#ADMIN_POSSIBLE_STATES-constant" title="Decidim::Projects::Project::ADMIN_POSSIBLE_STATES (constant)">ADMIN_POSSIBLE_STATES</a></span></span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='label'>is_paper:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>component:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_component'>component</span><span class='comma'>,</span>
+    <span class='label'>edition_year:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='op'>&amp;.</span><span class='id identifier rubyid_edition_year'>edition_year</span><span class='comma'>,</span>
+    <span class='comment'># custom
+</span>    <span class='label'>title:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='comma'>,</span>
+    <span class='label'>body:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span>
+    <span class='label'>short_description:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_short_description'>short_description</span><span class='comma'>,</span>
+    <span class='label'>custom_categories:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_custom_categories'>custom_categories</span><span class='comma'>,</span>
+    <span class='label'>custom_recipients:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_custom_recipients'>custom_recipients</span><span class='comma'>,</span>
+    <span class='label'>universal_design:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design'>universal_design</span><span class='comma'>,</span>
+    <span class='label'>universal_design_argumentation:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_argumentation'>universal_design_argumentation</span><span class='comma'>,</span>
+    <span class='label'>justification_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_justification_info'>justification_info</span><span class='comma'>,</span>
+    <span class='label'>no_scope_selected:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_no_scope_selected'>no_scope_selected</span><span class='comma'>,</span>
+    <span class='label'>scope:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span>
+    <span class='label'>localization_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_info'>localization_info</span><span class='comma'>,</span>
+    <span class='label'>localization_additional_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_additional_info'>localization_additional_info</span><span class='comma'>,</span>
+    <span class='label'>locations:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_locations_data'>locations_data</span><span class='comma'>,</span>
+    <span class='label'>budget_value:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_budget_value'>budget_value</span><span class='comma'>,</span>
+    <span class='label'>coauthor_email_one:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor1_email'>coauthor1_email</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='comma'>,</span>
+    <span class='label'>coauthor_email_two:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor2_email'>coauthor2_email</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='comma'>,</span>
+    <span class='label'>signed_by_coauthor1:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_signed_by_coauthor1'>signed_by_coauthor1</span><span class='comma'>,</span>
+    <span class='label'>signed_by_coauthor2:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_signed_by_coauthor2'>signed_by_coauthor2</span><span class='comma'>,</span>
+    <span class='label'>signed_by_author:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_signed_by_author'>signed_by_author</span><span class='comma'>,</span>
+    <span class='label'>author_data:</span> <span class='id identifier rubyid_author_data_for_project'>author_data_for_project</span><span class='comma'>,</span>
+    <span class='label'>coauthor1_data:</span> <span class='id identifier rubyid_coauthors_attributes'>coauthors_attributes</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='label'>coauthor2_data:</span> <span class='id identifier rubyid_coauthors_attributes'>coauthors_attributes</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:24 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

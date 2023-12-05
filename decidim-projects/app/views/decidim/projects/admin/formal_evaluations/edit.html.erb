@@ -1,0 +1,33 @@
+<%= decidim_form_for(@form, url: project_formal_evaluation_path(@project, @form), html: { class: "form new_user" }, method: :patch) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <%= t ".title" %>: <small><%= project_title_for_admin(@project) %></small>
+      </h2>
+    </div>
+    <div class="card-section">
+      <h3 style="margin-bottom: 20px; text-align: center">
+        <b>Wszystkie oceny muszą zostać przekazane do koordynatora do:</b>
+        <span class=<%= in_less_than_3_days(@project.evaluation_cards_submit_end_date) ? 'alert' : 'success' %> ><%= l @project.evaluation_cards_submit_end_date %></span>
+      </h3>
+
+      <%= render partial: 'form_formal', locals: { form: f } %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit 'Zapisz' %>
+    <% if allowed_to? :accept_formal, :project_evaluate, project: @project %>
+      <%= f.button 'Zapisz i zaakceptuj', type: 'input', name: "subaction", value: "accept", action: :patch, class: 'button success' %>
+    <% end %>
+    <%= link_to 'powrót do projektu', @project %>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <p class="text-center strong">
+      <strong><%= t('.download_pdf').html_safe %></strong>
+      <br>
+      <%= link_to t('.pdf_button'), project_formal_evaluation_path(@project.id, format: 'pdf'), class: 'button reversed mt-s' %>
+    </p>
+  </div>
+<% end %>

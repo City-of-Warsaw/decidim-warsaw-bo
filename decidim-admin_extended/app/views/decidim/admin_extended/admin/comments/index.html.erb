@@ -1,0 +1,98 @@
+<div class="card with-overflow" id='user-groups'>
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("decidim.admin.titles.comments") %>
+      <%= link_to 'Eksport', decidim_admin_extended_admin.export_comments_path(format: :xlsx) + "?" + applied_params_hash.to_param, class: "button tiny button--title" %>
+    </h2>
+  </div>
+
+  <%= admin_filter_selector(:comments) %>
+
+  <div class="card-section">
+    <% if @form %>
+      <%= decidim_form_for(@form, url: { action: "index" }, html: { method: :get, class: "form" })  do |f| %>
+        <div class="row"  style="display: flex">
+          <div class="column"  style="width: 50%; margin-right: 10px">
+            <%= f.date_field :start_date %>
+          </div>
+          <div class="column"  style="width: 50%;">
+            <%= f.date_field :end_date %>
+          </div>
+        </div>
+        <% if params[:q].present? && params[:q][:body_cont].present? %>
+          <input type="hidden" name="q[body_cont]" value="<%= params[:q][:body_cont] %>"/>
+        <% end %>
+        <div class="row" style="display: flex; justify-content: right">
+          <%= f.submit 'Filtruj' %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <th class="text-col"><%= sort_link(query, :body, t(".body")) %></th>
+          <th><%= sort_link(query, :signature, t(".author")) %></th>
+          <th><%= sort_link(query, :author, t(".author_name")) %></th>
+          <th><%= sort_link(query, :project_title, t(".project_title"), default_order: :desc) %></th>
+          <th><%= sort_link(query, :created_at, t(".created_at")) %></th>
+          <th><%= sort_link(query, :is_comment_hidden, t(".is_comment_hidden")) %></th>
+          <th><%= sort_link(query, :reported_at, t(".reported_at").html_safe) %></th>
+          <th><%= t(".report_reason").html_safe %></th>
+          <th><%= t(".actions") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% comments.each do |comment| %>
+          <tr>
+            <td class="text-col"><%= translated_attribute(comment.body) %></td>
+            <td>
+              Mieszkaniec <%= comment.author.anonymous_number %>
+            </td>
+            <td>
+              <%= comment.author.name_and_surname %>
+            </td>
+            <td>
+              <% project = comment.root_commentable %>
+              <%= link_to comment.root_commentable&.title, resource_locator(project).path %>
+            </td>
+            <td><%= l comment.created_at, format: :decidim_short %></td>
+            <td><%= t comment.hidden?, scope: 'booleans' %></td>
+            <td><%= l comment.reported_at, format: :decidim_short, default: '-' %> </td>
+            <td><%= t(comment.report_reason, scope: "decidim.admin.moderations.report.reasons") if comment.report_reason.present? %></td>
+            <td>
+              <% moderation = comment.moderation %>
+              <% if moderation %>
+                <% if !moderation.reportable.hidden? %>
+                  <%= icon_link_to "eye",
+                                   decidim_admin.hide_moderation_path(id: moderation, comments_view: 'true'),
+                                   t("actions.hide", scope: "decidim.moderations"),
+                                   class: "action-icon--hide",
+                                   method: :put %>
+                <% end %>
+                <% if moderation.reportable.hidden? %>
+                  <%= icon_link_to "eye",
+                                   decidim_admin.unhide_moderation_path(id: moderation, comments_view: 'true'),
+                                   t("actions.unhide", scope: "decidim.moderations"),
+                                   method: :put %>
+                <% end %>
+              <% else %>
+                <% unless comment.hidden? %>
+                  <%= icon_link_to "eye",
+                                   decidim_admin_extended_admin.hide_comment_path(comment),
+                                   t("actions.hide", scope: "decidim.moderations"),
+                                   class: "action-icon--hide",
+                                   method: :put %>
+
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate comments, theme: "decidim" %>
+    </div>
+  </div>
+</div>

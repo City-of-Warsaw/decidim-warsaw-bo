@@ -1,0 +1,167 @@
+/* line 6, app/assets/stylesheets/admin/quill.custom-classes.scss */
+.custom-area-color-headline {
+  background-color: #1b7c97;
+  color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+}
+
+/* line 12, app/assets/stylesheets/admin/quill.custom-classes.scss */
+.custom-area-color-headline.ql-align-right {
+  margin-left: auto !important;
+}
+
+/* line 16, app/assets/stylesheets/admin/quill.custom-classes.scss */
+.custom-area-color-headline.ql-align-center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* line 21, app/assets/stylesheets/admin/quill.custom-classes.scss */
+.custom-area-color-headline.ql-align-justify {
+  width: 100% !important;
+}
+
+/* line 26, app/assets/stylesheets/admin/quill.custom-classes.scss */
+.custom-legal-basis {
+  font-size: 12px;
+}
+.ql-snow.ql-toolbar button.ql-image {
+    position: relative;
+}
+
+#ql-image-toolbar-popup {
+    position: absolute;
+    z-index: 100;
+    flex-direction: column;
+
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px #ddd;
+    color: #444;
+    padding: 5px 12px;
+    white-space: nowrap;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+#ql-image-toolbar-popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#ql-image-toolbar-popup .ql-image-toolbar-popup-field {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: space-between;
+    width: 420px;
+}
+
+#ql-image-toolbar-popup .ql-image-toolbar-popup-button {
+    line-height: 26px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #06c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    background: none;
+    border: none;
+}
+
+#ql-image-toolbar-popup #ql-image-toolbar-popup-close-button {
+    align-self: flex-end;
+    background: #eee;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+/*
+
+
+ */
+
+/* quill */
+
+
+.ql-editor {
+    line-height: 1.15;
+    white-space: pre-wrap;
+    font-size: 16px;
+}
+
+.ql-editor ul,
+.ql-editor ol,
+.ql-editor dl {
+    line-height: 1.6;
+}
+
+.ql-editor ul {
+    list-style-type: square;
+}
+
+.ql-editor ul>li::before {
+    content: "\25AA";
+}
+
+.ql-editor ul>li,
+.ql-editor ol>li,
+.ql-editor dl>li {
+    margin-bottom: 0.5rem;
+}
+
+.ql-editor>* {
+    margin-bottom: 1rem !important;
+}
+
+.ql-editor blockquote {
+    font-style: italic;
+}
+
+.ql-editor h4 {
+    font-size: 16px !important;
+}
+
+.ql-editor h3 {
+    font-size: 14pt !important;
+}
+
+.ql-editor h2 {
+    font-size: 16pt !important;
+}
+
+.ql-editor hr {
+    clear: both;
+    max-width: 75rem;
+    height: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: unset;
+    margin-right: unset;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #adadad;
+    border-left: 0;
+}
+
+.ql-editor hr.ql-align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ql-editor hr.ql-align-right {
+    margin-left: auto;
+    margin-right: unset;
+}
+
+.form-input-extra-before {
+    margin-top: -0.5rem;
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: #202734;
+    margin-bottom: 1rem;
+    display: block;
+}

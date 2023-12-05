@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Permissions
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Permissions";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">Permissions</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Permissions
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">DefaultPermissions</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">DefaultPermissions</li>
+          
+            <li class="next">Decidim::Projects::Permissions</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/permissions/decidim/projects/permissions.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Permissions class defines all the permissions in public scope</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_appealing%3F-instance_method" title="#allowed_appealing? (instance method)">#<strong>allowed_appealing?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if appealing is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_appealing_read%3F-instance_method" title="#allowed_appealing_read? (instance method)">#<strong>allowed_appealing_read?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if reading appeal is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_changing_project%3F-instance_method" title="#allowed_changing_project? (instance method)">#<strong>allowed_changing_project?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if editing projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_coauthor_acceptance%3F-instance_method" title="#allowed_coauthor_acceptance? (instance method)">#<strong>allowed_coauthor_acceptance?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if acceptance of coauthorship is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_creating_votes%3F-instance_method" title="#allowed_creating_votes? (instance method)">#<strong>allowed_creating_votes?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if voting in given component is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_project_creating%3F-instance_method" title="#allowed_project_creating? (instance method)">#<strong>allowed_project_creating?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if creating projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_project_publishing%3F-instance_method" title="#allowed_project_publishing? (instance method)">#<strong>allowed_project_publishing?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if publishing projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_project_showing%3F-instance_method" title="#allowed_project_showing? (instance method)">#<strong>allowed_project_showing?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if project from the context is public.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_submitting_project%3F-instance_method" title="#allowed_submitting_project? (instance method)">#<strong>allowed_submitting_project?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if submitting projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_submitting_vote%3F-instance_method" title="#allowed_submitting_vote? (instance method)">#<strong>allowed_submitting_vote?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allowed_withdrawing_project%3F-instance_method" title="#allowed_withdrawing_project? (instance method)">#<strong>allowed_withdrawing_project?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if withdrawing projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coauthorship_for_user-instance_method" title="#coauthorship_for_user (instance method)">#<strong>coauthorship_for_user</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method returns coauthorship of the currently logged in user based on the coauthorships collection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coauthorships-instance_method" title="#coauthorships (instance method)">#<strong>coauthorships</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method returns collection of coauthorships that are waiting for acceptance for the project fetched from the context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#component-instance_method" title="#component (instance method)">#<strong>component</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for fetching component from the context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#permissions-instance_method" title="#permissions (instance method)">#<strong>permissions</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: main method called to check permissions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#project-instance_method" title="#project (instance method)">#<strong>project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for fetching project from the context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step-instance_method" title="#step (instance method)">#<strong>step</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for defining step based on the component in context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#submitting_allowed%3F-instance_method" title="#submitting_allowed? (instance method)">#<strong>submitting_allowed?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for determining if submitting projects is allowed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vote_card-instance_method" title="#vote_card (instance method)">#<strong>vote_card</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: method for fetching vote_card from the context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#voting_enabled%3F-instance_method" title="#voting_enabled? (instance method)">#<strong>voting_enabled?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="allowed_appealing?-instance_method">
+  
+    #<strong>allowed_appealing?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if appealing is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_appealing?'>allowed_appealing?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:appeal</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_appealable_by?'>appealable_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_appealing_read?-instance_method">
+  
+    #<strong>allowed_appealing_read?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if reading appeal is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_appealing_read?'>allowed_appealing_read?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:read_appeal</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_created_by?'>created_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_changing_project?-instance_method">
+  
+    #<strong>allowed_changing_project?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if editing projects is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_changing_project?'>allowed_changing_project?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_has_ad_role?'>has_ad_role?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_development?'>development?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:edit</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_editable_by?'>editable_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_coauthor_acceptance?-instance_method">
+  
+    #<strong>allowed_coauthor_acceptance?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if acceptance of coauthorship is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176
+177
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_coauthor_acceptance?'>allowed_coauthor_acceptance?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:coauthor</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_coauthorships'>coauthorships</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_coauthorship_for_user'>coauthorship_for_user</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_coauthorship_for_user'>coauthorship_for_user</span><span class='period'>.</span><span class='id identifier rubyid_in_acceptance_time?'>in_acceptance_time?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_creating_votes?-instance_method">
+  
+    #<strong>allowed_creating_votes?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if voting in given component is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_creating_votes?'>allowed_creating_votes?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:voting</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:create</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_voting_enabled?'>voting_enabled?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_project_creating?-instance_method">
+  
+    #<strong>allowed_project_creating?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if creating projects is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_project_creating?'>allowed_project_creating?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_has_ad_role?'>has_ad_role?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_development?'>development?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:create</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_submitting_allowed?'>submitting_allowed?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_project_publishing?-instance_method">
+  
+    #<strong>allowed_project_publishing?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if publishing projects is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_project_publishing?'>allowed_project_publishing?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_has_ad_role?'>has_ad_role?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_development?'>development?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:publish</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_editable_by?'>editable_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_submitting_allowed?'>submitting_allowed?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_project_showing?-instance_method">
+  
+    #<strong>allowed_project_showing?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if project from the context is public. Based on the outcome, method sets the permission_action as allowed or disallowed.</p>
+
+<p>returns noting</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_project_showing?'>allowed_project_showing?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:show</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_submitting_project?-instance_method">
+  
+    #<strong>allowed_submitting_project?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if submitting projects is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_submitting_project?'>allowed_submitting_project?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_has_ad_role?'>has_ad_role?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_development?'>development?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:publish</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_publicable_by?'>publicable_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_submitting_vote?-instance_method">
+  
+    #<strong>allowed_submitting_vote?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_submitting_vote?'>allowed_submitting_vote?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:voting</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:edit</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_vote_card'>vote_card</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VoteCard.html" title="Decidim::Projects::VoteCard (class)">VoteCard</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VoteCard/STATUSES.html" title="Decidim::Projects::VoteCard::STATUSES (module)">STATUSES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VoteCard/STATUSES.html#LINK_SENT-constant" title="Decidim::Projects::VoteCard::STATUSES::LINK_SENT (constant)">LINK_SENT</a></span></span>
+
+  <span class='ivar'>@step</span> <span class='op'>=</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_active_step'>active_step</span>
+  <span class='ivar'>@component</span> <span class='op'>=</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_component'>component</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_voting_enabled?'>voting_enabled?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allowed_withdrawing_project?-instance_method">
+  
+    #<strong>allowed_withdrawing_project?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if withdrawing projects is allowed. Based on the outcome, method sets the permission_action as allowed or disallowed.      #</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allowed_withdrawing_project?'>allowed_withdrawing_project?</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_subject'>subject</span> <span class='op'>==</span> <span class='symbol'>:project</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span> <span class='op'>==</span> <span class='symbol'>:withdraw</span>
+
+  <span class='id identifier rubyid_toggle_allow'>toggle_allow</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_withdrawable_by?'>withdrawable_by?</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coauthorship_for_user-instance_method">
+  
+    #<strong>coauthorship_for_user</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method returns coauthorship of the currently logged in user based on the coauthorships collection</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coauthorship_for_user'>coauthorship_for_user</span>
+  <span class='id identifier rubyid_coauthorships'>coauthorships</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>decidim_author_id:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coauthorships-instance_method">
+  
+    #<strong>coauthorships</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method returns collection of coauthorships that are waiting for acceptance for the project fetched from the context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 184</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coauthorships'>coauthorships</span>
+  <span class='ivar'>@coauthorships</span> <span class='op'>||=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_coauthorships'>coauthorships</span><span class='period'>.</span><span class='id identifier rubyid_for_acceptance'>for_acceptance</span><span class='period'>.</span><span class='id identifier rubyid_for_decidim_users'>for_decidim_users</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="component-instance_method">
+  
+    #<strong>component</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for fetching component from the context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_component'>component</span>
+  <span class='ivar'>@component</span> <span class='op'>||=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:component</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:current_component</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="permissions-instance_method">
+  
+    #<strong>permissions</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: main method called to check permissions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_permissions'>permissions</span>
+  <span class='comment'># return permission_action unless permission_action.subject == :projects
+</span>
+  <span class='comment'># Delegate the admin permission checks to the admin permissions class
+</span>  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Admin/Permissions.html" title="Decidim::Projects::Admin::Permissions (class)">Permissions</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_permissions'><span class='object_link'><a href="Admin/Permissions.html#permissions-instance_method" title="Decidim::Projects::Admin::Permissions#permissions (method)">permissions</a></span></span> <span class='kw'>if</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span> <span class='op'>==</span> <span class='symbol'>:admin</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_permission_action'>permission_action</span> <span class='kw'>if</span> <span class='id identifier rubyid_permission_action'>permission_action</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span> <span class='op'>!=</span> <span class='symbol'>:public</span>
+
+  <span class='id identifier rubyid_allowed_project_showing?'>allowed_project_showing?</span>
+  <span class='id identifier rubyid_allowed_project_creating?'>allowed_project_creating?</span>
+  <span class='id identifier rubyid_allowed_project_publishing?'>allowed_project_publishing?</span>
+  <span class='id identifier rubyid_allowed_changing_project?'>allowed_changing_project?</span>
+  <span class='id identifier rubyid_allowed_submitting_project?'>allowed_submitting_project?</span>
+  <span class='id identifier rubyid_allowed_withdrawing_project?'>allowed_withdrawing_project?</span>
+  <span class='id identifier rubyid_allowed_appealing?'>allowed_appealing?</span>
+  <span class='id identifier rubyid_allowed_appealing_read?'>allowed_appealing_read?</span>
+  <span class='id identifier rubyid_allowed_coauthor_acceptance?'>allowed_coauthor_acceptance?</span>
+
+  <span class='id identifier rubyid_allowed_creating_votes?'>allowed_creating_votes?</span>
+  <span class='id identifier rubyid_allowed_submitting_vote?'>allowed_submitting_vote?</span>
+
+  <span class='id identifier rubyid_permission_action'>permission_action</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="project-instance_method">
+  
+    #<strong>project</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for fetching project from the context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@project</span> <span class='op'>||=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:project</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step-instance_method">
+  
+    #<strong>step</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for defining step based on the component in context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_component'>component</span><span class='op'>&amp;.</span><span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:active_step</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@step</span> <span class='op'>||=</span> <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_active_step'>active_step</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="submitting_allowed?-instance_method">
+  
+    #<strong>submitting_allowed?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for determining if submitting projects is allowed</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_submitting_allowed?'>submitting_allowed?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_component'>component</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_published?'>published?</span>
+
+  <span class='id identifier rubyid_step'>step</span><span class='period'>.</span><span class='id identifier rubyid_system_name'>system_name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>submitting</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_step_settings'>step_settings</span><span class='lbracket'>[</span><span class='id identifier rubyid_step'>step</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_creation_enabled'>creation_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_card-instance_method">
+  
+    #<strong>vote_card</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: method for fetching vote_card from the context</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_card'>vote_card</span>
+  <span class='ivar'>@vote_card</span> <span class='op'>||=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:vote_card</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="voting_enabled?-instance_method">
+  
+    #<strong>voting_enabled?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219
+220
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/permissions/decidim/projects/permissions.rb', line 217</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_voting_enabled?'>voting_enabled?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_component'>component</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_published?'>published?</span>
+
+  <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_step_settings'>step_settings</span><span class='lbracket'>[</span><span class='id identifier rubyid_step'>step</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_voting_enabled'>voting_enabled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:19 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

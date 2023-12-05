@@ -1,0 +1,16 @@
+<div class="card card--full card--project">
+  <div class="row collapse card--process__row overflow-hidden">
+    <div class="column large-6 card--process__column">
+      <div class="card__content">
+        <%= render :header if has_header? %>
+        <%= render :status %>
+      </div>
+      <%= render :footer %>
+    </div>
+    <div class="column large-6 card--process__column">
+      <div class="card--full__image">
+        <%= render :image %>
+      </div>
+    </div>
+  </div>
+</div>

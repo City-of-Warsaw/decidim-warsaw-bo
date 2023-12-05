@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="columns large-12">
+    <%= text_editor_for(form,
+                        :body,
+                        rows: 7,
+                        help_text: t('decidim.projects.appeals.new.appeal_body_hint').html_safe)
+    %>
+  </div>
+</div>
+
+<div class="row column">
+  <div class="card card-for-attachment">
+    <div class="card__content">
+      <%= form.file_field :add_documents,
+                          multiple: true,
+                          label: t("add_documents", scope: "decidim.projects.appeals.new"),
+                          help_text: t("documents_hint", scope: "decidim.projects.appeals.new"),
+                          class: 'multifile block'
+      %>
+      <% if @appeal && @appeal.documents.any? %>
+        <% @appeal.documents.each do |e| %>
+          <label>
+            <span style="color: var(--primary)">usuń</span>
+            <%= check_box_tag 'appeal[remove_documents][]', e.id, false %>
+            <%= translated_attribute(e.title) %>
+          </label>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/attachment_button.js" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      max: 10,
+      accept: '<%= current_organization.settings.upload_allowed_file_extensions.join("|") %>',
+      STRING: {
+        // remove: '(x)',
+        remove: "<span class='button tiny'>usuń</span>",
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

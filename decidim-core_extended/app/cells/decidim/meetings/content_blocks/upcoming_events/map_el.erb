@@ -1,0 +1,22 @@
+<div class='map-mini-container'>
+  <h4>
+    <%= link_to html_truncate(@project.title, length: 100), parsed_for_map_resource_path(@project) %>
+  </h4>
+  <strong>
+    <%= cell("decidim/projects/project_m", @project).scope_and_number(set_icon_name(@project)).html_safe %>
+  </strong>
+  <p class="short-desc">
+    <%= html_truncate(decidim_sanitize(@project.short_description).presence || '', length: 180 )%>
+  </p>
+  <div class='map-mini-container__row'>
+    <div>
+      <%= cell("decidim/projects/project_list_item", @project).categories.html_safe %>
+    </div>
+    <div class='strong text-right project-state'>
+      <%= public_status(@project) %>
+      <% if @project.chosen_for_implementation? %>
+        <%= " / #{implementation_status(@project)}" %>
+      <% end %>
+    </div>
+  </div>
+</div>

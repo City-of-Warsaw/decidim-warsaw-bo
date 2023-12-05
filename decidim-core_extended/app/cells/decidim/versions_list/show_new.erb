@@ -1,0 +1,14 @@
+<div class="documents">
+  <div class="card card--list" id='versions-list' data-toggler=".hide">
+    <% versions.each_with_index do |version, index| %>
+      <%= cell(
+            "decidim/versions_list_item",
+            version,
+            index: index,
+            versioned_resource: versioned_resource,
+            version_path: version_path,
+            i18n_scope: i18n_scope
+          ) %>
+    <% end %>
+  </div>
+</div>

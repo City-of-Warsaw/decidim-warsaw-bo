@@ -1,0 +1,93 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
+/* FIX for a bug in WebKit: Clicks inside button elements are sometimes discarded when the mouse moves */
+.vote-button-js span {
+  pointer-events: none;
+}
+
+.vote-modal-js {
+
+  h2,
+  .h2 {
+    font-size: 1.6rem;
+  }
+
+  .black {
+    color: #3d393c;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.coauthorship-legend {
+  margin-bottom: 1rem;
+  /*font-weight: 600;*/
+  font-size: 1.125em;
+  letter-spacing: .05em;
+  padding-left: 50px;
+  /*text-transform: uppercase;*/
+}
+
+.leaflet-legend-column {
+  margin-left: 0;
+}
+
+.leaflet-legend-title {
+  display: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkboxed input {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2px;
+}
+
+.checkboxed label {
+  width: calc(100% - 40px);
+}
+
+.checkboxed {
+  display: block;
+  margin-top: 0.75rem;
+
+  label {
+    width: calc(100% - 44px);
+    font-weight: 400;
+  }
+
+  [type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-bottom: unset;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #8c8c8c;
+    border-radius: 0.15em;
+    display: inline-grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-image: asset_url("check.svg");
+      transform: scale(0);
+      background-size: 100% 100%;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+}
+
+.pre-line {
+  white-space: pre-line;
+}

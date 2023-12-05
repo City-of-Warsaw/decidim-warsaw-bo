@@ -1,0 +1,34 @@
+<div class="row text-center mt-m">
+  <h1 class="devise-header">
+    Archiwum
+    <strong>wyników</strong>
+  </h1>
+</div>
+
+<div class='filters-gradient-background'>
+  <div class="row projects-filters-row">
+    <%= render partial: "filters", locals: {
+      show_map: true,
+      legend_labels: '{"blue":"Niewybrane w głosowaniu","green":"Zwycięskie","gray":"","orange":""}',
+      search_link: decidim_projects.results_path }
+    %>
+  </div>
+</div>
+
+<!-- list - table -->
+<div class="row projects-list-grid">
+  <table id="projects" class="projects-list-table">
+    <%= render "list_headers", show_for_result: true %>
+    <%= render "results", projects: @projects %>
+  </table>
+</div>
+
+<%= decidim_paginate @projects %>
+<%= paginated_results_count(@all_projects_count, params[:page] || 1, per_page) %>
+
+<%= javascript_include_tag("decidim/filters") %>
+<%= javascript_include_tag "decidim/results_listing" %>
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+<%= javascript_include_tag "decidim/projects/markers-map" %>

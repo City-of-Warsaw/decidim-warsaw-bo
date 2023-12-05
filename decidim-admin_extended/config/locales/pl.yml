@@ -1,0 +1,710 @@
+---
+pl:
+  activerecord:
+    models:
+      notes:
+        other: Notatki
+  activemodel:
+    attributes:
+      comment_search:
+        start_date: Od daty
+        end_date: Do daty
+        minimum_signs: Wyszukiwana fraza musi być dłuższa niz 2 znaki
+      area:
+        active: Widoczna dla użytkowników
+        icon: Ikona
+        area_type: Typ kategorii
+        area_type_id: Typ kategorii
+      banned_word:
+        name: Nazwa
+      budget_info_position:
+        name: Nazwa
+        description: Opis
+        amount: Kwota
+        file: Plik
+        published: Publiczny
+        weight: Kolejność na stronie
+        on_main_site: Pokaż na stronie głównej
+        budget_info_group_id: Grupa pozycji
+      budget_info_group:
+        name: Nazwa
+        subtitle: Dopisek
+        published: Publiczny
+        weight: Kolejność na stronie
+      contact_info_position:
+        name: Nazwa
+        position: Stanowisko
+        phone: Numer telefonu
+        email: Adres email
+        published: Publiczny
+        weight: Kolejność na stronie
+        contact_info_group_id: Grupa pozycji
+      contact_info_group:
+        name: Nazwa
+        subtitle: Dopisek
+        published: Publiczny
+        weight: Kolejność na stronie
+      document:
+        file: Plik
+        folder: Folder
+        folder_id: Folder
+        all: Wszystkie role
+        coordinators: Koordynator
+        sub_coordinators: Podkoordynator
+        verifiers: Weryfikator
+        editors: Edytor
+      department:
+        active: Aktywny
+        name: Nazwa
+        ad_name: Nazwa AD
+        department_ids: Może przekazać do komórki
+        allow_returning_projects: Zwróć projekt
+        hints:
+          active: Można do niego przekazywać projekty. Musi mieć uzupełnioną nazwę AD
+          allow_returning_projects: Zaznaczenie tej opcji pozwoli koordynatorom tej komórki zwracać projekty do komórek, które im ten projekt przydzieliły
+        department_type: Typ jednostki
+        department_types:
+          district: Dzielnica
+          district_unit: Jednostka dzielnicowa
+          general_municipal_unit: Jednostka ogólnomiejska
+          office: Biuro
+      faq:
+        title: Tytuł
+        content: Zawartość
+        published: Publiczny
+        faq_group_id: Grupa pytań
+        weight: Kolejnosć na stronie
+      faq_group:
+        title: Tytuł
+        subtitle: Dopisek
+        published: Publiczny
+        weight: Kolejnosć na stronie
+      folder:
+        name: Nazwa
+      log_search:
+        start_date: Data od
+        end_date: Data do
+      mail_template:
+        name: Nazwa
+        system_name: Nazwa systemowa
+        subject: Temat wiadomosci
+        body: Treść
+      normal_user:
+        about: O użytkowniku
+        gender: Mieszkaniec/Mieszkanka
+      gender:
+      organization:
+        address_n: Nazwa hosta SMTP
+        from_email_n: Adresy e-mail
+        from_label_n: Etykieta
+        password_n: Hasło
+        port_n: Port
+        user_name_n: Nazwa użytkownika
+      organization_appearance:
+        image_mailer_header: Zdjęcie nagłówka mailera
+        form:
+          images:
+            image_mailer_header: Zdjęcie nagłówka mailera
+      recipient:
+        active: Widoczni dla użytkowników
+        name: Nazwa
+      scope:
+        department_id: Domyślna komórka
+        position: Kolejność
+      user:
+        admin_comment_name: Nazwa wyświetlana
+
+  decidim:
+    components:
+      admin_extended:
+        name: AdminExtended
+
+    admin_log:
+      decidim/area:
+        update: Aktualizacja kategorii
+      decidim/comments/comment:
+        create: Dodanie komentarza
+      decidim/component:
+        create: Utworzenie komponentu
+        publish: Opublikowanie komponentu
+        unpublish: Cofnięcie publikacji komponentu
+      decidim/moderation:
+        hide: Ukrycie komentarza
+        unhide: Cofnięcie ukrycia komentarza
+        unreport: Cofnięcie zgłoszenia komentarza
+      decidim/newsletter:
+        create: Utworzenie newslettera
+        update: Aktualizacja newslettera
+        delete: Usunięcie newslettera
+        deliver: Dostarczenie newslettera
+      decidim/organization:
+        update: Aktualizacja nazwy organizacji
+      decidim/participatory_process:
+        update: Aktualizacja edycji
+        unpublish: Cofnięcie publikacji edycji
+        publish: Opublikowanie edycji
+        create_customization: Dodanie pola do formularza zgłaszania projektu
+        update_customization: Aktualizacja pola do formularza zgłaszania projektu
+        start_voting: Rozpoczęcie głosowania
+        create: Utworzenie nowej edycji
+      decidim/participatory_process_step:
+        update: Aktualizacja etapu
+        activate: Aktywowanie etapu
+      decidim/projects/project:
+        create: Dodanie projektu przez użytkownika wew.
+        show: Podgląd niepublicznej karty projektu
+        send: Zgłoszenie projektu
+        publish: Opublikowanie projektu
+        edit: Edytowanie projektu
+        update: Aktualizacja projektu
+        publish_ranking_list: Opublikowanie listy rankingowej
+        forward_to_user: Przekazanie projektu do mieszkańca
+        edit_f_evaluation: Edytowanie karty oceny formalnej
+        create_f_evaluation: Utworzenie karty oceny formalnej
+        update_f_evaluation: Aktualizacja karty oceny formalnej
+        formal_accepted: Zatwierdzenie oceny formalnej
+        forward_to_department: Przekazanie projektu do jednostki
+        return_to_department: Zwrócenie projektu do poprzedniej jednostki
+        accept_coauthorship: Potwierdzenie współautorstwa
+        user_create: Utworzenie projektu przez użytkownika zew.
+        user_draft: Zapisanie kopii roboczej projektu przez użytkownika zew.
+        user_publish: Zgłoszenie projektu przez użytkownika zew.
+        user_update: Aktualizacja projektu przez użytkownika zew.
+        withdrawn: Wycofanie projektu
+        change_status: Zmiana statusu projektu
+        export_projects_with_authors: Eksport listy projektów z danymi autorów
+        edit_reevaluation: Podgląd ponownej oceny projektu
+        export_authors: Eksport danych autorów
+        update_implementation: Aktualizacja realizacji projektu
+        create_m_evaluation: Utworzenie karty oceny merytorycznej
+        edit_m_evaluation: Edytowanie karty oceny merytorycznej
+        verification_finish: Zakończenie weryfikacji
+        formal: Skierowanie projektu do oceny formalnej
+        meritorical_accepted: Zatwierdzenie oceny merytorycznej
+        user_publish_appeal: Zgłoszenie odwołania
+        meritorical: Skierowanie projektu do oceny merytorycznej
+        formal_finish: Zakończenie oceny formalnej
+        changes_for_acceptance: Zakończenie oceny formalnej
+        change_verificator: Zmiana weryfikatora
+        unassign_verificator: Cofnięcie przypisania weryfikatora
+        return_to_verificator: Cofnięcie projektu do weryfikatora
+        meritorical_finish: Zakończenie oceny formalnej
+        create_appeal: Utworzenie odwołania
+        finish_appeal_draft: Przekazanie odwołania do koordynatora
+        submit_verified_appeal: Przekazanie wyniku ponownej oceny do CKS
+        submit_appeal_for_verification: Skierowanie odwołania do ponownej oceny
+        export_projects: Eksport listy projektów
+        create_reevaluation: Utworzenie ponownej oceny
+        update_reevaluation: Aktualizacja ponownej oceny
+        update_m_evaluation: Aktualizacja oceny merytorycznej
+        return: Zwrócenie projektu do edytora
+        update_appeal: Utworzenie odwołania
+        accept_paper_appeal: Zaakceptowanie papierowego odwołania
+        reevaluation_finished: Zakończenie ponownej oceny
+        finish_appeal_verification: Zakończenie weryfikacji odwołania
+        remove_sub_coorinator: Usunięcie podkoordynatora
+        return_from_admin_to_coordinators: Zwrócenie projektu do koordynatora
+        accept_coordinator_reevaluations: Zaakceptowanie odwołania przez koordynatora
+        export_voting_list: Eksport listy do głosowania
+        generate_ranking_list: Wygenerowanie listy rankingowej
+        export_voting_card: Eksport kart do głosowania
+      decidim/projects/project_rank:
+        ranking_list_index: Wyświetlenie listy rankingowej
+        export_ranking_list: Eksport listy rankingowej
+      decidim/projects/vote_card:
+        change_status: Zmiana statusu karty do głosowania
+        create: Utworzenie karty do głosowania
+        publish: Opublikowanie przez administratora karty do głosowania
+        user_publish_vote: Opublikowanie przez użytkownika karty do głosowania
+        update: Aktualizacja karty do głosowania
+        resend_voting_email: Ponowne wysłanie linku aktywacyjnego
+        show: Podgląd kart do głosowania
+        voting_index: Podgląd listy kart do głosowania
+        show_single_vote: Podgląd karty do głosowania
+        verify_votes: Weryfikacja oddanych głosów
+        export_votes_for_verification: Eksport kart do weryfikacji
+        resend_all_voting_email: Wysyłka przypomnienia o dokończeniu głosowania
+        export_votes_to_csv_xlsx: Eksport wszystkich kart do głosowania
+        get_link_for_vote: Skopiowanie linku do głosowania
+        import_voters: Wgranie listy do weryfikacji
+      decidim/scope:
+        update: Aktualizacja dzielnicy
+        create: Utworzenie dzielnicy
+        delete: Usunięcie dzielnicy
+      decidim/static_page:
+        update: Aktualizacja strony informacyjnej
+        delete: Usunięcie strony informacyjnej
+        create: Utworzenie strony informacyjnej
+      decidim/static_page_topic:
+        create: Utworzenie tematu strony informacyjnej
+        delete: Usunięcie tematu strony informacyjnej
+        update: Aktualizacja tematu strony informacyjnej
+      decidim/user:
+        deactivate_ad_user: Manualna zmiana statusu konta AD na nieaktywny
+        activate_ad_user: Manualna zmiana statusu konta AD na aktywny
+        auto_activate_ad_user: Automatyczna zmiana statusu konta AD na aktywny
+        auto_deactivate_ad_user: Automatyczna zmiana statusu konta AD na nieaktywny
+        admins_logs_export: Eksport logów
+        login: Logowanie
+        remove_from_admin: Usunięcie administratora
+        remove_voters_cards: Wyczyszczenie kart do głosowania
+        user_login: Logowanie użytkowników zew.
+        user_logout: Wylogowanie się użytkownika zew.
+        users_list_export: Eksport listy użytkowników
+        show_email: Podgląd maila
+        update_user: Aktualizacja danych użytkownika przez administratora
+        admin_comments_export: Eksport listy komentarzy
+        admins_list_export: Eksport listy użytkowników wew.
+        user_updated_account: Aktualizacja danych użytkownika
+        user_show_my_name: Aktualizacja zgody na upublicznienie imienia i nazwiska
+        user_watched_implementations_updates: Aktualizacja zgody na otrzymywanie aktualizacji stanu realizacji projektów
+        user_inform_about_admin_changes: Aktualizacja zgody na otrzymywanie powiadomień o zmianach w projektach
+        user_inform_me_about_proposal: Aktualizacja zgody na otrzymywanie informacji o realizacji projektu
+        user_email_on_notification: Aktualizacja zgody na otrzymywanie informacji o ewaluacji budżetu
+        user_allow_private_message: Aktualizacja zgody na otrzymywanie wiadomości prywatnych
+        user_inform_me_about_comments: Aktualizacja zgody na otrzymywanie informacji o komentarzach
+        user_newsletter: Aktualizacja zgody na otrzymywanie newslettera
+        user_login_peum: Logowanie użytkowników zew. przez PeUM
+        block: Zablokowanie użytkownika zew.
+        unblock: Odblokowanie użytkownika zew.
+    admin:
+      newsletters:
+        index:
+          authors: "Autorzy "
+          coauthors: Współautorzy
+          file: Odbiorcy z pliku
+          all_users: "Zgoda na newsletter"
+          internal_user: "Użytkownicy wew.: %{role}"
+          users_with_agreement_evaluation: "Zgoda na ewaluację"
+        deliver:
+          no_recipients: "Brak uzytkowników do wysyłki newslettera"
+          invalid_recipients: "W podanym pliku wystąpiły niepoprawne adresy email"
+        select_recipients_to_deliver:
+          title: "Wybierz użytkowników, do których chcesz wysyłać newsletter"
+          external_users: "Użytkownicy zewnętrzni"
+          send_to_all_users: "Wyślij do użytkowników, którzy wyrazili zgodę na otrzymywanie newsletteru"
+          send_to_file: "Wyślij do listy z pliku"
+          send_to_users_with_agreement_of_evaluation: " Wyślij do użytkowników, którzy wyrazili zgodę na udział w ewaluacji"
+          send_to_file_help: "Załącz plik .xlsx z jedną kolumną adresów email oraz nagłówkiem np. o treści: Odbiorcy.
+Przed załączeniem, upewnij się, że w pliku nie występują kilkukrotnie te same adresy mailowe. Ich odbiorcy otrzymaliby kilka wiadomości o tej samej treści. 
+Sprawdź również, czy wszystkie adresy mailowe są wpisane poprawnie np. czy w adresach nie pojawiają się odstępy, średniki lub przecinki. W przeciwnym razie, system nie wyśle wiadomości."
+          send_to_authors: "Wyślij do autorów projektów"
+          send_to_coauthors: "Wyślij do współautorów projektów"
+          project_status: "Status projektu"
+          select_spaces: "Edycja"
+          authors_help: "Wysyła newsletter do autorów projektów w zadanej edycji."
+          coauthors_help: "Wysyła newsletter do współautorów projektów w zadanej edycji."
+          internal_users: "Użytkownicy wewnętrzni"
+      recipients:
+        create:
+          error: Nie udało się dodać nowych potencjalnych odbiorców
+          success: Dodano nowych potencjalnych odbiorców
+        destroy:
+          error: Nie udało się usunąć potencjalnych odbiorców
+          success: Usunięto potencjalnych odbiorców
+        update:
+          error: Nie udało się zaktualizować potencjalnych odbiorców
+          success: Zaktualizowano potencjalnych odbiorców
+      moderations:
+        report:
+          reasons:
+            admin_hide: Ukryty przez administratora
+            admin_hide_reason: naruszający regulamin strony
+      actions:
+        hide: Dezaktywuj
+        normal_user:
+          new: Nowy użytkownik
+      banned_words:
+        create:
+          error: Nie udało się dodać słowa do słownika
+          success: Słowo zostało dodane do słownika
+        destroy:
+          success: Słowo zostało usunięte
+        update:
+          error: Nie udało się zaktualizować słowa
+          success: Słowo zostało zaktualizowane
+      departments:
+        create:
+          error: Wystąpił błąd przy tworzeniu komórki
+          success: Komórka została utworzona
+        destroy:
+          success: Komórka została usunięta
+        update:
+          success: Komórka została zaktualizowana
+          error: Nie udało się zaktualizować komórki
+      filters:
+        confirmed_at_null:
+          label: Status
+          values:
+            false: Potwierdzony
+            true: Niepotwierdzony
+        blocked_true:
+          label: Zablokowani
+          values:
+            false: Nie
+            true: Tak
+        select_user: "Wybierz użytkownika"
+        search_placeholder:
+          body_cont: Przeszukaj po treści
+          name_or_first_name_or_last_name_or_nickname_or_email_cont: Przeszukaj Użytkownicy według adresu e-mail, imienia, nazwiska lub nazwy użytkownika.
+      mail_templates:
+        create:
+          error: Wystąpił błąd przy tworzeniu komórki
+          success: Szablon został utworzony
+        destroy:
+          success: Szablon został usunięty
+        update:
+          success: Szablon został zaktualizowany
+      menu:
+        users_inactive: Nieaktywni administratorzy
+        comments: Komentarze
+        departments: Komórki
+        recipients: Potencjalni odbiorcy
+        scopes: Dzielnice
+        scope_types: Poziomy
+        documents: Dokumenty
+        folders: Foldery
+      models:
+        area:
+          fields:
+            active: Widoczna
+            icon: Ikona
+        department:
+          fields:
+            name: Nazwa
+            ad_name: Nazwa AD
+            departments: 'Może przekazać do:'
+            allow_returning_projects: Może zwracać<br>projekty?
+            department_type: Typ jednostki
+        mail_template:
+          fields:
+            name: Nazwa
+            system_name: Nazwa systemowa
+            subject: Tytuł
+            body: Treść
+        recipient:
+          fields:
+            active: Widoczni
+            name: Nazwa
+        user:
+          fields:
+            ad_access_deactivate_date: "Data dezaktywacji"
+        scope:
+          fields:
+            department: Komórka
+            position: Kolejność
+      officializations:
+        index:
+          edit: Edycja użytkownika
+          first_name: Imię
+          last_name: Nazwisko
+          nickname: Nazwa użytkownika
+      organization_appearance:
+        form:
+          images:
+            edit_mailer_settings: Edytuj ustawienia mailera
+            image_mailer_header: Zdjęcie nagłówka mailera
+      recipient:
+        create:
+          error: Wystąpił błąd przy tworzeniu odbiorcy projektu
+      titles:
+        documents_folders: Foldery
+        banned_words: Wulgaryzmy
+        departments: Komórki
+        inactive_users: Nieaktywni użytkownicy
+        mail_templates: Szablony maili
+        recipients: Potencjalni odbiorcy
+        scopes: Dzielnice
+        scope_types: Poziomy
+        comments: Lista komentarzy
+        documents: Dokumenty
+        folders: Foldery
+        costs: Ile kosztuje miasto
+        faqs: Pytania i odpowiedzi
+        contacts: Kontakty
+      users:
+        index:
+          first_name: Imię
+          last_name: Nazwisko
+        create:
+          error: Wystąpił błąd przy tworzeniu użytkownika
+          success: Użytkownik został dodany
+        update:
+          error: Wystąpił błąd przy aktuzaliacji użytkownika
+          success: Użytkownik został zaktualizowany
+
+
+    admin_extended:
+      admin:
+        departments:
+          new:
+            title: Nowa Komórka
+            create: Utwórz
+          edit:
+            title: Edycja komórki
+            update: Zapisz
+        banned_words:
+          new:
+            title: Nowe słowo
+            create: Utwórz
+          edit:
+            title: Edycja słowa
+            update: Zapisz
+        mail_templates:
+          new:
+            title: Nowy szablon
+            create: Utwórz
+          edit:
+            title: Edycja szablonu
+            update: Zapisz
+        normal_users:
+          new:
+            title: Nowy użytkownik
+            create: Utwórz
+          edit:
+            title: Edycja użytkownika
+            create: Zapisz
+          form:
+            select_gender: Wybierz
+            name: Nazwa
+            nickname: "Nazwa użytkownika"
+            user_name: Imię
+            user_surname: Nazwisko
+            email: Email
+            password: Hasło
+        recipients:
+          new:
+            title: Nowy odbiorca
+            create: Utwórz
+          edit:
+            title: Edycja odbiorcy
+            update: Zapisz
+        comments:
+          index:
+            reported_at: Data zgłoszenia/<br>ukrycia
+            report_reason: Powód zgłoszenia/<br>ukrycia
+            body: Treść komentarza
+            author: Autor
+            author_name: Imię i Nazwisko Autora
+            project_title: Tytuł projektu
+            created_at: Data utworzenia
+            is_comment_hidden: Komentarz ukryty?
+            actions: Działania
+        documents:
+          index:
+            documents_outside_folders: Pliki bez folderu
+            name: Nazwa pliku
+            folder_name: Nazwa folderu
+            user_roles: Plik dostepny dla ról
+            created_at: Data dodania
+            actions: Działania
+            file_yes: Tak
+          new:
+            file: Dodawanie pliku
+          create:
+            success: Plik został dodany
+            error: Nie udało się dodać pliku
+          edit:
+            file: Aktualizacja pliku
+          update:
+            success: Plik został zaktualizowany
+            error: Nie udało się zaktualizować pliku
+          destroy:
+            success: Plik został usunięty
+            error: NIe udałos ie usunać dokumentu
+          actions:
+            download_file: Pobierz plik
+            add_file: Dodaj plik
+            edit_file: Edytuj plik
+            edit_folder: Edytuj folder
+            update_file: Aktualizuj plik
+            destroy_file: Usuń plik
+            destroy_folder: Usuń folder
+            confirm_destroy_file: Czy napewno usunąć plik?
+            confirm_destroy_folder: Czy napewno usunąć folder?
+            cancel: Wróć
+        folders:
+          index:
+            name: Nazwa folderu
+            created_at: Data utworzenia
+            actions: Działania
+          new:
+            folder: Dodawanie folderu
+          create:
+            success: Folder został dodany
+            errors: Nie udało się dodać folderu
+          edit:
+            folder: Edycja folderu
+          update:
+            success: Folder został zaktualizowany
+            errors: Nie udało się zaktualizować folderu
+          destroy:
+            success: Folder został usunięty
+          actions:
+            add_folder: Dodaj folder
+            edit_folder: Edytuj folder
+            destroy_folder: Usuń folder
+            confirm_destroy_folder: Czy napewno usunąć folder?
+            cancel: Wróć
+        budget_info_positions:
+          index:
+            group_name: Nazwa grupy
+            name: Nazwa
+            amount: Kwota
+            file: Obraz
+            published: Publiczny
+            on_main_site: Strona główna
+            created_at: Data utworzenia
+            actions: Działania
+            subtitle: Dopisek
+            empty: Brak
+            groupes: Grupy
+            positions: Pozycje
+            published_no: Nie
+            published_yes: Tak
+            on_main_site_no: Nie
+            on_main_site_yes: Tak
+            file_yes: Tak
+          form:
+            none: Żadna
+            published_no: Nie
+            published_yes: Tak
+          create:
+            success: Pozycja została dodana
+            errors: Nie udało się dodać pozycji
+          update:
+            success: Pozycja została edytowana
+            errors: Nie udało się edytować pozycji
+          destroy:
+            success: Pozycja została usunięta
+          actions:
+            save: Zapisz
+            cancel: Anuluj
+            add_budget_info_position: Nowa pozycja
+            download_file: Pobierz plik
+            edit_budget_info_position: Edytuj pozycję
+            destroy_budget_info_position: Usuń pozycję
+            confirm_destroy_budget_info_position: Czy na pewno chcesz usunąć pozycję?
+        budget_info_groups:
+          create:
+            success: Grupa została dodana
+            errors: Nie udało się dodać grupy
+          update:
+            success: Grupa zostało edytowana
+            errors: Nie udało się edytować grupy
+          destroy:
+            success: Grupa zostało usunięta
+          form:
+            published_yes: Tak
+            published_no: Nie
+          actions:
+            add_budget_info_group: Nowa grupa
+            edit_budget_info_group: Edytuj grupę
+            destroy_budget_info_group: Usuń grupę
+            confirm_destroy_budget_info_group: Czy na pewno chcesz usunąć grupę?
+        faqs:
+          index:
+            title: Tytuł
+            created_at: Data utworzenia
+            actions: Działania
+            subtitle: Dopisek
+            published: Publiczny
+            groupes: Grupy
+            faqs: Pytania
+            group_name: Nazwa grupy
+            empty: Brak
+            published_no: Nie
+            published_yes: Tak
+          form:
+            none: Żadna
+            published_no: Nie
+            published_yes: Tak
+          create:
+            success: Pytanie zostało dodane
+            errors: Nie udało się dodać pytania
+          update:
+            success: Pytanie zostało edytowane
+            errors: Nie udało się edytować pytania
+          destroy:
+            success: Pytanie zostało usunięte
+          actions:
+            save: Zapisz
+            cancel: Anuluj
+            add_faq: Nowa pozycja
+            edit_faq: Edytuj pytanie
+            destroy_faq: Usuń pytanie
+            confirm_destroy_faq: Czy napewno usunąć pytanie?
+        faq_groups:
+          form:
+            published_no: Nie
+            published_yes: Tak
+          create:
+            success: Grupa została dodana
+            errors: Nie udało się dodać grupy
+          update:
+            success: Grupa została edytowana
+            errors: Nie udało się edytować grupy
+          destroy:
+            success: Grupa została usunięta
+          actions:
+            add_faq_group: Nowa grupa
+            edit_faq_group: Edytuj grupę
+            destroy_faq_group: Usuń grupę
+            confirm_destroy_faq_group: Czy napewno usunąć grupę?
+        contact_info_positions:
+          index:
+            group_name: Nazwa grupy
+            position_name: Imię i nazwisko
+            position: Stanowisko
+            phone: Numer telefonu
+            email: Adres email
+            published: Publiczny
+            created_at: Data utworzenia
+            actions: Działania
+            subtitle: Dopisek
+            empty: Brak
+            groupes: Grupy
+            positions: Pozycje
+            published_no: Nie
+            published_yes: Tak
+          form:
+            none: Żadna
+            published_no: Nie
+            published_yes: Tak
+          create:
+            success: Pozycja została dodana
+            errors: Nie udało się dodać pozycji
+          update:
+            success: Pozycja została edytowana
+            errors: Nie udało się edytować pozycji
+          destroy:
+            success: Pozycja została usunięta
+          actions:
+            save: Zapisz
+            cancel: Anuluj
+            add_contact_info_position: Nowa pozycja
+            edit_contact_info_position: Edytuj pozycję
+            destroy_contact_info_position: Usuń pozycję
+            confirm_destroy_contact_info_position: Czy na pewno chcesz usunąć pozycję?
+        contact_info_groups:
+          create:
+            success: Grupa została dodana
+            errors: Nie udało się dodać grupy
+          update:
+            success: Grupa zostało edytowana
+            errors: Nie udało się edytować grupy
+          destroy:
+            success: Grupa zostało usunięta
+          form:
+            published_no: Nie
+            published_yes: Tak
+          actions:
+            add_contact_info_group: Nowa grupa
+            edit_contact_info_group: Edytuj grupę
+            destroy_contact_info_group: Usuń grupę
+            confirm_destroy_contact_info_group: Czy na pewno chcesz usunąć grupę?
+    system:
+      models:
+        organization:
+          fields:
+            newsletter_smtp_settings: Ustawienia SMTP dla maili Newslettera

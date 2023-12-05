@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Projekty > ", projects_path %>
+      <%= decidim_html_escape(@project&.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Ustaw status ręcznie
+        </h2>
+      </div>
+      <div class="card-section">
+        <%= decidim_form_for(@form, url: change_status_project_path(project), method: :post, html: { class: "form" }) do |f| %>
+          <%= f.select :state, @form.possible_states, label: 'Status projektu' %>
+
+          <% if @project.within_status_change_notification_time? %>
+            <h4 class='text-success'><%= "Możliwość wysłania wiadomości do: #{l(@project.status_change_notifications_sending_end_date)}" %></h4>
+            <%= f.text_area :body, label: 'Treść wiadomości', help_text: '<br>Wpisz treść wiadomosci, jeśli chcesz, by autorzy zostali poinformowani o zmianie statusu.'.html_safe, rows: 3 %>
+          <% else %>
+            <h4 class='text-alert'><%= "Wiadomość można było wysyłać do: #{l(@project.status_change_notifications_sending_end_date)}" %></h4>
+          <% end %>
+
+          <div class="button--double form-general-submit">
+            <%= f.submit 'Zapisz', data: { confirm: 'Czy jesteś pewien?' } %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

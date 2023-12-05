@@ -1,0 +1,91 @@
+<div class="row customize-form-row card">
+  <div class="card-section">
+    <label>
+      Nazwa pola
+      <input name=<%= "#{form_field_name}[#{el}][][name]" %>
+               id="<%= "#{form_field_name}_#{el}_name" %>"
+               value="<%= hash ? hash['name'] : nil %>"
+               type="text">
+    </label>
+
+    <label>
+      Typ pola
+      <select name=<%= "#{form_field_name}[#{el}][][type]" %> id=<%= "#{form_field_name}_#{el}_type" %>>
+        <% @form.available_types.each do |o, t| %>
+          <option <%= hash && hash['type'] == t ? 'selected' : nil %> value=<%= t %>><%= o %></option>
+        <% end %>
+      </select>
+    </label>
+
+    <label class="halved">
+      <input name="<%= "#{form_field_name}[#{el}][][required]" %>"
+             id="<%= "#{form_field_name}_#{el}_required" %>"
+             type="checkbox" value="1" <%= (hash.to_h['required'] == '1') ? 'checked' : nil %>>
+      Obowiązkowe?
+    </label>
+
+    <div class="halved pull-right mt-m mr-sm">
+      <%= icon_link_to 'caret-top', '', 'w górę', class: "button tiny button--simple customization-up-js" %>
+      <%= icon_link_to 'caret-bottom', '', 'w dół', class: "button tiny button--simple customization-down-js" %>
+      <%= icon_link_to 'trash', '', 'usuń', class: "button tiny button--simple alert delete-customization-js" %>
+    </div>
+
+    <label class="textarea">
+      Pole pomocy
+      <textarea name=<%= "#{form_field_name}[#{el}][][help_text]" %>
+                id="<%= "#{form_field_name}_#{el}_help_text" %>"
+                value="<%= hash ? hash['help_text'] : nil %>"
+                type="text"><%= hash ? hash['help_text'] : nil %></textarea>
+    </label>
+
+    <label class="textarea">
+      Pole ukryte pod znakiem zapytania
+      <textarea name=<%= "#{form_field_name}[#{el}][][hint]" %>
+                id="<%= "#{form_field_name}_#{el}_hint" %>"
+                value="<%= hash ? hash['hint'] : nil %>"
+                type="text"><%= hash ? hash['hint'] : nil %></textarea>
+    </label>
+  </div>
+
+  <%= javascript_tag do %>
+    $('.delete-customization-js').unbind();
+    $('.delete-customization-js').click( function(e) {
+      e.preventDefault();
+      $(this).closest('.customize-form-row').remove();
+      console.log('form');
+      sortByDom();
+    });
+
+    $('.customization-down-js').unbind();
+    $('.customization-down-js').click(function(e) {
+      e.preventDefault();
+      var row = $(this).closest('.customize-form-row');
+      row.next().insertBefore(row); 
+      sortByDom();
+    });
+
+    $('.customization-up-js').unbind();
+    $('.customization-up-js').click(function(e) {
+      e.preventDefault();
+      var row = $(this).closest('.customize-form-row');
+      row.prev().insertAfter(row); 
+      sortByDom();
+    });
+
+    function sortByDom() {
+      const regex = /project_customization\[additional_attributes\]\[\]\[([0-9]+)\]\[\]\[(.+)\]/gm;
+      const list = document.querySelector(".customize-form-rows");
+
+      if (list) {
+        const items = list.querySelectorAll("[name^=project_customization]");
+
+        for (let i = 0; i < items.length; i++) {
+          const index = Math.floor(i / 5);
+          const oldName = items[i].name;
+          const newName = oldName.replace(regex, "project_customization[additional_attributes][][" + index + "][][$2]")
+          items[i].name = newName;
+        }
+      }
+    }
+  <% end %>
+</div>

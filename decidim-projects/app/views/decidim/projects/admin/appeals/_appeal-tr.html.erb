@@ -1,0 +1,62 @@
+<tr data-id="<%= appeal.id %>">
+  <td>
+    <%= check_box_tag "appeal_ids_s[]", appeal.id, false, class: "js-check-all-appeal js-appeal-list-check  js-appeal-id-#{appeal.id}" %><br>
+  </td>
+  <td>
+    <%= appeal.esog_number %><br>
+  </td>
+  <td>
+    <%= link_to(decidim_html_escape(appeal&.title).html_safe, project_path(appeal.project)) %><br>
+  </td>
+  <td>
+    <%= appeal.is_paper ? 'Papierowo' : 'Elektronicznie' %><br>
+  </td>
+  <td class="valuators-count">
+    <%= appeal.author&.public_name(true) %>
+  </td>
+  <td>
+    <%= appeal.project.evaluator&.ad_full_name %>
+  </td>
+  <td>
+    <%= reevaluation_status(appeal.project) %>
+  </td>
+  <td>
+    <% if appeal.verification_status.blank? || appeal.verification_status == "appeal_draft"  %>
+      Jeszcze nie zostało złożone
+    <% else %>
+      <%= l(appeal.time_of_submit, format: :decidim_short) if appeal.time_of_submit.present? %>
+    <% end %>
+  </td>
+
+  <td class="table-list__actions">
+    <% if allowed_to? :edit, :appeal, appeal: appeal %>
+      <%= icon_link_to "pencil", edit_appeal_path(appeal), 'Edytuj odwołanie', class: "action-icon--edit-appeal" %>
+    <% else %>
+      <span class="action-space icon"></span>
+    <% end %>
+
+    <% if allowed_to? :show, :appeal %>
+      <%= icon_link_to "eye", appeal_path(appeal), 'Podejrzyj odwołanie', class: "action-icon--edit-appeal" %>
+    <% end %>
+
+    <br>
+
+    <%= reevaluation_actions(appeal.project, 'icon') %>
+
+    <% project = appeal.project %>
+    <% if allowed_to? :edit_reevaluation, :project_evaluate, project: project %>
+      <% if project.reevaluation %>
+        <%= icon_link_to "clipboard", edit_project_reevaluation_path(project, project.reevaluation), t("actions.edit_project_reevaluation", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% else %>
+        <%= icon_link_to "clipboard", new_project_reevaluation_path(project), t("actions.create_project_reevaluation", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% end %>
+    <% end %>
+
+    <br>
+
+    <% if project.reevaluation && !project.reevaluation_result.nil? %>
+      <%= icon_link_to "magnifying-glass", project_reevaluation_path(project, project.reevaluation, format: 'pdf'), 'podgląd ponownej oceny', class: "action-icon--edit-project" %>
+      <br>
+    <% end %>
+  </td>
+</tr>

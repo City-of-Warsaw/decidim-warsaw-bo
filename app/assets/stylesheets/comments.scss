@@ -1,0 +1,141 @@
+.comment-thread {
+  border: 1px solid #DFDFDF;
+  border-radius: 4px;
+}
+.comment__content{
+  word-wrap: break-word;
+}
+.add-comment {
+  // used for adding expert qwuestions and remarks
+  border: 1px solid #DFDFDF;
+  border-radius: 4px;
+  background-color: #fff;
+
+  .card__header { margin-bottom: 0px; }
+  .section-heading {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    // padding: 25px;
+    margin-bottom: 0;
+  }
+
+  // for selects
+  .columns { margin-top: 15px; }
+  .column:last-child:not(:first-child),
+  .columns:last-child:not(:first-child) {
+    float: left;
+  }
+
+  .field { position: relative; }
+
+  .rodo-field {
+    background-color: #ECECEC;
+    padding: 23px;
+    margin: 25px auto;
+    border-radius: 4px;
+    label { font-size: 16px; }
+  }
+
+  .row.actions {
+    margin: auto;
+    .link {
+      display: inline-block;
+      color: var(--primary);
+      margin-top: 25px;
+      font-weight: normal;
+      &:active, &:focus {
+        outline: 1px dotted rgba(black, .5);
+        background: none;
+      }
+    }
+    span { color: var(--primary); }
+
+    .clear-link {
+      color: var(--primary);
+      margin-top: 25px;
+      font-weight: bold;
+    }
+
+    button {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+
+  button[type='submit'] {
+    background-color: #fff;
+    border-width: 2px;
+    border-color: var(--primary);
+    color: var(--primary);
+    width: 167px;
+    margin-left: calc(100% - 167px);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    // float: right;
+
+    &:hover {
+      color: #fff;
+      background-color: var(--primary);
+    }
+  }
+
+  [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"],
+  [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"],
+  [type="time"], [type="url"], [type="color"] {
+    max-width: 342px;
+  }
+
+  [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"],
+  [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"],
+  [type="time"], [type="url"], [type="color"], textarea {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #D7D7D7;
+    box-shadow: none;
+    // font-weight: bold;
+    &.is-invalid-input:not(:focus) {
+      border-radius: 4px;
+      border: 1px solid red;
+    }
+    &::placeholder { color: #000; font-weight: normal; }
+  }
+
+  select {
+    border-bottom: 1px solid #D7D7D7;
+  }
+
+  .remaining-character-count {
+    //position: relative;
+    //top: -145px;
+    position: absolute;
+    bottom: 95px;
+    left: calc(100% - 210px);
+    padding: .85em 0 .85em 1em;
+  }
+
+  .additional-input-info {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+.comment__reply.muted-link,
+.comment__reply.muted-link:hover,
+.comment__reply.muted-link[data-toggle],
+.comment__reply.muted-link[data-toggle]:hover,
+.author-data {
+  color: var(--primary);
+  .icon,
+  .author__name {
+    color: var(--primary);
+  }
+}
+
+.comment__replies:empty + .comment__additionalreply {
+  display: none;
+}

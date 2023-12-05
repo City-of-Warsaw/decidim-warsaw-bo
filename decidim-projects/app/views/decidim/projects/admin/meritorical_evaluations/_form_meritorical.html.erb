@@ -1,0 +1,181 @@
+<div class="card">
+  <div class="card-divider">
+    <legend>Dane projektu</legend>
+  </div>
+  <div class="card-section">
+    <div class="field">
+      <strong>Numer ESOG: </strong> <%= @project.esog_number %>
+      <br>
+      <strong>Nazwa projektu: </strong> <%= @project.title %>
+      <% if @project.evaluation_note.present? %>
+        <br>
+        <strong>Uwagi robocze:</strong>
+        <span class='text-alert'><%= @project.evaluation_note %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Ocena merytoryczna projektu
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column hashtags__container meritorical-evaluation-js">
+      <% MeritoricalEvaluationFieldsDefinition::MERITORICAL_FIELDS.each_with_index do |q, index| %>
+        <%= render 'merit_question_row', form: form, q: q, index: index %>
+      <% end %>
+
+      <%= form.text_area :notes, label: 'Dodatkowe informacje', rows: 3 %>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Wynik oceny merytorycznej
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="field">
+      <label>
+        <%= radio_button_tag "meritorical_evaluation[result]", "1", checked = false, disabled: true %> Pozytywny
+      </label>
+      <label>
+        <%= radio_button_tag "meritorical_evaluation[result]", "2", checked = false, disabled: true %> Negatywny
+      </label>
+      <%= hidden_field_tag "meritorical_evaluation[result]", nil %>
+    </div>
+
+    <%= form.text_area :result_description, label: 'Uzasadnienie negatywnej oceny projektu', rows: 5 %>
+    <%= form.text_area :project_implementation_effects, label: 'Skutki realizacji projektu', rows: 5 %>
+
+    <%= form.text_field :signum_number, label: 'Znak signum' %>
+    <%= form.text_field :unit_name, label: 'Podmiot dokonujący oceny merytorycznej' %>
+    <p class="help-text">
+      nazwa wydziału oraz urzędu dzielnicy/biura lub jednostki
+    </p>
+
+    <%= form.text_field :verifier_name, label: 'Imię i nazwisko pracownika oceniającego' %>
+    <%= form.date_field :verification_date, label: 'Data przeprowadzonej oceny' %>
+
+    <%= form.text_field :accept_user_name, label: 'Imię, nazwisko oraz funkcja osoby zatwierdzającej ocenę' %>
+    <%= form.date_field :accept_date, label: 'Data zatwierdzenia oceny' %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Zmiana projektu
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <p class="text-alert">(wypełnia się wyłącznie w przypadku projektów, w których zaproponowano autorowi zmiany)</p>
+
+    <div class="field label-regular">
+      <%= form.check_box :changes_info_send, label: 'Przekazano informację *' %>
+    </div>
+
+    <div class="field label-regular">
+      <%= form.date_field :changes_info_date, label: 'Data przekazania informacji o możliwości dokonania zmian *' %>
+    </div>
+    <div class="field label-regular">
+      <label>Sposób przekazania informacji *</label>
+      <label>
+        <%= radio_button_tag "meritorical_evaluation[changes_info_method]", "esog", checked = false %> ESOG
+      </label>
+      <label>
+        <%= radio_button_tag "meritorical_evaluation[changes_info_method]", "email", checked = false %> e-mail
+      </label>
+      <label>
+        <%= radio_button_tag "meritorical_evaluation[changes_info_method]", "phone", checked = false %> telefon
+      </label>
+    </div>
+    <div class="field label-regular">
+      <%= form.text_area :changes_info_notes, label: 'Uwagi', rows: 5 %>
+    </div>
+
+
+    <div id="changes_info-js">
+      <label>Zgoda (pisemna lub elektroniczna) projektodawcy udzielona w terminie 6 dni od dnia przekazania informacji *</label>
+      <label style="display: inline-block;">
+        <%= check_box_tag "meritorical_evaluation[changes_info_agreement]", 1, @form.changes_info_agreement == 1, id: "meritorical_evaluation_changes_info_agreement_1" %> spełniono
+      </label>
+      <label style="display: inline-block;">
+        <%= check_box_tag "meritorical_evaluation[changes_info_agreement]", 2, @form.changes_info_agreement == 2, id: "meritorical_evaluation_changes_info_agreement_2" %> nie spełniono
+      </label>
+      <label style="display: inline-block;">
+        <%= check_box_tag "meritorical_evaluation[changes_info_agreement]", 3, @form.changes_info_agreement == 3, id: "meritorical_evaluation_changes_info_agreement_3" %> nie dotyczy
+      </label>
+    </div>
+
+
+    <% if @form.all_changes_info.any? %>
+      <strong class='strong'>Dotychczasowe zmiany:</strong>
+      <ul>
+        <% @form.all_changes_info.each do |as| %>
+          <li>
+            <%= as[0] %>: <%= as[1] %>
+            <br>
+            <% if as[2].present? %>
+              Uwagi: <%= as[2] %>
+              <br>
+            <% end %>
+            Zgoda: <%= as[3]==1 ? 'spełniono' : (as[3]==2 ? 'nie spełniono' : 'nie dotyczy') %>
+          </li>
+          <br>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="field label-regular">
+      <%= form.file_field :add_documents, multiple: true,
+                          label: 'Karta oceny merytorycznej (skan)',
+                          class: 'multifile', style: 'display: block'
+      %>
+      <% if @form.meritorical_evaluation && @form.meritorical_evaluation.documents.any? %>
+        <div class="row column">
+          <div id="photos" class="gallery row">
+            <% @form.meritorical_evaluation.documents.each do |document| %>
+              <%= link_to document.url, target: "_blank", rel: "noopener" do %>
+                <%= strip_tags(translated_attribute(document.title)) %>
+              <% end %>
+              (<label style="display: inline">
+            <%= check_box_tag 'meritorical_evaluation[remove_documents][]', document.id, false %> usuń
+          </label>)
+              <br>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/meritorical_evaluation" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

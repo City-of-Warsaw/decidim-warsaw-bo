@@ -1,0 +1,170 @@
+---
+pl:
+  activemodel:
+    attributes:
+      static_page_topic:
+        scroll_template: Wyświetl w formie zwijanych treści
+        template: Szablon strony
+      note:
+        title: Tytuł notatki
+        body: Treść notatki
+        creation_date: Data utworzenia notatki
+  decidim:
+    messages:
+      no_messages: <strong>W ramach tego projektu nie jest prowadzona korenspondencja z Urzędem.</strong> Możesz ją zainaugurować, wysyłając wiadomość.
+      send: Wyślij
+      cancel: Anuluj
+      have_errors: Nie udało się wysłać wiadomości
+      created_successfully: Wiadomość została wysłana
+      state:
+        evaluation: Wysłana wiadomość trafi do przypisanego do Twojego projektu weryfikatora
+        accepted: Wysłana wiadomość trafi do realizatora zajmującego się Twoim projektem
+        rejected: Wysłana wiadomość trafi do realizatora zajmującego się Twoim projektem
+        selected: Wysłana wiadomość trafi do realizatora zajmującego się Twoim weryfikatora
+        not_selected: Wysłana wiadomość trafi do realizatora zajmującego się Twoim weryfikatora
+        published: Wysłana wiadomość trafi do realizatora zajmującego się Twoim projektem
+    appeals:
+      destroy:
+        error: NIe udało sie usunąć odwołania
+        success: Usunięto odwołanie
+    projects:
+      admin:
+        projects:
+          statistics:
+            projects: Statystyki edycji
+      projects:
+        show:
+          confirm:
+            destroy: Czy jesteś pewien, że chcesz usunąć projekt?<br>Tej akcji nie da się cofnąć.
+    statistics:
+      index:
+        title: Statystyki
+
+    errors:
+      internal_server_error:
+        title: Wystąpił problem z serwisem
+        try_later: |
+          <p>Nie posiadasz odpowiednich uprawnień lub pojawił się inny problem systemowy.</p>
+          <p>Spróbuj ponownie później.</p>
+          <p>Skontaktuj się z nami: <a href="mailto:bo@um.warszawa.pl" title="Skontaktuj się z nami">bo@um.warszawa.pl</a>.</p>
+    core_extended:
+      account:
+        appeals:
+          index:
+            title: Twoje <span>odwołania</span>
+            empty: Nie znaleziono odwołań
+          actions:
+            new_header: Złóż <span>odwołanie</span>
+            new: Złóż odwołanie
+            create: Złóż
+            edit_header: Edytuj <span>odwołanie</span>
+            edit: Edytuj odwołanie
+            show: Podgląd <span>odwołania</span>
+            update: Zapisz
+            destroy: Usuń odwołanie
+            confirm: Czy jesteś pewien, że chcesz usunąć to odwołanie?
+            cancel: Anuluj
+            draft_save: Zapisz kopię roboczą
+        projects:
+          index:
+            submit: Zgłoś swój projekt
+            current_edition_projects: Twoje <span>zgłoszone projekty</span>
+            latest_edition_coauthored_projects: Jestem <span>współautorem</span>
+            archive_editions_projects: Archiwalne <span>projekty</span>
+            empty: Nie znaleziono projektów
+        notes:
+          index:
+            notes_info: <strong>Tutaj możesz zapisywać i edytować swoje notatki dotyczące budżetu obywatelskiego.</strong><br />Będą one widoczne wyłącznie dla Ciebie.
+            notes: Twoje notatki
+          create:
+            success: Notatka została stworzona
+            error: Nie udało się stworzyć notatki, spróbuj ponownie
+          update:
+            success: Zapisano notatkę
+            error: Nie udało się zapisać notatki
+          destroy:
+            success: Notatka została usunięta
+            error: Nie udało się usunąć notatki
+          actions:
+            new_header: Dodaj <span>notatkę</span>
+            new: Dodaj notatkę
+            create: Dodaj
+            edit_header: Edytuj <span>notatkę</span>
+            edit: Edytuj notatkę
+            update: Zapisz
+            destroy: Usuń notatkę
+            confirm: Czy jesteś pewien, że chcesz usunąć tę notatkę?
+            cancel: Anuluj
+        watched_projects:
+          index:
+            empty: Nie znaleziono projektów
+    admin:
+      static_page_topics:
+        templates:
+          contact: Kontakt
+          costs: Ile kosztuje miasto
+          faq: Pytania i odpowiedzi
+          info: Informacje o budżecie
+          standalone: Samodzielna strona
+      moderations:
+        report:
+          reasons:
+            user_hide: Ukryty przez autora
+    components:
+      comment_order_selector:
+        order:
+          recent: "<span class='wcag-invisible'>Sortuj według:</span> Najnowsze"
+          older: "<span class='wcag-invisible'>Sortuj według:</span> Najstarsze"
+          most_discussed: "<span class='wcag-invisible'>Sortuj według:</span> Najczęściej komentowane"
+          recent_aria: "Sortuj według: Najnowsze"
+          older_aria: "Sortuj według: Najstarsze"
+          most_discussed_aria: "Sortuj według: Najczęściej komentowane"
+    content_blocks:
+      archive:
+        title: Archiwum <span>wyników</span>
+      how_to_participate:
+        step_01: Zgłoszenia
+        step_02: Ocena
+        step_03: Głosowanie
+        step_04: Wyniki
+        step_05: Realizacja
+      sub_hero:
+        name: "Potrzebujesz pomocy?"
+        any_questions: "Masz <span>pytania?</span> Potrzebujesz <strong>pomocy?</strong>"
+        see_help: Sprawdź pomoc
+      footer_sub_hero:
+        name: Budżet obywatelski
+        title: "Budżet <span>obywatelski</span>"
+      metrics:
+        body: Znajdziesz tu przykładowe koszty różnych miejskich działań. Pamiętajcie, że są to ceny szacunkowe, a na ostateczny koszt może mieć wpływ wiele dodatkowych czynników.
+        name: Ile kosztuje miasto
+        title: "Ile <strong>kosztuje miasto</strong>"
+        show_more: Więcej przykładów
+    participatory_processes:
+      content_blocks:
+        archive:
+          results_link: "Wyniki głosowania <strong>%{year}</strong>"
+    proposals:
+      pages:
+        home:
+          highlighted_proposals:
+            realized_proposals: Realizowane <span>projekty</span>
+    versions_list:
+      see: Zobacz
+  layouts:
+    decidim:
+      wrapper:
+        hello: Witaj <strong>%{user}</strong>
+        my_account_header: Moje <strong>konto</strong>
+        my_account: Moje dane
+        my_projects: Moje projekty
+        my_notes: Moje notatki
+        my_appeals: Moje odwołania
+        watched_projects: Obserwowane projekty
+      custom_header:
+        voting_proceeding: Proces głosowania na projekty
+        voting_ended: "Głos oddany, Dziękujemy!"
+        cancel: Anuluj
+        edition: Edycja projektu
+        proposal_proceeding: Zgłoszenie projektu w trakcie
+        proposal_ended: "Projekt zgłoszony, Dziękujemy!"

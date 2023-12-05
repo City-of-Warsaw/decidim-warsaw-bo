@@ -1,0 +1,62 @@
+<% categories_size = model.categories.size %>
+
+<% model.categories.first(categories_number).each do |cat| %>
+  <% if cat.icon.present? %>
+    <div
+        class="category-image-wrapper"
+        tabindex="0" 
+        data-tooltip
+        data-position="top"
+        data-show-on="medium"
+        data-alignment="center"
+        data-click-open="false"
+        data-keep-on-hover="true"
+        data-allow-html="true"
+        data-template-classes="dark expanded"
+        data-tip-text='<%= translated_attribute(cat.name) %>'
+        title='<%= translated_attribute(cat.name) %>'
+    >
+      <%= image_tag cat.icon.url, alt: '', class: 'category-image' %>
+    </div>
+  <% else %>
+    <% img_url = asset_path("decidim/core_extended/category_default.svg") %>
+    <div
+        class="category-image-wrapper"
+        tabindex="0" 
+        data-tooltip
+        data-position="top"
+        data-show-on="medium"
+        data-alignment="center"
+        data-click-open="false"
+        data-keep-on-hover="true"
+        data-allow-html="true"
+        data-template-classes="dark expanded"
+        data-tip-text='<%= translated_attribute(cat.name) %>'
+        title='<%= translated_attribute(cat.name) %>'
+    >
+      <%= image_tag img_url, alt: '', class: 'category-image'%>
+    </div>
+  <% end %>
+<% end %>
+<% if (categories_size < categories_number) && model.custom_categories.present? %>
+  <% additional_categories = (categories_number - categories_size) %>
+  <% img_url = asset_path("decidim/core_extended/category_default.svg") %>
+  <% model.custom_categories.split(',').first(additional_categories).each do |cat| %>
+    <div
+        class="category-image-wrapper"
+        tabindex="0" 
+        data-tooltip
+        data-position="top"
+        data-show-on="medium"
+        data-alignment="center"
+        data-click-open="false"
+        data-keep-on-hover="true"
+        data-allow-html="true"
+        data-template-classes="dark expanded"
+        data-tip-text='<%= cat %>'
+        title='<%= cat %>'
+    >
+      <%= image_tag img_url, alt: '', class: 'category-image' %>
+    </div>
+  <% end %>
+<% end %>

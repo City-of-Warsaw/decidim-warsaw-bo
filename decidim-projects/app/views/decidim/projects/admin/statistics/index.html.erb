@@ -1,0 +1,38 @@
+<div class="card-section">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        Zarządzanie statystykami
+      </h2></div>
+  </div>
+  <div class="card-section fcell grid-x">
+    <div class="cell medium-10 filter-status">
+      <% @scopes.each do |scope| %>
+        <a href="<%= decidim_admin_participatory_processes.statistics_admin_path(current_participatory_space,scope_code: scope.code) %>">
+            <span class="label <%= scope.code == @selected_scope.code ? 'primary' : 'secondary' %>">
+            Dzielnica: <%= scope.name["pl"] %>
+          </span></a>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-section">
+    <%= decidim_form_for(@form, url: decidim_admin_participatory_processes.statistics_admin_update_path(current_participatory_space), method: :post, html: { class: "form" }) do |f| %>
+      <%= f.hidden_field :participatory_process_id %>
+      <%= f.hidden_field :scope_id %>
+      <%= render partial: "form", object: f %>
+      <div class="button--double form-general-submit">
+        <%= f.submit 'Zapisz', data: { confirm: 'Czy jesteś pewien?' } %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+<%= javascript_include_tag "decidim/projects/leaflet-src.1.8.0.modCS" %>
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+<%= javascript_include_tag "decidim/projects/markers-map" %>

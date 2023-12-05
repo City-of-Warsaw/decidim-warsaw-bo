@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <style>
+    body {
+      font-family:  Helvetica;
+      line-height: 150%;
+    }
+    h1 {
+      line-height: 160%;
+    }
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>
+  Protokół z losowania projektów <br>
+  budżet obywatelski <%= current_component.participatory_space&.edition_year %>
+</h1>
+<p>
+  Data i godzina głosowania: <%= l @drawing_log.created_at, format: :decidim_short %>
+</p>
+<p>
+  <% if @drawing_log.scope.citywide? %>
+    Na poziomie ogólnomiejskim
+  <% else %>
+    W Dzielnicy <%= translated_attribute(@drawing_log.scope.name) %>
+  <% end %>
+  <%= @drawing_log.all_projects.size %>
+  zwycięskie projekty uzyskały identyczną liczbę głosów, ale ze względu na niewystarczającą kwotę ich realizacja nie jest możliwa:
+</p>
+<ul>
+  <% @drawing_log.all_projects.each do |project| %>
+    <li>
+      - nr ESOG <%= project.esog_number %> "<%= project.title %>" - głosy: <%= project.project_rank.valid_votes_count %>, koszt: <%= project.budget_value %> zł
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  Zgodnie z § 46 ust. 3 Uchwały nr XI/218/2019 Rady m.st. Warszawy z dnia 11 kwietnia 2019 r. w  sprawie konsultacji
+  społecznych z mieszkańcami m.st. Warszawy w formie budżetu obywatelskiego, do realizacji wyłoniono w drodze losowania
+  dokonanego automatycznie przez ESOG projekty:
+</p>
+<ul>
+  <% @drawing_log.winning_project.each do |project| %>
+    <li>
+      - nr ESOG <%= project.esog_number %> "<%= project.title %>"
+    </li>
+  <% end %>
+</ul>
+<p>
+  Pozostałe projekty zostały usunięte z listy zwycięskich projektów.
+</p>
+
+
+</body>
+</html>
+
+

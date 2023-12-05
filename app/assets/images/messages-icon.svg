@@ -1,0 +1,6 @@
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Group_827" data-name="Group 827" transform="translate(-1427 -23)">
+    <circle id="Ellipse_256" data-name="Ellipse 256" cx="20" cy="20" r="20" transform="translate(1427 23)" fill="none"/>
+    <path id="Icon_material-email" data-name="Icon material-email" d="M23.156,6H5.24A2.237,2.237,0,0,0,3.011,8.24L3,21.677a2.246,2.246,0,0,0,2.24,2.24H23.156a2.246,2.246,0,0,0,2.24-2.24V8.24A2.246,2.246,0,0,0,23.156,6ZM24.5,7.017,14.2,13.39,4.574,7.377l.666.863,7.753,4.846,1.205.753,8.958-5.6Z" transform="translate(1432.863 27.791)" fill="none" stroke="currentColor" stroke-width="2"/>
+  </g>
+</svg>

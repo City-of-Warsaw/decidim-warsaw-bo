@@ -1,0 +1,38 @@
+<% add_decidim_page_title("Odwołanie - #{@form.project.title}") %>
+
+<%= render "decidim/projects/projects/project_header", project: @project, filter_link_params: nil %>
+
+
+<%= decidim_form_for(@form, url: project_appeals_path(@project)) do |form| %>
+  <div class="row mb-m">
+    <div class="columns large-12">
+      <legend class='row'>
+        <div class='column medium-4 strong'>
+          Tutuł projektu:
+        </div>
+        <div class='column medium-8'>
+          <%= @project.title %>
+        </div>
+
+        <div class='column medium-4 strong'>
+          Imię i nazwisko:
+        </div>
+        <div class='column medium-8'>
+          <%= current_user.name_and_surname %>
+        </div>
+      </legend>
+    </div>
+  </div>
+
+  <%= render partial: "form_fields", locals: { form: form } %>
+
+  <div class="row">
+    <div class="columns large-12 text-right">
+      <div class="actions">
+        <%= link_to t(".cancel"), [@project], class: "button button-link mt-s mb-none" %>
+        <%= form.submit t(".send"), class: "button hollow submit mt-s mb-none" %>
+        <%= form.button t(".publish"), type: 'input', class: "button mt-s mb-none", name: "subaction", value: "publish", action: :patch %>
+      </div>
+    </div>
+  </div>
+<% end %>

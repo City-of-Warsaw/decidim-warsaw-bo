@@ -1,0 +1,31 @@
+
+<div class="row column">
+  <%= form.text_field :name %>
+</div>
+<div class="row column">
+  <%= form.text_field :ad_name %>
+</div>
+<div class="row column">
+  <%= form.select :department_type,
+    @form.department_types,
+    include_blank: "Nie ustawiono"
+  %>
+</div>
+<div class="row column">
+  <%= form.check_box :allow_returning_projects %>
+  <div class="help-text mb-s">
+    <%= t('allow_returning_projects', scope: 'activemodel.attributes.department.hints') %>
+  </div>
+</div>
+<div class="columns xlarge-6">
+  <%= form.check_box :active %>
+  <div class="help-text mb-s">
+    <%= t('active', scope: 'activemodel.attributes.department.hints') %>
+  </div>
+</div>
+<div class="row column">
+  <%= form.label :department_ids, t("activemodel.attributes.department.department_ids") %>
+  <%= form.collection_check_boxes :department_ids, departments, :id, :name do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+  <% end %>
+</div>

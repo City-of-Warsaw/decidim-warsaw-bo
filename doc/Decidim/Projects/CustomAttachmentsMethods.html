@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Decidim::Projects::CustomAttachmentsMethods
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::CustomAttachmentsMethods";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">CustomAttachmentsMethods</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Decidim::Projects::CustomAttachmentsMethods
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Admin/CreateProject.html" title="Decidim::Projects::Admin::CreateProject (class)">Admin::CreateProject</a></span>, <span class='object_link'><a href="Admin/Implementation/CreateImplementation.html" title="Decidim::Projects::Admin::Implementation::CreateImplementation (class)">Admin::Implementation::CreateImplementation</a></span>, <span class='object_link'><a href="Admin/UpdateProject.html" title="Decidim::Projects::Admin::UpdateProject (class)">Admin::UpdateProject</a></span>, <span class='object_link'><a href="Admin/UpdateProjectStatus.html" title="Decidim::Projects::Admin::UpdateProjectStatus (class)">Admin::UpdateProjectStatus</a></span>, <span class='object_link'><a href="CreateProject.html" title="Decidim::Projects::CreateProject (class)">CreateProject</a></span>, <span class='object_link'><a href="UpdateProject.html" title="Decidim::Projects::UpdateProject (class)">UpdateProject</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#attachment_attrs-instance_method" title="#attachment_attrs (instance method)">#<strong>attachment_attrs</strong>(project, file, img_alt = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#attachments_invalid%3F-instance_method" title="#attachments_invalid? (instance method)">#<strong>attachments_invalid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#attachments_to_remove-instance_method" title="#attachments_to_remove (instance method)">#<strong>attachments_to_remove</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_attachments-instance_method" title="#build_attachments (instance method)">#<strong>build_attachments</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_consents_for-instance_method" title="#build_consents_for (instance method)">#<strong>build_consents_for</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_endorsements_for-instance_method" title="#build_endorsements_for (instance method)">#<strong>build_endorsements_for</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_files_for-instance_method" title="#build_files_for (instance method)">#<strong>build_files_for</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_implementation_photos_for-instance_method" title="#build_implementation_photos_for (instance method)">#<strong>build_implementation_photos_for</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#build_internal_documents_for-instance_method" title="#build_internal_documents_for (instance method)">#<strong>build_internal_documents_for</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#consents_invalid%3F-instance_method" title="#consents_invalid? (instance method)">#<strong>consents_invalid?</strong>(project: nil, max_files_num: 5)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#create_attachments-instance_method" title="#create_attachments (instance method)">#<strong>create_attachments</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#document_cleanup!-instance_method" title="#document_cleanup! (instance method)">#<strong>document_cleanup!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#documents_attached_to-instance_method" title="#documents_attached_to (instance method)">#<strong>documents_attached_to</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#endorsements_invalid%3F-instance_method" title="#endorsements_invalid? (instance method)">#<strong>endorsements_invalid?</strong>(project: nil, max_files_num: 10)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#files_invalid%3F-instance_method" title="#files_invalid? (instance method)">#<strong>files_invalid?</strong>(project: nil, max_files_num: 10)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#implementation_photos_invalid%3F-instance_method" title="#implementation_photos_invalid? (instance method)">#<strong>implementation_photos_invalid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#internal_documents_invalid%3F-instance_method" title="#internal_documents_invalid? (instance method)">#<strong>internal_documents_invalid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#process_attachments%3F-instance_method" title="#process_attachments? (instance method)">#<strong>process_attachments?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#remove_attachments-instance_method" title="#remove_attachments (instance method)">#<strong>remove_attachments</strong>(project)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private method.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="attachment_attrs-instance_method">
+  
+    #<strong>attachment_attrs</strong>(project, file, img_alt = nil)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project file    - file img_alt - String - not required</p>
+
+<p>returns Hash - mapped attributes to create Attachment</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_img_alt'>img_alt</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>title:</span> <span class='lbrace'>{</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_original_filename'>original_filename</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>attached_to:</span> <span class='id identifier rubyid_project'>project</span> <span class='op'>||</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='comma'>,</span>
+    <span class='label'>file:</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
+    <span class='label'>content_type:</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_content_type'>content_type</span><span class='comma'>,</span>
+    <span class='label'>file_size:</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span>
+    <span class='label'>image_alt:</span> <span class='id identifier rubyid_img_alt'>img_alt</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="attachments_invalid?-instance_method">
+  
+    #<strong>attachments_invalid?</strong>  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if various attachments are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 352</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attachments_invalid?'>attachments_invalid?</span>
+  <span class='ivar'>@documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>document</span><span class='tstring_end'>&#39;</span></span>
+        <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_documents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>consent</span><span class='tstring_end'>&#39;</span></span>
+        <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_more_documents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_add_photos'>add_photos</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endorsement</span><span class='tstring_end'>&#39;</span></span>
+        <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_documents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_documents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="attachments_to_remove-instance_method">
+  
+    #<strong>attachments_to_remove</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attachments_to_remove'>attachments_to_remove</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_internal_documents</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>internal_documents</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_internal_documents'>internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_internal_documents'>remove_internal_documents</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_internal_documents'>remove_internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_endorsements</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>endorsements</span><span class='label_end'>&quot;:</span>  <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_endorsements'>endorsements</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_endorsements'>remove_endorsements</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_endorsements'>remove_endorsements</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_consents</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>consents</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_consents'>consents</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_consents'>remove_consents</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_consents'>remove_consents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_files</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>files</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_files'>remove_files</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_files'>remove_files</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_implementation_photos</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>implementation_photos</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_implementation_photos'>implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_implementation_photos'>remove_implementation_photos</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_implementation_photos'>remove_implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_files_list_to_remove'>files_list_to_remove</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_attachments-instance_method">
+  
+    #<strong>build_attachments</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds various attachments for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 309</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_attachments'>build_attachments</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_documents'>add_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_documents'>add_documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+      <span class='ivar'>@documents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>Attachment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+        <span class='label'>title:</span> <span class='lbrace'>{</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_original_filename'>original_filename</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+        <span class='label'>attached_to:</span> <span class='ivar'>@attached_to</span> <span class='op'>||</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='comma'>,</span>
+        <span class='label'>file:</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
+        <span class='comment'># custom only for projects
+</span>        <span class='label'>attachment_type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>document</span><span class='tstring_end'>&#39;</span></span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_more_documents'>add_more_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_more_documents'>add_more_documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+      <span class='ivar'>@documents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>Attachment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+        <span class='label'>title:</span> <span class='lbrace'>{</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_original_filename'>original_filename</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+        <span class='label'>attached_to:</span> <span class='ivar'>@attached_to</span> <span class='op'>||</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='comma'>,</span>
+        <span class='label'>file:</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
+        <span class='comment'># custom only for projects
+</span>        <span class='label'>attachment_type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>consent</span><span class='tstring_end'>&#39;</span></span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_photos'>add_photos</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_photos'>add_photos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+      <span class='ivar'>@documents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>Attachment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+        <span class='label'>title:</span> <span class='lbrace'>{</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_original_filename'>original_filename</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+        <span class='label'>attached_to:</span> <span class='ivar'>@attached_to</span> <span class='op'>||</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='comma'>,</span>
+        <span class='label'>file:</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
+        <span class='comment'># custom only for projects
+</span>        <span class='label'>attachment_type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endorsement</span><span class='tstring_end'>&#39;</span></span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_consents_for-instance_method">
+  
+    #<strong>build_consents_for</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds consents for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_consents_for'>build_consents_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@consents</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:add_consents</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_consents'>add_consents</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_consents'>add_consents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_consents'>consents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Consent.html" title="Decidim::Projects::Consent (class)">Consent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@consents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Consent.html" title="Decidim::Projects::Consent (class)">Consent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_endorsements_for-instance_method">
+  
+    #<strong>build_endorsements_for</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds endorsements for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_endorsements_for'>build_endorsements_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@endorsements</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:add_endorsements</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_endorsements'>add_endorsements</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_endorsements'>add_endorsements</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_endorsements'>endorsements</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Endorsement.html" title="Decidim::Projects::Endorsement (class)">Endorsement</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@endorsements</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Endorsement.html" title="Decidim::Projects::Endorsement (class)">Endorsement</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_files_for-instance_method">
+  
+    #<strong>build_files_for</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds files for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_files_for'>build_files_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:add_files</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_files'>add_files</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_files'>add_files</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VariousFile.html" title="Decidim::Projects::VariousFile (class)">VariousFile</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@files</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VariousFile.html" title="Decidim::Projects::VariousFile (class)">VariousFile</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_implementation_photos_for-instance_method">
+  
+    #<strong>build_implementation_photos_for</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds implementation photos for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_implementation_photos_for'>build_implementation_photos_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@implementation_photos</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:add_implementation_photos</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_implementation_photos'>add_implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_implementation_photos'>add_implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_processed_name'>processed_name</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_original_filename'>original_filename</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_image_alt'>image_alt</span> <span class='op'>=</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_implementation_photos_alt'>add_implementation_photos_alt</span><span class='lbracket'>[</span><span class='id identifier rubyid_processed_name'>processed_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='kw'>nil</span>
+    <span class='id identifier rubyid_imp_attrs'>imp_attrs</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span>
+      <span class='label'>file:</span> <span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
+      <span class='label'>image_alt:</span> <span class='id identifier rubyid_image_alt'>image_alt</span>
+    <span class='rbrace'>}</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_implementation_photos'>implementation_photos</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ImplementationPhoto.html" title="Decidim::Projects::ImplementationPhoto (class)">ImplementationPhoto</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_imp_attrs'>imp_attrs</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@implementation_photos</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ImplementationPhoto.html" title="Decidim::Projects::ImplementationPhoto (class)">ImplementationPhoto</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_imp_attrs'>imp_attrs</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_internal_documents_for-instance_method">
+  
+    #<strong>build_internal_documents_for</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>Parameters:</p>
+
+<p>project - Project</p>
+
+<p>builds internal documents for Project</p>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_internal_documents_for'>build_internal_documents_for</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='ivar'>@internal_documents</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:add_internal_documents</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_internal_documents'>add_internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_internal_documents'>add_internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span>
+      <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_internal_documents'>internal_documents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InternalDocument.html" title="Decidim::Projects::InternalDocument (class)">InternalDocument</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@internal_documents</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InternalDocument.html" title="Decidim::Projects::InternalDocument (class)">InternalDocument</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attachment_attrs'>attachment_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="consents_invalid?-instance_method">
+  
+    #<strong>consents_invalid?</strong>(project: nil, max_files_num: 5)  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if consents are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 140</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_consents_invalid?'>consents_invalid?</span><span class='lparen'>(</span><span class='label'>project:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_files_num:</span> <span class='int'>5</span><span class='rparen'>)</span>
+  <span class='ivar'>@consents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_consents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='op'>&amp;.</span><span class='id identifier rubyid_consents'>consents</span><span class='op'>&amp;.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@consents</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_consents</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maksymalna liczba plików: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_max_files_num'>max_files_num</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_attachments-instance_method">
+  
+    #<strong>create_attachments</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>creating attachments:</p>
+<ul><li>
+<p>document</p>
+</li><li>
+<p>consent</p>
+</li><li>
+<p>endorsement</p>
+</li></ul>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 382</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_attachments'>create_attachments</span>
+  <span class='ivar'>@documents</span><span class='period'>.</span><span class='id identifier rubyid_map!'>map!</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attached_to'>attached_to</span> <span class='op'>=</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span>
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>document</span><span class='tstring_end'>&#39;</span></span>
+      <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_documents'>documents</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_document'>document</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>consent</span><span class='tstring_end'>&#39;</span></span>
+      <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_more_documents'>more_documents</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_document'>document</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endorsement</span><span class='tstring_end'>&#39;</span></span>
+      <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_photos'>photos</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_document'>document</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_documents'>documents</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_document'>document</span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="document_cleanup!-instance_method">
+  
+    #<strong>document_cleanup!</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>removing various attachments from project</p>
+<ul><li>
+<p>document</p>
+</li><li>
+<p>consent</p>
+</li><li>
+<p>endorsement</p>
+</li></ul>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_document_cleanup!'>document_cleanup!</span>
+  <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='period'>.</span><span class='id identifier rubyid_documents'>documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_destroy!'>destroy!</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_documents'>documents</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exclude?'>exclude?</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>document</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_destroy!'>destroy!</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_more_documents'>more_documents</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exclude?'>exclude?</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>consent</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_destroy!'>destroy!</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_photos'>photos</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exclude?'>exclude?</span><span class='lparen'>(</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_attachment_type'>attachment_type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endorsement</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='period'>.</span><span class='id identifier rubyid_reload'>reload</span>
+  <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@documents</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="documents_attached_to-instance_method">
+  
+    #<strong>documents_attached_to</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checks to what object files are to be attached if no object was passed to @attached_to variable method looks for Organization Object</p>
+
+<p>returns Object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+434
+435
+436
+437
+438
+439</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 434</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_documents_attached_to'>documents_attached_to</span>
+  <span class='kw'>return</span> <span class='ivar'>@attached_to</span> <span class='kw'>if</span> <span class='ivar'>@attached_to</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_current_organization'>current_organization</span> <span class='kw'>if</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:current_organization</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_current_component'>current_component</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span> <span class='kw'>if</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:current_component</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="endorsements_invalid?-instance_method">
+  
+    #<strong>endorsements_invalid?</strong>(project: nil, max_files_num: 10)  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if endorsements are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_endorsements_invalid?'>endorsements_invalid?</span><span class='lparen'>(</span><span class='label'>project:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_files_num:</span> <span class='int'>10</span><span class='rparen'>)</span>
+  <span class='ivar'>@endorsements</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_endorsements</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='op'>&amp;.</span><span class='id identifier rubyid_endorsements'>endorsements</span><span class='op'>&amp;.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@endorsements</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_endorsements</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maksymalna liczba plików: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_max_files_num'>max_files_num</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="files_invalid?-instance_method">
+  
+    #<strong>files_invalid?</strong>(project: nil, max_files_num: 10)  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if files are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_files_invalid?'>files_invalid?</span><span class='lparen'>(</span><span class='label'>project:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_files_num:</span> <span class='int'>10</span><span class='rparen'>)</span>
+  <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_files</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='op'>&amp;.</span><span class='id identifier rubyid_files'>files</span><span class='op'>&amp;.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_presence'>presence</span> <span class='op'>||</span> <span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_files_num'>max_files_num</span>
+    <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_files</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maksymalna liczba plików: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_max_files_num'>max_files_num</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="implementation_photos_invalid?-instance_method">
+  
+    #<strong>implementation_photos_invalid?</strong>  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if implementation photos are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_implementation_photos_invalid?'>implementation_photos_invalid?</span>
+  <span class='ivar'>@implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_implementation_photos</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="internal_documents_invalid?-instance_method">
+  
+    #<strong>internal_documents_invalid?</strong>  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>checking if internal documents are valid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_internal_documents_invalid?'>internal_documents_invalid?</span>
+  <span class='ivar'>@internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_document'>document</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_document'>document</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='symbol'>:file</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:add_internal_documents</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="process_attachments?-instance_method">
+  
+    #<strong>process_attachments?</strong>  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>determine if there are attachments to add</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+423
+424
+425</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 423</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_process_attachments?'>process_attachments?</span>
+  <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_documents'>add_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='op'>||</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_more_documents'>add_more_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='op'>||</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_add_photos'>add_photos</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_attachments-instance_method">
+  
+    #<strong>remove_attachments</strong>(project)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private method</p>
+
+<p>removing selected attachments for project</p>
+<ul><li>
+<p>internal documents</p>
+</li><li>
+<p>endorsements</p>
+</li><li>
+<p>consents</p>
+</li><li>
+<p>files</p>
+</li><li>
+<p>implementation_photos</p>
+</li></ul>
+
+<p>returns nothing</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/custom_attachments_methods.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_attachments'>remove_attachments</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_internal_documents</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_internal_documents'>internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_internal_documents'>remove_internal_documents</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_internal_documents'>remove_internal_documents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_endorsements</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_endorsements'>endorsements</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_endorsements'>remove_endorsements</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_endorsements'>remove_endorsements</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_consents</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_consents'>consents</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_consents'>remove_consents</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_consents'>remove_consents</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_files</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_files'>remove_files</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_files'>remove_files</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:remove_implementation_photos</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_implementation_photos'>implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_implementation_photos'>remove_implementation_photos</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_destroy_all'>destroy_all</span> <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_remove_implementation_photos'>remove_implementation_photos</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:04 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

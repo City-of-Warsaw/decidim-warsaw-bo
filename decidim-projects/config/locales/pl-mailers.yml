@@ -1,0 +1,119 @@
+---
+pl:
+  decidim:
+    events:
+      projects:
+        reevaluation_mailer:
+          reevaluation_finished:
+            mail_intro: Ponowna ocena projektu została zakończona
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem.
+            email_subject: Zakończono ponowna ocenę projektu
+            subject: Zakończono ponowna ocenę projektu
+          finish_appeal_draft:
+            mail_intro: Odwołanie zostało przekazane do zatwierdzenia
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem.
+            email_subject: Przekazano odwołanie
+            subject: Przekazano odwołanie
+          submit_verified_appeal:
+            mail_intro: Ponowna ocena projektu została przekazana do ostatecznej weryfikacji
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem.
+            email_subject: Przekazano projekt
+            subject: Przekazano projekt
+        evaluation_mailer:
+          # editor submit
+          finish_admin_draft:
+            subject: Projekt czeka na akceptację
+            mail_intro: Edytor zgłosił projekt do publikacji
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Projekt czeka na akceptację
+          return_admin_draft:
+            mail_intro: Koordynator zwrócił projekt do uzupełnienia
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś edytorem.
+            email_subject: Projekt wymaga poprawy
+            subject: Projekt wymaga poprawy
+          publish_project_for_author:
+            mail_intro: Twój projekt został opublikowany
+            email_outro: "Otrzymałeś to powiadomienie, ponieważ zgłosiłeś projekt do Warszawskiego Budżetu Obywatelskiego. Możesz zobaczyć go na stronie Budżetu Obywatelskiego, pod poniższym linkiem:"
+            email_subject: Twój projekt został opublikowany
+            subject: Twój projekt został opublikowany
+          publish_project_for_coauthor:
+            mail_intro: Otrzymałeś to powiadomienie, ponieważ zostałeś wskazany jako współautor projektu zgłoszonego w ramach Warszawskiego Budżetu Obywatelskiego.
+            email_outro: |-
+              Poniżej znajdziesz link do podglądu projektu.
+              Jeżeli masz już konto na stronie Budżetu Obywatelskiego, będziesz mógł potwierdzić współautorstwo na stronie porojektu.
+              Jeśli nie masz jeszcze konta, zachęcamy do jego zalożenia.
+              UWAGA! Potwierdzenie współautorstwa jest możliwe tylko po założeniu konta na adres mailowy, który podał Autor projektu.
+            email_subject: Twój projekt został opublikowany
+            subject: Twój projekt został opublikowany
+            # notification_title: Projekt <a href="%{project_path}">%{proposal_title}</a> został opublikowany <a href="%{resource_path}">%{resource_title}</a>.
+          # evaluation
+          return_to_verificator:
+            mail_intro: Koordynator zwrócił ocenę do uzupełnienia
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś weryfikatorem.
+            email_subject: Ocena wymaga poprawy
+            subject: Ocena wymaga poprawy
+          submit_for_formal:
+            mail_intro: Koordynator przydzielił Ci projekt do weryfikacji formalnej
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś weryfikatorem.
+            email_subject: Przydzielono projekt
+            subject: Przydzielono projekt
+          finish_formal:
+            mail_intro: Weryfikator zakończył ocenę formalną projektu.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Oceniono projekt
+            subject: Oceniono projekt
+          # accept_formal:
+          #   mail_intro: Weryfikator zakończył ocenę formalną projektu.
+          #   email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+          #   email_subject: Oceniono projekt
+          #   subject: Oceniono projekt
+          submit_for_meritorical:
+            mail_intro: Koordynator przydzielił Ci projekt do weryfikacji merytorycznej.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś weryfikatorem.
+            email_subject: Przydzielono projekt
+            subject: Przydzielono projekt
+          finish_meritorical:
+            mail_intro: Weryfikator zakończył ocenę merytoryczną projektu.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Oceniono projekt
+            subject: Oceniono projekt
+          draft_reminder:
+            mail_intro: Masz niezgłoszoną kopie roboczą
+            email_outro: "Otrzymałeś to powiadomienie, ponieważ utworzyłeś projekt do Warszawskiego Budżetu Obywatelskiego. Możesz zobaczyć go na stronie Budżetu Obywatelskiego, pod poniższym linkiem:"
+            email_subject: Twój projekt czeka na zgłoszenie
+            subject: Twój projekt czeka na zgłoszenie
+          finish_appeal_draft:
+            mail_intro: Użytkownik wewnętrzny zgłosił wprowadzone odwołanie papierowe
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynartorem.
+            email_subject: Zgłoszono odwołanie
+            subject: Zgłoszono odwołanie
+          submit_appeal_for_verification:
+            mail_intro: Koordynator przydzielił Ci projekt do ponownej weryfikacji
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś weryfikatorem.
+            email_subject: Przydzielono odwołanie do weryfikacji
+            subject: Przydzielono odwołanie do weryfikacji
+          appeal_verification_finished:
+            mail_intro: Weryfikator zakończył ponowną ocenę projektu
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Oceniono projekt
+            subject: Oceniono projekt
+          appeal_verified:
+            mail_intro: Koordynator przekazał rekomendacje w sprawie odwołania od oceny projektu
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem systemu.
+            email_subject: Zakończono ocenę odwołania
+            subject: Zakończono ocenę odwołania
+          reevaluation_finished:
+            mail_intro: Administrator zakończył rozpatrywanie odwołania
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Ustalono ostateczną ocenę projektu
+            subject: Ustalono ostateczną ocenę projektu
+          return_to_department:
+            mail_intro: Projekt został zwrócony do Twojej komórki
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Projekt został zwrócony
+            subject: Projekt został zwrócony
+          forward_to_department:
+            mail_intro: Projekt został przekazany do Twojej komórki
+            email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś koordynatorem.
+            email_subject: Projekt został przekazany
+            subject: Projekt został przekazany

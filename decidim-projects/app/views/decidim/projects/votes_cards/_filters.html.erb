@@ -1,0 +1,74 @@
+<div class="voting-search-box">
+  <%= form.text_field :search_text, label: "<span class='wcag-invisible'>#{t('.search_text_info')}</span>", placeholder: t('.search_text_info'), class: 'wizard-vote-search-text-js' %>
+  <%= link_to icon('magnifying-glass'), path_for_filtered_projects(vote_card, wizard.step), id: 'search-projects-submit', aria_label: 'Szukaj', class: 'vote-wizard-search-js', data: { href: path_for_filtered_projects(vote_card, wizard.step) } %>
+</div>
+
+<div class="select-row">
+  <div class="chosen-votes-filtering-box">
+    <% @form.scope_id %> Wybrano <strong><span class="chosen-count-js">0</span> z <span class="limit-count-js"><%= wizard.step_limit %></span></strong> projektów
+    <button disabled class="button toggle-show-chosen show-all toggle-show-chosen-js" data-chosen="<%= t('.show_chosen') %>" data-all="<%= t('.show_all') %>" data-chosen="<%= t('.show_chosen') %>"><%= t('.show_chosen') %></button>
+  </div>
+  <div class="voting-filters-for-<%= wizard.stepper_step %>">
+    <% if wizard.district_step? %>
+      <div class="scope-id-select"> 
+        <%= form.select :scope_id,
+                        filter_scopes_values,
+                        { label: "<span class='wcag-invisible'>#{t(".scope_label")}</span>",
+                          prompt: t(".scope"),
+                          include_blank: false,
+                          legend_title: t(".scope") },
+                        { multiple: false,
+                          class: 'scope-id scope-id-js',
+                          "data-href": path_for_district_projects(vote_card),
+                          "data-placeholder": t(".scope"),
+                          "aria-controls": "projects" }
+        %>
+
+        <div class="scope-id-dropdown">
+          <div class="error-info-box info-graph scope-id-warning">
+            W trakcie głosowania możesz zmienić dzielnicę, ale Twoje wcześniejsze wybory zostaną utracone.
+          </div>
+
+          <div class="scope-id-options">
+            <% filter_scopes_values.each do |value| %>
+              <div class="scope-id-option" data-id="<%= value[1] %>"><%= value[0] %></div>
+            <% end %>
+          </div>
+
+          <button type="button" class="button small hollow scope-id-button-js">Wybierz</button>
+        </div>
+      </div>
+    <% end %>
+    <%= form.select :category,
+                    filter_categories_values,
+                    { label: "<span class='wcag-invisible'>#{t(".category_label")}</span>",
+                      include_blank: false,
+                      legend_title: t(".category") },
+                    { multiple: true,
+                      class: 'category-id-js',
+                      "data-placeholder": t(".category"),
+                      "aria-controls": "projects" }
+    %>
+    <%= form.select :potential_recipient,
+                    filter_potential_recipients_values,
+                    { label: "<span class='wcag-invisible'>#{t(".potential_recipient_label")}</span>",
+                      include_blank: false,
+                      legend_title: t(".potential_recipient") },
+                    { multiple: true,
+                      class: 'recipients-id-js',
+                      "data-placeholder": t(".potential_recipient"),
+                      "aria-controls": "projects" }
+    %>
+  </div>
+  <%= link_to 'Mapa', "", class: 'map-toggler map-toggler-js' %>
+</div>
+
+<div class="map-toggler-box voting-map">
+  <div id="map" data-legend="false" data-labels=""></div>
+</div>
+ 
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+<%= javascript_include_tag "decidim/projects/markers-map-voting" %>
+ 

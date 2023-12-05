@@ -1,0 +1,100 @@
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.data') %></h2>
+  </div>
+
+  <fieldset class="card-section">
+    <% fields = ['title', 'subtitle'] %>
+    <% fields.each do |el| %>
+      <% label = t(el, scope: 'decidim.projects.admin.poster_templates.form') %>
+      <%= form.text_field el, label: label %>
+    <% end %>
+
+    <%= form.label t('.published') %>
+    <%= form.radio_button :published, false, label: t('.published_no') %>
+    <%= form.radio_button :published, true, label: t('.published_yes') %>
+
+    <% fields = ['width', 'height'] %>
+    <% fields.each do |el| %>
+      <% label = t(el, scope: 'decidim.projects.admin.poster_templates.form') %>
+      <%= form.number_field el, label: label %>
+    <% end %>
+
+    <%= form.upload :background_file %>
+    <% if poster_template.present? && poster_template.background_file.attached? %>
+      Aktualne tło:
+      <div class="preview">
+        <%= image_tag(main_app.rails_representation_path(poster_template.thumbnail_150)) %>
+      </div>
+      <br>
+    <% end %>
+
+    <%= form.text_field :body_css, label: t("body_css", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= raw t("body_css_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+  </fieldset>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.project_title') %></h2>
+  </div>
+
+  <fieldset class="card-section">
+
+    <%= form.number_field :project_title_y, label: t("project_title_y", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_y", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_title_x, label: t("project_title_x", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_x", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_title_width, label: t("project_title_width", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <%= form.number_field :project_title_height, label: t("project_title_height", scope: 'decidim.projects.admin.poster_templates.form') %>
+
+    <%= form.text_field :project_title_css, label: t("project_title_css", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= raw t("project_title_css_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.text_field :sample_title, label: t("sample_title", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("sample_title_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+  </fieldset>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.area') %></h2>
+  </div>
+
+  <fieldset class="card-section">
+    <%= form.number_field :project_area_y, label: t("project_area_y", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_y", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_area_x, label: t("project_area_x", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_x", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_area_width, label: t("project_area_width", scope: 'decidim.projects.admin.poster_templates.form') %>
+
+    <%= form.number_field :project_area_height, label: t("project_area_height", scope: 'decidim.projects.admin.poster_templates.form') %>
+
+    <%= form.text_field :project_area_css, label: t("project_title_css", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= raw t("project_area_css_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.select :sample_project_area, @form.scopes.map { |scope| [translated_attribute(scope.name), scope.id] }, label: "Przykładowy poziom projektu do podglądu", include_blank: true, selected: @form.sample_project_area %>
+    <span class="help-text"><%= t("sample_project_area_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+  </fieldset>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.number') %></h2>
+  </div>
+
+  <fieldset class="card-section">
+    <%= form.number_field :project_number_y, label: t("project_number_y", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_y", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_number_x, label: t("project_number_x", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("helper_x", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :project_number_width, label: t("project_number_width", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <%= form.number_field :project_number_height, label: t("project_number_height", scope: 'decidim.projects.admin.poster_templates.form') %>
+
+    <%= form.text_field :project_number_css, label: t("project_title_css", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= raw t("project_number_css_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+
+    <%= form.number_field :sample_project_number, label: t("sample_project_number", scope: 'decidim.projects.admin.poster_templates.form') %>
+    <span class="help-text"><%= t("sample_project_number_helper", scope: "decidim.projects.admin.poster_templates.form") %></span>
+  </fieldset>
+</div>

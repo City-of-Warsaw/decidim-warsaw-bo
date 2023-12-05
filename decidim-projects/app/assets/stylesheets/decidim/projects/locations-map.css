@@ -1,0 +1,43 @@
+#map {
+  width: 100%;
+  height: 440px;
+  margin: 0 auto;
+}
+
+.map-toggler-box .auto-search-wrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.map-toggler-box .auto-search-wrapper input,
+.locations input[type="text"] {
+  /* width: 50%; */
+  max-width: calc(100% - 75px);
+  /* min-width: 300px; */
+  font-size: 1em;
+  display: inline-block;
+}
+
+.locations .button {
+  width: auto;
+  margin: inherit;
+  margin-top: 0;
+  display: inline-block;
+  width: 70px
+}
+
+.locations .locations-list__item {
+  padding-top: 2px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.locations .locations-list__item input {
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
+
+
+.address-input input {
+  max-width: calc(100% - 75px);
+}

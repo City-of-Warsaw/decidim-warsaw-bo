@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+
+      .page {
+        page-break-before: always !important;
+        padding-left: 0.75cm;
+        padding-right: 0.75cm;
+      }
+
+      .break-always {
+        page-break-before: always !important;
+      }
+
+      .avoid-inside {
+        page-break-inside: avoid !important;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h1 {
+        padding-top: 6px;
+        font-size: 30px;
+        text-align: center; 
+      }
+
+      h2 {
+        margin: 0;
+        padding: 4px 0;
+        font-size: 21px;
+      }
+
+      h3 {
+        margin: 0;
+        padding: 4px 0;
+        font-size: 18px;
+      }
+
+      h3 span {
+        font-weight: normal;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      .caption {
+        font-size: 120%;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-left {
+        text-align: left !important;
+      }
+
+      .version {
+        padding: 24px 0;
+        text-align: right;
+      }
+
+      .section {
+        margin-top: 16px; 
+      }
+
+      .fill {
+        position: relative;
+        padding: 15px;
+        min-height: 40px;
+        border: 1px solid;
+        font-size: 130%;
+        width: 100%;
+      }
+
+      .additional-info {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 8px;
+        border-top: 1px solid #000;
+        border-left: 1px solid #000;
+      }
+
+      div.fill {
+        margin: 4px 0;
+      }
+
+      .text-small {
+        font-size: 13px;
+      }
+
+      .fill.price {
+        margin-top: 8px;
+        padding: 16px 0;
+        text-align: center;
+        font-size: 400%;
+        line-height: 1;
+      }
+
+      .valign-baseline {
+        vertical-align: baseline;
+      }
+
+      .mh50 {
+        min-height: 50px;
+      }
+      .mh100 {
+        min-height: 100px;
+      }
+      .mw20 {
+        min-width: 20%;
+      }
+      .mw40 {
+        min-width: 40%;
+      }
+      .w5 {
+        width: 5%;
+      }
+      .w10 {
+        width: 10%;
+      }
+      .w15 {
+        width: 15%;
+      }
+      .w18 {
+        width: 18%;
+      }
+      .w125 {
+        width: 12.5%;
+      }
+      .w20 {
+        width: 20%;
+      }
+      .w25 {
+        width: 25%;
+      }
+      .w30 {
+        width: 30%;
+      }
+      .w40 {
+        width: 40%;
+      }
+      .w50 {
+        width: 50%;
+      }
+      .w60 {
+        width: 60%;
+      }
+      .w70 {
+        width: 70%;
+      }
+      .w75 {
+        width: 75%;
+      }
+      .w80 {
+        width: 80%;
+      }
+      .w90 {
+        width: 90%;
+      }
+      .w95 {
+        width: 95%;
+      }
+      .w100 {
+        width: 100%;
+      }
+
+      .float-left {
+        float: left;
+      }
+
+      .float-right {
+        float: right;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .clear {
+        clear: both;
+      }
+ 
+      table.split {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 17px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        overflow-x: visible;
+        border: 1px solid white;   
+        table-layout: fixed;
+      }  
+
+      table.split th {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 15px;
+      }
+
+      table.split td {
+        border: 1px solid;
+        position: relative;
+      }
+
+      table.split td,
+      table.split th {
+        padding: 10px 4px 6px;
+        min-height: 20px;
+      }
+
+      table.split td:first-child {
+        padding: 0px 2px 0px;
+      }
+
+      table.split td:last-child {
+        text-align: right;
+      }
+ 
+
+      p.foottext {
+        margin-top: 8px;
+      }
+
+      ol {
+        counter-reset: list;
+      }
+      ol > li {
+        list-style: none;
+        position: relative;
+      }
+      ol > li:before {
+        counter-increment: list;
+        content: counter(list, decimal) ") ";
+        position: absolute;
+        left: -1.4em;
+      }
+
+      .subtitle {
+        font-size: 26px;
+      }
+
+      .quotas {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .hint {
+        font-size: 19px;
+      }
+
+      .checkbox {
+        background-color: white;
+        width: 20px;
+        height: 20px;
+        margin-left: 3px;
+        border: 1px solid black;
+      }
+
+      .pl-sm {
+        padding-left: 30px !important;
+      }
+
+      table.personal-data { 
+        background-color: #cccccc;
+        width: 100%;
+      }
+
+      table.personal-data th,
+      table.personal-data td {
+        padding: 4px;
+        font-size: 20px;
+      }
+
+      table.personal-data th {
+        text-align: left;
+      }
+
+      table.fill-number {
+        border-collapse: collapse;
+        height: 40px;
+        margin: 0;
+      }
+
+      table.fill-number td {
+        height: 30px;
+        border: 1px solid black;
+      }
+
+      table.inline {
+        padding: 0;
+        border-collapse: collapse;
+        border: 0px;
+      }
+
+      table.inline td {
+        padding: 0;
+      }
+
+      table.inline table.fill-number td {
+        width: 10px;
+      }
+
+      table.project-table {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        border-collapse: collapse;
+      }
+
+      table.project-table td, tr {
+        padding: 0 !important;
+        border: 0 !important;
+      }
+
+      .signature-box {
+        font-size: 19px;
+        text-align: center;
+        border-top: 1px dashed black;
+        padding-top: 10px;
+        margin-top: 50px; 
+      }
+ 
+
+      td.number-td {
+        border-right: 1px solid transparent !important; 
+        padding-right: 0 !important;
+      }
+
+      .pl-0 {
+        padding-left: 0 !important;
+      } 
+    </style> 
+
+    <style> 
+      div.fauxRow {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        page-break-inside: avoid;
+      }
+      table.fauxRow {border-spacing: 0;}
+      table.fauxRow > tbody > tr > td {
+        padding: 0;
+        overflow: hidden;
+      }
+      table.fauxRow > tbody > tr > td > table.print {
+        display: inline-table;
+        vertical-align: top;
+      }
+      table.fauxRow > tbody > tr > td > table.print > caption {caption-side: top;}
+      .noBreak {
+        float: right;
+        width: 100%;
+        visibility: hidden;
+      }
+      .noBreak:before, .noBreak:after {
+        display: block;
+        content: "";
+      }
+      .noBreak:after {margin-top: -594mm;}
+      .noBreak > div {
+        display: inline-block;
+        vertical-align: top;
+        width:100%;
+        page-break-inside: avoid;
+      }
+      table.print > tbody > tr {page-break-inside: avoid;}
+      table.print > tbody > .metricsRow > td {border-top: none !important;}
+
+      /* THE FOLLOWING CSS IS REQUIRED, but the values may be adjusted. */
+      /* NOTE: All size values that can affect an element's height should use the px unit! */
+      table.fauxRow, table.print {
+        font-size: 17px;
+        line-height: 20px;
+      } 
+    </style>
+
+    <script>
+      (function() { // THIS FUNCTION IS REQUIRED.
+        if(/Firefox|MSIE |Trident/i.test(navigator.userAgent))
+          var formatForPrint = function(table) {
+            var noBreak = document.createElement("div")
+              , noBreakTable = noBreak.appendChild(document.createElement("div")).appendChild(table.cloneNode())
+              , tableParent = table.parentNode
+              , tableParts = table.children
+              , partCount = tableParts.length
+              , partNum = 0
+              , cell = table.querySelector("tbody > tr > td");
+            noBreak.className = "noBreak";
+            for(; partNum < partCount; partNum++) {
+              if(!/tbody/i.test(tableParts[partNum].tagName))
+                noBreakTable.appendChild(tableParts[partNum].cloneNode(true));
+            }
+            if(cell) {
+              noBreakTable.appendChild(cell.parentNode.parentNode.cloneNode()).appendChild(cell.parentNode.cloneNode(true));
+              if(!table.tHead) {
+                var borderRow = document.createElement("tr");
+                borderRow.appendChild(document.createElement("th")).colSpan="1000";
+                borderRow.className = "borderRow";
+                table.insertBefore(document.createElement("thead"), table.tBodies[0]).appendChild(borderRow);
+              }
+            }
+            tableParent.insertBefore(document.createElement("div"), table).style.paddingTop = ".009px";
+            tableParent.insertBefore(noBreak, table);
+          };
+        else
+          var formatForPrint = function(table) {
+            var tableParent = table.parentNode
+              , cell = table.querySelector("tbody > tr > td");
+            if(cell) {
+              var topFauxRow = document.createElement("table")
+                , fauxRowTable = topFauxRow.insertRow(0).insertCell(0).appendChild(table.cloneNode())
+                , colgroup = fauxRowTable.appendChild(document.createElement("colgroup"))
+                , headerHider = document.createElement("div")
+                , metricsRow = document.createElement("tr")
+                , cells = cell.parentNode.cells
+                , cellNum = cells.length
+                , colCount = 0
+                , tbods = table.tBodies
+                , tbodCount = tbods.length
+                , tbodNum = 0
+                , tbod = tbods[0];
+              for(; cellNum--; colCount += cells[cellNum].colSpan);
+              for(cellNum = colCount; cellNum--; metricsRow.appendChild(document.createElement("td")).style.padding = 0);
+              cells = metricsRow.cells;
+              tbod.insertBefore(metricsRow, tbod.firstChild);
+              for(; ++cellNum < colCount; colgroup.appendChild(document.createElement("col")).style.width = cells[cellNum].offsetWidth + "px");
+              var borderWidth = metricsRow.offsetHeight;
+              metricsRow.className = "metricsRow";
+              borderWidth -= metricsRow.offsetHeight;
+              tbod.removeChild(metricsRow);
+              tableParent.insertBefore(topFauxRow, table).className = "fauxRow";
+              if(table.tHead)
+                fauxRowTable.appendChild(table.tHead);
+              var fauxRow = topFauxRow.cloneNode(true)
+                , fauxRowCell = fauxRow.rows[0].cells[0];
+              fauxRowCell.insertBefore(headerHider, fauxRowCell.firstChild).style.marginBottom = -fauxRowTable.offsetHeight - borderWidth + "px";
+              if(table.caption)
+                fauxRowTable.insertBefore(table.caption, fauxRowTable.firstChild);
+              if(tbod.rows[0])
+                fauxRowTable.appendChild(tbod.cloneNode()).appendChild(tbod.rows[0]);
+              for(; tbodNum < tbodCount; tbodNum++) {
+                tbod = tbods[tbodNum];
+                rows = tbod.rows;
+                for(; rows[0]; tableParent.insertBefore(fauxRow.cloneNode(true), table).rows[0].cells[0].children[1].appendChild(tbod.cloneNode()).appendChild(rows[0]));
+              }
+              tableParent.removeChild(table);
+            }
+            else
+              tableParent.insertBefore(document.createElement("div"), table).appendChild(table).parentNode.className="fauxRow";
+          };
+        var tables = document.body.querySelectorAll("table.print")
+          , tableNum = tables.length;
+        for(; tableNum--; formatForPrint(tables[tableNum]));
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- 
+			-------------------
+			STRONA 1
+			-------------------
+		 -->
+    <div class="page">
+      <p class="center">
+        <img src="<%= wicked_pdf_asset_path('logo_voting_card.png') %>" width="376" height="108" alt="Logo" class="logo" />
+      </p>
+
+      <h1>
+        Karta do głosowania na projekty w ramach budżetu<br />
+        obywatelskiego w m.st. Warszawie na rok <%= current_component.participatory_space.edition_year %>
+      </h1>
+
+      <p class="subtitle">
+        Projekty na poziomie dzielnicowym dla dzielnicy <%= translated_attribute(scope.name) %> oraz
+        projekty na poziomie ogólnomiejskim
+      </p>
+
+      <p class="quotas">
+        Kwota przeznaczona na realizację projektów na poziomie dzielnicowym:
+        <%= budget_to_currency current_component.participatory_space.scope_budgets.find_by(decidim_scope_id: scope).budget_value %><br />
+        Kwota przeznaczona na realizację projektów na poziomie ogólnomiejskim:
+        <%= budget_to_currency current_component.participatory_space.scope_budgets.find_by(decidim_scope_id: Decidim::Projects::Project::GLOBAL_SCOPE_ID).budget_value %>
+      </p>
+
+      <!-- Lista projektów dzielnicowych -->
+      <div class="section">
+      <h2>Lista projektów dla dzielnicy <%= translated_attribute(scope.name) %></h2>
+      <p class="hint">
+        Wybierz <strong>do 15 projektów</strong>. Postaw <strong>X</strong> przy
+        projektach, które wybierasz.
+      </p>
+
+        <table class="split print">
+          <thead>
+            <tr>
+              <th width="4%" class="text-center"></th>
+
+              <th width="5%" class="number-td"></th>
+              
+              <th width="73%" class="text-left">
+                Nazwa projektu (numer ESOG)
+              </th>
+
+              <th width="18%" class="text-center">Koszt realizacji</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Lista -->
+            <% projects.each do |project| %>
+              <tr>
+                <td class="center">
+                  <div class="checkbox"></div>
+                </td> 
+                <td class="text-left number-td valign-baseline"><%= project.voting_number %>.</td> 
+                <td class="text-left pl-0 valign-baseline"><%= project.title %> (<%= project.esog_number %>)</td> 
+                <td><%= number_to_currency project.budget_value, unit: Decidim.currency_unit, precision: 0 %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Lista projektów ogólnomiejskich -->
+      <div class="section break-always avoid-inside">
+      <h2>Lista projektów ogólnomiejskich</h2>
+      <p class="hint">
+        Wybierz <strong>do 10 projektów</strong>. Postaw <strong>X</strong> przy
+        projektach, które wybierasz.
+      </p>
+
+        <table class="split print">
+          <thead>
+            <tr>
+              <th width="4%" class="text-center"></th>
+
+              <th width="5%" class="number-td"></th>
+              
+              <th width="73%" class="text-left">
+                Nazwa projektu (numer ESOG)
+              </th>
+
+              <th width="18%" class="text-center">Koszt realizacji</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Lista -->
+            <% projects_city_wide.each do |project| %>
+              <tr>
+                <td class="center">
+                  <div class="checkbox"></div>
+                </td>
+              
+                <td class="text-left number-td valign-baseline"><%= project.voting_number %>.</td> 
+                <td class="text-left pl-0 valign-baseline"><%= project.title %> (<%= project.esog_number %>)</td>
+      
+                <td><%= number_to_currency project.budget_value, unit: Decidim.currency_unit, precision: 0 %></td>
+              </tr>
+            <% end %>                                                                                                                                                                                                                              
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dane głosującego -->
+      <div class="section avoid-inside">
+        <table class="personal-data">
+          <thead>
+            <tr>
+              <th>Dane obowiązkowe:</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td width="30%">Imię i nazwisko</td>
+
+              <td width="70%" colspan="4">
+                <div class="fill input"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="30%">PESEL</td>
+
+              <td width="70%" colspan="4">
+                <table class="fill input fill-number">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="30%">Adres zamieszkania</td>
+              <td class="text-right" width="20%">Ulica</td>
+
+              <td width="50%" colspan="3">
+                <div class="fill input"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="30%"></td>
+              <td class="text-right" width="20%">Nr domu</td>
+
+              <td width="20%">
+                <div class="fill input"></div>
+              </td>
+
+              <td class="text-right" width="20%">Nr mieszkania</td>
+
+              <td width="10%">
+                <div class="fill input"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="30%"></td>
+              <td class="text-right" width="20%">Kod pocztowy</td>
+
+              <td width="20%">
+                <table class="fill inline">
+                  <tr>
+                    <td>
+                      <table class="fill input fill-number">
+                        <tr>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <td class="text-center">–</td>
+
+                    <td>
+                      <table class="fill input fill-number">
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+              <td class="text-center" width="30%">
+                <strong>Warszawa</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Podpis -->
+      <div class="section">
+        <p class="w60 float-right signature-box">Podpis</p>
+      </div>
+    </div>
+  </body>
+</html>

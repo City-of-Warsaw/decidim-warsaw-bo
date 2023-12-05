@@ -1,0 +1,17 @@
+<tr data-id="<%= project.id %>">
+  <td>
+    <%= project.voting_number %>
+  </td>
+  <td>
+    <%= translated_attribute(project.scope&.name) %>
+  </td>
+  <td>
+    <%= project.esog_number %>
+  </td>
+  <td class="text-left">
+    <%= link_to project.title, project_path(project) %>
+  </td>
+  <td class="text-right" style="text-wrap: nowrap;">
+    <%= budget_to_currency project.budget_value %>
+  </td>
+</tr>

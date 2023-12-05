@@ -1,0 +1,13 @@
+<% if current_user.ad_admin? %>
+  <% content_for :secondary_nav do %>
+    <div class="secondary-nav">
+      <div class="secondary-nav__title">
+        <%= t "decidim.admin.titles.documents" %>
+      </div>
+      <div class="secondary-nav__actions">
+        <%= link_to t("actions.add_file", scope: "decidim.admin_extended.admin.documents"), new_document_path, class: "button expanded small new" %>
+        <%= link_to t("actions.add_folder", scope: "decidim.admin_extended.admin.folders"), new_folder_path, class: "button expanded small new" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

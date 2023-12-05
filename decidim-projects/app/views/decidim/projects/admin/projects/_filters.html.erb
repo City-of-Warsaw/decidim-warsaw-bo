@@ -1,0 +1,56 @@
+<div class="filters__section">
+  <div class="fcell filter">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+      <li>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+        </a>
+        <!-- Odkomentuj zeby zobaczyc stara wersje filtrow -->
+        <%#= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
+        <!-- Odkomentuj zeby zobaczyc stara wersje filtrow -->
+        <ul class='vertical menu submenu is-dropdown-submenu first-sub' role='menubar'>
+        <%= prepare_menu_item_for(@form.available_states, "states", "Status") %>
+        <%= prepare_menu_item_for(@form.available_verification_status, "verification_statuses", "Status weryfikacji")%>
+        <%= prepare_menu_item_for(@form.available_scope_types, "scope_type_ids", "Poziom")%>
+        <%= prepare_menu_item_for(@form.available_scopes, "scope_ids", "Dzielnica")%>
+        <%= prepare_menu_item_for(@form.available_recipients, "recipients_ids", "Grupa Docelowa")%>
+        <%= prepare_menu_item_for(@form.available_paper, "is_paper", "Metoda złożenia")%>
+        <%= prepare_menu_item_for(@form.available_categories, "categories_ids", "Kategoria")%>
+        <%= prepare_menu_item_for(@form.project_conflict, "project_conflict_ids", "Konflikty")%>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="fcell search">
+
+    <%= search_form_for(query, url: url_for, style:"width: 59%; float: right;") do |form| %>
+      <%= applied_filters_hidden %>
+      <div class="input-group">
+        <%= bulk_users_select(t("select_user", scope:"decidim.admin.filters")) %>
+
+        <%= form.search_field(
+              search_field_predicate,
+              class: "input-group-field",
+              label: false,
+              placeholder: t(search_field_predicate,
+                             collection: collection_name,
+                             scope: "decidim.admin.filters.search_placeholder")
+            ) %>
+
+        <div class="input-group-button">
+          <button type="submit" class="button">
+            <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters") %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="card-section fcell grid-x">
+  <div class="cell medium-10 filter-status">
+    <%= filter_tags_deletes %>
+  </div>
+  <div class="cell auto text-right">
+    <%= admin_filters_pagination %>
+  </div>
+</div>

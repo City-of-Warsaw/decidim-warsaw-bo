@@ -1,0 +1,33 @@
+<h2 class="no-margin-top"><%= t('decidim.core_extended.account.appeals.actions.show').html_safe %></h2>
+
+<div class="user-profile">  
+  <div class="row column card card-appeal">
+    <div class="card__content card-appeal__header">
+      <div>
+        <% project = appeal.project %>
+        <%= link_to project.title, resource_locator(project).path, class: "card__link" %>
+        <div class="scope-and-number">
+          <span><%= translated_attribute(project.scope.name) if project.scope %></span> / <strong><%= project.esog_number %></strong>
+        </div>
+      </div>
+
+      <div class="appeal-state">
+        <span class="state-circle <%= status_class_for_reevaluation_status(project) %>"></span>
+        <%= public_reevaluation_status(project) %>
+        <strong><%= l(appeal.time_of_submit, format: "%d.%m.%Y %H:%M") if appeal.time_of_submit.present? %></strong>
+      </div>
+    </div>
+
+    <div class="card__footer">
+      <%= appeal.body %>
+      
+      <% if appeal.documents.any? %>
+        <br>
+        <% appeal.documents.each do |doc| %>
+          <%= link_to translated_attribute(doc.title), doc.url, target: '_blank' %>
+          <br>
+        <% end %>
+      <% end %>
+    </div> 
+  </div>
+</div>

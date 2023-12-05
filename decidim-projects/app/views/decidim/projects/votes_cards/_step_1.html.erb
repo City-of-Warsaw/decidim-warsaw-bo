@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="columns large-12">
+    <p class="legend">
+      W budżecie obywatelskim możesz zagłosować na pomysły dzielnicowe w jednej,
+      wybranej dzielnicy oraz na propozycje ogólnomiejskie.
+      Każdy wybrany przez Ciebie projekt otrzyma jeden głos.
+    </p>
+
+    <div class="voting-instruction-box">
+      <%= voting_instruction %>
+    </div>
+
+    <div class="legend">
+      <p>
+        <strong>Wybierz projekty dzielnicowe.</strong>
+        Możesz wybrać maksymalnie <strong><%= vote_card.district_scope_projects_voting_limit %> projektów</strong> w jednej, wybranej dzielnicy.
+      </p>
+      <p>
+        <strong>Wybierz projekty ogólnomiejskie.</strong>
+        Możesz wybrać maksymalnie <strong><%= vote_card.global_scope_projects_voting_limit %> projektów</strong>.
+      </p>
+      <p>
+        <strong>Dane osobowe.</strong>
+        Poprosimy Cię o podanie Twoich danych osobowych. Nie będziemy ich publicznie udostępniać. Wymagamy ich, aby upewnić się, że w warszawskim budżecie obywatelskim głosują wyłącznie mieszkanki i mieszkańcy stolicy.
+      </p>
+      <p>
+        <strong>Podsumowanie.</strong>
+        Zanim oddasz głos, sprawdź jeszcze raz, czy masz wybrane wszystkie projekty, na które chcesz zagłosować. Po oddaniu głosu, edycja listy wybranych projektów nie będzie możliwa. Zagłosuj.
+      </p>
+      <p>
+        <strong>Potwierdzenie.</strong>
+        Na podany w formularzu danych osobowych adres e-mail, wyślemy potwierdzenie zagłosowania w budżecie obywatelskim.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="actions text-center">
+      <%= link_to t(".start_voting"), path_for_wizard_vote(vote_card, wizard.next_step), class: "button mt-s mb-s voting-wizard-wide voting-not-finished-js" %>
+    </div>
+  </div>
+</div>

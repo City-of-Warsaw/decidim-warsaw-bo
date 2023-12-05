@@ -1,0 +1,26 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <div>
+      <a href="<%= document.url %>" class="card__link" target="_blank">
+        <h4 class="card--list__heading heading6" id="attachment_<%= document.id %>">
+          <% a_title = if document.is_a?(Decidim::Projects::VariousFile)
+                         "Załącznik do projektu nr #{document_counter + 1}"
+                       else
+                         attachment_title(document)
+                       end
+          %>
+          <%= a_title %>
+          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+        </h4>
+        <% if document.description.present? %>
+          <span class="text-small"><%= translated_attribute(document.description) %></span>
+        <% end %>
+      </a>
+    </div>
+  </div>
+  <div class="card--list__data">
+    <%= link_to document.url, target: "_blank", rel: "noopener", class: "card--list__data__icon", 'aria-decsribedby': "attachment_#{document.id}", title: "#{t("decidim.application.document.download")} - #{a_title}" do %>
+      <%= image_tag asset_path('download-icon.svg'), alt: "", height: 24, width: 30 %>
+    <% end %>
+  </div>
+</div>

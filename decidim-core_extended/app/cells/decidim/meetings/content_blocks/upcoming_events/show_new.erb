@@ -1,0 +1,14 @@
+<section class="wrapper-home upcoming-events home-section extended">
+  <div class="row column text-center">
+    <h2 class="section-heading"><%= t("decidim.map.home.title").html_safe %></h2>
+  </div>
+  <div id="map"></div>
+
+  <%= hidden_field_tag 'markersMap', all_markers %>
+
+  <%= javascript_include_tag "decidim/results_listing" %>
+  <%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+  <%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+  <%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+  <%= javascript_include_tag "decidim/projects/markers-map" %>
+</section>

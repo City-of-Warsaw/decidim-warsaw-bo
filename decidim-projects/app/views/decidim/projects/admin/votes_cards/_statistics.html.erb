@@ -1,0 +1,73 @@
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+    <tr class="text-center">
+      <th>
+        <%= t('.views_count') %>
+      </th>
+      <th>
+        <%= t('.filters_for_district_projects') %>
+      </th>
+      <th>
+        <%= t('.filters_for_global_projects') %>
+      </th>
+      <th>
+        <%= t('.time_spent_in_district_voting') %>
+      </th>
+      <th>
+        <%= t('.time_spent_in_global_voting') %>
+      </th>
+      <th>
+        <%= t('.time_spent_in_whole_voting') %>
+      </th>
+      <th style="min-width: 200px; width: 350px; text-align: center;">
+        <%= t('.time_tables') %>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% vote.statistics.each do |stat| %>
+      <tr data-id="<%= stat.id %>" class="text-center">
+        <td>
+          <p>
+            <strong><%= t('.global_projects') %>:</strong>
+            <%= stat.global_projects_views_count %><br>
+          </p>
+          <p>
+            <strong><%= t('.district_projects') %>:</strong>
+            <%= stat.district_projects_views_count %><br>
+          </p>
+        </td>
+
+        <td>
+          <p><strong><%= t('.category') %>:</strong> <%= yes_or_no_icon(stat.categories_filters_for_district_projects) %></p>
+          <p><strong><%= t('.recipients') %>:</strong> <%= yes_or_no_icon(stat.recipients_filters_for_district_projects) %></p>
+          <p><strong><%= t('.phrase') %>:</strong> <%= yes_or_no_icon(stat.phrase_filters_for_district_projects) %></p>
+        </td>
+
+        <td>
+          <p><strong><%= t('.category') %>:</strong> <%= yes_or_no_icon(stat.categories_filters_for_global_projects) %></p>
+          <p><strong><%= t('.recipients') %></strong> <%= yes_or_no_icon(stat.recipients_filters_for_global_projects) %></p>
+          <p><strong><%= t('.phrase') %></strong> <%= yes_or_no_icon(stat.phrase_filters_for_global_projects) %></p>
+        </td>
+
+        <td>
+          <%= stat.time_spent_in_district_voting %>
+        </td>
+
+        <td>
+          <%= stat.time_spent_in_global_voting  %>
+        </td>
+
+        <td>
+          <%= stat.time_spent_in_whole_voting  %>
+        </td>
+
+        <td>
+          <%= stats_timetable(stat) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

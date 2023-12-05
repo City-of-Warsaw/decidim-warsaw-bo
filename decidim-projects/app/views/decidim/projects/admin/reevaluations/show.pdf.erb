@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <style>
+    body {
+      font-family:  Helvetica;
+      line-height: 150%;
+    }
+    h1 {
+      line-height: 160%;
+    }
+    h3.slim {
+        font-weight: normal;
+    }
+    h4.slim {
+        font-weight: normal;
+    }
+    ul {
+      /*list-style: none;*/
+    }
+
+    .checkbox {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #000000;
+    }
+
+    .checkbox.checked {
+        display: inline-block;
+        background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+<h2>
+  Karta ponownej oceny<br>
+  projektu zgłoszonego do budżetu obywatelskiego w Warszawie na rok <%= @evaluation.project.edition_year %>
+</h2>
+
+<p>
+  Nr ESOG<sup>i</sup>: <%= @evaluation.project.esog_number %>
+  <br>
+  Znak Signum<sup>ii</sup>: <%= @evaluation.details['signum_number'] %>
+  <br><br>
+</p>
+<h3 class="slim">
+  Nazwa projektu:
+  <strong><%= @evaluation.project.title %></strong>
+</h3>
+
+<h3 class="slim">
+  Podmiot dokonujący ponownej oceny
+</h3>
+<p>
+  <%= @evaluation.details["reevaluator_department"].presence || 'Nie podano' %>
+</p>
+<br>
+<h3 class="slim">Informacje o przeprowadzonej ponownej ocenie</h3>
+
+<h4 class="slim">Kryteria, co do których autor miał zastrzeżenia:</h4>
+<ul>
+  <% @form.formal_elements.each do |fe| %>
+    <%= next unless @evaluation.details["formal_appeal"].include?(fe[1]) %>
+    <li>
+      <span class="after-checkbox"><%= fe[0] %></span>
+    </li>
+  <% end %>
+  <% @form.meritorical_elements.each do |fe| %>
+    <%= next unless @evaluation.details["meritorical_appeal"].include?(fe[1]) %>
+    <li>
+      <span class="after-checkbox"><%= fe[0] %></span>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<h4 class="slim">Inne zastrzeżenia autora:</h4>
+<p>
+  <%= @evaluation.details["user_additional_appeal"].presence || 'Nie podano' %>
+</p>
+<br>
+
+<h4 class="slim">Ponowna ocena projektów w oparciu o kryteria oceny</h4>
+<p><%= @evaluation.details["reevaluation_body"].presence || 'Brak' %>
+<br>
+<br>
+
+<h4 class="slim">Uzasadnienie negatywnego rozpatrzenia odwołania</h4>
+<p><%= @evaluation.details["negative_reevaluation_body"] if @evaluation.negative_result_proposition? %></p>
+<br>
+<h4 class="slim">Potencjalne skutki realizacji projektu dla przestrzeni publicznej oraz społeczności lokalnej</h4>
+<p><%= @evaluation.details["positive_reevaluation_body"] if @evaluation.positive_result_proposition? %></p>
+
+<h4>
+  Propozycja wyniku rozpatrzenia odwołania:<br>
+  <%= @evaluation.positive_result_proposition? ? 'zmiana wyniku oceny projektu na pozytywny' : 'podtrzymanie oceny negatywnej' %>
+</h4>
+<br>
+
+Data przeprowadzonej oceny: <%= @evaluation.details["reevaluation_date"] %><br>
+Imię i nazwisko pracownika oceniającego: <%= @evaluation.details["reevaluator_user_name"] %>
+<br>
+<br>
+<br>
+<br>
+Data zatwierdzenia karty: <%= @evaluation.details["reevaluation_approve_date"] %><br>
+Imię, nazwisko oraz funkcja osoby zatwierdzającej kartę: <%= @evaluation.details["reevaluation_approve_name"] %>
+<br>
+<br>
+<br>
+<br>
+<h4>Wynik rozpatrzenia odwołania:<br>
+  <% if @evaluation.details["result"].blank? %>
+    podtrzymanie oceny negatywnej/zmiana wyniku oceny projektu na pozytywny
+  <% else %>
+    <%= @evaluation.positive_result? ? 'zmiana wyniku oceny projektu na pozytywny' : 'podtrzymanie oceny negatywnej' %>
+  <% end %>
+</h4>
+<br>
+Uwagi: <%= @evaluation.details["reevaluation_card_approve_body"] %>
+<br>
+Data zatwierdzenia karty: <%= @evaluation.details["reevaluation_card_approve_date"] %>
+<br>
+<br>
+<%= @evaluation.details["reevaluation_card_approve_name"] %>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<p><small>
+  <sup>i</sup>
+  ESOG – elektroniczny system obsługi budżetu obywatelskiego, umożliwia zgłaszanie projektów i ich
+  ocenę oraz głosowanie.
+  <br>
+  <sup>ii</sup>
+  Signum – elektroniczny system obiegu dokumentów w Urzędzie Miasta
+</small></p>
+
+</body>
+</html>
+
+

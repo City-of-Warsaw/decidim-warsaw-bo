@@ -1,0 +1,18 @@
+
+<div class="row column">
+  <%= form.translated :text_field, :name %>
+</div>
+
+<div class="columns xlarge-6">
+  <%= form.upload :icon %>
+</div>
+
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.collection_select :area_type_id, organization_area_types, :id, :name %>
+  </div>
+</div>
+
+<div class="columns xlarge-6">
+  <%= form.check_box :active %>
+</div>

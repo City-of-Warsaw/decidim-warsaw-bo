@@ -1,0 +1,39 @@
+<% if project.editable_by?(current_user) %>
+  <%= link_to project_locator(project).edit, class: "action-icon-button", title: "Edytuj" do %>
+    <%= account_icon('edit') %>
+  <% end %>
+<% end %>
+
+<% if project.pdf_viewable_by?(current_user) %>
+  <%= link_to project_locator(project).path(format: 'pdf'), class: "action-icon-button", title: "Pobierz PDF" do %>
+    <%= account_icon('export') %>
+  <% end %>
+<% end %>
+
+<% if project.duplicable_by?(current_user) %>
+  <%= link_to duplicate_account_project_path(project), method: :post, class: "action-icon-button", title: "Duplikuj" do %>
+    <%= account_icon('duplicate') %>
+  <% end %>
+<% end %>
+
+<% if project.withdrawable_by?(current_user) %>
+  <%= link_to project_locator(project).withdraw, method: :put, class: "action-icon-button", title: "Wycofaj", data: { confirm: t('decidim.projects.projects.show.confirm.withdraw') } do %>
+    <%= account_icon('close') %>
+  <% end %>
+<% end %>
+
+<% if project.deletable_by?(current_user) %>
+  <%= link_to account_project_path(project), method: :delete, class: "action-icon-button", title: "Usuń", data: { confirm: t('decidim.projects.projects.show.confirm.destroy') } do %>
+    <%= account_icon('delete') %>
+  <% end %>
+<% end %>
+
+<% if project.appealable_by?(current_user) %>
+  <%= link_to "Odwołaj się", project.appeal ? edit_account_appeal_path(project.appeal) : new_account_appeal_path(project_id: project.id) %>
+<% end %>
+
+<% if project.coauthorship_acceptable_by?(current_user) %>
+  <%= link_to 'Potwierdź', "#{resource_locator(project).path}/coauthorship/edit", class: "button small" %>
+<% end %>
+
+

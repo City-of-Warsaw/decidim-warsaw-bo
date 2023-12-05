@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <% faq_groups.each do |faq_group| %>
+    <div class="row column">
+      <div class="page-title-wrapper">
+        <h2 class="section-heading">
+          <%= faq_group.title %>
+          <% if faq_group.subtitle.present? %>
+            <span><%= faq_group.subtitle %></span>
+          <% end %>
+        </h2>
+      </div>
+
+      <div>
+        <div class="columns small-12">
+          <% faq_group.faqs.published.sorted_by_weight.each do |faq| %>
+            <div class="card faq-question">
+              <div class="card__title">
+                <%= faq.title %>
+
+                <button class="toggle-button" aria-label="Zamknij" type="button" data-close>
+                  <span aria-hidden="true">&plus;</span>
+                </button>
+              </div>
+
+              <div class="card__content">
+                <%= decidim_sanitize translated_attribute faq.content %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>
+
+<%= nonced_javascript_tag do %>
+  $(".faq-question .card__title").click(function() { 
+    $(this).parent().toggleClass("faq-question--expanded");
+  });
+<% end %>

@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">Odwołanie</h2>
+  </div>
+
+  <div class="card-section">
+    <div class="field">
+      <% if @form.appeal && @form.appeal.persisted? %>
+        <strong>Projekt</strong>
+        <div style="margin-bottom: 15px;">
+          <%= form.hidden_field :project_id %>
+          <%= @form.project.title %>
+        </div>
+      <% else %>
+        <%= form.select :project_id, @form.rejected_projects.map{ |project| ["#{project.esog_number} - #{project.title}", project.id] }, include_blank: true, label: 'Projekt, którego dotyczy odwołanie' %>
+      <% end %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.text_area :body, autofocus: true, rows: 3, label: 'Treść odwołania' %>
+    </div>
+
+    <div class="row column hashtags__container">
+      <%= form.datetime_field :time_of_submit, label: 'Data złożenia odwołania' %>
+    </div>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Dokumenty załaczone do odwołania</legend>
+        </div>
+        <div class="card-section">
+
+          <div class="field hashtags__container">
+            <% if @form.appeal && @form.appeal.attachments.any? %>
+              <div class="row column">
+                <strong>Załączniki:</strong>
+                <div id="documents" class="gallery row">
+                  <% @form.appeal.attachments.each do |document| %>
+                    <%= link_to document.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(document.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                      <%= check_box_tag 'appeal[remove_documents][]', document.id, false %> usuń
+                    </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="field hashtags__container">
+            <%= form.file_field :add_documents,
+                                multiple: true,
+                                label: t("add_documents", scope: "decidim.projects.projects.edit"),
+                                class: 'multifile'
+            %>
+
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

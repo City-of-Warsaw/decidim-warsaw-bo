@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <style>
+    body {
+      font-family:  Helvetica;
+      line-height: 150%;
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 160%;
+    }
+    h3.slim {
+        font-weight: normal;
+    }
+    h4.slim {
+        font-weight: normal;
+    }
+
+    .close-up-bottom { margin-bottom: -10px; }
+
+    li {
+        padding-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>
+  Karta oceny merytorycznej<br>
+  projektu zgłoszonego do budżetu obywatelskiego w Warszawie na rok <%= @evaluation.project.edition_year %>
+</h2>
+
+<p>
+  Nr ESOG<sup>i</sup>: <%= @evaluation.project.esog_number %>
+  <br>
+  Znak Signum<sup>ii</sup>: <%= @evaluation.details['signum_number'] %>
+  <br><br>
+</p>
+<h3 class="slim">
+  Nazwa projektu:
+  <strong><%= @evaluation.project.title %></strong>
+</h3>
+
+<h3 class="close-up-bottom">Podmiot dokonujący oceny merytorycznej</h3>
+<p> <%= @evaluation.details["unit_name"] %></p>
+
+<h3>Informacje o przeprowadzonej ocenie merytorycznej</h3>
+
+<ol>
+  <% MeritoricalEvaluationFieldsDefinition::MERITORICAL_FIELDS.each do |f| %>
+    <li>
+      <% if f[:type] == 'radio' %>
+        <%= f[:label] %> - <%= @evaluation.status f[:name] %>
+        <br><br>
+        Uwagi: <%= @evaluation.details["#{f[:name]}_comment"] %>
+      <% elsif f[:type] == 'radio2' %>
+        <%= f[:label] %>
+        <br><br>
+        <% f[:fields].each do |ff| %>
+          <%= ff[:label] %> - <%= @evaluation.status ff[:name] %>
+          <br><br>
+        <% end %>
+        Uwagi: <%= @evaluation.details["#{f[:name]}_comment"] %>
+      <% elsif f[:type] == 'text' %>
+        <%= f[:label] %>
+        <br><br>
+        <%= @evaluation.details[f[:name]] %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<h3>Zmiana projektu</h3>
+
+<% if @evaluation.details['all_changes_info'] && @evaluation.details['all_changes_info'].any? %>
+  <% @evaluation.details['all_changes_info'].each do |as| %>
+    <p>
+      Data przekazania informacji o możliwości dokonania zmian: <%= as[0] %>
+      <br>
+      Sposób przekazania informacji: <%= as[1] %>
+      <br>
+      Uwagi: <%= as[2] %>
+      <br>
+      Zgoda (pisemna lub elektroniczna) projektodawcy udzielona w terminie 6 dni od dnia przekazania informacji:
+      <%= as[3]==1 ? 'spełniono' : (as[3]==2 ? 'nie spełniono' : 'nie dotyczy') %>
+    </p>
+  <% end %>
+<% end %>
+
+
+<h3>Potencjalne skutki realizacji projektu dla przestrzeni publicznej oraz społeczności lokalnej:</h3>
+<%= @evaluation.details['project_implementation_effects'] %>
+
+<h3>Uzasadnienie negatywnej oceny:</h3>
+<%= @evaluation.details['result_description'] %>
+
+
+<h2>Wynik oceny merytorycznej: <%= @evaluation.details['result'] == 1 ? 'pozytywny' : 'negatywny' %></h2>
+
+<p>
+  Data przeprowadzonej oceny: <%= @evaluation.details['verification_date'] %>
+</p>
+<p>
+  Imię i nazwisko pracownika oceniającego: <%= @evaluation.details['verifier_name'] %>
+</p>
+<p>
+  Data zatwierdzenia karty: <%= @evaluation.details['accept_date'] %>
+</p>
+<p>
+  Imię, nazwisko oraz funkcja osoby zatwierdzającej kartę: <%= @evaluation.details['accept_user_name'] %>
+  <!-- dodac role tego uzytkownika -->
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<p><small>
+  <sup>i</sup>
+  ESOG – elektroniczny system obsługi budżetu obywatelskiego, umożliwia zgłaszanie projektów i ich
+  ocenę oraz głosowanie.
+  <br>
+  <sup>ii</sup>
+  Signum – elektroniczny system obiegu dokumentów w Urzędzie Miasta
+</small></p>
+
+</body>
+</html>
+

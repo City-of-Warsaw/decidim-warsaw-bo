@@ -1,0 +1,1314 @@
+---
+pl:
+
+  activemodel:
+    attributes:
+      appeal:
+        body: Treść odwołania
+      poster_template:
+        background_file: Tło plakatu
+      project:
+        esog: Numer ESOG
+        address: Adres
+        locations: Lokalizacje
+        attachments:
+          attachment_type:
+            files: Załączniki
+            documents: Załączniki
+            consents: Zgoda na wykorzystanie utworu
+            endorsements: Lista poparcia
+        public_attachment_names: Załączniki
+        title: Nazwa projektu
+        body: Opis projektu
+        state: Status
+        categories: Kategoria tematyczna projektu
+        category_ids: Kategoria tematyczna projektu
+        category_names: Kategoria tematyczna projektu
+        custom_categories: Inne kategorie
+        recipients: Potencjalni odbiorcy projektu
+        recipient_names: Potencjalni odbiorcy projektu
+        potential_recipient_ids: Potencjalni odbiorcy projektu
+        custom_recipients: Inni odbiorcy
+        scope_id: Poziom zgłaszanego projektu / dzielnica
+        scope: Poziom zgłaszanego projektu / dzielnica
+        budget_value: Szacunkowy koszt realizacji projektu
+        justification_info: Uzasadnienie realizacji projektu
+        localization_info: Lokalizacja projektu - ulica i nr / rejon ulic w Warszawie
+        localization_additional_info: Inne istotne informacje dotyczące lokalizacji
+        # additional for now
+        short_description: Skrócony opis projektu
+        agreement_for_usage: Zgoda na wykorzystanie utworu
+        universal_design: Projektowanie uniwersalne
+        universal_design_argumentation: Projektowanie uniwersalne – uzasadnienie
+        coauthor_email_one: E-mail współautora
+        coauthor_email_two: E-mail współautora
+        coauthor_email_one_help_text: Jeżeli projekt ma współautorów, podaj ich adres email w tym miejscu
+        # admin fields
+        edition_year: Rok
+        budget_description: Wstępny kosztorys projektu wraz z wyszczególnieniem jego składowych
+        negative_verification_reason: Przyczyna negatywnej weryfikacji
+        project_implementation_effects: Skutki realizacji projektu
+        producer_list: Jednostka odpowiadająca za realizację
+        remarks: Uwagi
+        # labels with asterix + help texts and hints
+        title_label: Nazwa projektu *
+        title_help_text: Nazwę sformułuj w taki sposób, aby informowała o treści projektu.
+        title_hint: W trakcie głosowania to właśnie nazwa znajdzie się na karcie do głosowania.
+        body_label: Opis projektu *
+        body_help_text: |-
+          Opisz, na czym polega projekt i z jakich działań lub elementów będzie się składał.
+          Opisz, w jaki sposób mieszkańcy będą mogli skorzystać z projektu. Pamiętaj, że powinni móc z niego korzystać nieodpłatnie.
+          Nie wskazuj potencjalnego wykonawcy, trybu jego wyboru lub znaków towarowych.
+        body_hint: |-
+          Określ dostępność w wymiarze co najmniej 25 godzin tygodniowo, pomiędzy 6:00 a 22:00,
+          z uwzględnieniem soboty lub niedzieli (w przypadku projektów infrastrukturalnych, remontowych lub polegających na
+          zakupie sprzętu lub urządzeń) oraz wskaż zasady rekrutacji, w tym sposób informowania o rekrutacji, termin jej rozpoczęcia
+          i zakończenia oraz kryteria naboru (w przypadku gdy projekt jest skierowany do ograniczonej grupy odbiorców).
+        short_description_help_text: 'Opisz w kilku zdaniach, na czym polega Twój projekt (maksymalnie 50 słów).'
+        universal_design_help_text: |-
+          Zastanów się, czy projekt jest zgodny z zasadami projektowania uniwersalnego. Określ, czy Twoim zdaniem z
+          projektu będą mogli skorzystać wszyscy mieszkańcy (w możliwie największym stopniu) z uwzględnieniem osób ze specjalnymi potrzebami.
+        universal_design_hint: Zaznacz poniżej odpowiednie pole (zaznaczenie jest nieobowiązkowe). Jeśli zaznaczysz „Nie” napisz, dlaczego projekt nie jest zgodny z tymi zasadami.
+        categories_label: Kategoria tematyczna projektu *
+        category_ids_label: Kategoria tematyczna projektu *
+        recipients_label: Potencjalni odbiorcy projektu *
+        potential_recipient_ids_label: Potencjalni odbiorcy projektu *
+        scope_label: Poziom zgłaszanego projektu / dzielnica *
+        scope_id_label: Poziom zgłaszanego projektu / dzielnica *
+        justification_info_label: Uzasadnienie realizacji projektu *
+        justification_info_help_text: 'Uzasadnij, dlaczego warto zrealizować projekt.<br>Opisz problemy, które rozwiązuje lub napisz, na jakie potrzeby odpowiada.'
+        localization_info_label: Lokalizacja projektu - ulica i nr / rejon ulic w Warszawie *
+        budget_value_help_text: Oszacuj koszt realizacji projektu. Uwzględnij również koszt jego eksploatacji w roku wykonania i koszt oznakowania graficznego informującego, że projekt powstał w ramach budżetu obywatelskiego.
+        budget_value_hint: Skorzystaj z przykładowego cennika na stronie bo.um.warszawa.pl/pages/ile-kosztuje-miasto. Ostateczny koszt realizacji projektu oszacują urzędnicy.
+        offensive: Projekt obraźliwy
+        # historical fields
+        availability_description: Zasady korzystania z efektu realizacji projektu
+        future_maintenance_value: Szacunkowy roczny koszt eksploatacji
+        future_maintenance_description: Rodzaj oraz szacunkowa wysokość kosztów eksploatacji efektu realizacji projektu w kolejnych latach
+        # dates
+        published_at: Data zgłoszenia
+      vote_card:
+        ip_number: Numer IP
+        first_name: Imię
+        last_name: Nazwisko
+        pesel_number: PESEL
+        email: E-mail
+        scope_id: Dzielnica
+        # address
+        street: Ulica
+        street_number: Nr domu
+        flat_number: Nr mieszkania
+        zip_code: Kod pocztowy
+        city: Miasto
+        projects_in_districts_scope: Projekty dzielnicowe
+        projects_in_global_scope: Projekty ogólnomiejskie
+        # editor fileds
+        identity_confirmed: Tożsamość potwierdzona
+        card_signed: Karta podpisana
+        data_unreadable: Dane nieczytelne
+        card_invalid: Niepoprawna karta
+        card_received_late: Karta wpłynęła po terminie
+        invalid_card_message:
+          global_projects_count_exceeded: Wybrana liczba projektów ogólnomiejskich jest wyższa niż dopuszczalny limit
+          district_projects_count_exceeded: Wybrana liczba projektów dzielnicowych jest wyższa niż dopuszczalny limit
+          card_not_signed: Karta nie została podpisana
+          identity_not_checked: Osoba nie stawiła się osobiście w punkcie oddawania katy do głosowania w celu potwierdzenia swojej tożsamości
+          pesel_number_invalid: Ten numer PESEL jest niepoprawny. Sprawdź, czy cyfry wpisane są prawidłowo?
+          pesel_used: Ten PESEL został już użyty do oddania głosu
+          pesel_number_blank: Pole PESEL nie może być puste
+          unreadable: Błędne lub nieczytelne dane osobowe
+          invalid_card: Głos został oddany na niepoprawnej karcie
+          card_received_late: Karta włynęła po terminie
+        warning_card_message:
+          not_from_warsaw: To nie jest mieszkaniec Warszawy
+          wrong_zip_code: Zawartość pola Kod pocztowy jest nieprawidłowa
+        project:
+          attributes:
+            add_endorsements:
+              needs_to_be_attached: Należy załączyć pliki
+              needs_to_be_reattached: Należy załączyć ponownie
+            add_consents:
+              needs_to_be_attached: Należy załączyć pliki
+              needs_to_be_reattached: Należy załączyć ponownie
+            add_files:
+              needs_to_be_attached: Należy załączyć pliki
+              needs_to_be_reattached: Należy załączyć ponownie
+            budget_value:
+              too_high: "Przekroczono maksymalny limit kwoty dla wybranej dzielnicy"
+      vote_statistic:
+        step_1: Instrukcja
+        step_2_info: Instrukcja głosowania dzielnicowego
+        step_3_info: Instrukcja głosowania ogólnomiejskiego
+        step_2_list: Głosowanie dzielnicowe
+        step_3_list: Głosowanie ogólnomiejskie
+        step_4: Dane użytkownika
+        step_5: Podsumowanie
+        step_6: Podziękowanie
+        first_view_entering_time: Pierwszy widok
+        second_view_entering_time: Drugi widok
+        third_view_entering_time: Trzeci widok
+        fourth_view_entering_time: Czwarty widok
+        fifth_view_entering_time: Piąty widok
+    errors:
+      models:
+        appeal:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Należy załączyć ponownie
+        project:
+          attributes:
+            add_endorsements:
+              needs_to_be_attached: Należy załączyć listę poparcia.
+        wizard_vote_user_data:
+          attributes:
+            zip_code:
+              wrong_zip_code: Kod pocztowy jest niepoprawny.
+            pesel_number:
+              not_eleven_digits_number: Wpisany numer PESEL jest niepoprawny.
+              date_is_not_in_the_past: Data urodzenia wyliczona na podstawie numeru PESEL
+              pesel_used: |-
+                Ten numer PESEL został już wykorzystany w głosowaniu. Pamiętaj, że możesz zagłosować tylko raz.
+                Jeśli to nie Ty głosowałeś skontaktuj się z nami wysyłając wiadomość na adres bo@um.warszawa.pl
+            pesel_number_confirmation:
+              pesels_do_not_match: Wpisane numery PESEL nie są takie same - sprawdź poprawność wprowadzonych danych
+  activerecord:
+    errors:
+      models:
+        vote_card:
+          attributes:
+            pesel_number:
+              not_eleven_digits_number: Należy podać numer PESEL składający się z 11 cyfr
+              wrong_control_digit: PESEL ma niepoprawną sumę kontrolną
+              not_proper_date_structure: PESEL ma niepoprawną formę
+              date_is_not_in_the_past: Zgodnie z numerem PESEL data urodzin jest w przyszłości
+              pesel_used: Pesel został już użyty
+  errors:
+    messages:
+      extension_whitelist_error: "Niedozwolony rodzaj pliku. Dozwolone formaty to: %{allowed_types}"
+
+  decidim:
+
+    follows:
+      project:
+        create:
+          button: Obserwuj realizację
+        destroy:
+          button: Przestań obserwować realizację
+    project_conflicts:
+      actions:
+        update: Zapisz
+    proejct_conflicts:
+      actions:
+        create: Utwórz
+    votes:
+      publish:
+        error: Nie udało się oddać głosu. Sprawdź czy wszystkie dane zostały wypełnione poprawnie.
+        success: Głos został oddany.
+      update:
+        step_2_list:
+          success: Zapisano projekty dzielnicowe.
+          skip_projects: Pominięto projekty dzielnicowe.
+        step_3_list:
+          success: Zapisano projekty ogólnomiejskie.
+          skip_projects: Pominięto projekty ogólnomiejskie.
+        step_2:
+          success: Zapisano projekty dzielnicowe.
+        step_3:
+          success: Zapisano projekty ogólnomiejskie.
+        step_4:
+          success: Zapisano dane osobowe.
+        error: Nie udało się zapisać danych.
+      create:
+        error: Nie udało się wygenerować karty do głosowania, spróbuj ponownie.
+        success: Wygenerowano kartę do głosowania. Na podany adres e-mail został wysłany link, pod którym można oddać głos.
+        send_again: Dla podanego adresu istnieje już wygenerowana karta. Link, pod którym można oddać głos, został wysłany ponownie na podany adres e-mail.
+      actions:
+        new: Wprowadź kartę do głosowania
+        update: Zapisz
+        create: Dodaj
+    admin:
+      filters:
+        project_conflict_ids:
+          label: "Konflikty"
+          values:
+            waiting: Oczekujące na decyzje
+            with_conflicts: Potwierdzone
+            no_conflicts: Brak konfliktu
+        is_paper:
+          label: Metoda złożenia
+          values:
+            true: Papierowo
+            false: Elektronicznie
+        user_ids:
+          label: Użytkownik
+        scope_type_ids:
+          label: Poziom
+          values:
+            1: Dzielnicowy
+            2: Ogólnomiejski
+        scope_ids:
+          label: Dzielnica
+        recipients_ids:
+          label: Grupa Docelowa
+        categories_ids:
+          label: Kategoria
+        q:
+          label: Wyszukiwarka
+        verification_statuses:
+          label: Status weryfikacji
+          values:
+            waiting: czeka na przydzielenie do weryfikatora form.
+            formal: w trakcie oceny formalnej
+            formal_finished: czeka na zatwierdzenie oceny form.
+            formal_accepted: czeka na przydzielenie do weryfikatora meryt./ czeka na ostateczną akceptację
+            meritorical: w trakcie oceny merytorycznej
+            meritorical_finished: czeka na akceptację oceny meryt.
+            meritorical_accepted: czeka na ostateczną akceptację
+            finished: Oceniono
+        states:
+          label: Status
+          values:
+            admin_draft: Kopia robocza - wersja papierowa
+            draft: Kopia robocza
+            published: Zgłoszony / Trwa ocena
+            withdrawn: Wycofany przez autora
+            accepted: Dopuszczony do głosowania
+            rejected: Oceniony negatywnie
+            selected: Wybrany w głosowaniu
+            not_selected: Niewybrany w głosowaniu
+        votes:
+          area_ids_has:
+            label: Kategoria
+          is_paper_eq:
+            label: Metoda złożenia
+            values:
+              true: Papierowo
+              false: Elektronicznie
+          scope_id_eq:
+            label: Dzielnica
+          status_eq:
+            label: Status
+            values:
+              link_sent: oczekuje na aktywację
+              waiting: niepotwierdzony
+              submitted: niezweryfikowany
+              valid: ważny
+              pesel_not_verified: niezweryfikowany PESEL
+              name_not_verified: niezweryfikowane imię i nazwisko
+              invalid: nieważny
+        appeals:
+          scope_id_eq:
+            label: Dzielnica
+          scope_scope_type_id_eq:
+            label: Poziom
+          state_eq:
+            label: Status ponownej oceny
+            values:
+              appeal_draft: Kopia robocza
+              appeal_waiting_acceptance: Czeka na akceptację odwołania
+              appeal_waiting: Czeka na przydzielenie do weryfikatora
+              appeal_verification: W trakcie weryfikacji
+              appeal_verification_finished: Czeka na akceptację koordynatora
+              appeal_admin_verification: Czeka na akceptację CKS
+              appeal_coordinator_finished: Zaakceptowany przez koordynatora
+              reevaluation_finished: Oceniony
+          is_paper:
+            label: Metoda złożenia
+            values:
+              true: Papierowo
+              false: Elektronicznie
+        project_ranks:
+          is_paper_eq:
+            label: Metoda złożenia
+            values:
+              true: Papierowo
+              false: Elektronicznie
+          scope_id_eq:
+            label: Dzielnica
+          status_eq:
+            label: Stan
+        projects:
+          categories_id_in:
+            label: Kategoria
+          category_id_eq:
+            label: Kategoria
+          is_paper_eq:
+            label: Metoda złożenia
+            values:
+              true: Papierowo
+              false: Elektronicznie
+          is_emendation_true:
+            label: Poprawki
+          recipients_id_in:
+            label: Grupa docelowa
+          scope_id_eq:
+            label: Dzielnica
+          scope_scope_type_id_eq:
+            label: Poziom
+          state_null:
+            label: Stan
+            values:
+              true: Brak
+          state_eq:
+            label: Status
+            values:
+              admin_draft: Kopia robocza - wersja papierowa
+              draft: Kopia robocza
+              published: Zgłoszony / Trwa ocena
+              withdrawn: Wycofany przez autora
+              accepted: Dopuszczony do głosowania
+              rejected: Oceniony negatywnie
+              selected: Wybrany w głosowaniu
+              not_selected: Niewybrany w głosowaniu
+              # Publish status double translations
+              evaluation: Trwa ocena # used only on views
+              submited: Zgłoszony # used only on views
+              # Implementation statuses
+              in_progress: W trakcie realizacji
+              finished: Zrealizowano
+          state_accepted_eq:
+            label: Stan
+            values:
+              accepted: Dopuszczony do głosowania
+          state_not_selected_eq:
+            label: Stan
+            values:
+              not_selected: Nie wybrany w głosowaniu
+          state_published_eq:
+            label: Stan
+            values:
+              published: Zgłoszony
+          state_rejected_eq:
+            label: Stan
+            values:
+              rejected: Oceniony negatywnie
+          state_selected_eq:
+            label: Stan
+            values:
+              selected: Wybrany w głosowaniu
+          state_withdrawn_eq:
+            label: Stan
+            values:
+              withdrawn: Wycofany przez autora
+          implementation_status_eq:
+            label: Stan realizacji
+            values:
+              default: nie ustawiono
+              abandoned: Odstąpiono od realizacji
+              in_progress: W trakcie realizacji
+              finished: Zrealizowano
+              "0": 0 - odstąpiono od realizacji
+              1: 1 - w trakcie realizacji
+              2: 2 - w trakcie realizacji
+              3: 3 - w trakcie realizacji
+              4: 4 - w trakcie realizacji
+              5: 5 - zrealizowano
+          implementation_state_eq:
+            label: Stan realizacji
+            values:
+              abandoned: Odstąpiono od realizacji
+              in_progress: W trakcie realizacji
+              finished: Zrealizowano
+          implementation_photos_exists_true:
+            label: Posiada zdjęcia
+            values:
+              "0": Nie
+              1: Tak
+          valuator_role_ids_has:
+            label: Przypisano do weryfikatora
+          verification_status_eq:
+            label: Status weryfikacji
+            values:
+              waiting: czeka na przydzielenie do weryfikatora form.
+              formal: w trakcie oceny formalnej
+              formal_finished: czeka na zatwierdzenie oceny form.
+              formal_accepted: czeka na przydzielenie do weryfikatora meryt./ czeka na ostateczną akceptację
+              meritorical: w trakcie oceny merytorycznej
+              meritorical_finished: czeka na akceptację oceny meryt.
+              meritorical_accepted: czeka na ostateczną akceptację
+              finished: Oceniono
+        search_placeholder:
+          # dla voting_list
+          title_or_esog_number_string_cont: Przeszukaj po tytule lub nr ESOG
+          # dla rank_list
+          body_or_project_title_or_esog_number_string_cont: Wyszukaj odwołania według numeru ESOG, nazwy, lub treści
+          project_title_or_project_esog_number_string_cont: Przeszukaj po tytule lub nr ESOG
+          # dla projektow:
+          id_string_or_body_cont: Przeszukaj %{collection} według id lub treści odwołania.
+          id_string: Przeszukaj %{collection} według id lub treści odwołania.
+          id_string_or_esog_number_string_or_title_or_body_or_short_description_cont: Wyszukaj projekt według numeru ESOG, nazwy, lub treści.
+          id_string_or_esog_number_string_or_title_or_body_or_short_description_or_signum_znak_sprawy_cont: Wyszukaj projekt według numeru ESOG, znaku sprawy, nazwy, lub treści.
+          id_string_or_esog_number_string_or_title_or_body_or_short_description_or_producer_list_cont: Wyszukaj projekt według numeru ESOG, nazwy, treści lub jednostce odpowiedzialnej.
+          id_string_or_esog_number_string_or_title_or_body_or_short_description_or_producer_list_or_implementations_body_cont: Wyszukaj projekt według numeru ESOG, nazwy, treści lub jednostce odpowiedzialnej.
+          first_name_or_last_name_or_pesel_number_or_ip_number_or_email_or_card_number_or_author_first_name_or_author_last_name_cont: Przeszukaj wg imienia, nazwiska, adresu email, IP, nr pesel, nr karty lub autorze wpisu
+      menu:
+        participatory_processes_submenu:
+          endorsement_list_settings: Lista poparcia
+          maintain_form: Formularz projektu
+          voters_imports: Import głosujących
+          poster_templates: Szablony plakatów
+          statistics_of_projcts: Statystyki
+      messages:
+        history_conversation: "Konwersacja z autorem projektu:"
+        email: "wysłano za pomocą e-mail"
+        website: "wysłano z poziomu Mojego konta"
+        admin_panel: "wysłano z poziomu panelu administracyjnego"
+      titles:
+        edit_project_form: Formularz projektu
+        poster_templates: Szablony plakatów
+    appeals:
+      actions:
+        create: Zapisz
+        new: Wprowadź odwołanie
+        update: Zapisz
+      create:
+        success: Utworzono odwołanie.
+        error: Nie udało się utworzyć odwołania.
+      publish:
+        success: Wysłano odwołanie.
+        error: Nie udało się wysłać odwołania.
+      update:
+        success: Zaktualizowano odwołanie.
+        success_reminder: Zaktualizowano odwołanie.<br>Pamiętaj, że wprowadzone odwołanie musisz przekazać do koordynatora
+        error: Nie udało się zaktualizować odwołania.
+    components:
+      projects:
+        name: Projekty
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+            creation_enabled: Użytkownicy mogą dodawać projekty
+            voting_enabled: Użytkownicy mogą głosować na projekty
+    menu:
+      all_projects: Przeglądaj projekty
+      all_realizations: Realizacje
+      all_results: Archiwum wyników
+    projects:
+      confirm_coauthorship_confirmation: "Czy na pewno chcesz potwierdzić współautorstwo?"
+      offensive: Opis projektu został usunięty przez administratora, ponieważ zawierał treści uznawane powszechnie za obsceniczne, obraźliwe, wulgarne lub które mogą być odebrane, jako społecznie naganne.
+      voting_list_item:
+        vote: Wybierz
+      votes_cards:
+        step_6:
+          proceed: Przejdź do strony głównej
+        step_5:
+          back: Cofnij
+          submit: Zagłosuj
+        author_fields:
+          back: Cofnij
+          submit: Dalej
+          name_data: "<span>Twoje</span>dane"
+          address_data: "<span>Adres</span>zamieszkania"
+          last_name_help: Nazwisko wpisz w takiej samej formie jak jest wpisane w Twoim dowodzie osobistym
+          email_help: "Uwaga! Ten adres e-mail będzie wykorzystywany do kontaktu z Tobą, ale nie będzie widoczny dla innych użytkowników."
+          pesel_number_confirmation_label: Powtórz PESEL
+        step_3_info:
+          choose_projects: Wybierz projekty
+          skip: Pomiń
+          back: Cofnij
+          submit: Dalej
+        step_3_list:
+          choose_projects: Wybierz projekty
+          skip: Pomiń
+          back: Cofnij
+          submit: Dalej
+        filters:
+          show_all: Pokaż wszystkie
+          show_chosen: Pokaż wybrane
+          search_text_info: Przeszukaj pomysły po nazwie, treści lub numerze
+          scope_label: Wybierz dzielnicę
+          scope: Dzielnica
+          category_label: Wybierz kategorię
+          category: Kategoria
+          potential_recipient_label: Wybierz grupę docelową
+          potential_recipient: Grupa docelowa
+        step_2_info:
+          back: Cofnij
+          submit: Dalej
+          choose_projects: Wybierz projekty
+          skip: Pomiń
+          empty: Wybierz dzielnicę, w której chcesz głosować, żeby zobaczyć listę projektów.
+        step_2_list:
+          back: Cofnij
+          submit: Dalej
+          choose_projects: Wybierz projekty
+          skip: Pomiń
+          empty: Wybierz dzielnicę, w której chcesz głosować, żeby zobaczyć listę projektów.
+        step_1:
+          start_voting: Rozpocznij głosowanie
+        instruction:
+          title_1: "Projekty <span>dzielnicowe</span>"
+          title_2: "Projekty <span>ogólnomiejskie</span>"
+          title_3: "Dane <span>osobowe</span>"
+          title_4: "Podsumowanie <span>i potwierdzenie</span>"
+        wizard_steps:
+          step_titles:
+            step_1: Instrukcja głosowania
+            step_2: Projekty dzielnicowe %{year}
+            step_3: Projekty ogólnomiejskie %{year}
+            step_4: Uzupełnij swoje dane
+            step_5: Potwierdź swoje głosy
+            step_6: Ty też zmieniasz Warszawę!
+          title: Kroki oddawania głosu
+          see_steps: Zobacz kroki
+          step_of: "Krok %{current_step_num} z %{total_steps}"
+          current_step: Aktualny etap
+          step_1: 1. <span>Instrukcja</span>
+          step_2: 2. <span>Projekty dzielnicowe</span>
+          step_3: 3. <span>Projekty ogólnomiejskie</span>
+          step_4: 4. <span>Dane osobowe</span>
+          step_5: 5. <span>Podsumowanie</span>
+          step_6: 6. <span>Potwierdzenie</span>
+        new:
+          vote: Rozpoczynasz głosowanie w budżecie obywatelskim
+          submit: Wyślij link do głosowania
+      admin:
+        statistics_manage:
+          success: "Zapisano poprawnie"
+          invalid: "Wystąpiły błędy w formularzu"
+        conflict_status:
+          not_set: ""
+          waiting: Oczekuje na decyzje
+          with_conflicts: Tak
+          no_conflicts: Brak
+        project_conflicts:
+          index:
+            title: Projekty będące w konflikcie
+            votes_summary:
+              validation: validation
+          form:
+            potential_conflicts: |-
+              Poniżej znajduje się lista projektów, które system wskazał jako znajdujące się w pobliżu projektu: %{project_name}.<br>
+              Sprawdź, czy któryś z nich wymaga oznaczenia jako niemożłiwy do realizacji wspólnie z tym projektem.
+            title: "%{project_name} - Wskaż wykluczające się projekty"
+            pick: "Wskaż wykluczające się projekty, dla projektu: %{project_name}"
+            potential_conflicts_not_found: System nie znalazł żadnych projektów
+            conflict_status:
+              not_set: ""
+              waiting: Oczekuje na decyzje
+              with_conflicts: Konflikty potwierdzone
+              no_conflicts: Brak
+        ranking_lists:
+          index:
+            generate_rank_list: Wygeneruj listę rankingową
+            publish_rank_list: Publikuj listę rankingową
+            clear_votes: Wyczyść dane głosujących
+            confirm_generate_ranking_lists: Czy jesteś pewien, że chcesz wygenerować listę rankingową?
+            confirm_publishing_rank_list: |-
+              Czy jesteś pewien, że chcesz opublikować listę rankingową?<br>
+              Po publikacji weryfikacja głosów nie będzie już możliwa.<br>
+              Opublikowanie listy spowoduje wysłanie maili do autorów projektów informujące ich o wynikach głosowania. 
+              Etap bieżącej edycji zostanie zmieniony na "%{results_name}".
+            confirm_clear_votes: To działanie wiąże się z <strong>wyczyszczeniem danych</strong> osób głosujących oraz kart do głosowania. <br> Jest <strong>nieodwracalne</strong>.
+            title: Lista rankingowa
+            votes_summary:
+              validation: "Głosy:<br>ważne/<br>niezweryfikowane/<br>nieważne"
+              type: "Głosy:<br>elektroniczne/<br>papierowe"
+              percentage: "Procent głosów niezweryfikowanych"
+        voting_lists:
+          index:
+            generate_voting_numbers: Wygeneruj listy do głosowania
+            title: Lista do głosowania
+        votes_cards:
+          statistics:
+            time_tables: Daty i godziny wejść na poszczególne widoki
+            views_count: L. kliknięć w karty projektów
+            district_projects: dzielnicowe
+            global_projects: ogólnomiejskie
+            category: Kategoria
+            recipients: Grupa docelowa
+            phrase: Słowa kluczowe
+            district_projects_views_count: L. kliknięć w dzielnicowe karty projektów
+            global_projects_views_count: L. kliknięć w ogólnomiejskie karty projektów
+            filters_for_district_projects: Użyte filtry w głosowaniu dzielnicowym
+            filters_for_global_projects: Użyte filtry w głosowaniu ogólnomiejskim
+            time_spent_in_district_voting: Czas spędzony w głosowaniu dzielnicowym
+            time_spent_in_global_voting: Czas spędzony w głosowaniu ogólnomiejskim
+            time_spent_in_whole_voting: Czas spędzony w głosowaniu
+          show:
+            invalid_vote:
+              true: Nieważny
+              false: Ważny
+            statistics: Statystyki
+            not_published: Jeszcze nie zatwierdzono
+            not_sended: Jeszcze nie wysłano
+            male: Mężczyzna
+            female: Kobieta
+            gender: Płeć (odczytano z numeru PESEL)
+            birth_date: Data urodzenia (odczytano z numeru PESEL)
+          form:
+            lower_district: Projekty dzielnicowe
+            higher_district: Projekty ogólnomiejskie
+            user_data: Dane głosujacego
+          index:
+            title: Karty do głosowania
+        appeals:
+          create:
+            success_reminder: Odwołanie zostało utworzone. Pamiętaj, że wprowadzone odwołanie musisz przekazać do koordynatora
+            success: Odwolanie zostało utworzone.
+            error: Nie udało się utworzyc odwołania.
+          update:
+            success_reminder: Odwołanie zostało zapisane. Pamiętaj, że wprowadzone odwołanie musisz przekazać do koordynatora
+            success: Odwołanie został zaktualizowane.
+            error: Nie udało się zaktualizować odwołania.
+        actions:
+          preview: Podgląd
+          edit: Edytuj
+        evaluations:
+          new:
+            title: Nowa ocena
+            create: Utwórz
+        formal_evaluations:
+          form_formal:
+            email: e-mail
+            phone: telefon
+          new:
+            title: Nowa ocena
+            create: Utwórz
+          edit:
+            download_pdf: |-
+              Poniżej możesz pobrać pdf by móc go podpisać i załączyć skan.<br>
+              Przypominamy jednak, że karta wygeneruje się automatycznie <br>
+              i zostanie udostępniona zgodnie z datą publikacji ocen na stronie publicznej projektu.
+            pdf_button: PDF - ocena formalna
+            title: Edycja oceny formalnej
+            create: Zapisz
+        implementations:
+          create:
+            success: Zaktualizowano stan realizacji.
+            error: Nie udało się zaktualizować stanu realizacji.
+            invalid: Nie udało się zaktualizować stanu realizacji.
+          update:
+            success: Zaktualizowano stan realizacji.
+            error: Nie udało się zaktualizować stanu realizacji.
+            invalid: Nie udało się zaktualizować stanu realizacji.
+        meritorical_evaluations:
+          new:
+            title: Nowa ocena
+            create: Utwórz
+          edit:
+            title: Edycja oceny merytorycznej
+            create: Zapisz
+            download_pdf: |-
+              Poniżej możesz pobrać pdf by móc go podpisać i załączyć skan.<br>
+              Przypominamy jednak, że karta wygeneruje się automatycznie <br>
+              i zostanie udostępniona zgodnie z datą publikacji ocen na stronie publicznej projektu.
+            pdf_button: PDF - ocena merytoryczna
+        reevaluations:
+          new:
+            title: Nowa ocena
+            create: Utwórz
+          edit:
+            title: Ponowna ocena projektu
+            create: Zapisz
+            download_pdf: |-
+              Poniżej możesz pobrać pdf by móc go podpisać i załączyć skan.<br>
+              Przypominamy jednak, że karta wygeneruje się automatycznie <br>
+              i zostanie udostępniona zgodnie z datą publikacji ocen na stronie publicznej projektu.
+            pdf_button: PDF - ponowna ocena
+        exports:
+          projects: Projekty
+          project_comments: Komentarze
+          project_authors: Autorzy
+          project_with_authors: Projekty z autorami
+        projects:
+          create:
+            success: Projekt został utworzony.
+            error: Nie udało się utworzyc projektu.
+            invalid: Podczas tworzenia tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+          bulk_actions:
+            assign_to_valuator:
+              #assign_to_valuator_confirm: Ta akcja przypisze wszystkie możliwe projekty do wybranego weryfikatora, takze te, które już zostały przypisane wcześniej. Czy chcesz kontynuować?
+              assign_to_valuator_confirm: Czy na pewno chcesz przypisać projekty do wybranego weryfikatora?
+          edit:
+            title: Edycja projektu
+            update: Zapisz
+          form:
+            email: Adres e-mail
+            email_help: "Uwaga! Ten adres e-mail będzie wykorzystywany do kontaktu z Tobą, ale nie będzie widoczny dla innych użytkowników."
+            coauthors: Współautorzy
+            coauthors_help: Jeżeli projekt ma współautorów, podaj ich adres email w tym miejscu
+            first_name: Imię
+            last_name: Nazwisko
+            male: Mieszkaniec
+            female: Mieszkanka
+            phone_number: Telefon kontaktowy
+            phone_number_help: "Uwaga! Nr telefonu nie będzie nigdzie publikowany, będzie wykorzystywany jedynie przez pracownika urzędu do łatwiejszego kontaktu z Tobą w sprawie tego projektu."
+            photos: Lista poparcia
+            # address
+            street: Ulica
+            street_number: Nr domu
+            flat_number: Nr mieszkania
+            zip_code: Kod pocztowy
+            city: Miasto
+          index:
+            empty: Nie znaleziono projektów, do których masz dostęp na podstawie wskazanych kryteriów wyszukiwania
+            accept_changes: Zatwierdź zmiany w treści
+            accept_evaluations: Zatwierdź oceny
+            actions: Działania
+            assign_to_valuator: Przypisz do weryfikatora
+            change_category: Zmien kategorię
+            change_scope: Zmień zakres
+            forward_to_department: Przekaż do komórki
+            forward_projects_to_department_button: Przekaż
+            merge: Przyłącz do nowego
+            publish_answers: Publikuj odpowiedzi
+            selected: Wybrano
+            send_messages: Wyślij powiadomienia
+            title: Projekty
+            unassign_from_valuator: Anuluj przypisanie do weryfikatora
+
+          new:
+            title: Nowy projekt
+            create: Utwórz
+          show:
+            projects: Projekty
+            link: Pokaż
+            authors: Autorzy
+            body: Treść
+            created_at: Data utworzenia
+            comments_count: Liczba komentarzy
+            comments_positive_count: Liczba pozytywnych komentarzy
+            comments_neutral_count: Liczba neutralnych komentarzy
+            comments_negative_count: Liczba negatywnych komentarzy
+            photos: Zdjęcia
+            documents: Załączniki
+          accept_changes:
+            number_of_projects: Zatwiedź treść dla zmian w %{number} projektach.
+          accept_evaluations:
+            number_of_projects: Zatwiedź oceny w %{number} projektach.
+          send_messages:
+            number_of_projects: Wyślij wiadomość do autorów %{number} projektów.
+        statistics:
+          number_of_project_voters_0_18: Głosujących w wieku 0-18
+          number_of_project_voters_19_24: Głosujących w wieku 19-24
+          number_of_project_voters_25_34: Głosujących w wieku 25-34
+          number_of_project_voters_35_44: Głosujących w wieku 35-44
+          number_of_project_voters_45_64: Głosujących w wieku 45-64
+          number_of_project_voters_65_100: Głosujących w wieku 65+
+        voters:
+          create:
+            success: Baza danych osób uprawnionych została zaktualizowana.
+            invalid: Nie udało się wgrać pliku. Sprawdź, czy plik ma poprawny format.
+        poster_templates:
+          index:
+            title: Nazwa
+            subtitle: Dopisek
+            published: Publiczny
+            created_at: Data utworzenia
+            actions: Działania
+            published_no: Nie
+            published_yes: Tak
+          form:
+            data: Parametry szablonu plakatu
+            subtitle: Dopisek
+            published: Publiczny
+            published_no: Nie
+            published_yes: Tak
+            width: Szerokość plakatu (px)
+            height: Wysokość plakatu (px)
+            background_file: Tło plakatu
+            body_css_helper: "Pole wymaga użycia reguł określających styl dla wybranych elementów pliku w języku CSS – Kaskadowych arkuszach stylów. Więcej informacji na: <a href='https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów'>https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów</a>"
+            body_css: Globalne style CSS
+            title: Nazwa szablonu
+            project_title: Nazwa projektu
+            sample_title: "Przykładowy tekst do podglądu"
+            sample_title_helper: Nazwa projektu będzie dynamicznie pobierana podczas generowania plakatu dla konkretnego projektu.
+            project_title_x: Współrzędna X (px)
+            project_title_y: Współrzędna Y (px)
+            project_title_width: Obszar tekstu - szerokość (px)
+            project_title_height: Obszar tekstu - wysokość (px)
+            project_title_css: Dodatkowe CSS
+            project_title_css_helper: "Pole wymaga użycia reguł określających styl dla wybranych elementów pliku w języku CSS – Kaskadowych arkuszach stylów. Więcej informacji na: <a href='https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów'>https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów</a>"
+            area: Poziom projektu
+            project_area_x: Współrzędna X (px)
+            project_area_y: Współrzędna Y (px)
+            project_area_width: Obszar tekstu - szerokość (px)
+            project_area_height: Obszar tekstu - wysokość (px)
+            project_area_css: Dodatkowe CSS
+            project_area_css_helper: "Pole wymaga użycia reguł określających styl dla wybranych elementów pliku w języku CSS – Kaskadowych arkuszach stylów. Więcej informacji na: <a href='https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów'>https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów</a>"
+            sample_project_area: "Przykładowy poziom projektu do podglądu"
+            sample_project_area_helper: Poziom projektu będzie dynamicznie pobierana podczas generowania plakatu dla konkretnego projektu.
+            helper_x: Współrzędna X wyrażona w pikselach (liczona od górnego, lewego rogu), odpowiada marginesowi lewemu.
+            helper_y: Współrzędna Y wyrażona w pikselach (liczona od górnego, lewego rogu), odpowiada marginesowi górnego.
+            number: Numer projektu
+            project_number_x: Współrzędna X (px)
+            project_number_y: Współrzędna Y (px)
+            project_number_width: Obszar tekstu - szerokość (px)
+            project_number_height: Obszar tekstu - wysokość (px)
+            project_number_css: Dodatkowe CSS
+            project_number_css_helper: "Pole wymaga użycia reguł określających styl dla wybranych elementów pliku w języku CSS – Kaskadowych arkuszach stylów. Więcej informacji na: <a href='https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów'>https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_stylów</a>"
+            sample_project_number: "Przykładowy tekst do podglądu"
+            sample_project_number_helper: Numer projektu będzie dynamicznie pobierana podczas generowania plakatu dla konkretnego projektu.
+            empty: Brak
+          show:
+            back: Wróć
+          create:
+            success: Szablony został dodany.
+            errors: Wystąpiły błędu w formularzu.
+          update:
+            success: Szablony został edytowany.
+            errors: Wystąpiły błędu w formularzu.
+          destroy:
+            success: Szablon został usunięty.
+          actions:
+            save: Zapisz
+            cancel: Anuluj
+            add_poster_template: Dodaj szablon
+            edit_poster_template: Edytuj szablon
+            show: Przejdź do szablonu
+            download_background_file: Pobierz tło
+            destroy_poster_template: Usuń szablon
+            confim_destroy_poster_template: Czy na pewno chcesz usunąć szablon?
+      admin_log:
+        project_rank:
+          ranking_list_index: "Użytkownik %{user_name} wyswietlił(a) listę rankingową - %{scope_name} - w Edycji: %{space_name}"
+          export_ranking_list: "Użytkownik %{user_name} wyeksportował(a) listę rankingową w Edycji: %{space_name}"
+          publish_ranking_list: "Użytkownik %{user_name} opublikował(a) listę rankingową w Edycji: %{space_name}"
+        votes:
+          create: "Użytkownik %{user_name} wprowadził(a) %{resource_name} w Edycji: %{space_name}"
+          update: "Użytkownik %{user_name} zaktualizował(a) - pola: %{diff} w %{resource_name}  w Edycji: %{space_name}"
+          publish: "Użytkownik %{user_name} potwierdził(a) wprowadzoną %{resource_name} w Edycji: %{space_name}"
+          export: "Użytkownik %{user_name} wyeksportował(a) listę głosów w Edycji: %{space_name}"
+          voting_index: "Użytkownik %{user_name} wyswietlił(a) listę wszystkich głosów w Edycji: %{space_name}"
+          publish_ranking_list: "Użytkownik %{user_name} opublikowla(a) listę głosów w Edycji: %{space_name}"
+          clear_vote_cards: "Użytkownik %{user_name} wyczyścił(a) listę głosów w Edycji: %{space_name}"
+          export_ranking_list: "Użytkownik %{user_name} wyeksportował(a) listę głosów w Edycji: %{space_name}"
+          show_single_vote: "Użytkownik %{user_name} wyswietlił(a) szczegóły głosu %{resource_name} w Edycji: %{space_name}"
+          change_status: "Użytkownik %{user_name} zmienił(a) status karty do głosowania %{resource_name} w Edycji: %{space_name}"
+          verify_votes: "Użytkownik %{user_name} zweryfikował karty do głosowania w Edycji: %{space_name}"
+          export_votes_for_verification: "Użytkownik %{user_name} wyeksportował karty do glosowania do weryfikacji w Edycji: %{space_name}"
+          export_votes_to_csv_xlsx: "Użytkownik %{user_name} wyeksportował karty do glosowania XLSX/CSV w Edycji: %{space_name}"
+          get_link_for_vote: "Użytkownik %{user_name} pobrał link do karty do glosowania  %{resource_name}  w Edycji: %{space_name}"
+          resend_voting_email: "Użytkownik %{user_name} wysłał ponownie link do karty do glosowania  %{resource_name}  w Edycji: %{space_name}"
+          resend_all_voting_email: "Użytkownik %{user_name} wysłał ponownie link do wszystkich nie dokończonych glosowań w Edycji: %{space_name}"
+          import_voters: "Użytkownik %{user_name} wykonał import bazy danych osób uprawnionych do głosowania w Edycji: %{space_name}"
+        project:
+          export_voting_list: "Użytkownik %{user_name} wyeksportował listy do glosowania w Edycji: %{space_name}"
+          export_voting_card: "Użytkownik %{user_name} wyeksportował karty do glosowania w Edycji: %{space_name}"
+          # user actions
+          user_create: "Użytkownik %{user_name} stworzył(a) projekt %{resource_name} w Edycji: %{space_name}"
+          user_publish: "Użytkownik %{user_name} zgłosił(a) projekt %{resource_name} w Edycji: %{space_name}"
+          user_update: "Użytkownik %{user_name} zaktualizował(a) zgłoszony projekt %{resource_name} w Edycji: %{space_name}"
+          user_withdraw: "Użytkownik %{user_name} wycofał(a) projekt %{resource_name} w Edycji: %{space_name}"
+          user_draft: "Użytkownik %{user_name} zapisał(a) kopię roboczą projektu %{resource_name} w Edycji: %{space_name}"
+          accept_coauthorship: "Użytkownik %{user_name} zaakceptował(a) współautorstwo projektu %{resource_name} w Edycji: %{space_name}"
+          # admin basic actions
+          show: "%{user_name} wyświetlił(a) niepubliczną kartę projektu %{resource_name} w Edycji: %{space_name}"
+          edit: "%{user_name} wyświetlił(a) widok edycji projektu %{resource_name} w Edycji: %{space_name}"
+          create: "%{user_name} wprowadził(a) projekt %{resource_name} w Edycji: %{space_name}"
+          update: "%{user_name} zaktualizował(a) projekt %{resource_name} w Edycji: %{space_name}"
+          accept: "%{user_name} zatwierdził(a) zmiany w projekcie %{resource_name} w Edycji: %{space_name}"
+          withdrawn: "%{user_name} wycofał(a) projekt %{resource_name} w Edycji: %{space_name}"
+          change_status: "%{user_name} zmienił(a) status projektu %{resource_name} w Edycji: %{space_name}"
+          # other actions
+          forward_to_department: "%{user_name} przekazał(a) projekt %{resource_name} w Edycji: %{space_name} do innej jednostki"
+          return_to_department: "%{user_name} zwrócił(a) projekt %{resource_name} w Edycji: %{space_name} do poprzedniej jednostki"
+          forward_to_user: "%{user_name} przekazał(a) projekt %{resource_name} w Edycji: %{space_name} do podkoordynatora"
+          return_to_verificator: "%{user_name} przekazał(a) projekt %{resource_name} w Edycji: %{space_name} ponownie do weryfikatora"
+          changes_for_acceptance: "%{user_name} edytował(a) projekt %{resource_name} w Edycji: %{space_name} i wymaga on akceptacji zmian"
+          change_verificator: "%{user_name} przypisał(a) projekt %{resource_name} do weryfikatora"
+          unassign_verificator: "%{user_name} usunął(a) weryfikatora z projektu %{resource_name}"
+          # editor submit
+          send: "%{user_name} przekazał(a) projekt %{resource_name} w Edycji: %{space_name} do publikacji"
+          return: "%{user_name} przekazał(a) projekt %{resource_name} w Edycji: %{space_name} ponownie do edytora"
+          publish: "%{user_name} opublikował(a) ręcznie wprowadzony projekt %{resource_name} w Edycji: %{space_name}"
+          # evaluation
+          cfevaluation: "%{user_name} utworzył(a) ocenę formalną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          create_f_evaluation: "%{user_name} utworzył(a) ocenę formalną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          edit_f_evaluation: "%{user_name} otworzył(a) podgląd oceny formalnej dot. projektu %{resource_name} w Edycji: %{space_name}"
+          update_f_evaluation: "%{user_name} zaktualizował(a) ocenę formalną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          create_m_evaluation: "%{user_name} utworzył(a) ocenę merytoryczną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          edit_m_evaluation: "%{user_name} otworzył(a) podgląd oceny merytorycznej dot. projektu %{resource_name} w Edycji: %{space_name}"
+          update_m_evaluation: "%{user_name} zaktualizował(a) ocenę merytoryczną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          # evaluation flow
+          formal: "%{user_name} skierował(a) projekt %{resource_name} w Edycji: %{space_name} do oceny formalnej"
+          formal_finish: "%{user_name} zakończył(a) ocenę formalną projektu %{resource_name} w Edycji: %{space_name}"
+          formal_accepted: "%{user_name} zaakceptował(a) ocenę formalną projektu %{resource_name} w Edycji: %{space_name}"
+          meritorical: "%{user_name} skierował(a) projekt %{resource_name} w Edycji: %{space_name} do oceny merytorycznej"
+          meritorical_finish: "%{user_name} zakończył(a) ocenę merytoryczną projektu %{resource_name} w Edycji: %{space_name}"
+          meritorical_accepted: "%{user_name} zaakceptował(a) ocenę merytoryczną projektu %{resource_name} w Edycji: %{space_name}"
+          verification_finish: "%{user_name} zatwierdził(a) ostateczną ocenę projektu %{resource_name} w Edycji: %{space_name}"
+          # appeal user action
+          user_publish_appeal: "Użytkownik %{user_name} zgłosił(a) odwołanie od oceny dot. projektu %{resource_name} w Edycji: %{space_name}"
+          # reevaluation
+          create_appeal: "%{user_name} wprowadził(a) odwołanie od oceny dot. projektu %{resource_name} w Edycji: %{space_name}"
+          update_appeal: "%{user_name} zaktualizował(a) odwołanie od oceny dot. projektu %{resource_name} w Edycji: %{space_name}"
+          publish_appeal: "%{user_name} zgłosił(a) odwołanie od oceny dot. projektu %{resource_name} w Edycji: %{space_name}"
+          create_reevaluation: "%{user_name} utworzył(a) ponowną ocenę dot. projektu %{resource_name} w Edycji: %{space_name}"
+          update_reevaluation: "%{user_name} zaktualizował(a) ponowną ocenę dot. projektu %{resource_name} w Edycji: %{space_name}"
+          edit_reevaluation: "%{user_name} otworzył(a) podgląd ponownej oceny dot. projektu %{resource_name} w Edycji: %{space_name}"
+          # reevaluation flow
+          finish_appeal_draft: "%{user_name} przekazał(a) odwołanie dot. projektu %{resource_name} w Edycji: %{space_name} do koordynatora"
+          accept_paper_appeal: "%{user_name} zaakceptował(a) papierowe odwołanie dot. projektu %{resource_name} w Edycji: %{space_name}"
+          submit_appeal_for_verification: "%{user_name} skierował(a) odwołanie dot. projektu %{resource_name} w Edycji: %{space_name} do ponownej oceny"
+          appeal_verification_finished: "%{user_name} zakończył(a) ponowną ocenę formalną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          finish_appeal_verification: "%{user_name} zakończył(a) ponowną ocenę formalną dot. projektu %{resource_name} w Edycji: %{space_name}"
+          submit_verified_appeal: "%{user_name} przekazał(a) wynik ponownej oceny projektu %{resource_name} w Edycji: %{space_name} do CKS"
+          appeal_verified: "%{user_name} przekazał(a) wynik ponownej oceny projektu %{resource_name} w Edycji: %{space_name} do CKS"
+          reevaluation_finished: "%{user_name} zatwierdził(a) ponowną ocenę projektu %{resource_name} w Edycji: %{space_name}"
+          # implementations
+          update_implementation: "%{user_name} zaktualizował(a) stan realizacji projektu %{resource_name} w Edycji: %{space_name}"
+          # exports
+          export_projects: "%{user_name} wyeksportował(a) listę projektów bez danych autorów w Edycji: %{space_name}"
+          export_projects_with_authors: "%{user_name} wyeksportował(a) listę projektów z danymi autorów w Edycji: %{space_name}"
+          export_authors: "%{user_name} wyeksportował(a) listę autorów projektów w Edycji: %{space_name}"
+          export_implementations: "%{user_name} wyeksportował(a) listę realizacji projektów w Edycji: %{space_name}"
+          #
+          generate_ranking_list:  "%{user_name} wygenerował(a) listę rankingową projektów w Edycji: %{space_name}"
+      actions:
+        publish: Zatwierdź
+        edit_vote: Edytuj
+        edit_project: Edytuj
+        evaluate_project: Oceń
+        evaluate_project_formal: Dodaj/Edytuj ocenę formalną
+        create_project_formal: Dodaj ocenę formalną
+        confirm_coauthorship: Potwierdź współautora
+        edit_project_formal: Edytuj ocenę formalną
+        evaluate_project_meritorical: Dodaj/Edytuj ocenę merytoryczną
+        create_project_meritorical: Dodaj ocenę merytoryczną
+        edit_project_meritorical: Edytuj ocenę merytoryczną
+        evaluate_project_appeal: Dodaj/Edytuj ponowną ocenę projektu
+        create_project_reevaluation: Dodaj ponowną ocenę projektu
+        edit_project_reevaluation: Edytuj ponowną ocenę projektu
+        new: Wprowadź projekt
+        title: Nazwa
+      appeals:
+        new:
+          add_documents: "[Dodatkowo] Załączniki"
+          appeal_body_hint: |-
+            Napisz, dlaczego Twoim zdaniem projekt powinien zostać oceniony pozytywnie. Opisz swoje zastrzeżenia do oceny projektu i uzasadnij je.
+            W odwołaniu  możesz odnieść się do punktów w karcie oceny merytorycznej lub formalnej, które nie zostały spełnione.
+          documents_hint: Możesz załączyć zdjęcia, skany, rysunki lub inne pliki, które są uzupełnieniem Twojego odwołania. Załączone materiały nie będą widoczne na karcie projektu, zobaczą je tylko pracownicy Urzędu.
+          cancel: Anuluj
+          send: Zapisz kopię roboczą
+          publish: Złóż odwołanie
+        edit:
+          add_documents: "[Dodatkowo] Załączniki"
+          appeal_body_hint: |-
+            Napisz, dlaczego Twoim zdaniem projekt powinien zostać oceniony pozytywnie. Opisz swoje zastrzeżenia do oceny projektu i uzasadnij je.
+            W odwołaniu  możesz odnieść się do punktów w karcie oceny merytorycznej lub formalnej, które nie zostały spełnione.
+          documents_hint: Możesz załączyć zdjęcia, skany, rysunki lub inne pliki, które są uzupełnieniem Twojego odwołania. Załączone materiały nie będą widoczne na karcie projektu, zobaczą je tylko pracownicy Urzędu.
+          cancel: Anuluj
+          send: Zapisz kopię roboczą
+          publish: Złóż odwołanie
+      create:
+        success: Projekt został utworzony.
+        invalid: Podczas tworzenia tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+        error: Podczas tworzenia tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+      choose_verificator:
+        title:
+          waiting: oceny formalnej
+          formal_finished: oceny merytorycznej
+          formal_accepted: oceny merytorycznej
+      publish:
+        success: Projekt został zgłoszony.
+        invalid: Podczas zgłaszania tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+        error: Podczas zgłaszania tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+      update:
+        success: Projekt został zaktualizowany.
+        invalid: Podczas aktualizowania tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+        error: Podczas aktualizowania tego projektu wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+      withdraw:
+        success: Projekt został wycofany.
+        error: Nie udałos ie wycofać projektu.
+      models:
+        votes:
+          fields:
+            author: Autor wpisu
+            card_number: Nr karty do głosowania
+            is_paper: Metoda złożenia
+            pesel_number: PESEL
+            status: Status
+            email: E-mail
+            first_name: Imię
+            last_name: Nazwisko
+            verified_first_name: Imię zweryfikowane
+            verified_last_name: Nazwisko zweryfikowane
+            created_at: Data dodania
+            updated_at: Data aktualizacji
+            ip_number: Nr IP
+        project:
+          fields:
+            id: Id
+            esog_number: ESOG
+            voting_number: Nr na liście
+            is_paper: Metoda złożenia
+            evaluators: Przypisany do
+            published_at: Data zgłoszenia
+            title: Tytuł
+            scope: Zakres
+            updated_at: Data aktualizacji
+            budget_value: Koszt
+            implementation_status: Etap stanu realizacji
+      projects: &projects
+        new_project_sign_in_modal:
+          title: Zgłoś swój projekt
+          account_message: '<a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby zgłosić projekt.'
+          close_modal: Zamknij okno
+        new:
+          cancel: Anuluj
+          draft: Zapisz kopię roboczą
+          title: Opisz swój projekt
+          send: Dalej
+        edit:
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+          title: Opisz swój projekt
+          information_clause_label: 'Klauzula informacyjna - <a href="%{link}" target="_blank" class="attachment-upload-link">sprawdź klauzulę</a>'
+          information_clause_explanation: "Zapoznaj się z klauzulą informacyjną - m.in.kto jest administratorem Twoich danych osobowych i w jakim celu oraz jak długo będa przetwarzane."
+          add_images: '[Obowiązkowo] Lista poparcia<span>*</span> - <a href="%{link}" class="attachment-upload-link">pobierz czystą kartę poparcia</a>'
+          add_images_helper: "Czytelny skan listy poparcia zawierający podpisy mieszkańców. W przypadku projektów na poziomie dzielnicowym, podpisy 20 mieszkańców dzielnicy, w której zgłaszany jest projekt lub na poziomie ogólnomiejskim podpisy 40 mieszkańców Warszawy."
+          add_images_size: "Pojedynczy plik nie może być większy niż 20 MB. Możesz załączyć maksymalnie 10 plików."
+          add_documents: "[Dodatkowo] Załączniki"
+          add_documents_helper: "Możesz załączyć tutaj zdjęcia, mapki, rysunki lub inne informacje, który pomogą ciekawie zaprezentować Twój pomysł. Załączone materiały będą widoczne na stronie internetowej."
+          add_documents_size: "Pojedynczy plik nie może być większy niż 20 MB. Możesz załączyć maksymalnie 10 plików."
+          add_documents_type: "Dostępne formaty plików: %{availatble_types}"
+          add_documents_warning: "Uwaga! Nie załączaj tu plików z danymi osobowymi np. listy poparcia!"
+          add_documents_files: "Dozwolone typy plików: %{file_types}"
+          add_more_documents: '[Dodatkowo] Zgoda na wykorzystanie utworu - <a href="%{link}" class="attachment-upload-link">pobierz wzór zgody autora</a>'
+          add_more_documents_helper: "Ewentualna zgoda na wykorzystanie utworu dla celów budżetu obywatelskiego, w tym zgoda na nieodpłatne opublikowanie w ESOG, zawierającą imię, nazwisko, numer telefonu lub adres e-mail i jego podpis - w przypadku, gdy projekt przewiduje skorzystanie ze wskazanego przez projektodawcę utworu."
+          add_more_documents_size: "Pojedynczy plik nie może być większy niż 20 MB. Możesz załączyć maksymalnie 5 plików."
+        author:
+          back: Cofnij
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+          title: Uzupełnij swoje dane
+        update_author_data:
+          back: Cofnij
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+          title: Uzupełnij swoje dane
+        preview:
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+          edit: Edytuj dane projektu
+          back: Edytuj swoje dane
+          publish: Zgłoś
+          publish_confirmation: Czy na pewno chcesz zgłosić projekt?
+          title: Zgłoś projekt
+        edit_draft:
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+          title: Opisz swój projekt
+        filters:
+          search: Szukaj
+          state: Status
+          scope: Dzielnica
+          scope_type: Poziom projektu
+          category: Kategoria
+          edition_year: Rok
+          potential_recipient: Grupa docelowa
+        filters_small_view:
+          close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
+        new_edit_draft:
+          draft: Zapisz kopię roboczą
+          cancel: Anuluj
+          send: Dalej
+        placeholder:
+          address: ""
+        confirmation:
+          title: Projekt zgłoszony
+          add_another: Dodaj kolejny projekt
+          see_project: Zobacz zgłoszony projekt
+        publish:
+          title: Zgłaszanie projektu
+        wizard_creator_headers:
+          project: "<span>Dane</span>projektu"
+          characteristics: "<span>Charakterystyka</span>projektu"
+          locations: "<span>Lokalizacja</span>projektu"
+          estimate: "<span>Kosztorys</span>projektu"
+          documents: "<span>Dokumenty</span>projektu"
+          custom: "<span>Dodatkowe</span>informacje"
+        wizard_author_headers:
+          first: "<span>Twoje</span>dane"
+          second: "<span>Adres</span>zamieszkania"
+        wizard_steps:
+          title: Kroki tworzenia projektu
+          see_steps: Zobacz kroki
+          step_of: "Krok %{current_step_num} z %{total_steps}"
+          current_step: "Aktualny etap: "
+          step_1_draft: 1. <span>Opis projektu</span>
+          step_2_author: 2. <span>Twoje dane</span>
+          step_3_preview: 3. <span>Zgłoszenie</span>
+          step_4_confirmation: 4. <span>Potwierdzenie</span>
+        wizard_title:
+          edit: Opisz swój projekt
+          step_1_draft: Opisz swój projekt
+          step_2_author: Uzupełnij swoje dane
+          step_3_preview: Zgłoś projekt
+          step_4_confirmation: Projekt zgłoszony
+        content_blocks:
+          slider:
+            idea_for_edition_year: "Pomysł na rok %{edition_year}"
+            localized_in: "Lokalizacja: %{localization}"
+        edit_form_fields:
+          budget_value_helper: Oszacuj koszt realizacji projektu. Uwzględnij również koszt jego eksploatacji w roku wykonania i koszt oznakowania graficznego informującego, że projekt powstał w ramach budżetu obywatelskiego.
+          budget_value_tooltip_helper: Skorzystaj z przykładowego cennika na stronie bo.um.warszawa.pl/pages/ile-kosztuje-miasto. Ostateczny koszt realizacji projektu oszacują urzędnicy.
+        part_form_fields:
+          author_fields:
+            coauthors: Współautorzy
+            # helper form fields - authors
+            first_name: Imię
+            first_name_label: Imię *
+            last_name: Nazwisko
+            last_name_label: Nazwisko *
+            gender: Mieszkaniec/Mieszkanka
+            phone_number: Telefon kontaktowy
+            phone_number_help: "Uwaga! Nr telefonu nie będzie nigdzie publikowany, będzie wykorzystywany jedynie przez pracownika urzędu do łatwiejszego kontaktu z Tobą w sprawie tego projektu."
+            phone_number_help_text: "Uwaga! Nr telefonu nie będzie nigdzie publikowany, będzie wykorzystywany jedynie przez pracownika urzędu do łatwiejszego kontaktu z Tobą w sprawie tego projektu."
+            email: Adres e-mail
+            email_label: Adres e-mail *
+            email_help: "Uwaga! Ten adres e-mail będzie wykorzystywany do kontaktu z Tobą, ale nie będzie widoczny dla innych użytkowników."
+            coauthors_help: Jeżeli projekt ma współautorów, podaj ich adres email w tym miejscu
+            coauthor_email_one_help_text: Jeżeli projekt ma współautorów, podaj ich adres email w tym miejscu
+            coauthor_email_one: "E-mail pierwszego współautora"
+            coauthor_email_two: "E-mail drugiego współautora"
+            street: Ulica
+            street_label: Ulica *
+            street_number: Nr domu
+            street_number_label: Nr domu *
+            flat_number: Nr mieszkania
+            zip_code: Kod pocztowy
+            zip_code_label: Kod pocztowy *
+            city: Miasto
+            city_label: Miasto *
+            male: Mieszkaniec
+            female: Mieszkanka
+        form_fields:
+          explanations:
+            phone_number: '<div class="card explanation">Uwaga: Numer telefonu nie bedzie nigdzie publikowany, będzie wykorzystywany jedynie przez pracownika urzędu do łatwiejszego kontaktu z Tobą w sprawie tego projektu.</div>'
+            email: '<div class="card explanation">Uwaga: Ten adres e-mail będzie używany do kontaktu z Tobą, ale nie będzie widoczny dla innych użytkowników.</div>'
+          budget_value_helper: Oszacuj koszt realizacji projektu. Uwzględnij również koszt jego eksploatacji w roku wykonania i koszt oznakowania graficznego informującego, że projekt powstał w ramach budżetu obywatelskiego.
+          budget_value_tooltip_helper: Skorzystaj z przykładowego cennika na stronie bo.um.warszawa.pl/pages/ile-kosztuje-miasto. Ostateczny koszt realizacji projektu oszacują urzędnicy.
+        project_data:
+          idea_for_year: Pomysł na rok
+          localized_in: Lokalizacja
+          author: Autor pomysłu
+          coauthors: Współautorzy
+          costs: Koszt pomysłu
+          votes_count: Liczba głosów
+        send_message_modal:
+          title: Wyślij wiadomość do autora
+          close_modal: Zamknij okno
+        show:
+          confirm:
+            withdraw: Czy jesteś pewien, że chcesz wycofać projekt?<br>Tej akcji nie da się cofnąć.
+          add_project: Zgłoś swój projekt
+          appeal_project: Złóż odwołanie
+          back_to_list: Powrót
+          comment: "<strong>Wyraź opinię</strong> na temat tego projektu"
+          edit: Edytuj
+          edit_project: Edytuj projekt
+          edit_project_draft: Edytuj kopię roboczą
+          local_area: Obszar lokalny
+          scope: Poziom zgłaszanego projektu
+          withdraw_project: Wycofaj projekt
+          write_to_author: Wyślij wiadomość do autora
+        sign_in_modal:
+          account_message: '<a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby wysłać wiadomość do autora.'
+          close_modal: Zamknij okno
+          error: "Coś poszło nie tak, spróbuj odświeżyć stronę..."
+          simple_user: Projektodawca nie posiada konta w systemie
+          title: Wyślij wiadomość do autora
+          user_is_not_receiving_messages: Autor nie wyraził zgody na otrzymywanie wiadomości prywatnych
+        confirm_coauthorship_confirmation: "Czy na pewno chcesz potwierdzić współautorstwo?"
+        update:
+          title: Aktualizacja projektu
+        projects:
+          empty: Brak wyników
+      projects_wizard:
+        <<: *projects
+      update_draft:
+        success: Zapisano kopię roboczą projektu.
+        error: Podczas zapisywania kopii roboczej wystąpiły błędy, które zostały oznaczone na formularzu poniżej.
+      versions:
+        index:
+          title: Historia zmain
+      realizations:
+        filters_small_view:
+          close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
+        filters:
+          search: Szukaj
+          state: Status
+          scope: Dzielnica
+          scope_type: Poziom projektu
+          category: Kategoria
+          edition_year: Rok
+          potential_recipient: Grupa docelowa
+        projects:
+          empty: Brak wyników
+      projects_lists:
+        filters_small_view:
+          close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
+        filters:
+          year: Rok
+          search: Szukaj
+          state: Status
+          scope: Dzielnica
+          scope_type: Poziom projektu
+          category: Kategoria
+          edition_year: Rok
+          potential_recipient: Grupa docelowa
+          index: Przeszukaj zgłoszone pomysły
+          realizations: Przeszukaj zwycięskie projekty
+          results: Przeszukaj archiwum wyników
+        index:
+          empty: Brak wyników
+        map:
+          view_project: Zobacz projekt
+        projects:
+          empty: Brak wyników
+        projects_r:
+          empty: Brak wyników
+        results:
+          empty: Brak wyników
+    reevaluations:
+      formal_appeal:
+        attrs:
+          on_time: Zgłoszenie projektu w terminie
+          sum_of_authors: Projekt zgłosiło nie więcej niż 3&nbsp;autorów
+          warsaw_authors: Autorzy są mieszkańcami Warszawy
+          all_necessary_elements: Zgłoszenie zawiera wszystkie konieczne elementy
+          endorsment_attached: Do projektu została dołączona lista poparcia
+          complete_endorsment_attached: Do projektu została dołączona kompletna lista poparcia
+          consent_attached: Do projektu dołączono zgodę autora na wykorzystanie utworu
+          etiquette: Brak treści obraźliwych, obscenicznych, wulgarnych i&nbsp;społecznie nagannych
+          proper_scope: Projekt został przypisany do właściwego poziomu
+          name_and_body_adequacy: Zgodność nazwy projektu z&nbsp;jego treścią
+      meritorical_appeal:
+        attrs:
+          law_ok: Projekt nie narusza przepisów prawa powszechnie obowiązującego, w&nbsp;tym aktów prawa miejscowego
+          warsaw_plan_inclusion: Projekt mieści się w&nbsp;zakresie zadań własnych m.st.&nbsp;Warszawy
+          warsaw_property: M.st.&nbsp;Warszawa posiada tytuł prawny do dysponowania nieruchomością, na której projekt będzie realizowany
+          author_law_ok: Nie dojdzie do naruszenia praw osób trzecich, w&nbsp;tym praw autorskich i&nbsp;praw zależnych
+          technical_ok: Projekt nie narusza norm, standardów oraz przepisów technicznych
+          no_collision: Projekt jest możliwy do zrealizowania we wskazanej w zgłoszeniu projektu lokalizacji, w&nbsp;tym czy realizacja projektu nie koliduje z&nbsp;realizowanymi przedsięwzięciami m.st.&nbsp;Warszawy
+          no_supreme_collision: Realizacja projektu we wskazanej w&nbsp;zgłoszeniu projektu lokalizacji nie naruszy gwarancji udzielonej m.st.&nbsp;Warszawie przez wykonawcę na istniejącą w&nbsp;tej lokalizacji infrastrukturę
+          no_science_fiction: Dostępne na rynku technologie umożliwiają realizację projektu
+          permits_in_year_inclusion: W&nbsp;przypadku, gdy do realizacji projektu są wymagane decyzje administracyjne, pozwolenia, zezwolenia, opinie lub inne dokumenty techniczne, czy ich uzyskanie jest możliwe i&nbsp;pozwoli zrealizować projekt w&nbsp;trakcie roku budżetowego
+          in_year_inclusion: Projekt jest możliwy do zrealizowania w&nbsp;trakcie jednego roku budżetowego
+          more_law_ok: Projekt nie jest sprzeczny z&nbsp;dokumentami programującymi rozwój m.st.&nbsp;Warszawy niebędącymi aktami prawa miejscowego, w tym strategiami, programami oraz Wieloletnią Prognozą Finansową w&nbsp;zakresie zamieszczonych w&nbsp;niej przedsięwzięć
+          free_to_use: Mieszkańcy Warszawy mogą korzystać z&nbsp;projektu nieodpłatnie
+          availability_time: W&nbsp;przypadku projektów infrastrukturalnych, remontowych lub polegających na zakupie sprzętu lub urządzeń - minimalna dostępność projektu wynosi co najmniej 25 godzin tygodniowo, pomiędzy godz.&nbsp;6:00-22:00, z&nbsp;uwzględnieniem soboty lub niedzieli
+          transparent_if_with_limitations: W&nbsp;przypadku, gdy projekt skierowany jest do ograniczonej grupy odbiorców - wskazuje zasady rekrutacji, w&nbsp;tym sposób informowania o&nbsp;rekrutacji, termin jej rozpoczęcia i&nbsp;zakończenia oraz kryteria naboru
+          not_only_documents: Projekt nie zakłada wykonania wyłącznie dokumentacji projektowej
+          in_one_phase: Projekt nie wiąże się z&nbsp;koniecznością wykonania kolejnych etapów realizacji zadania w&nbsp;latach kolejnych
+          no_corpo_suggestion: Brak wskazania potencjalnego wykonawcy, trybu jego wyboru lub znaków towarowych
+          in_value_limit: Utrzymanie faktycznych kosztów realizacji w&nbsp;ramach limitu wartości pojedynczego projektu

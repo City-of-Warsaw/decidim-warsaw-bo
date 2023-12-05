@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form, url: decidim_admin_participatory_processes.endorsement_list_setting_update_path, html: { class: "form endorsement_list_settings" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t "decidim.admin.endorsement_list.edit.title" %></h2>
+    </div>
+    <div class="card-section">
+      <%= render partial: "form", object: f %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("decidim.admin.endorsement_list.edit.save") %>
+  </div>
+<% end %>

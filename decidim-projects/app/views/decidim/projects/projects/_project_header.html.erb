@@ -1,0 +1,18 @@
+<div class="view-header border-bottom header-bubbles-decorator">
+  <div class="row column">
+    <h1 class="heading3 project-heading mb-m">
+      <%= present(@project).title(links: true, html_escape: true) %>
+      <span>
+        <strong>
+          <%= public_status(@project) %>
+          <% if @project.chosen_for_implementation? %>
+            <%= " / #{implementation_status(@project)}" %>
+          <% end %>
+        </strong>
+        <% if @project.esog_number.present? %>
+          <%= " / #{@project.esog_number}" %>
+        <% end %>
+      </span>
+    </h1>
+  </div>
+</div>

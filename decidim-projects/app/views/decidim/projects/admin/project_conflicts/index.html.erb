@@ -1,0 +1,53 @@
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= link_to "Lista rankingowa >", ranking_lists_path %>
+        <%= t(".title") %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <th>
+            <%= t("models.project.fields.scope", scope: "decidim.projects") %>
+            Poziom/<br>dzielnica/<br>obszar
+          </th>
+          <th>
+            <%= t("models.project.fields.esog_number", scope: "decidim.projects") %>
+          </th>
+          <th>
+            <%= t("models.project.fields.title", scope: "decidim.projects") %>
+          </th>
+          <th>
+            <%= t("models.project.fields.budget_value", scope: "decidim.projects") %>
+          </th>
+          <th>
+            <%= t('votes_summary.validation', scope: "decidim.projects.admin.ranking_lists.index").html_safe %>
+          </th>
+          <th>
+            <%= t('votes_summary.type', scope: "decidim.projects.admin.ranking_lists.index").html_safe %>
+          </th>
+          <th>
+            <%= t('votes_summary.percentage', scope: "decidim.projects.admin.ranking_lists.index").html_safe %>
+          </th>
+          <th class="actions">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+          <%= render "project-tr", project_rank: @project.project_rank %>
+          <% if @conflicted_projects.any? %>
+            <% @conflicted_projects.each do |project| %>
+              <%= render "project-tr", project_rank: project.project_rank %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/projects" %>

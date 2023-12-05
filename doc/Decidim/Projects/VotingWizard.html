@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::VotingWizard
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::VotingWizard";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">VotingWizard</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::VotingWizard
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Decidim::Projects::VotingWizard</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/services/decidim/projects/voting_wizard.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Class holds all the logic for wizard steps handling</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span>
+    
+  
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="STEPPER_LIST-constant" class="">STEPPER_LIST =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>STEP_LIST = %w“instruction district global user_data summary confirmation”</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w[</span><span class='tstring_content'>step_1</span><span class='words_sep'> </span><span class='tstring_content'>step_2</span><span class='words_sep'> </span><span class='tstring_content'>step_3</span><span class='words_sep'> </span><span class='tstring_content'>step_4</span><span class='words_sep'> </span><span class='tstring_content'>step_5</span><span class='words_sep'> </span><span class='tstring_content'>step_6</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="STEP_LIST-constant" class="">STEP_LIST =
+          
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w[</span><span class='tstring_content'>step_1</span><span class='words_sep'> </span><span class='tstring_content'>step_2_info</span><span class='words_sep'> </span><span class='tstring_content'>step_2_list</span><span class='words_sep'> </span><span class='tstring_content'>step_3_info</span><span class='words_sep'> </span><span class='tstring_content'>step_3_list</span><span class='words_sep'> </span><span class='tstring_content'>step_4</span><span class='words_sep'> </span><span class='tstring_content'>step_5</span><span class='words_sep'> </span><span class='tstring_content'>step_6</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#projects_component-instance_method" title="#projects_component (instance method)">#<strong>projects_component</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute projects_component.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step-instance_method" title="#step (instance method)">#<strong>step</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute step.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#confirmation_step%3F-instance_method" title="#confirmation_step? (instance method)">#<strong>confirmation_step?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+      (also: #last_step?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_step%3F-instance_method" title="#district_step? (instance method)">#<strong>district_step?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edit_form_class-instance_method" title="#edit_form_class (instance method)">#<strong>edit_form_class</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_scope_step%3F-instance_method" title="#global_scope_step? (instance method)">#<strong>global_scope_step?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(projects_component, step_name)  &#x21d2; VotingWizard </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of VotingWizard.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next_step-instance_method" title="#next_step (instance method)">#<strong>next_step</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#number_for_step-instance_method" title="#number_for_step (instance method)">#<strong>number_for_step</strong>(step)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>return number of step from 1 to 6.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#number_for_stepper-instance_method" title="#number_for_stepper (instance method)">#<strong>number_for_stepper</strong>(step)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>return step number for stepper.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#old_step_name-instance_method" title="#old_step_name (instance method)">#<strong>old_step_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#partial_name-instance_method" title="#partial_name (instance method)">#<strong>partial_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retrieve_filters-instance_method" title="#retrieve_filters (instance method)">#<strong>retrieve_filters</strong>(phrase, categories, recipients)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method based on step returns Hash of values that are to be set to true in vote statistics.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step_limit-instance_method" title="#step_limit (instance method)">#<strong>step_limit</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step_number-instance_method" title="#step_number (instance method)">#<strong>step_number</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>actual step_number from 1 to 6.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stepper_active%3F-instance_method" title="#stepper_active? (instance method)">#<strong>stepper_active?</strong>(step)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>return if step from stepper is active.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stepper_number-instance_method" title="#stepper_number (instance method)">#<strong>stepper_number</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stepper_past%3F-instance_method" title="#stepper_past? (instance method)">#<strong>stepper_past?</strong>(step)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>return if step from stepper is in past.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stepper_step-instance_method" title="#stepper_step (instance method)">#<strong>stepper_step</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>return actual step for stepper.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_form_class-instance_method" title="#update_form_class (instance method)">#<strong>update_form_class</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_form%3F-instance_method" title="#with_form? (instance method)">#<strong>with_form?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(projects_component, step_name)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::VotingWizard (class)">VotingWizard</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of VotingWizard.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_projects_component'>projects_component</span><span class='comma'>,</span> <span class='id identifier rubyid_step_name'>step_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@projects_component</span> <span class='op'>=</span> <span class='id identifier rubyid_projects_component'>projects_component</span>
+  <span class='ivar'>@step</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_step_name'>step_name</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_step_name'>step_name</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#INSTRUCTION-constant" title="Decidim::Projects::VotingWizard::STEPS::INSTRUCTION (constant)">INSTRUCTION</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="projects_component=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="projects_component-instance_method">
+  
+    #<strong>projects_component</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute projects_component.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_projects_component'>projects_component</span>
+  <span class='ivar'>@projects_component</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="step=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="step-instance_method">
+  
+    #<strong>step</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute step.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='ivar'>@step</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="confirmation_step?-instance_method">
+  
+    #<strong>confirmation_step?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='last_step?-instance_method'>last_step?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_confirmation_step?'>confirmation_step?</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#CONFIRMATION-constant" title="Decidim::Projects::VotingWizard::STEPS::CONFIRMATION (constant)">CONFIRMATION</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_step?-instance_method">
+  
+    #<strong>district_step?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_step?'>district_step?</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#DISTRICT_INFO-constant" title="Decidim::Projects::VotingWizard::STEPS::DISTRICT_INFO (constant)">DISTRICT_INFO</a></span></span> <span class='op'>||</span> <span class='id identifier rubyid_step'>step</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#DISTRICT_LIST-constant" title="Decidim::Projects::VotingWizard::STEPS::DISTRICT_LIST (constant)">DISTRICT_LIST</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="edit_form_class-instance_method">
+  
+    #<strong>edit_form_class</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 132</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_edit_form_class'>edit_form_class</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_2_info</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_2_list</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteDistrictProjectsForm.html" title="Decidim::Projects::WizardVoteDistrictProjectsForm (class)">WizardVoteDistrictProjectsForm</a></span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_3_info</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_3_list</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteGlobalProjectsForm.html" title="Decidim::Projects::WizardVoteGlobalProjectsForm (class)">WizardVoteGlobalProjectsForm</a></span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_4</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteUserDataForm.html" title="Decidim::Projects::WizardVoteUserDataForm (class)">WizardVoteUserDataForm</a></span></span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteForm.html" title="Decidim::Projects::WizardVoteForm (class)">WizardVoteForm</a></span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_scope_step?-instance_method">
+  
+    #<strong>global_scope_step?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 123</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_scope_step?'>global_scope_step?</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#GLOBAL_SCOPE_INFO-constant" title="Decidim::Projects::VotingWizard::STEPS::GLOBAL_SCOPE_INFO (constant)">GLOBAL_SCOPE_INFO</a></span></span> <span class='op'>||</span> <span class='id identifier rubyid_step'>step</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html" title="Decidim::Projects::VotingWizard::STEPS (module)">STEPS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard/STEPS.html#GLOBAL_SCOPE_LIST-constant" title="Decidim::Projects::VotingWizard::STEPS::GLOBAL_SCOPE_LIST (constant)">GLOBAL_SCOPE_LIST</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="next_step-instance_method">
+  
+    #<strong>next_step</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_next_step'>next_step</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_step_number'>step_number</span> <span class='op'>&gt;=</span> <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+    <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_step_number'>step_number</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_for_step-instance_method">
+  
+    #<strong>number_for_step</strong>(step)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>return number of step from 1 to 6</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_for_step'>number_for_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_for_stepper-instance_method">
+  
+    #<strong>number_for_stepper</strong>(step)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>return step number for stepper</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="#STEPPER_LIST-constant" title="Decidim::Projects::VotingWizard::STEPPER_LIST (constant)">STEPPER_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="old_step_name-instance_method">
+  
+    #<strong>old_step_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_old_step_name'>old_step_name</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>step_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_step_number'>step_number</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="partial_name-instance_method">
+  
+    #<strong>partial_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_partial_name'>partial_name</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim/projects/votes_cards/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_step'>step</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="retrieve_filters-instance_method">
+  
+    #<strong>retrieve_filters</strong>(phrase, categories, recipients)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method based on step returns Hash of values that are to be set to true in vote statistics. Method does not set keys with false value.</p>
+
+<p>Returns Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retrieve_filters'>retrieve_filters</span><span class='lparen'>(</span><span class='id identifier rubyid_phrase'>phrase</span><span class='comma'>,</span> <span class='id identifier rubyid_categories'>categories</span><span class='comma'>,</span> <span class='id identifier rubyid_recipients'>recipients</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_attrs'>attrs</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_district_step?'>district_step?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:phrase_filters_for_district_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_phrase'>phrase</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:categories_filters_for_district_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_categories'>categories</span><span class='op'>&amp;.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:recipients_filters_for_district_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_recipients'>recipients</span><span class='op'>&amp;.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_global_scope_step?'>global_scope_step?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:phrase_filters_for_global_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_phrase'>phrase</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:categories_filters_for_global_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_categories'>categories</span><span class='op'>&amp;.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='symbol'>:recipients_filters_for_global_projects</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_recipients'>recipients</span><span class='op'>&amp;.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_attrs'>attrs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step_limit-instance_method">
+  
+    #<strong>step_limit</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step_limit'>step_limit</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_district_step?'>district_step?</span>
+    <span class='id identifier rubyid_projects_component'>projects_component</span><span class='period'>.</span><span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_district_scope_projects_voting_limit'>district_scope_projects_voting_limit</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_global_scope_step?'>global_scope_step?</span>
+    <span class='id identifier rubyid_projects_component'>projects_component</span><span class='period'>.</span><span class='id identifier rubyid_process'>process</span><span class='period'>.</span><span class='id identifier rubyid_global_scope_projects_voting_limit'>global_scope_projects_voting_limit</span>
+  <span class='kw'>else</span>
+    <span class='int'>0</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step_number-instance_method">
+  
+    #<strong>step_number</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>actual step_number from 1 to 6</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step_number'>step_number</span>
+  <span class='const'><span class='object_link'><a href="#STEP_LIST-constant" title="Decidim::Projects::VotingWizard::STEP_LIST (constant)">STEP_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stepper_active?-instance_method">
+  
+    #<strong>stepper_active?</strong>(step)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>return if step from stepper is active</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stepper_active?'>stepper_active?</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_stepper_step'>stepper_step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stepper_number-instance_method">
+  
+    #<strong>stepper_number</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stepper_number'>stepper_number</span>
+  <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_stepper_step'>stepper_step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stepper_past?-instance_method">
+  
+    #<strong>stepper_past?</strong>(step)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>return if step from stepper is in past</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stepper_past?'>stepper_past?</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_number_for_stepper'>number_for_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_stepper_step'>stepper_step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stepper_step-instance_method">
+  
+    #<strong>stepper_step</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>return actual step for stepper</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stepper_step'>stepper_step</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_2</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>step_2_info</span><span class='words_sep'> </span><span class='tstring_content'>step_2_list</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@step</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_3</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>step_3_info</span><span class='words_sep'> </span><span class='tstring_content'>step_3_list</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@step</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@step</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_form_class-instance_method">
+  
+    #<strong>update_form_class</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_form_class'>update_form_class</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_2_list</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteDistrictProjectsForm.html" title="Decidim::Projects::WizardVoteDistrictProjectsForm (class)">WizardVoteDistrictProjectsForm</a></span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_3_list</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteGlobalProjectsForm.html" title="Decidim::Projects::WizardVoteGlobalProjectsForm (class)">WizardVoteGlobalProjectsForm</a></span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_4</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteUserDataForm.html" title="Decidim::Projects::WizardVoteUserDataForm (class)">WizardVoteUserDataForm</a></span></span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="WizardVoteForm.html" title="Decidim::Projects::WizardVoteForm (class)">WizardVoteForm</a></span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_form?-instance_method">
+  
+    #<strong>with_form?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/voting_wizard.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_with_form?'>with_form?</span>
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>step_2</span><span class='words_sep'> </span><span class='tstring_content'>step_2_list</span><span class='words_sep'> </span><span class='tstring_content'>step_3_list</span><span class='words_sep'> </span><span class='tstring_content'>step_4</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:18 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

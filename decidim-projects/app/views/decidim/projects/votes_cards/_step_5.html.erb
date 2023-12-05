@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="columns large-12">
+    <legend>
+      <div class="primary-info-box info-graph hollow">
+        <strong>Sprawdź czy na poniższej liście znajdują się wszystkie projekty, na które chcesz zagłosować.</strong>
+        Zobacz, czy Twoje dane są poprawne. Jeżeli wszystko się zgadza, kliknij “Zagłosuj”.
+      </div>
+    </legend>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <legend class="section-heading">
+      <h2><span>Dzielnicowe</span>projekty</h2>
+    </legend>
+
+    <table id="projects" class="projects-list-table after-voting">
+      <thead>
+        <tr>
+          <th class="text-center number-link-th">Nr</th>
+          <th class="text-left title-column">Nazwa pomysłu / nr ESOG</th> 
+          <th class="text-center">Koszt</th> 
+        </tr>
+      </thead>
+     
+      <tbody>
+        <% if vote_card.district_projects.any? %>
+          <% vote_card.district_projects.each do |project| %>
+            <tr>
+              <td class="text-center vote-number-column"><%= project.voting_number %></td>
+              <td class="text-left title-column">
+                <%= link_to project.title, decidim_projects.project_path(project), class: "card__link" %>
+                <div class="scope-and-number"><%= project.esog_number %></div>
+              </td>
+              <td class="text-center text-bold budget-column"><%= budget_to_currency project.budget_value %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="3"><div class="no-data-info">Nie wybrano projektów</div></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <legend class="section-heading">
+      <h2><span>Ogólnomiejskie</span>projekty</h2>
+    </legend>
+
+    <table id="projects" class="projects-list-table after-voting">
+      <thead>
+        <tr>
+          <th class="text-center number-link-th">Nr</th>
+          <th class="text-left title-column">Nazwa pomysłu / nr ESOG</th> 
+          <th class="text-center">Koszt</th> 
+        </tr>
+      </thead>
+     
+      <tbody>
+        <% if vote_card.global_projects.any? %>
+          <% vote_card.global_projects.each do |project| %>
+            <tr>
+              <td class="text-center vote-number-column"><%= project.voting_number %></td>
+              <td class="text-left title-column">
+                <%= link_to project.title, decidim_projects.project_path(project), class: "card__link" %>
+                <div class="scope-and-number"><%= project.esog_number %></div>
+              </td>
+              <td class="text-center text-bold budget-column"><%= budget_to_currency project.budget_value %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="3"><div class="no-data-info">Nie wybrano projektów</div></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+ 
+<div class="bg-grey voting">
+  <div class="row author-summary">
+    <div class="columns large-12">
+      <legend class="section-heading">
+        <h2><span>Twoje</span>dane</h2>
+      </legend>
+
+      <div>
+        <strong><%= t('activemodel.attributes.vote_card.first_name') %>:</strong> <%= vote_card.first_name %><br />
+        <strong><%= t('activemodel.attributes.vote_card.last_name') %>:</strong> <%= vote_card.last_name %>
+      </div> 
+
+      <hr class="full-width" />
+      
+      <div>
+        <strong><%= t('activemodel.attributes.vote_card.pesel_number') %>:</strong> <%= vote_card.pesel_number %>
+      </div> 
+
+      <hr class="full-width" />
+      
+      <div>
+        <strong><%= t('activemodel.attributes.vote_card.email') %>:</strong> <%= vote_card.email %>
+      </div> 
+
+      <hr class="full-width" />
+      
+      <div>
+        <strong>Adres zamieszkania</strong>
+      </div> 
+
+      <div>
+        <strong><%= t('activemodel.attributes.vote_card.street') %>:</strong> <%= vote_card.street %><br />
+        <strong><%= t('activemodel.attributes.vote_card.street_number') %>:</strong> <%= vote_card.street_number %><br />
+        <strong><%= t('activemodel.attributes.vote_card.flat_number') %>:</strong> <%= vote_card.flat_number %><br />
+        <strong><%= t('activemodel.attributes.vote_card.zip_code') %>:</strong> <%= vote_card.zip_code %><br />
+        <strong><%= t('activemodel.attributes.vote_card.city') %>:</strong> <%= vote_card.city %>
+      </div> 
+
+       <div class="error-info-box author-data-warning">
+        UWAGA! Wykorzystanie cudzych danych osobowych jest przestępstwem. Wszystkie nr IP, z których oddawane są głosy są zapisywane w celu późniejszej weryfikacji. 
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns large-12">
+      <div class="actions">
+        <%= link_to t(".back"), path_for_wizard_vote(vote_card, 'step_4'), class: "button hollow voting-not-finished-js" %>
+        <%= link_to t(".submit"), path_for_submitting_vote(vote_card), method: :patch, class: "button submit voting-not-finished-js" %>
+      </div>
+    </div>
+  </div>
+</div>

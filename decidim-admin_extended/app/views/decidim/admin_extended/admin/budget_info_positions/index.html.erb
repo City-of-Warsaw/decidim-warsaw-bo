@@ -1,0 +1,111 @@
+<div class="card with-overflow" id='user-groups'>
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div><%= t("decidim.admin.titles.costs") %></div>
+      <div class="flex--cc flex-gap--1">
+        <div id="js-other-actions-wrapper" class="text-right">
+          <%= link_to t("actions.add_budget_info_position", scope: "decidim.admin_extended.admin.budget_info_positions"), new_budget_info_position_path, class: "button tiny button--simple" %>
+          <%= link_to t("actions.add_budget_info_group", scope: "decidim.admin_extended.admin.budget_info_groups"), new_budget_info_group_path, class: "button tiny button--simple" %>
+        </div>
+      </div>
+    </h2>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".groupes") %></h2>
+  </div>
+  <fieldset class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".name") %></th>
+            <th><%= t(".subtitle") %></th>
+            <th><%= t(".published") %></th>
+            <th><%= t(".created_at") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% budget_info_groups.each do |budget_info_group| %>
+            <td><%= budget_info_group.name %></td>
+            <td><%= budget_info_group.subtitle.presence || "-" %></td>
+            <td><%= budget_info_group.published.present? ? t(".published_yes") : t(".published_no") %></td>
+            <td><%= l budget_info_group.created_at, format: :decidim_short %></td>
+            <td class="table-list__actions">
+              <%= icon_link_to "pencil",
+                                   edit_budget_info_group_path(budget_info_group),
+                                   t("actions.edit_budget_info_group", scope: "decidim.admin_extended.admin.budget_info_groups"),
+                                   class: "action-icon--edit",
+                                   method: :get %>
+              <%= icon_link_to "circle-x",
+                                    [budget_info_group],
+                                    t("actions.destroy_budget_info_group", scope: "decidim.admin_extended.admin.budget_info_groups"),
+                                    class: "action-icon--remove",
+                                    method: :delete, 
+                                    data: { confirm: t("actions.confirm_destroy_budget_info_group", scope: "decidim.admin_extended.admin.budget_info_groups") } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </fieldset>
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".positions") %></h2>
+  </div>
+  <fieldset class="card-section">
+      <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".group_name") %></th>
+            <th>Zdjęcie</th>
+            <th><%= t(".name") %></th>
+            <th><%= t(".amount") %></th>
+            <th><%= t(".file") %></th>
+            <th><%= t(".published") %></th>
+            <th><%= t(".on_main_site") %></th>
+            <th><%= t(".created_at") %></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% budget_info_groups.each do |budget_info_group| %>
+          <% if budget_info_group.budget_info_positions.present? %>
+            <tr>
+              <td><strong><%= budget_info_group.name %></strong></td>
+              <td colspan="6"></td>
+            </tr>
+              <% budget_info_group.budget_info_positions.sorted_by_weight.each do |budget_info_position| %>
+                <tr>
+                  <td> </td>
+                  <td>
+                    <%= image_tag(main_app.rails_representation_path(budget_info_position.thumbnail_150)) if budget_info_position.file.attached? %>
+                  </td>
+                  <td><%= budget_info_position.name %></td>
+                  <td><%= budget_info_position.amount.presence || "-" %></td>
+                  <td><%= budget_info_position.file.attached? && budget_info_position.file.filename.present? ? t(".file_yes") : "-" %></td>
+                  <td><%= budget_info_position.published.present? ? t(".published_yes") : t(".published_no") %></td>
+                  <td><%= budget_info_position.on_main_site.present? ? t(".on_main_site_yes") : t(".on_main_site_no") %></td>
+                  <td><%= l budget_info_position.created_at, format: :decidim_short %></td>
+                  <td class="table-list__actions">
+                    <%= icon_link_to "pencil",
+                                          edit_budget_info_position_path(budget_info_position),
+                                          t("actions.edit_budget_info_position", scope: "decidim.admin_extended.admin.budget_info_positions"),
+                                          class: "action-icon--edit",
+                                          method: :get %>
+                    <%= icon_link_to "circle-x",
+                                          [budget_info_position],
+                                          t("actions.destroy_budget_info_position", scope: "decidim.admin_extended.admin.budget_info_positions"),
+                                          class: "action-icon--remove",
+                                          method: :delete, 
+                                          data: { confirm: t("actions.confirm_destroy_budget_info_position", scope: "decidim.admin_extended.admin.budget_info_positions") } %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+</div>

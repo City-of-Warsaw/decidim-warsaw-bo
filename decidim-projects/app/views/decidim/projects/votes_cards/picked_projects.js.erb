@@ -1,0 +1,7 @@
+$('#projects-list').replaceWith('<%= j(render "projects", projects: @projects, empty_info: @empty_info).strip.html_safe %>');
+$('#markersMap').val('<%= j @all_locations_json %>').trigger('change'); // markers update
+$('.projects-choosing-js').show();
+$('.scope-budget-value-info').html("<%= @scope_budget_value %>");
+
+// choosing project
+$('.choose-project-js').click(selectProject);

@@ -1,0 +1,11 @@
+<p>Szanowna Mieszkanko, Szanowny Mieszkańcu,</p>
+
+<p>zaktualizowaliśmy stan realizacji projektu <%= @project.title %>, który obserwujesz. Kliknij w poniższy link, aby sprawdzić co się zmieniło</p>
+
+<p><%= link_to @project.title, @project_link, class: 'button' %></p>
+
+<p>
+  Jeżeli nie chcesz otrzymywać informacji na temat stanu realizacji, zaloguj się na stronie <a href="bo.um.warszawa.pl">bo.um.warszawa.pl</a> i w zakładce “Moje dane” odznacz odpowiednie zgody.
+</p>
+
+<%= render 'mailer_footer', organization: @organization %>

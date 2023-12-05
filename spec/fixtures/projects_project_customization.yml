@@ -1,0 +1,95 @@
+---
+pc_1:
+  custom_names:
+    body: Opis projektu
+    city: Miasto
+    email: Adres e-mail
+    title: Nazwa projektu
+    gender: ''
+    street: Ulica
+    scope_id: Poziom zgłaszanego projektu / dzielnica
+    zip_code: Kod pocztowy
+    body_hint: "<p>Określ dostępność w wymiarze co najmniej 25 godzin tygodniowo, pomiędzy
+      6:00 a 22:00, z uwzględnieniem soboty lub niedzieli (w przypadku projektów infrastrukturalnych,
+      remontowych lub polegających na zakupie sprzętu lub urządzeń) oraz wskaż zasady
+      rekrutacji, w tym sposób informowania o rekrutacji, termin jej rozpoczęcia i zakończenia
+      oraz kryteria naboru (w przypadku gdy projekt jest skierowany do ograniczonej grupy
+      odbiorców).</p>"
+    city_hint: ''
+    last_name: Nazwisko
+    email_hint: ''
+    first_name: Imię
+    title_hint: "<p>W trakcie głosowania to właśnie nazwa znajdzie się na karcie do głosowania.</p>"
+    flat_number: Nr mieszkania
+    gender_hint: ''
+    street_hint: ''
+    budget_value: Szacunkowy koszt realizacji projektu
+    category_ids: Kategoria tematyczna projektu
+    phone_number: Twój numer telefonu
+    scope_id_hint: ''
+    street_number: Nr domu
+    zip_code_hint: ''
+    body_help_text: "<p>Opisz, na czym polega projekt i z jakich działań lub elementów
+      będzie się składał. Opisz, w jaki sposób mieszkańcy będą mogli skorzystać z projektu.
+      Pamiętaj, że powinni móc z niego korzystać nieodpłatnie. Nie wskazuj potencjalnego
+      wykonawcy, trybu jego wyboru lub znaków towarowych.</p>"
+    city_help_text: ''
+    last_name_hint: ''
+    email_help_text: ''
+    first_name_hint: ''
+    title_help_text: "<p>Nazwę sformułuj w taki sposób, aby informowała o treści projektu.</p>"
+    flat_number_hint: ''
+    gender_help_text: ''
+    street_help_text: ''
+    universal_design: Projektowanie uniwersalne
+    budget_value_hint: "<p>Skorzystaj z przykładowego cennika na stronie bo.um.warszawa.pl/site/costs.
+      Ostateczny koszt realizacji projektu oszacują urzędnicy.</p>"
+    category_ids_hint: ''
+    localization_info: Lokalizacja projektu - ulica i nr / rejon ulic w Warszawie
+    phone_number_hint: ''
+    short_description: Skrócony opis projektu
+    coauthor_email_one: E-mail współautora
+    coauthor_email_two:
+    justification_info: Uzasadnienie realizacji projektu
+    scope_id_help_text: ''
+    street_number_hint: ''
+    zip_code_help_text: ''
+    last_name_help_text: ''
+    first_name_help_text: ''
+    flat_number_help_text: ''
+    universal_design_hint: "<p>Zaznacz poniżej odpowiednie pole (zaznaczenie jest nieobowiązkowe).
+      Jeśli zaznaczysz „Nie” napisz, dlaczego projekt nie jest zgodny z tymi zasadami.</p>"
+    budget_value_help_text: "<p>Oszacuj koszt realizacji projektu. Uwzględnij również
+      koszt jego eksploatacji w roku wykonania i koszt oznakowania graficznego informującego,
+      że projekt powstał w ramach budżetu obywatelskiego.</p>"
+    category_ids_help_text: ''
+    localization_info_hint: ''
+    phone_number_help_text: "<p>Uwaga! Nr telefonu nie będzie nigdzie publikowany, będzie
+      wykorzystywany jedynie przez pracownika urzędu do łatwiejszego kontaktu z Tobą w
+      sprawie tego projektu.</p>"
+    short_description_hint: ''
+    coauthor_email_one_hint: ''
+    coauthor_email_two_hint:
+    justification_info_hint: ''
+    potential_recipient_ids: Potencjalni odbiorcy projektu
+    street_number_help_text: ''
+    universal_design_help_text: "<p>Zastanów się, czy projekt jest zgodny z zasadami projektowania
+      uniwersalnego. Określ, czy Twoim zdaniem z projektu będą mogli skorzystać wszyscy
+      mieszkańcy (w możliwie największym stopniu) z uwzględnieniem osób ze specjalnymi
+      potrzebami.</p>"
+    localization_info_help_text: ''
+    short_description_help_text: "<p>Opisz w kilku zdaniach, na czym polega Twój projekt
+      (maksymalnie 50 słów).</p>"
+    coauthor_email_one_help_text: "<p>Jeżeli projekt ma współautorów, podaj ich adres
+      email w tym miejscu</p>"
+    coauthor_email_two_help_text:
+    justification_info_help_text: "<p>Uzasadnij, dlaczego warto zrealizować projekt.<br>Opisz
+      problemy, które rozwiązuje lub napisz, na jakie potrzeby odpowiada.</p>"
+    localization_additional_info: Inne istotne informacje dotyczące lokalizacji
+    potential_recipient_ids_hint: ''
+    universal_design_argumentation: Projektowanie uniwersalne – uzasadnienie
+    localization_additional_info_hint: ''
+    potential_recipient_ids_help_text: ''
+    universal_design_argumentation_hint: "<p>Projektowanie uniwersalne – uzasadnienie</p>"
+    localization_additional_info_help_text: ''
+    universal_design_argumentation_help_text: ''

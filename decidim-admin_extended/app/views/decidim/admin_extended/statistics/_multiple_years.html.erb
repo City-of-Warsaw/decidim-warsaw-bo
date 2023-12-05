@@ -1,0 +1,134 @@
+  <div class="row column column--stats-wide">
+    <table class="stats-table" style="min-width: <%= @statistics.size * 200 + 200 %>px">
+      <thead>
+        <tr>
+          <th>Edycja:</th>
+
+          <% @statistics.each do |edition| %>
+            <th><%= edition[:edition_year] %></th>
+          <% end %>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__subtitle"><div>Składanie projektów</div></td>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Kwota na budżet obywatelski w danym roku</div></td>
+        </tr>
+
+        <tr>
+          <td>Kwota na budżet obywatelski w danym roku</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:budget], locale: :pl) %> zł</td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba zgłoszonych projektów</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba zgłoszonych projektów</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_papers] + edition[:number_of_projects_electronic], locale: :pl) %></td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba zgłoszonych projektów papierowo</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba zgłoszonych projektów papierowo</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_papers], locale: :pl) %></td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba zgłoszonych projektów elektronicznie</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba zgłoszonych projektów elektronicznie</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_electronic], locale: :pl) %></td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba autorów projektów</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba autorów projektów</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_authors], locale: :pl) %></td>
+          <% end %>
+        </tr>
+        
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Średnia liczba zgłoszonych projektów na autora projektu</div></td>
+        </tr>
+
+        <tr>
+          <td>Średnia liczba zgłoszonych projektów na autora projektu</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:average_number_project_person], locale: :pl) %></td>
+          <% end %>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__subtitle"><div>Ocenianie projektów</div></td>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba projektów dopuszczonych do głosowania</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba projektów dopuszczonych do głosowania</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_approved], locale: :pl) %></td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba projektów ocenionych negatywnie</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba projektów ocenionych negatywnie</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_rejected], locale: :pl) %></td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td colspan="<%= @statistics.size + 1 %>" class="stats-table__stat-title"><div>Liczba projektów wycofanych przez autorów</div></td>
+        </tr>
+
+        <tr>
+          <td>Liczba projektów wycofanych przez autorów</td>
+
+          <% @statistics.each do |edition| %>
+            <td><%= number_with_delimiter(edition[:number_of_projects_withdrawn_by_authors], locale: :pl) %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 

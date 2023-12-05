@@ -1,0 +1,34 @@
+<div id="<%= dom_id(model, :follow) %>">
+  <% model_translation_scope = model.is_a?(Decidim::Projects::Project) ? "decidim.follows.project" : "decidim.follows" %>
+  <% if current_user %>
+    <% if current_user.follows?(model) %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, method: :delete, remote: true do %>
+        <%= t("destroy.button", scope: model_translation_scope) %>
+        <%= render_screen_reader_title_for(model) %>
+      <% end %>
+    <% else %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, remote: true do %>
+        <% if current_user.follows?(model.try(:participatory_space)) %>
+          <%= t("follows.create.participatory_space", resource_name: resource_title(model.participatory_space), scope: "decidim") %>
+        <% else %>
+          <%= t("create.button", scope: model_translation_scope) %>
+          <%= render_screen_reader_title_for(model) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= action_authorized_button_to(
+          :follow,
+          decidim.follow_path,
+          resource: model,
+          class: button_classes,
+          params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } },
+          data: { tooltip: true, disable_hover: false },
+          :'aria-haspopup' => true,
+          title: t("decidim.shared.follow_button.sign_in_before_follow"),
+          remote: true) do %>
+      <%= t("create.button", scope: model_translation_scope) %>
+      <%= render_screen_reader_title_for(model) %>
+    <% end %>
+  <% end %>
+</div>

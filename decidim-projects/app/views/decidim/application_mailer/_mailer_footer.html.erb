@@ -1,0 +1,11 @@
+<p>
+  Z poważaniem
+  <br>
+  Urząd m.st. Warszawy
+  <br>
+  <%= h(@organization.name) %>
+  <br/>
+  <a href='<%= decidim.root_url(host: @organization.host) %>'>
+    <%= decidim.root_url(host: @organization.host).html_safe %>
+  </a>
+</p>

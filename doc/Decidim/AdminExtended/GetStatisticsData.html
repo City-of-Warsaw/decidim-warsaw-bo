@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::AdminExtended::GetStatisticsData
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::AdminExtended::GetStatisticsData";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span>
+     &raquo; 
+    <span class="title">GetStatisticsData</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::AdminExtended::GetStatisticsData
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rectify::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rectify::Command</li>
+          
+            <li class="next">Decidim::AdminExtended::GetStatisticsData</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#edition_year-instance_method" title="#edition_year (instance method)">#<strong>edition_year</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute edition_year.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#scope_collection-instance_method" title="#scope_collection (instance method)">#<strong>scope_collection</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute scope_collection.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#scope_id-instance_method" title="#scope_id (instance method)">#<strong>scope_id</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute scope_id.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#scope_type-instance_method" title="#scope_type (instance method)">#<strong>scope_type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute scope_type.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#calculate_stats-instance_method" title="#calculate_stats (instance method)">#<strong>calculate_stats</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#format_data-instance_method" title="#format_data (instance method)">#<strong>format_data</strong>(participatory_process, scope_ids)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_average_number_project_person-instance_method" title="#get_average_number_project_person (instance method)">#<strong>get_average_number_project_person</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_budget-instance_method" title="#get_budget (instance method)">#<strong>get_budget</strong>(participatory_process, scope_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_number_of_authors-instance_method" title="#get_number_of_authors (instance method)">#<strong>get_number_of_authors</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_number_of_projects-instance_method" title="#get_number_of_projects (instance method)">#<strong>get_number_of_projects</strong>(participatory_process, type)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_number_of_projects_approved-instance_method" title="#get_number_of_projects_approved (instance method)">#<strong>get_number_of_projects_approved</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_number_of_projects_rejected-instance_method" title="#get_number_of_projects_rejected (instance method)">#<strong>get_number_of_projects_rejected</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_number_of_projects_withdrawn_by_authors-instance_method" title="#get_number_of_projects_withdrawn_by_authors (instance method)">#<strong>get_number_of_projects_withdrawn_by_authors</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#get_statistics_for_participatory_process-instance_method" title="#get_statistics_for_participatory_process (instance method)">#<strong>get_statistics_for_participatory_process</strong>(participatory_process, scope)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(form)  &#x21d2; GetStatisticsData </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_0_18-instance_method" title="#number_of_project_voters_0_18 (instance method)">#<strong>number_of_project_voters_0_18</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_19_24-instance_method" title="#number_of_project_voters_19_24 (instance method)">#<strong>number_of_project_voters_19_24</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_25_34-instance_method" title="#number_of_project_voters_25_34 (instance method)">#<strong>number_of_project_voters_25_34</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_35_44-instance_method" title="#number_of_project_voters_35_44 (instance method)">#<strong>number_of_project_voters_35_44</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_45_64-instance_method" title="#number_of_project_voters_45_64 (instance method)">#<strong>number_of_project_voters_45_64</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#number_of_project_voters_65_100-instance_method" title="#number_of_project_voters_65_100 (instance method)">#<strong>number_of_project_voters_65_100</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#participatory_process-instance_method" title="#participatory_process (instance method)">#<strong>participatory_process</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#projects-instance_method" title="#projects (instance method)">#<strong>projects</strong>(participatory_process)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(form)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::AdminExtended::GetStatisticsData (class)">GetStatisticsData</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the command.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_scope_type'>scope_type</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_type'>scope_type</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_scope_id'>scope_id</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_id'>scope_id</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_scope_collection'>scope_collection</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_collection'>scope_collection</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="edition_year=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="edition_year-instance_method">
+  
+    #<strong>edition_year</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute edition_year.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_edition_year'>edition_year</span>
+  <span class='ivar'>@edition_year</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="scope_collection=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="scope_collection-instance_method">
+  
+    #<strong>scope_collection</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute scope_collection.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope_collection'>scope_collection</span>
+  <span class='ivar'>@scope_collection</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="scope_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="scope_id-instance_method">
+  
+    #<strong>scope_id</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute scope_id.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope_id'>scope_id</span>
+  <span class='ivar'>@scope_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="scope_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="scope_type-instance_method">
+  
+    #<strong>scope_type</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute scope_type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope_type'>scope_type</span>
+  <span class='ivar'>@scope_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="calculate_stats-instance_method">
+  
+    #<strong>calculate_stats</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_stats'>calculate_stats</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span> <span class='id identifier rubyid_format_data'>format_data</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="call-instance_method">
+  
+    #<strong>call</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
+  <span class='id identifier rubyid_calculate_stats'>calculate_stats</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="format_data-instance_method">
+  
+    #<strong>format_data</strong>(participatory_process, scope_ids)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_format_data'>format_data</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope_ids'>scope_ids</span><span class='rparen'>)</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>edition_year:</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span><span class='comma'>,</span>
+    <span class='label'>budget:</span> <span class='id identifier rubyid_get_budget'>get_budget</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope_ids'>scope_ids</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_authors:</span> <span class='id identifier rubyid_get_number_of_authors'>get_number_of_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>average_number_project_person:</span> <span class='id identifier rubyid_get_average_number_project_person'>get_average_number_project_person</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_projects_papers:</span> <span class='id identifier rubyid_get_number_of_projects'>get_number_of_projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>paper</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_projects_electronic:</span> <span class='id identifier rubyid_get_number_of_projects'>get_number_of_projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>electronic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_projects_approved:</span> <span class='id identifier rubyid_get_number_of_projects_approved'>get_number_of_projects_approved</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_projects_withdrawn_by_authors:</span> <span class='id identifier rubyid_get_number_of_projects_withdrawn_by_authors'>get_number_of_projects_withdrawn_by_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_projects_rejected:</span> <span class='id identifier rubyid_get_number_of_projects_rejected'>get_number_of_projects_rejected</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_0_18:</span> <span class='id identifier rubyid_number_of_project_voters_0_18'>number_of_project_voters_0_18</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_19_24:</span> <span class='id identifier rubyid_number_of_project_voters_19_24'>number_of_project_voters_19_24</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_25_34:</span> <span class='id identifier rubyid_number_of_project_voters_25_34'>number_of_project_voters_25_34</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_35_44:</span> <span class='id identifier rubyid_number_of_project_voters_35_44'>number_of_project_voters_35_44</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_45_64:</span> <span class='id identifier rubyid_number_of_project_voters_45_64'>number_of_project_voters_45_64</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>number_of_voters_65_100:</span> <span class='id identifier rubyid_number_of_project_voters_65_100'>number_of_project_voters_65_100</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_average_number_project_person-instance_method">
+  
+    #<strong>get_average_number_project_person</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_average_number_project_person'>get_average_number_project_person</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span> <span class='op'>||</span> <span class='id identifier rubyid_get_number_of_authors'>get_number_of_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+
+  <span class='lparen'>(</span><span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_get_number_of_authors'>get_number_of_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_budget-instance_method">
+  
+    #<strong>get_budget</strong>(participatory_process, scope_id)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_budget'>get_budget</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope_id'>scope_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='period'>.</span><span class='id identifier rubyid_scope_budgets'>scope_budgets</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>decidim_scope_id:</span> <span class='id identifier rubyid_scope_id'>scope_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:budget_value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_number_of_authors-instance_method">
+  
+    #<strong>get_number_of_authors</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_number_of_authors'>get_number_of_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:coauthorships</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_coauthorships.decidim_author_type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Decidim::UserBaseEntity</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+                                                              <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_coauthorships.coauthorable_type</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Decidim::Projects::Project</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+                                                              <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_coauthorships.coauthor</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_group'>group</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim_coauthorships.decidim_author_id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_number_of_projects-instance_method">
+  
+    #<strong>get_number_of_projects</strong>(participatory_process, type)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_number_of_projects'>get_number_of_projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>paper</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>is_paper:</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>is_paper:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_number_of_projects_approved-instance_method">
+  
+    #<strong>get_number_of_projects_approved</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_number_of_projects_approved'>get_number_of_projects_approved</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>state:</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html#ACCEPTED-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::ACCEPTED (constant)">ACCEPTED</a></span></span><span class='comma'>,</span>
+                                                  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html#SELECTED-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::SELECTED (constant)">SELECTED</a></span></span><span class='comma'>,</span>
+                                                  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html#NOT_SELECTED-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::NOT_SELECTED (constant)">NOT_SELECTED</a></span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+                                   <span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_number_of_projects_rejected-instance_method">
+  
+    #<strong>get_number_of_projects_rejected</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_number_of_projects_rejected'>get_number_of_projects_rejected</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>state:</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html#REJECTED-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::REJECTED (constant)">REJECTED</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_number_of_projects_withdrawn_by_authors-instance_method">
+  
+    #<strong>get_number_of_projects_withdrawn_by_authors</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_number_of_projects_withdrawn_by_authors'>get_number_of_projects_withdrawn_by_authors</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>state:</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html" title="Decidim::Projects::Project::POSSIBLE_STATES (module)">POSSIBLE_STATES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project/POSSIBLE_STATES.html#WITHDRAWN-constant" title="Decidim::Projects::Project::POSSIBLE_STATES::WITHDRAWN (constant)">WITHDRAWN</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_statistics_for_participatory_process-instance_method">
+  
+    #<strong>get_statistics_for_participatory_process</strong>(participatory_process, scope)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/StatisticsParticipatoryProcess.html" title="Decidim::Projects::StatisticsParticipatoryProcess (class)">StatisticsParticipatoryProcess</a></span></span>
+    <span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>scope_id:</span> <span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='label'>participatory_process:</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_0_18-instance_method">
+  
+    #<strong>number_of_project_voters_0_18</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_0_18'>number_of_project_voters_0_18</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_0_18'>number_of_project_voters_0_18</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_19_24-instance_method">
+  
+    #<strong>number_of_project_voters_19_24</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_19_24'>number_of_project_voters_19_24</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_19_24'>number_of_project_voters_19_24</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_25_34-instance_method">
+  
+    #<strong>number_of_project_voters_25_34</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_25_34'>number_of_project_voters_25_34</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_25_34'>number_of_project_voters_25_34</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_35_44-instance_method">
+  
+    #<strong>number_of_project_voters_35_44</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_35_44'>number_of_project_voters_35_44</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_35_44'>number_of_project_voters_35_44</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_45_64-instance_method">
+  
+    #<strong>number_of_project_voters_45_64</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_45_64'>number_of_project_voters_45_64</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_45_64'>number_of_project_voters_45_64</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="number_of_project_voters_65_100-instance_method">
+  
+    #<strong>number_of_project_voters_65_100</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_number_of_project_voters_65_100'>number_of_project_voters_65_100</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum_statistics'>sum_statistics</span> <span class='op'>+=</span> <span class='id identifier rubyid_get_statistics_for_participatory_process'>get_statistics_for_participatory_process</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_number_of_project_voters_65_100'>number_of_project_voters_65_100</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_sum_statistics'>sum_statistics</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="participatory_process-instance_method">
+  
+    #<strong>participatory_process</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ParticipatoryProcess</span><span class='period'>.</span><span class='id identifier rubyid_published'>published</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>edition_year:</span> <span class='id identifier rubyid_edition_year'>edition_year</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>edition_year:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="projects-instance_method">
+  
+    #<strong>projects</strong>(participatory_process)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/commands/decidim/admin_extended/get_statistics_data.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_projects'>projects</span><span class='lparen'>(</span><span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects/Project.html" title="Decidim::Projects::Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>component:</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span><span class='period'>.</span><span class='id identifier rubyid_projects_component'>projects_component</span><span class='comma'>,</span> <span class='label'>decidim_scope_id:</span> <span class='id identifier rubyid_scope_collection'>scope_collection</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_except_drafts'>except_drafts</span><span class='period'>.</span><span class='id identifier rubyid_not_hidden'>not_hidden</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:06 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

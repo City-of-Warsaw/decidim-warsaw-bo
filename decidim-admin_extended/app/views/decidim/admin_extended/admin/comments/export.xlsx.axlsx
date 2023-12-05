@@ -1,0 +1,34 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row [
+                  'Lp.',
+                  'Data i godzina',
+                  'Autor',
+                  'Imię i nazwisko',
+                  'Treść komentarza',
+                  'Tytuł projektu',
+                  'Komentarz ukryty?',
+                  'Data zgłoszenia / ukrycia',
+                  'Powód zgłoszenia / ukrycia'
+                ]
+  comments.each_with_index do |comment, index|
+  if comment.report_reason.present?
+    comment_reason = t(comment.report_reason, scope: "decidim.admin.moderations.report.reasons")
+    else
+     comment_reason = "-"
+    end
+    sheet.add_row [
+                    index + 1,
+                    l(comment.created_at, format: :short),
+                    comment.author.public_name(true),
+                    comment.author.name_and_surname,
+                    comment.body["pl"],
+                    comment.root_commentable&.title,
+                    t(comment.hidden?, scope: 'booleans'),
+                    comment.reported_at,
+                    comment_reason
+                  ], :types => [nil, :string,:string,:string,:string,:string,:string,:string]
+  end
+  sheet.column_widths 5, 20, 20, 50, 30, 10, 20, 20
+end
+

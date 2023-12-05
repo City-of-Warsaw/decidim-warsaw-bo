@@ -1,0 +1,31 @@
+<% add_decidim_page_title(t("watched_projects", scope: "layouts.decidim.wrapper")) %>
+
+<div class="row projects-list-grid">
+  <% if projects.any? %>
+    <% projects.group(:edition_year).order(edition_year: :desc).pluck(:edition_year).each do |edition_year| %>
+      <h2 class="no-margin-top">Edycja na rok <%= edition_year %></h2>
+      <table class="projects-list-table">
+        <%= render 'headers' %>
+        <tbody>
+        <% projects.where(edition_year: edition_year).order(created_at: :desc).each do |project| %>
+          <tr>
+            <%= render 'sharable_table_cells', project: project %>
+            <td class="text-center last-column">
+              <div class="actions">
+                <%= link_to account_watched_project_path(project, follow: { followable_gid: project.to_sgid.to_s }), method: :delete, class: "action-icon-button", title: "Usuń" do %>
+                  <%= account_icon('delete') %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+    <p>
+    <h2> <%= t(".empty") %> </h2>
+    </p>
+  <% end %>
+</div>
+

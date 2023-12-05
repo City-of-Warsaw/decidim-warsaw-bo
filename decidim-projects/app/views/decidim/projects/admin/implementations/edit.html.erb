@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">Edytuj stan realizacji</h2>
+  </div>
+  <div class="card-section">
+    <%= decidim_form_for(@form, url: implementation_path(@implementation), method: :patch, as: :implementation, html: { class: "form edit_project project_form_admin" })  do |form| %>
+      <div class="row column hashtags__container">
+        <%= form.editor :implementation_body, label: 'Treść aktualizacji' %>
+      </div>
+
+      <div class="row column hashtags__container">
+        <%= form.datetime_field :implementation_date, label: 'Data aktualizacji stanu realizacji', help_text: 'Jeśli podasz przyszłą datę, wktualizacja wyświetlu się dopiero w tym dniu' %>
+      </div>
+
+      <div class="button--double form-general-submit">
+        <%= form.submit 'Zapisz' %>
+      </div>
+    <% end %>
+  </div>
+</div>

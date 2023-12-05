@@ -1,0 +1,16 @@
+<h2 class="no-margin-top"><%= t('decidim.core_extended.account.notes.actions.new_header').html_safe %></h2>
+
+<div class="user-profile__form">
+  <%= decidim_form_for([:account, @form], html: { class: "form" }) do |f| %>
+    <%= render partial: "form", object: f %>
+
+    <div class="user-profile__form-footer">
+      * pola wymagane
+
+      <div class="button--double form-general-submit">
+        <%= link_to t("decidim.core_extended.account.notes.actions.cancel"), account_notes_path %>
+        <%= f.submit t("decidim.core_extended.account.notes.actions.create") %>
+      </div>
+    </div>
+  <% end %>
+</div>

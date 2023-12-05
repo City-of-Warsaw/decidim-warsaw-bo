@@ -1,0 +1,415 @@
+/*
+*= require rwd-admin
+*= require_tree .
+*= require ../leaflet
+*= require ../leaflet.legend
+*= require ../leaflet-gesture-handling.min
+*= require ../MarkerCluster
+*= require autocomplete.min.css
+*= require "select2.min"
+*= require_self
+*/
+
+body,
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: Arial, sans-serif !important;
+}
+
+.wcag-invisible {
+  display: none;
+}
+
+.cell {
+  /* decidim styling fix */
+  min-width: 10px;
+}
+
+.mb-s {
+  margin-bottom: 20px;
+}
+
+.help-text {
+  display: block;
+}
+
+#processes>div.card-section>div>fieldset>span {
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+}
+
+.form input[type='checkbox'] {
+  margin-bottom: 0.5rem;
+}
+
+.styled-label input {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.custom-styled-label {
+  display: flex;
+  align-items: baseline;
+}
+
+.custom-styled-label span {
+  display: inline-block;
+  width: calc(100% - 25px);
+}
+
+.locations p {
+  padding-top: 2px;
+  margin-bottom: 0;
+}
+
+.locations .button {
+  width: auto;
+  margin: inherit;
+  margin-top: 0;
+  display: inline-block;
+  width: 70px;
+}
+
+.map-toggler-box .auto-search-wrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.map-toggler-box .auto-search-wrapper input,
+.locations input[type="text"] {
+  /* width: 50%; */
+  max-width: calc(100% - 75px);
+  /* min-width: 300px; */
+  font-size: 1em;
+  padding: 6px;
+  display: inline-block;
+}
+
+.customize-form-row.card {
+  border-color: #CFCFCF;
+}
+
+.customize-form-row label {
+  width: 30%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.customize-form-row label.halved,
+.customize-form-row div.halved {
+  width: 15%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.customize-form-row label.textarea {
+  width: calc((90% + 30px) / 2);
+}
+
+.customize-form-row textarea {
+  height: 120px;
+}
+
+.customize-form-blank-js {
+  display: none;
+}
+
+/******/
+.text-col {
+  max-width: 70vw;
+  width: 1000px;
+  word-wrap: break-word;
+}
+
+/******/
+.filters__section {
+  z-index: 2;
+}
+
+/******/
+
+.MultiFile-title {
+  margin-right: 10px;
+}
+
+.MultiFile-preview {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.MultiFile-alt-label {
+  display: block;
+  width: 50%;
+}
+
+.implementation-photo-box {
+  display: inline-block;
+  padding-right: 10px;
+  paddin-bottom: 10px;
+  width: 310px;
+  vertical-align: top;
+}
+
+.implementation-photo-box a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.implementation-photo-box img {
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.implementation-photo-box a.button {
+  display: inline;
+}
+
+form.double .hashtags__container label,
+form.double .hashtags__container .current-data {
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+form.double .hashtags__container input[type='text'],
+form.double .hashtags__container input[type='number'],
+form.double .hashtags__container select,
+form.double .hashtags__container textarea {
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+form.double .hashtags__container .current-data label {
+  /* for chekboxes */
+  width: auto;
+}
+
+form.double .hashtags__container .current-data {
+  float: left;
+}
+
+form.double .hashtags__container .current-data strong {
+  display: block;
+}
+
+/*evaluations*/
+.merit-form .form-error,
+.merit-form .tab-custom-error,
+.merit-form .custom-error {
+  margin-top: 5px;
+  bargin-bottom: 1rem;
+}
+
+
+.develop .icon {
+  color: #3388ff;
+}
+
+.alert icon {
+  color: #e66a5d;
+}
+
+.button.reversed {
+  /*font-weight: bold;*/
+  background-color: #fff;
+  color: #039be5;
+  border-color: #039be5;
+}
+
+.button.reversed:hover {
+  filter: brightness(0.9)
+}
+
+.button.reversed.success {
+  color: #5dc560;
+  border-color: #5dc560;
+}
+
+.dropdown-pane .list-reset li:hover button {
+  text-decoration: underline;
+}
+
+
+.coauthors-unfold-js {
+  justify-content: space-between;
+}
+
+.coauthors-unfold-js:hover {
+  cursor: pointer;
+}
+
+.coauthors-unfold-js legend {
+  margin-bottom: 0;
+}
+
+#coauthor-one-js,
+#coauthor-two-js {
+  display: none;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  /*font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;*/
+  color: #fff;
+  line-height: 2.5;
+}
+
+.marker-cluster-small,
+.marker-cluster-small div,
+.marker-cluster-medium,
+.marker-cluster-medium div,
+.marker-cluster-large,
+.marker-cluster-large div {
+  background-color: rgba(31, 114, 174, 0.8);
+  border-radius: 50%;
+}
+
+.card.card-column {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+li.projects-cost-summary {
+  background-color: #eee;
+}
+
+/*// PROCESSES ///*/
+
+.row.column.half-column {
+  display: inline-block;
+  width: 48%;
+  min-width: 280px;
+}
+
+.formal-evaluation-table-js td:not(:first-child),
+.formal-evaluation-table-js th:not(:first-child) {
+  text-align: center;
+}
+
+.formal-evaluation-table-js input {
+  margin-bottom: 0rem !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Admin project list */
+.table-list td.text-left {
+  text-align: left;
+}
+
+.table-list td.text-right {
+  text-align: right;
+}
+
+.action-icon:last-child {
+  margin-right: 1rem;
+}
+
+.table-list td:last-child {
+  padding-right: 0.625rem;
+}
+
+/* DROPDOWN */
+.is-dropdown-submenu {
+  min-width: 260px;
+}
+
+.dropdown .is-dropdown-submenu a {
+  padding-right: 2rem;
+}
+
+.static-pages-group {
+  font-weight: bold;
+}
+
+small.form-error {
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.filter-status span.label.secondary:not(:first-child) {
+  margin-left: .5rem
+}
+
+.compare_new {
+  color: green;
+}
+
+.compare_del {
+  text-decoration: line-through;
+  color: red;
+}
+
+.compare_shifted {
+  color: darkblue;
+}
+
+.compare_normal {
+  color: gray;
+}
+
+.clear {
+  clear: both;
+}
+
+div.filters__section div.fcell.search select#user_ids_ {
+  width: 48%;
+  margin: 0px 10px;
+}
+
+
+.copy-link-loading {
+  position: relative;
+  font-size: 14px;
+  padding-left: 30px;
+  margin-left: 12px;
+  top: -5px;
+  color: #333;
+}
+
+.copy-link-loading::after {
+  right: unset;
+  left: 0;
+}
+
+.copy-link-success {
+  position: relative;
+  font-size: 14px;
+  margin-left: 12px;
+  top: -5px;
+  color: #038503;
+}
+a.is_active_link {
+  color: #039be5;
+  text-decoration: underline;
+}
+.help-text {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+

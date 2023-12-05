@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <% budget_info_groups.each do |budget_info_group| %>
+    <div class="row column">
+      <div class="page-title-wrapper">
+        <h2 class="section-heading">
+          <%= budget_info_group.name %>
+          <% if budget_info_group.subtitle.present? %>
+            <span><%= budget_info_group.subtitle %></span>
+          <% end %>
+        </h2>
+      </div>
+    </div>  
+
+    <div class="row column costs-row">
+      <% budget_info_group.published_budget_info_positions.each do |budget_info_position| %>
+        <div class="columns small-12 medium-12 large-4 cost-item">
+          <div class="card">
+            <div class="cost-item__image">
+              <%= image_tag(main_app.rails_representation_path(budget_info_position.thumbnail_150)) if budget_info_position.file.attached? %>
+            </div>
+
+            <div class="cost-item__content">
+              <div class="cost-item__name">
+                <%= budget_info_position.name %>
+              </div>
+              
+              <div class="cost-item__footer">
+                <div class="cost-item__description">
+                  <%= budget_info_position.description %>
+                </div>
+
+                <div class="cost-item__cost">
+                  <%= budget_info_position.amount %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+  <% end %>  
+</div>

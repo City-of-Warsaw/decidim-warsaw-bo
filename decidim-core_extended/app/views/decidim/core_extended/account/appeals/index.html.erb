@@ -1,0 +1,52 @@
+<% add_decidim_page_title(t("my_projects", scope: "layouts.decidim.wrapper")) %>
+
+<!--
+  SEWERYN: dodano klasy "user-profile appeals" żeby modyfikować tabelę tylko na tym widoku
+  plik ze stylami: "app/assets/stylesheets/user_profile.scss"
+  Element ma na projekcie nagłówki i WCAG zwróci go jeśli nie bedzie tablą,
+  wiec moze to byc trochę tricky do ostylowania, bo ostatnia kolumna skakuje pod spód...
+-->
+<div class="appeals">
+  <div class="bordered-box">
+    <p>
+      <strong>Tutaj możesz składać odwołania do ocenionych negatywnie projektów.</strong>
+      <br/>Będą one widoczne wyłącznie dla Ciebie.
+    </p>
+
+    <% if latest_edition.time_for_appeals? %>
+      <%= link_to "Złóż nowe odwołanie", new_account_appeal_path, class: "button button--title wide" %>
+    <% end %>
+  </div>
+  <% if appeals.any? %>
+    <% appeals.pluck("decidim_projects_projects.edition_year").uniq.each do |edition_year| %>
+      <h2>Edycja na rok <%= edition_year %></h2>
+      <table class="projects-list-table">
+        <%= render 'headers' %>
+        <tbody>
+        <% appeals.where('decidim_projects_projects.edition_year': edition_year).order(time_of_submit: :desc).each do |appeal| %>
+          <% project = appeal.project %>
+          <tr>
+            <%= render 'sharable_table_cells', appeal: appeal, project: project %>
+            <td class="text-center last-column">
+              <div class="actions">
+                <% unless appeal.submitted? %>
+                  <%= link_to edit_account_appeal_path(appeal), class: "action-icon-button", title: "Edytuj" do %>
+                    <%= account_icon('edit') %>
+                  <% end %>
+                  <%= link_to account_appeal_path(appeal), method: :delete, class: "action-icon-button", title: "Usuń" do %>
+                    <%= account_icon('delete') %>
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+    <p>
+    <h2> <%= t(".empty") %> </h2>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <style>
+    body {
+      font-family:  Helvetica;
+      line-height: 150%;
+    }
+    h1 {
+      line-height: 160%;
+    }
+    ul {
+      list-style: none;
+    }
+
+    .checkbox {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #000000;
+    }
+
+    .checkbox.checked {
+        display: inline-block;
+        background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+<p>
+  Nr ESOG: <%= @evaluation.project.esog_number %>
+  <br>
+  Znak Signum: <%= @evaluation.details['signum_number'] %>
+  <br>
+  Nazwa projektu: <%= @evaluation.project.title %>
+</p>
+
+<h1>Karta ponownej oceny projektu zgłoszonego do budżetu obywatelskiego w Warszawie na rok <%= @evaluation.project.edition_year %></h1>
+
+<h3>Odwołanie</h3>
+<p>
+  Data wpłynięcia odwołania do Urzędu: <%= l(@evaluation.project.appeal&.time_of_submit, default: '') %>
+  <br>
+  Treść: <%= @evaluation.project.appeal&.body %>
+</p>
+
+<h3>
+  Podmiot dokonujący ponownej oceny
+  <br>
+  <small>(nazwa wydziału oraz urzędu dzielnicy/biura lub jednostki)</small>
+</h3>
+<p>
+  <%= @evaluation.details["reevaluator_department"].presence || 'Nie podano' %>
+</p>
+
+<h3>Kryteria oceny formalnej, do których autor miał zastrzeżenia</h3>
+<ul>
+  <% @form.formal_elements.each do |fe| %>
+    <li>
+      <span class="checkbox <%= @evaluation.details["formal_appeal"].include?(fe[1]) ? 'checked' : nil %>"></span>
+      <span class="after-checkbox"><%= fe[0] %></span>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Kryteria oceny merytorycznej, do których autor miał zastrzeżenia</h3>
+<ul>
+  <% @form.meritorical_elements.each do |fe| %>
+    <li>
+      <span class="checkbox <%= @evaluation.details["meritorical_appeal"].include?(fe[1]) ? 'checked' : nil %>"></span>
+      <span class="after-checkbox"><%= fe[0] %></span>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Inne zastrzeżenia autora</h3>
+<p>
+  <%= @evaluation.details["user_additional_appeal"].presence || 'Nie podano' %>
+</p>
+
+<h3>Dane oceny</h3>
+<p>
+  Ponowna ocena projektów w oparciu o kryteria oceny: <%= @evaluation.details["reevaluation_body"].presence || 'Brak' %>
+  <br>
+  Propozycja wyniku rozpatrzenia odwołania: <%= @evaluation.details["reevaluation_result"] ? 'Pozytywny' : 'Negatywny' %>
+  <br>
+  <% if @evaluation.details["reevaluation_result"] %>
+    Skutki realizacji projektu: <%= @evaluation.details["positive_reevaluation_body"] %>
+  <% else %>
+    Uzasadnienie negatywnej oceny: <%= @evaluation.details["negative_reevaluation_body"] %>
+  <% end %>
+  <br>
+  Imię i nazwisko osoby dokonującej oceny: <%= @evaluation.details["reevaluator_user_name"] %>
+  <br>
+  Data przeprowadzonej oceny: <%= @evaluation.details["reevaluation_date"] %>
+  <br>
+  Imię, nazwisko oraz funkcja osoby zatwierdzającej ocenę: <%= @evaluation.details["admin_name"] %>
+  <br>
+  Data zatwierdzenia oceny: <%= @evaluation.details["reevaluation_approve_date"] %>
+  <br>
+  Wynik rozpatrzenia odwołania na podstawie decyzji Dyrektor Koordynator ds. Przedsiębiorczości i&nbsp;Dialogu Społecznego: <%= @evaluation.details["result"]  ? 'Pozytywny' : 'Negatywny'%>
+  <br>
+  Data zatwierdzenia karty oceny: <%= @evaluation.details["reevaluation_card_approve_date"] %>
+
+</p>
+
+
+</body>
+</html>
+
+

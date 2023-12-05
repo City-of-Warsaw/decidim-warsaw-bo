@@ -1,0 +1,127 @@
+<fieldset class="card">
+  <div class="row">
+    <div class="columns large-12">
+      <legend class="section-heading">
+        <h2><%= t('.name_data').html_safe %></h2>
+      </legend>
+
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :first_name,
+                                'aria-required': true,
+                                autocomplete: "given-name" %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :last_name,
+                                'aria-required': true,
+                                'aria-describedby': 'last-name-help',
+                                autocomplete: "family-name" %>
+          </div>
+        </div>
+        <div class="columns large-12">
+          <span id="last-name-help" class="help-text"><%= t('.last_name_help') %></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :pesel_number,
+                                'aria-required': true %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :pesel_number_confirmation,
+                                label: t('.pesel_number_confirmation_label'),
+                                'aria-required': true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field hashtags__container">
+        <%= form.text_field :email, 
+                            value: vote_card.email,
+                            disabled: true %>
+
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset class="card">
+  <div class="row">
+    <div class="columns large-12">
+      <legend class="section-heading">
+        <h2><%= t('.address_data').html_safe %></h2>
+      </legend>
+
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :street,
+                                'aria-required': true %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="row">
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :street_number,
+                                    'aria-required': true %>
+              </div>
+            </div>
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :flat_number %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :zip_code,
+                                'aria-required': true,
+                                autocomplete: 'postal-code' %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :city,
+                                'aria-required': true,
+                                autocomplete: 'address-level2'  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<div class="bg-grey voting">
+  <div class="row">
+    <div class="columns large-12 text-left mb-m">
+      <div class="card explanation pl-s pt-s pr-s pb-s">
+        <div class='strong'><%= t('information_clause_label', scope: 'decidim.projects.projects.edit', link: '/pages/klauzula-informacyjna').html_safe %></div>
+        <%= t('information_clause_explanation', scope: 'decidim.projects.projects.edit') %>
+      </div>
+    </div>
+    <div class="columns large-12">
+      <div class="actions">
+        <%= link_to t(".back"), path_for_wizard_vote(vote_card, 'step_3_list'), class: "button hollow" %>
+        <%= form.submit t(".submit"), class: "button voting-not-finished-js" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $('#user_zip_code').mask('00-000');
+    $('#wizard_vote_user_data_zip_code').mask('00-000');
+  });
+<% end %>

@@ -1,0 +1,6 @@
+<div class="wizard-voting-finish-js wizard-steps-custom <%= wizard.confirmation_step? ? 'full' : nil %>"
+     data-href="<%= wizard.confirmation_step? ? '' : finish_votes_card_path(vote_card) %>">
+  <div class="row voting">
+    <%= vote_wizard_stepper(wizard, vote_card) %>
+  </div>
+</div>

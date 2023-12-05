@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .page {
+      page-break-after: always !important;
+    }
+
+    h1 {
+      padding-top: 12px;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 16px;
+    }
+
+    h3 span {
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .caption {
+      font-size: 120%;
+    }
+
+    .center {
+      text-align: center;
+    }
+    .text-right {
+      text-align: right;
+    }
+
+    .version {
+      padding: 24px 0;
+      text-align: right;
+    }
+
+    .section {
+      padding-top: 16px;
+    }
+
+    .fill {
+      position: relative;
+      padding: 8px;
+      min-height: 21px;
+      border: 1px solid;
+      font-size: 130%;
+    }
+
+    .additional-info {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 8px;
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+    }
+
+    div.fill {
+      margin: 4px 0;
+    }
+
+    .fill.price {
+      margin-top: 8px;
+      padding: 16px 0;
+      text-align: center;
+      font-size: 400%;
+      line-height: 1;
+    }
+
+    .mh50 {
+      min-height: 50px;
+    }
+    .mh100 {
+      min-height: 100px;
+    }
+    .mw20 {
+      min-width: 20%;
+    }
+    .mw40 {
+      min-width: 40%;
+    }
+    .w5 {
+      width: 5%;
+    }
+    .w10 {
+      width: 10%;
+    }
+    .w15 {
+      width: 15%;
+    }
+    .w125 {
+      width: 12.5%;
+    }
+    .w20 {
+      width: 20%;
+    }
+    .w25 {
+      width: 25%;
+    }
+    .w30 {
+      width: 30%;
+    }
+    .w40 {
+      width: 40%;
+    }
+    .w50 {
+      width: 50%;
+    }
+    .w60 {
+      width: 60%;
+    }
+    .w70 {
+      width: 70%;
+    }
+    .w75 {
+      width: 75%;
+    }
+    .w90 {
+      width: 90%;
+    }
+    .w95 {
+      width: 95%;
+    }
+    .w100 {
+      width: 100%;
+    }
+
+    .msg-info {
+      text-align: center;
+      color: #ff0000;
+      font-size: 110%;
+    }
+
+    .msg-info.large {
+      font-size: 130%;
+    }
+
+    table td {
+      padding: 0;
+    }
+    table.collapse td {
+      padding: 4px 0;
+    }
+    table td:first-child {
+      padding-right: 8px;
+    }
+    table.collapse td.w125 {
+      padding-left: 10px;
+    }
+    table.pt12 {
+      padding-top: 12px;
+    }
+    table.pb12 {
+      padding-bottom: 12px;
+    }
+
+    table.agreements {
+      font-size: 120%;
+    }
+    table.agreements td {
+      padding: 8px 0;
+    }
+
+    .checkbox {
+    }
+
+    .checkbox.large {
+      font-size: 140%;
+      line-height: 100%;
+    }
+
+    .checkbox::before {
+      margin-right: 8px;
+      display: inline-block;
+      content: "";
+      width: 16px;
+      height: 16px;
+      border: #000 1px solid;
+      vertical-align: middle;
+    }
+
+    .checkbox.large::before {
+      width: 20px;
+      height: 20px;
+    }
+
+    .checkbox.checked::before {
+      background: #000;
+    }
+
+    .signature {
+      padding-top: 96px;
+      text-align: right;
+      font-size: 100%;
+    }
+
+    .signature span {
+      color: #ff0000;
+    }
+
+    .postcode {
+    }
+
+    .postcode * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .postcode span {
+      padding: 8px;
+      min-width: 12px;
+      min-height: 21px;
+      border: 1px solid;
+      font-size: 130%;
+    }
+
+    .postcode strong {
+      padding-left: 24px;
+      font-size: 20px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+<!--
+  -------------------
+  STRONA 1
+  -------------------
+ -->
+<div class="page">
+  <h1>
+    Odwołanie od oceny projektu<br />
+    z budżetu obywatelskiego na rok <%= @appeal.project.edition_year %>
+  </h1>
+
+  <!-- Nazwa projektu -->
+  <div class="section">
+    <h3>Dotyczy projektu</h3>
+    <div class="fill">
+      <p><%= @appeal.project.esog_number %> - <%= @appeal.project.title %></p>
+    </div>
+  </div>
+
+  <!-- nie generujemy pola Weryfikator -->
+  <!-- nie generujemy pola Stan -->
+
+  <div class="section">
+    <h3>Sposób wpłynięcia</h3>
+    <div class="fill">
+      <% if @appeal.is_paper %>
+        <p>Odwołanie papierowe, wprowadzone przez Urząd</p>
+      <% else %>
+        <p>Odwołanie złożone elektronicznie przez Autora</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Data złożenia odwołania</h3>
+    <div class="fill">
+      <% if @appeal.time_of_submit %>
+        <p><%= l @appeal.time_of_submit, format: :decidim_short %></p>
+      <% else %>
+        <p>Jeszcze nie zostało złożone</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Treść</h3>
+    <div class="fill mh50">
+      <p><%= decidim_html_escape(@appeal.body).html_safe %></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Imię i nazwisko autora projektu</h3>
+    <div class="fill">
+      <p><%= @appeal.project.creator_author.name_and_surname %></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Załączniki</h3>
+    <div class="fill">
+      <% if @appeal && @appeal.documents.any? %>
+        <% @appeal.documents.each do |e| %>
+          <p><%= translated_attribute(e.title) %></p>
+        <% end %>
+      <% else %>
+        <p>Nie załączono</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

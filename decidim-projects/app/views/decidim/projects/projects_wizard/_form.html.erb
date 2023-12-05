@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="columns large-12">
+    <legend><%= render partial: "decidim/projects/projects_wizard/explanation/step_1_draft" %></legend>
+  </div>
+</div>
+
+<% ['project', 'characteristics', 'locations', 'estimate', 'documents'].each do |part_num| %>
+  <fieldset class="card <%= part_num %>">
+    <div class="row">
+      <div class="columns large-12">
+        <legend class="section-heading">
+          <h2><%= t(part_num, scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+        </legend>
+
+        <%= render partial: "decidim/projects/projects_wizard/part_form_fields/#{part_num}_fields", locals: { form: form } %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
+
+<% if current_participatory_space&.project_customization && current_participatory_space&.project_customization.additional_attributes&.any? %>
+  <fieldset class="card">
+    <div class="row">
+      <div class="columns large-12">
+        <legend class="section-heading">
+          <h2><%= t('custom', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+        </legend>
+
+        <%= render partial: "decidim/projects/projects_wizard/part_form_fields/custom_fields", locals: { form: form } %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

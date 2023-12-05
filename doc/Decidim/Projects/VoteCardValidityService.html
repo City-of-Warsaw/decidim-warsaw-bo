@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::VoteCardValidityService
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::VoteCardValidityService";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">VoteCardValidityService</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::VoteCardValidityService
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Decidim::Projects::VoteCardValidityService</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Class holds all the logic to verify vote data. It is used in:</p>
+
+<pre class="code ruby"><code class="ruby">Vote Model - for showing list of invalid reasons and warnings
+WizardVoteUserDataForm - for validation
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#card_not_signed%3F-instance_method" title="#card_not_signed? (instance method)">#<strong>card_not_signed?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#card_received_late%3F-instance_method" title="#card_received_late? (instance method)">#<strong>card_received_late?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_limits_surpassed%3F-instance_method" title="#district_limits_surpassed? (instance method)">#<strong>district_limits_surpassed?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_limits_surpassed%3F-instance_method" title="#global_limits_surpassed? (instance method)">#<strong>global_limits_surpassed?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#identity_not_checked%3F-instance_method" title="#identity_not_checked? (instance method)">#<strong>identity_not_checked?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(vote_card, list_of_used_pesels = nil)  &#x21d2; VoteCardValidityService </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the service.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invalid%3F-instance_method" title="#invalid? (instance method)">#<strong>invalid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invalid_card%3F-instance_method" title="#invalid_card? (instance method)">#<strong>invalid_card?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#invalid_message-instance_method" title="#invalid_message (instance method)">#<strong>invalid_message</strong>(message)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_vote_invalid_reasons-instance_method" title="#list_vote_invalid_reasons (instance method)">#<strong>list_vote_invalid_reasons</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_vote_warnings-instance_method" title="#list_vote_warnings (instance method)">#<strong>list_vote_warnings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#not_from_warsaw%3F-instance_method" title="#not_from_warsaw? (instance method)">#<strong>not_from_warsaw?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>warnings.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pesel_invalid%3F-instance_method" title="#pesel_invalid? (instance method)">#<strong>pesel_invalid?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pesel_number_blank%3F-instance_method" title="#pesel_number_blank? (instance method)">#<strong>pesel_number_blank?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pesel_used%3F-instance_method" title="#pesel_used? (instance method)">#<strong>pesel_used?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unreadable%3F-instance_method" title="#unreadable? (instance method)">#<strong>unreadable?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#warning_message-instance_method" title="#warning_message (instance method)">#<strong>warning_message</strong>(message)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wrong_zip_code%3F-instance_method" title="#wrong_zip_code? (instance method)">#<strong>wrong_zip_code?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(vote_card, list_of_used_pesels = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::VoteCardValidityService (class)">VoteCardValidityService</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the service. vote     - Vote or record in validation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='id identifier rubyid_list_of_used_pesels'>list_of_used_pesels</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@list_of_used_pesels</span> <span class='op'>=</span> <span class='id identifier rubyid_list_of_used_pesels'>list_of_used_pesels</span>
+  <span class='ivar'>@vote_card</span> <span class='op'>=</span> <span class='id identifier rubyid_vote_card'>vote_card</span>
+  <span class='ivar'>@pesel</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="PeselValue.html" title="Decidim::Projects::PeselValue (class)">PeselValue</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PeselValue.html#initialize-instance_method" title="Decidim::Projects::PeselValue#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@vote_card</span><span class='comma'>,</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_pesel_number'>pesel_number</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="card_not_signed?-instance_method">
+  
+    #<strong>card_not_signed?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_card_not_signed?'>card_not_signed?</span>
+  <span class='op'>!</span><span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_card_signed'>card_signed</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_is_paper?'>is_paper?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="card_received_late?-instance_method">
+  
+    #<strong>card_received_late?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_card_received_late?'>card_received_late?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_card_received_late'>card_received_late</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_is_paper?'>is_paper?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_limits_surpassed?-instance_method">
+  
+    #<strong>district_limits_surpassed?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_limits_surpassed?'>district_limits_surpassed?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_district_projects_ids'>district_projects_ids</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_district_scope_projects_voting_limit'>district_scope_projects_voting_limit</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_limits_surpassed?-instance_method">
+  
+    #<strong>global_limits_surpassed?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_limits_surpassed?'>global_limits_surpassed?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_global_projects_ids'>global_projects_ids</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_global_scope_projects_voting_limit'>global_scope_projects_voting_limit</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="identity_not_checked?-instance_method">
+  
+    #<strong>identity_not_checked?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_identity_not_checked?'>identity_not_checked?</span>
+  <span class='op'>!</span><span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_identity_confirmed'>identity_confirmed</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_is_paper?'>is_paper?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invalid?-instance_method">
+  
+    #<strong>invalid?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invalid?'>invalid?</span>
+  <span class='id identifier rubyid_global_limits_surpassed?'>global_limits_surpassed?</span> <span class='op'>||</span> <span class='id identifier rubyid_district_limits_surpassed?'>district_limits_surpassed?</span> <span class='op'>||</span> <span class='id identifier rubyid_card_not_signed?'>card_not_signed?</span> <span class='op'>||</span>
+    <span class='id identifier rubyid_identity_not_checked?'>identity_not_checked?</span> <span class='op'>||</span> <span class='id identifier rubyid_invalid_card?'>invalid_card?</span> <span class='op'>||</span> <span class='id identifier rubyid_unreadable?'>unreadable?</span> <span class='op'>||</span> <span class='id identifier rubyid_card_received_late?'>card_received_late?</span> <span class='op'>||</span>
+    <span class='id identifier rubyid_pesel_number_blank?'>pesel_number_blank?</span> <span class='op'>||</span> <span class='id identifier rubyid_pesel_invalid?'>pesel_invalid?</span> <span class='op'>||</span> <span class='id identifier rubyid_pesel_used?'>pesel_used?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invalid_card?-instance_method">
+  
+    #<strong>invalid_card?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invalid_card?'>invalid_card?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_card_invalid'>card_invalid</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_is_paper?'>is_paper?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invalid_message-instance_method">
+  
+    #<strong>invalid_message</strong>(message)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activemodel.attributes.vote_card.invalid_card_message</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_vote_invalid_reasons-instance_method">
+  
+    #<strong>list_vote_invalid_reasons</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method</p>
+
+<p>Method returns Array of reasons of invalidity of the votes card</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_vote_invalid_reasons'>list_vote_invalid_reasons</span>
+  <span class='id identifier rubyid_reasons'>reasons</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>global_projects_count_exceeded</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_global_limits_surpassed?'>global_limits_surpassed?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>district_projects_count_exceeded</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_district_limits_surpassed?'>district_limits_surpassed?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>card_not_signed</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_card_not_signed?'>card_not_signed?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>identity_not_checked</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_identity_not_checked?'>identity_not_checked?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pesel_number_invalid</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_pesel_invalid?'>pesel_invalid?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pesel_used</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_pesel_used?'>pesel_used?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pesel_number_blank</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_pesel_number_blank?'>pesel_number_blank?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid_card</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_invalid_card?'>invalid_card?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>unreadable</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_unreadable?'>unreadable?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_invalid_message'>invalid_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>card_received_late</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_card_received_late?'>card_received_late?</span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_reasons'>reasons</span><span class='period'>.</span><span class='id identifier rubyid_reject!'>reject!</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:blank?</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_reasons'>reasons</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_vote_warnings-instance_method">
+  
+    #<strong>list_vote_warnings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method</p>
+
+<p>Method returns Array of warnings for votes card</p>
+
+<pre class="code ruby"><code class="ruby">- city has to be &#39;Warsaw&#39; (is not case sensitive)
+- zip_code after clearing has to have 5 digits
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_vote_warnings'>list_vote_warnings</span>
+  <span class='id identifier rubyid_warnings'>warnings</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_warning_message'>warning_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>not_from_warsaw</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_not_from_warsaw?'>not_from_warsaw?</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_warning_message'>warning_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wrong_zip_code</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_wrong_zip_code?'>wrong_zip_code?</span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_warnings'>warnings</span><span class='period'>.</span><span class='id identifier rubyid_reject!'>reject!</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:blank?</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warnings'>warnings</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="not_from_warsaw?-instance_method">
+  
+    #<strong>not_from_warsaw?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>warnings</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_not_from_warsaw?'>not_from_warsaw?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_city'>city</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>warszawa</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pesel_invalid?-instance_method">
+  
+    #<strong>pesel_invalid?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pesel_invalid?'>pesel_invalid?</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_pesel_number_blank?'>pesel_number_blank?</span>
+
+  <span class='op'>!</span><span class='ivar'>@pesel</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pesel_number_blank?-instance_method">
+  
+    #<strong>pesel_number_blank?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pesel_number_blank?'>pesel_number_blank?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_pesel_number'>pesel_number</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pesel_used?-instance_method">
+  
+    #<strong>pesel_used?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pesel_used?'>pesel_used?</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_pesel_number_blank?'>pesel_number_blank?</span>
+
+  <span class='ivar'>@pesel</span><span class='period'>.</span><span class='id identifier rubyid_pesel_already_used?'>pesel_already_used?</span><span class='lparen'>(</span><span class='ivar'>@list_of_used_pesels</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unreadable?-instance_method">
+  
+    #<strong>unreadable?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unreadable?'>unreadable?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_data_unreadable'>data_unreadable</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_is_paper?'>is_paper?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="warning_message-instance_method">
+  
+    #<strong>warning_message</strong>(message)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_warning_message'>warning_message</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>activemodel.attributes.vote_card.warning_card_message</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wrong_zip_code?-instance_method">
+  
+    #<strong>wrong_zip_code?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/services/decidim/projects/vote_card_validity_service.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wrong_zip_code?'>wrong_zip_code?</span>
+  <span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_zip_code'>zip_code</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>||</span> <span class='op'>!</span><span class='lparen'>(</span><span class='ivar'>@vote_card</span><span class='period'>.</span><span class='id identifier rubyid_zip_code'>zip_code</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[0-9]{2}-[0-9]{3}\z</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:31 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

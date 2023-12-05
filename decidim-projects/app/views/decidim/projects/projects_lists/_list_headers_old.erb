@@ -1,0 +1,31 @@
+<div class="column card card--project header">
+  <div class="row collapse card--process__row">
+    <div class="column card--process__column small-up-1 medium-6">
+      <div class="card__content">
+        <%= 'Nazwa pomysłu / nr ESOG' %>
+      </div>
+    </div>
+    <div class="column card--process__column small-up-1 medium-2 text-center">
+      <div class="card__content">
+        <%= 'kategoria' %>
+      </div>
+    </div>
+    <div class="column card--process__column small-up-1 medium-2 text-center">
+      <div class="card__content">
+        <%= 'koszt' %>
+      </div>
+    </div>
+    <% if show_for_result %>
+      <div class="column card--process__column small-up-1 medium-2 text-center">
+        <div class="card__content">
+          poparcie<br>głosy
+        </div>
+      </div>
+    <% end %>
+    <div class="column card--process__column small-up-1 medium-2 text-center">
+      <div class="card__content">
+        <%= 'status'  %>
+      </div>
+    </div>
+  </div>
+</div>

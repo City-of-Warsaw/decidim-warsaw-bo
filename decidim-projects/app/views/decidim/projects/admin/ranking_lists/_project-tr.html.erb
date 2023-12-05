@@ -1,0 +1,46 @@
+<tr data-id="<%= project_rank.id %>">
+  <td>
+    <%= translated_attribute(project_rank.scope&.name) %>
+    <% if false %>
+      <%= icon 'warning', 'aria-label': '', class: 'text-alert' %>
+    <% end %>
+  </td>
+  <td>
+    <%= project_rank.project.esog_number %>
+  </td>
+
+  <td class="text-left">
+    <%= link_to project_rank.project.title, project_path(project_rank.project) %>
+  </td>
+
+  <td class="text-right">
+    <%= budget_to_currency project_rank.project.budget_value %>
+  </td>
+
+  <td>
+    <strong><%= project_rank.valid_votes_count %></strong> /
+    <%= project_rank.not_verified_votes_count %> /
+    <strong class="text-alert"><%= project_rank.invalid_votes_count %></strong>
+  </td>
+
+  <td>
+    <%= project_rank.votes_electronic_count %> /
+    <%= project_rank.votes_in_paper_count %>
+  </td>
+
+  <td>
+    <%= project_rank.percentage_of_not_verified_votes %>
+  </td>
+
+  <td class="table-list__actions">
+    <% if project_rank.conflict_on_rank_list.any? %>
+      <%= icon_link_to "warning", project_project_conflicts_path(project_rank.project), 'Podejrzyj konflikty', class: "action-icon--danger", method: :get, data: {} %>
+    <% end %>
+    <% if project_rank.drawing_projects_log_id %>
+      <%= icon_link_to "book", drawing_projects_log_path(project_rank.drawing_projects_log_id, format: :pdf), 'Log losowania', class: "action-icon--danger", method: :get, data: {} %>
+    <% end %>
+    <% if project_rank.votes_count > 0 %>
+      <%= icon_link_to "list", project_votes_cards_path(project_rank.project), 'Karty z projektem', class: "action-icon--preview", target: :blank %>
+    <% end %>
+  </td>
+</tr>

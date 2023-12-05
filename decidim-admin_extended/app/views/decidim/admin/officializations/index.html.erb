@@ -1,0 +1,64 @@
+<div class="card with-overflow" id='user-groups'>
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.participants" %>
+      <% if allowed_to? :create, :admin_user %>
+        <%= link_to t("actions.normal_user.new", scope: "decidim.admin"), decidim_admin_extended_admin.new_normal_user_path, class: "button tiny button--title" %>
+        <%= link_to 'Eksport XLS', export_officializations_path(format: :xlsx), class: "button tiny button--title" %>
+      <% end %>
+    </h2>
+  </div>
+  <%= admin_filter_selector %>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= sort_link(query, :nickname, t(".nickname"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :first_name, t(".first_name"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :last_name, t(".last_name"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :created_at, t(".created_at"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :confirmed_at, "Potwierdzono/<br>Niepotwierdzono".html_safe, default_order: :desc) %></th>
+            <th><%= sort_link(query, :user_moderation_report_count, t(".reports"), default_order: :desc) %></th>
+            <th><%= t(".actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr data-user-id="<%= user.id %>">
+              <% if user.nickname.present? %>
+                <td><%= link_to user.nickname, decidim.profile_path(user.nickname) %></td>
+              <% else %>
+                <td><%= user.nickname %></td>
+              <% end %>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= l user.created_at, format: :short %></td>
+              <td><%= user.confirmed_at.present? ? 'Tak' : 'Nie' %></td>
+              <td><%= user.report_count %></td>
+
+              <td class="table-list__actions">
+                <% if allowed_to?(:block, :admin_user) %>
+                  <% if user.blocked? %>
+                    <%= icon_link_to "ban", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
+                  <% else %>
+                    <%= icon_link_to "ban", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
+                  <% end %>
+                <% end %>
+                <% if allowed_to? :show_email, :user, user: user %>
+                  <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.public_name(true), toggle: "show-email-modal" } %>
+                <% end %>
+                <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
+
+                <%= icon_link_to "pencil", decidim_admin_extended_admin.edit_normal_user_path(id: user.id), t(".edit"), class: "action-icon--edit" %>
+                <%= icon_link_to "key", remind_password_officialization_path(id: user.id), 'Wyślij link do zmiany hasła', method: :patch, class: "action-icon" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users, theme: "decidim" %>
+    </div>
+  </div>
+</div>
+<%= render "show_email_modal" %>

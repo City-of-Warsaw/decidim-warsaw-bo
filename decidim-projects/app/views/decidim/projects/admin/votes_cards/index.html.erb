@@ -1,0 +1,118 @@
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+        <span id="js-selected-projects-count" class="component-counter component-counter--inline" title="<%= t("decidim.projects.admin.projects.index.selected") %>"></span>
+      </div>
+      <div class="pull-right">
+
+          <% if allowed_to?(:create, :votes, component: current_component) %>
+            <%= link_to t('decidim.votes.actions.new'), new_votes_card_path, class: "button tiny button--simple" %>
+          <% end %>
+          <% if allowed_to? :verify, :votes %>
+            <%= link_to 'Zweryfikuj oddane głosy', verify_votes_cards_path, method: :patch, class: "button tiny button--simple" %>
+          <% end %>
+          <% if allowed_to? :verify, :votes %>
+          <% end %>
+
+          <% if allowed_to? :verify, :votes %>
+            <span class="notifications dropdown tiny button button--simple" data-toggle="notifications-dropdown">Powiadomienia</span>
+            <div class="dropdown-pane" id="notifications-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+              <ul class="vertical menu">
+                <li>
+                  <%= link_to 'O dokończeniu głosowania', resend_all_voting_emails_votes_cards_path, method: :post, data: { confirm: "Czy jesteś pewien?" }  %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+
+          <% if allowed_to? :export, :votes %>
+            <span class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+            <div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+              <ul class="vertical menu add-components">
+                <li>
+                  <%= link_to 'Wszystkie karty XLS', export_votes_cards_path(**query_params, format: :xlsx) %>
+                </li> <li>
+                  <%= link_to 'Wszystkie anonimizowane karty XLS', export_anonymous_votes_cards_path(**query_params, format: :xlsx) %>
+                </li>
+                <li>
+                  <% if allowed_to? :export_for_verification, :votes %>
+                    <%= link_to 'Karty do weryfikacji XLS', export_for_verification_votes_cards_path(format: :xlsx) %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+        <% end %>
+      </div>
+    </h2>
+  </div>
+  <%= admin_filter_selector(:votes) %>
+  <div class="card-section">
+
+    <div>
+      <button id="show-columns"
+              type="button"
+              class="button tiny button--simple mr-s" >
+        Wybierz kolumny do ukrycia
+      </button>
+      <div id="selected-columns" style="display: none">
+        Wybrane kolumny:
+        <%= form_tag url_for, { method: :get } do %>
+          <% columns_for_selection.each do |column_name| %>
+            <label>
+              <%= check_box_tag "selected_columns[#{column_name}]", true, column_selected?(column_name) %>
+              <%= t("models.votes.fields.#{column_name}", scope: "decidim.projects") %>
+            </label>
+          <% end %>
+          <a onclick="$('#selected-columns').slideUp(); $('#show-columns').show(); return;">anuluj</a>
+          <%= submit_tag 'Wybierz', class: 'button tiny button--simple mr-s' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <%= sort_column_link('card_number', { default_order: :desc }) %>
+          <%= sort_column_link('is_paper') %>
+          <%= sort_column_link('pesel_number') %>
+          <%= sort_column_link('status') %>
+          <%= sort_column_link('email') %>
+          <%= sort_column_link('first_name') %>
+          <%= sort_column_link('last_name') %>
+          <%= sort_column_link('created_at') %>
+          <%= sort_column_link('updated_at') %>
+          <% if column_selected? 'author' %>
+            <th>
+              <%= t("models.votes.fields.author", scope: "decidim.projects") %>
+            </th>
+          <% end %>
+          <% if column_selected? 'ip_number' %>
+            <th>
+              <%= t("models.votes.fields.ip_number", scope: "decidim.projects") %>
+            </th>
+          <% end %>
+          <th class="actions">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% votes.each do |vote| %>
+          <%= render partial: "vote-tr", locals: { vote: vote } %>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate votes, theme: "decidim" %>
+      <%= paginated_counter(votes) %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/projects" %>
+
+<%= nonced_javascript_tag do %>
+  $("#show-columns").click(function() {
+    $('#selected-columns').slideDown(); $(this).hide();
+  });
+<% end %>

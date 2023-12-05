@@ -1,0 +1,14 @@
+<p>Dzień dobry <%= @user.public_name(true) %>,</p>
+
+<p>
+  Lista projektów z brakami w ocenie:
+</p>
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.title, Decidim::ResourceLocatorPresenter.new(Decidim::Projects::Project.last).url %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render 'mailer_footer', organization: @organization %>

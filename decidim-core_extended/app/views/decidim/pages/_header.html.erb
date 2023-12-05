@@ -1,0 +1,19 @@
+<div class="row text-center mt-m">
+  <h1 class="devise-header">
+    Więcej o
+    <strong>budżecie</strong>
+  </h1>
+</div>
+
+<div class="static-pages-nav">
+  <div class="row column">
+    <div class="static-pages-nav__items">
+      <% Decidim::StaticPageTopic.order(:weight).each_with_index do |topic, i| %>
+        <% if topic.pages.any? %>
+           <%= link_to translated_attribute(topic.title), page_path(topic.pages.first&.slug), class: static_page_active?(topic, @page) %> 
+        <% end %>
+      <% end %> 
+    </div>
+  </div>
+</div>
+

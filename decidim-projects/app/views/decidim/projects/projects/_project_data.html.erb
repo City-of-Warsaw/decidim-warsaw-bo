@@ -1,0 +1,80 @@
+<div class="row project-page">
+  <div class="column card card--project header">
+    <div class="row collapse card--process__row">
+      <div class="column card--project__column small-up-1 medium-9">
+        <div class="row collapse card--process__row">
+          <div class="column card--project__column">
+            <div class="card__content">
+              <div class="card__header">
+                <%= project.edition_year %>
+              </div>
+              <%= t('.idea_for_year') %>
+            </div>
+          </div>
+          <div class="column card--project__column">
+            <div class="card__content">
+              <div class="card__header">
+                <%= translated_attribute project.scope&.name %>
+              </div>
+              <%= t('.localized_in') %>
+            </div>
+          </div>
+          <div class="column card--project__column">
+            <div class="card__content">
+              <div class="card__header">
+                <%= author_name(project) %>
+              </div>
+              <%= t('.author') %>
+            </div>
+          </div>
+          <% if show_coauthors?(project) %>
+            <div class="column card--project__column">
+              <div class="card__content">
+                <div class="card__header">
+                    <% project_coauthors_list(project).each_with_index do |coauthor,i| %>
+                        <% if coauthor.confirmation_status == "confirmed" %>
+                            <div><%= coauthor.public_name %></div>
+                        <% else %>
+                          <% if current_user == project.creator_author %>
+                            <div><%= coauthor.public_name %>
+                            <small class="danger">(niepotwierdzono)</small></div>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                </div>
+                <%= t('.coauthors') %>
+              </div>
+            </div>
+          <% end %>
+          <div class="column card--project__column">
+            <div class="card__content">
+              <div class="card__header">
+                <%= budget_value(project) %>
+              </div>
+              <%= t('.costs') %>
+            </div>
+          </div>
+          <% if false %>
+            <div class="column card--project__column">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= project.votes_count.presence || 0 %>
+                </div>
+                <%= t('.votes_count') %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="column card--project__column small-up-1 medium-3 cat-box">
+        <div class="row collapse card--process__row">
+          <div class="column card--project__column small-up-1 medium-12 text-left">
+            <div class="card__content">
+              <%= cell("decidim/projects/project_m", project).categories.html_safe %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

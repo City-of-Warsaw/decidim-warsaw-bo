@@ -1,0 +1,126 @@
+<% add_decidim_page_title('Potwierd współautorstwo projektu') %>
+
+<%= render "decidim/projects/projects/project_header", project: @project, filter_link_params: nil %>
+
+<%= decidim_form_for(@form, url: coauthorship_path(@project), as: :coauthorship, method: :patch) do |form| %>
+  <fieldset class="row">
+    <legend class="coauthorship-legend">
+      Uzupełnij i potwierdź swoje dane, żeby móc zaakceptować współautorstwo projektu.
+    </legend>
+
+    <div class="columns large-12">
+      <fieldset class="card pt-m pb-m pl-m pr-m">
+        <div class="row">
+          <legend class="section-heading">
+            Twoje dane
+          </legend>
+
+          <div class="row">
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :first_name,
+                                    label: "#{t('activemodel.attributes.user.first_name')} *" %>
+              </div>
+            </div>
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :last_name,
+                                    label: "#{t('activemodel.attributes.user.last_name')} *" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field hashtags__container">
+            <%= form.collection_radio_buttons :gender, [['male', t('decidim.users.gender.male')], ['female', t('decidim.users.gender.female')]], :first, :last %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="card pt-m pb-m pl-m pr-m">
+        <div class="row">
+          <div class="columns large-12">
+            <legend class="section-heading">
+              Dane kontaktowe
+            </legend>
+            <div class="row">
+              <div class="columns large-6">
+                <div class="field hashtags__container">
+                  <%= form.text_field :street,
+                                      label: t('decidim.projects.projects.part_form_fields.author_fields.street_label') %>
+                </div>
+              </div>
+              <div class="columns large-6">
+                <div class="row">
+                  <div class="columns large-6">
+                    <div class="field hashtags__container">
+                      <%= form.text_field :street_number,
+                                          label: t('decidim.projects.projects.part_form_fields.author_fields.street_number_label') %>
+                    </div>
+                  </div>
+                  <div class="columns large-6">
+                    <div class="field hashtags__container">
+                      <%= form.text_field :flat_number,
+                                          label: t('decidim.projects.projects.part_form_fields.author_fields.flat_number') %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns large-6">
+                <div class="field hashtags__container">
+                  <%= form.text_field :zip_code,
+                                      label: t('decidim.projects.projects.part_form_fields.author_fields.zip_code_label') %>
+                </div>
+              </div>
+              <div class="columns large-6">
+                <div class="field hashtags__container">
+                  <%= form.text_field :city,
+                                      label: t('decidim.projects.projects.part_form_fields.author_fields.city_label') %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns large-6">
+                <div class="field hashtags__container">
+                  <%= form.text_field :phone_number,
+                                      label: t('activemodel.attributes.user.phone_number'),
+                                      help_text: t('decidim.projects.projects.part_form_fields.author_fields.phone_number_help') %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="card pt-m pb-m pl-m pr-m">
+        <div class="row">
+          <legend class="section-heading">
+            Zgody
+            <small>
+              <strong>Fakultatywnie</strong> wyrażam zgodę na:
+            </small>
+          </legend>
+
+          <div class="field label-regular">
+            <%= form.check_box :show_author_name, label: t('show_author_name', scope: 'activemodel.attributes.project') %>
+          </div>
+
+          <div class="field label-regular">
+            <%= form.check_box :inform_author_about_implementations, label: t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+          </div>
+
+          <div class="field label-regular">
+            <%= form.check_box :email_on_notification, label: t('email_on_notification', scope: 'activemodel.attributes.project') %>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="columns large-12 text-right">
+      <%= form.submit "Potwierdź współautorstwo", class: "button submit mt-s mb-none" %>
+    </div>
+  </fieldset>
+
+
+<% end %>

@@ -1,0 +1,194 @@
+a.underlined,
+a.attachment-upload-link {
+    text-decoration: underline;
+}
+
+a:focus,
+.button:focus,
+button:focus {
+    outline: 2px solid var(--primary);
+}
+
+.select-row button:focus {
+    outline: 2px solid var(--primary);
+}
+
+#gallery-for-projects a:focus {
+    outline-offset: -2px;
+}
+
+.wcag-invisible {
+    display: none !important;
+}
+
+/* forms */
+[type="text"]:active,
+[type="text"]:focus,
+[type="password"]:active,
+[type="password"]:focus,
+[type="date"]:active,
+[type="date"]:focus,
+[type="datetime"]:active,
+[type="datetime"]:focus,
+[type="datetime-local"]:active,
+[type="datetime-local"]:focus,
+[type="month"]:active,
+[type="month"]:focus,
+[type="week"]:active,
+[type="week"]:focus,
+[type="email"]:active,
+[type="email"]:focus,
+[type="number"]:active,
+[type="number"]:focus,
+[type="search"]:active,
+[type="search"]:focus,
+[type="tel"]:active,
+[type="tel"]:focus,
+[type="time"]:active,
+[type="time"]:focus,
+[type="url"]:active,
+[type="url"]:focus,
+[type="color"]:active,
+[type="color"]:focus,
+textarea:active,
+textarea:focus,
+select:active,
+.inline-filters button[data-toggle]:active,
+select:focus,
+.inline-filters button[data-toggle]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+input[type="file"]:active,
+input[type="file"]:focus,
+input[type="checkbox"]:active,
+input[type="checkbox"]:focus,
+input[type="radio"]:active,
+input[type="radio"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.switch-with-label input:focus,
+.switch-input input:focus {
+    opacity: 1;
+    outline: 3px solid var(--primary);
+    outline-offset: 8px;
+    width: 37px;
+    left: 6px;
+}
+
+.is-invalid-label,
+.form-error {
+    color: #AC2A28;
+}
+
+/* cookies */
+.cookie-warning a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.cookie-warning a:hover,
+.cookie-warning a:focus {
+    color: #3d393c;
+}
+
+/* map */
+.leaflet-marker-icon:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: #000;
+    padding: 0;
+    margin: 4px 4px 0 0;
+}
+
+.leaflet-container a.leaflet-popup-close-button:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.map-mini-container .category-image-wrapper {
+    margin-right: 5px;
+}
+
+.map-mini-container .category-image {
+    height: 25px;
+    margin: 0;
+    cursor: auto;
+}
+
+/* main-page */
+.home-section.costs-section .slick-slide {
+    padding-bottom: 5px;
+    padding-top: 6px;
+}
+
+.home-section.costs-section .slick-slide:focus {
+    outline: none;
+}
+
+.home-section.costs-section .slick-slide:focus .card {
+    -webkit-box-shadow: 0px 0px 0px 5px var(--primary);
+    -moz-box-shadow: 0px 0px 0px 5px var(--primary);
+    box-shadow: 0px 0px 0px 5px var(--primary);
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.home-section.home-bullet .slick-slide:focus {
+    outline: 2px dotted #A3CCE4;
+}
+
+.mini-proj-image-link:focus {
+    outline-width: 5px;
+    outline-offset: -5px;
+}
+
+/* projects - search */
+/*.ms-options-wrap > .ms-options > ul li.selected label:hover,*/
+/*.ms-options-wrap > .ms-options > ul li.selected label.focused {}*/
+/*.ms-options-wrap > .ms-options > ul label.focused,*/
+.ms-options-wrap>.ms-options>ul label {
+    border-width: 2px;
+}
+
+.ms-options-wrap>.ms-options>ul label:hover {
+    color: #fff;
+    border-color: #373737;
+    background-color: #373737;
+    text-decoration: underline;
+}
+
+.ms-options-wrap>.ms-options>ul label.focused {
+    border: 2px solid #373737;
+    /*text-decoration: underline;*/
+}
+
+.ms-options-wrap>.ms-options>ul li.selected label {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.ms-options-wrap>.ms-options>ul li.selected label:hover {
+    /*text-decoration: underline;*/
+}
+
+.ms-options-wrap>.ms-options>ul li.selected label.focused {
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+}
+
+.slicked .columns {
+    padding-bottom: 5px;
+}
+
+.slicked .columns:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}

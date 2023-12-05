@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Projekty > ", projects_path %>
+      <%= decidim_html_escape(@project&.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Wybierz jednostkę, do której przekazać projekt
+        </h2>
+      </div>
+      <div class="card-section">
+        <% url = forward_to_department_project_evaluations_path(@project) %>
+        <%= decidim_form_for(@form, url: url, method: :post, html: { class: "form new_user" }) do |f| %>
+          <%= f.select :department_id, @form.possible_departments, label: 'Lista komórek' %>
+            <div class="button--double form-general-submit">
+              <%= f.submit 'Przekaż' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

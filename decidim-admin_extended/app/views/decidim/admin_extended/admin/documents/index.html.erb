@@ -1,0 +1,50 @@
+<%= render 'secondary_menu' %>
+
+
+<% folders.each do |folder| %>
+
+  <div class="card with-overflow">
+    <div class="card-divider">
+      <h2 class="card-title flex--sbc">
+        <div><%= folder.name %></div>
+        <% if allowed_to? :update, :documents %>
+          <div class="pull-right">
+            <%= icon_link_to "pencil",
+                             edit_folder_path(folder),
+                             t("actions.edit_folder", scope: "decidim.admin_extended.admin.documents"),
+                             class: "action-icon--edit",
+                             method: :get %>
+            <%= icon_link_to "circle-x",
+                             [folder],
+                             t("actions.destroy_folder", scope: "decidim.admin_extended.admin.documents"),
+                             class: "action-icon--remove",
+                             method: :delete,
+                             data: { confirm: t("actions.confirm_destroy_folder", scope: "decidim.admin_extended.admin.documents") } %>
+
+          </div>
+        <% end %>
+      </h2>
+    </div>
+
+    <div class="card-section">
+      <div class="table-scroll">
+        <%= render 'documents', documents: folder.documents.for_user(current_user), with_folder: true %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <%= t('.documents_outside_folders') %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <%= render 'documents', documents: documents_outside_folders, with_folder: false %>
+    </div>
+  </div>
+</div>

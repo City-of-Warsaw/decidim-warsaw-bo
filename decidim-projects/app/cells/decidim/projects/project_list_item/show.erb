@@ -1,0 +1,19 @@
+<tr>
+  <td class="text-left title-column">
+    <%= render :header if has_header? %>
+    <%= scope_and_number %>
+  </td>
+  <td class="text-center"><%= render :categories %></td>
+  <td class="text-center text-bold"><%= budget_to_currency model.budget_value %></td>
+  <% if show_for_result? %>
+    <%# pokazywane tylko na widoku wynikow %>
+    <td class="text-center text-bold">
+      <% if model.selected? || model.not_selected? %>
+        <%= model.votes_percentage %>%
+        <br>
+        <%= model.votes_count %>
+      <% end %>
+    </td>
+  <% end %>
+  <td class="text-center status-column"><%= status %></td>
+</tr>

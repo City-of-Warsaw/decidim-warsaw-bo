@@ -1,0 +1,9 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row ['Lp.'] + projects_export_headers
+  @projects.each_with_index do |p, index|
+    sheet.add_row [index + 1] + add_project_row(p)
+  end
+  column_width = 10
+  sheet.column_widths *(Array.new(1 + projects_export_headers.size, column_width))
+end

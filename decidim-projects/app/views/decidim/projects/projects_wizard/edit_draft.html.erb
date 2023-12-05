@@ -1,0 +1,25 @@
+<% add_decidim_page_title(project_wizard_step_title(wizard)) %>
+
+
+<%= render partial: "decidim/projects/projects_wizard/wizard_aside" %>
+<%= render partial: "decidim/projects/projects_wizard/wizard_header" %>
+
+
+<%= decidim_form_for(@form, url: update_draft_projects_wizard_path(@project,  step: wizard.step), method: :patch) do |form| %>
+  <%= render partial: "decidim/projects/projects_wizard/form", locals: { form: form } %>
+
+
+  <div class="card fieldset">
+    <div class="row">
+      <div class="columns large-12 text-right">
+        <div class="actions">
+          <%= link_to t(".cancel"), decidim_core_extended.account_projects_path, class: "button button-link mt-s mb-none" %>
+          <%= form.button t(".draft"), type: 'input', class: "button hollow mt-s mb-none", name: "subaction", value: "draft" %>
+          <%= form.submit t(".send"), class: "button submit mt-s mb-none" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "decidim/projects/add_project" %>

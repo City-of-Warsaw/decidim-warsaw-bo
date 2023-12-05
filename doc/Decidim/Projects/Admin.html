@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Decidim::Projects::Admin
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (A)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">Admin</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Decidim::Projects::Admin
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/lib/decidim/projects/admin.rb<span class="defines">,<br />
+  decidim-projects/app/forms/decidim/projects/admin/vote_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/appeal_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/project_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/add_note_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_vote.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/statistic_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/remind_draft.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/verify_votes.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/attachment_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/create_appeal.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/import_voters.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/send_messages.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_appeal.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/choose_user_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/accept_changes.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/create_project.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_project.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/reevaluation_form.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/projects_helper.rb,<br /> decidim-projects/app/permissions/decidim/projects/admin/permissions.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/erase_user_data.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/change_status_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/voters_import_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/clear_vote_cards.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/create_vote_card.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/resend_vote_link.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/implementation_form.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/filterable_helper.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/publish_rank_list.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/publish_vote_card.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/changes_project_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/poster_template_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/projects_filter_form.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/votes_cards_helper.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/accept_evaluations.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/register_to_signum.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_vote_status.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/project_conflict_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/accept_coauthorship.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/choose_department_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/formal_evaluation_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/change_vote_status_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/choose_verificator_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_project_status.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/exports_controller.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/implementation_edit_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/create_poster_template.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/register_all_to_signum.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_poster_template.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/filterable.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/implementation_photo_form.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/return_to_department_form.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/poster_templates_helper.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/generate_voting_numbers.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/resend_to_all_vote_link.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/project_customization_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/mark_conflicted_projects.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/update_project_conflicts.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/statistics_controller.rb,<br /> decidim-projects/app/forms/decidim/projects/admin/meritorical_evaluation_form.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/implementation/update_alt.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/application_controller.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/evaluations_controller.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/votes_cards_controller.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/project_bulk_actions_helper.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/projects_export.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/ranking_lists_controller.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/reevaluations_controller.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/assign_evaluator_to_projects.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/send_implementation_messages.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/votes_filterable.rb,<br /> decidim-projects/app/helpers/decidim/projects/admin/projects_customization_helper.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/implementations_controller.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/forward_projects_to_department.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/appeals_filterable.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/poster_templates_controller.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/project_conflicts_controller.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/formal_evaluations_controller.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/voting_list_filterable.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/ranking_list_filterable.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/implementation/create_implementation.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/implementation/update_implementation.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/save_statistics_participatory_process.rb,<br /> decidim-projects/app/controllers/decidim/projects/admin/meritorical_evaluations_controller.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/implementations_filterable.rb,<br /> decidim-projects/app/controllers/concerns/decidim/projects/admin/projects_filtered_collection.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/reevaluation/submit_to_organization_admin.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/reevaluation/accept_coordinator_reevaluation.rb,<br /> decidim-projects/app/commands/decidim/projects/admin/reevaluation/return_from_admin_to_coordinators.rb</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Controller that allows to manage poster templates in admin pandel.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Admin/AppealsFilterable.html" title="Decidim::Projects::Admin::AppealsFilterable (module)">AppealsFilterable</a></span>, <span class='object_link'><a href="Admin/Evaluation.html" title="Decidim::Projects::Admin::Evaluation (module)">Evaluation</a></span>, <span class='object_link'><a href="Admin/Filterable.html" title="Decidim::Projects::Admin::Filterable (module)">Filterable</a></span>, <span class='object_link'><a href="Admin/FilterableHelper.html" title="Decidim::Projects::Admin::FilterableHelper (module)">FilterableHelper</a></span>, <span class='object_link'><a href="Admin/Implementation.html" title="Decidim::Projects::Admin::Implementation (module)">Implementation</a></span>, <span class='object_link'><a href="Admin/ImplementationsFilterable.html" title="Decidim::Projects::Admin::ImplementationsFilterable (module)">ImplementationsFilterable</a></span>, <span class='object_link'><a href="Admin/PosterTemplatesHelper.html" title="Decidim::Projects::Admin::PosterTemplatesHelper (module)">PosterTemplatesHelper</a></span>, <span class='object_link'><a href="Admin/ProjectBulkActionsHelper.html" title="Decidim::Projects::Admin::ProjectBulkActionsHelper (module)">ProjectBulkActionsHelper</a></span>, <span class='object_link'><a href="Admin/ProjectConflictsHelper.html" title="Decidim::Projects::Admin::ProjectConflictsHelper (module)">ProjectConflictsHelper</a></span>, <span class='object_link'><a href="Admin/ProjectsCustomizationHelper.html" title="Decidim::Projects::Admin::ProjectsCustomizationHelper (module)">ProjectsCustomizationHelper</a></span>, <span class='object_link'><a href="Admin/ProjectsExport.html" title="Decidim::Projects::Admin::ProjectsExport (module)">ProjectsExport</a></span>, <span class='object_link'><a href="Admin/ProjectsFilteredCollection.html" title="Decidim::Projects::Admin::ProjectsFilteredCollection (module)">ProjectsFilteredCollection</a></span>, <span class='object_link'><a href="Admin/ProjectsHelper.html" title="Decidim::Projects::Admin::ProjectsHelper (module)">ProjectsHelper</a></span>, <span class='object_link'><a href="Admin/RankingListFilterable.html" title="Decidim::Projects::Admin::RankingListFilterable (module)">RankingListFilterable</a></span>, <span class='object_link'><a href="Admin/RankingListsHelper.html" title="Decidim::Projects::Admin::RankingListsHelper (module)">RankingListsHelper</a></span>, <span class='object_link'><a href="Admin/Reevaluation.html" title="Decidim::Projects::Admin::Reevaluation (module)">Reevaluation</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html" title="Decidim::Projects::Admin::VotesCardsHelper (module)">VotesCardsHelper</a></span>, <span class='object_link'><a href="Admin/VotesFilterable.html" title="Decidim::Projects::Admin::VotesFilterable (module)">VotesFilterable</a></span>, <span class='object_link'><a href="Admin/VotingListFilterable.html" title="Decidim::Projects::Admin::VotingListFilterable (module)">VotingListFilterable</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Admin/AcceptChanges.html" title="Decidim::Projects::Admin::AcceptChanges (class)">AcceptChanges</a></span>, <span class='object_link'><a href="Admin/AcceptCoauthorship.html" title="Decidim::Projects::Admin::AcceptCoauthorship (class)">AcceptCoauthorship</a></span>, <span class='object_link'><a href="Admin/AcceptEvaluations.html" title="Decidim::Projects::Admin::AcceptEvaluations (class)">AcceptEvaluations</a></span>, <span class='object_link'><a href="Admin/AddNoteForm.html" title="Decidim::Projects::Admin::AddNoteForm (class)">AddNoteForm</a></span>, <span class='object_link'><a href="Admin/AppealForm.html" title="Decidim::Projects::Admin::AppealForm (class)">AppealForm</a></span>, <span class='object_link'><a href="Admin/AppealsController.html" title="Decidim::Projects::Admin::AppealsController (class)">AppealsController</a></span>, <span class='object_link'><a href="Admin/ApplicationController.html" title="Decidim::Projects::Admin::ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="Admin/AssignEvaluatorToProjects.html" title="Decidim::Projects::Admin::AssignEvaluatorToProjects (class)">AssignEvaluatorToProjects</a></span>, <span class='object_link'><a href="Admin/AttachmentForm.html" title="Decidim::Projects::Admin::AttachmentForm (class)">AttachmentForm</a></span>, <span class='object_link'><a href="Admin/AttachmentsController.html" title="Decidim::Projects::Admin::AttachmentsController (class)">AttachmentsController</a></span>, <span class='object_link'><a href="Admin/ChangeStatusForm.html" title="Decidim::Projects::Admin::ChangeStatusForm (class)">ChangeStatusForm</a></span>, <span class='object_link'><a href="Admin/ChangeVoteStatusForm.html" title="Decidim::Projects::Admin::ChangeVoteStatusForm (class)">ChangeVoteStatusForm</a></span>, <span class='object_link'><a href="Admin/ChangesProjectForm.html" title="Decidim::Projects::Admin::ChangesProjectForm (class)">ChangesProjectForm</a></span>, <span class='object_link'><a href="Admin/ChooseDepartmentForm.html" title="Decidim::Projects::Admin::ChooseDepartmentForm (class)">ChooseDepartmentForm</a></span>, <span class='object_link'><a href="Admin/ChooseUserForm.html" title="Decidim::Projects::Admin::ChooseUserForm (class)">ChooseUserForm</a></span>, <span class='object_link'><a href="Admin/ChooseVerificatorForm.html" title="Decidim::Projects::Admin::ChooseVerificatorForm (class)">ChooseVerificatorForm</a></span>, <span class='object_link'><a href="Admin/ClearVoteCards.html" title="Decidim::Projects::Admin::ClearVoteCards (class)">ClearVoteCards</a></span>, <span class='object_link'><a href="Admin/CreateAppeal.html" title="Decidim::Projects::Admin::CreateAppeal (class)">CreateAppeal</a></span>, <span class='object_link'><a href="Admin/CreatePosterTemplate.html" title="Decidim::Projects::Admin::CreatePosterTemplate (class)">CreatePosterTemplate</a></span>, <span class='object_link'><a href="Admin/CreateProject.html" title="Decidim::Projects::Admin::CreateProject (class)">CreateProject</a></span>, <span class='object_link'><a href="Admin/CreateProjectCustomization.html" title="Decidim::Projects::Admin::CreateProjectCustomization (class)">CreateProjectCustomization</a></span>, <span class='object_link'><a href="Admin/CreateVoteCard.html" title="Decidim::Projects::Admin::CreateVoteCard (class)">CreateVoteCard</a></span>, <span class='object_link'><a href="Admin/DrawingProjectsLogsController.html" title="Decidim::Projects::Admin::DrawingProjectsLogsController (class)">DrawingProjectsLogsController</a></span>, <span class='object_link'><a href="Admin/EraseUserData.html" title="Decidim::Projects::Admin::EraseUserData (class)">EraseUserData</a></span>, <span class='object_link'><a href="Admin/EvaluationsController.html" title="Decidim::Projects::Admin::EvaluationsController (class)">EvaluationsController</a></span>, <span class='object_link'><a href="Admin/ExportsController.html" title="Decidim::Projects::Admin::ExportsController (class)">ExportsController</a></span>, <span class='object_link'><a href="Admin/FormalEvaluationForm.html" title="Decidim::Projects::Admin::FormalEvaluationForm (class)">FormalEvaluationForm</a></span>, <span class='object_link'><a href="Admin/FormalEvaluationsController.html" title="Decidim::Projects::Admin::FormalEvaluationsController (class)">FormalEvaluationsController</a></span>, <span class='object_link'><a href="Admin/ForwardProjectsToDepartment.html" title="Decidim::Projects::Admin::ForwardProjectsToDepartment (class)">ForwardProjectsToDepartment</a></span>, <span class='object_link'><a href="Admin/GenerateVotingNumbers.html" title="Decidim::Projects::Admin::GenerateVotingNumbers (class)">GenerateVotingNumbers</a></span>, <span class='object_link'><a href="Admin/ImplementationEditForm.html" title="Decidim::Projects::Admin::ImplementationEditForm (class)">ImplementationEditForm</a></span>, <span class='object_link'><a href="Admin/ImplementationForm.html" title="Decidim::Projects::Admin::ImplementationForm (class)">ImplementationForm</a></span>, <span class='object_link'><a href="Admin/ImplementationPhotoForm.html" title="Decidim::Projects::Admin::ImplementationPhotoForm (class)">ImplementationPhotoForm</a></span>, <span class='object_link'><a href="Admin/ImplementationsController.html" title="Decidim::Projects::Admin::ImplementationsController (class)">ImplementationsController</a></span>, <span class='object_link'><a href="Admin/ImportVoters.html" title="Decidim::Projects::Admin::ImportVoters (class)">ImportVoters</a></span>, <span class='object_link'><a href="Admin/MarkConflictedProjects.html" title="Decidim::Projects::Admin::MarkConflictedProjects (class)">MarkConflictedProjects</a></span>, <span class='object_link'><a href="Admin/MeritoricalEvaluationForm.html" title="Decidim::Projects::Admin::MeritoricalEvaluationForm (class)">MeritoricalEvaluationForm</a></span>, <span class='object_link'><a href="Admin/MeritoricalEvaluationsController.html" title="Decidim::Projects::Admin::MeritoricalEvaluationsController (class)">MeritoricalEvaluationsController</a></span>, <span class='object_link'><a href="Admin/Permissions.html" title="Decidim::Projects::Admin::Permissions (class)">Permissions</a></span>, <span class='object_link'><a href="Admin/PosterTemplateForm.html" title="Decidim::Projects::Admin::PosterTemplateForm (class)">PosterTemplateForm</a></span>, <span class='object_link'><a href="Admin/PosterTemplatesController.html" title="Decidim::Projects::Admin::PosterTemplatesController (class)">PosterTemplatesController</a></span>, <span class='object_link'><a href="Admin/ProjectConflictForm.html" title="Decidim::Projects::Admin::ProjectConflictForm (class)">ProjectConflictForm</a></span>, <span class='object_link'><a href="Admin/ProjectConflictsController.html" title="Decidim::Projects::Admin::ProjectConflictsController (class)">ProjectConflictsController</a></span>, <span class='object_link'><a href="Admin/ProjectCustomizationForm.html" title="Decidim::Projects::Admin::ProjectCustomizationForm (class)">ProjectCustomizationForm</a></span>, <span class='object_link'><a href="Admin/ProjectForm.html" title="Decidim::Projects::Admin::ProjectForm (class)">ProjectForm</a></span>, <span class='object_link'><a href="Admin/ProjectFormsController.html" title="Decidim::Projects::Admin::ProjectFormsController (class)">ProjectFormsController</a></span>, <span class='object_link'><a href="Admin/ProjectsController.html" title="Decidim::Projects::Admin::ProjectsController (class)">ProjectsController</a></span>, <span class='object_link'><a href="Admin/ProjectsFilterForm.html" title="Decidim::Projects::Admin::ProjectsFilterForm (class)">ProjectsFilterForm</a></span>, <span class='object_link'><a href="Admin/PublishRankList.html" title="Decidim::Projects::Admin::PublishRankList (class)">PublishRankList</a></span>, <span class='object_link'><a href="Admin/PublishVoteCard.html" title="Decidim::Projects::Admin::PublishVoteCard (class)">PublishVoteCard</a></span>, <span class='object_link'><a href="Admin/RankingListsController.html" title="Decidim::Projects::Admin::RankingListsController (class)">RankingListsController</a></span>, <span class='object_link'><a href="Admin/ReevaluationForm.html" title="Decidim::Projects::Admin::ReevaluationForm (class)">ReevaluationForm</a></span>, <span class='object_link'><a href="Admin/ReevaluationsController.html" title="Decidim::Projects::Admin::ReevaluationsController (class)">ReevaluationsController</a></span>, <span class='object_link'><a href="Admin/RegisterAllToSignum.html" title="Decidim::Projects::Admin::RegisterAllToSignum (class)">RegisterAllToSignum</a></span>, <span class='object_link'><a href="Admin/RegisterToSignum.html" title="Decidim::Projects::Admin::RegisterToSignum (class)">RegisterToSignum</a></span>, <span class='object_link'><a href="Admin/RemindDraft.html" title="Decidim::Projects::Admin::RemindDraft (class)">RemindDraft</a></span>, <span class='object_link'><a href="Admin/ResendToAllVoteLink.html" title="Decidim::Projects::Admin::ResendToAllVoteLink (class)">ResendToAllVoteLink</a></span>, <span class='object_link'><a href="Admin/ResendVoteLink.html" title="Decidim::Projects::Admin::ResendVoteLink (class)">ResendVoteLink</a></span>, <span class='object_link'><a href="Admin/ReturnToDepartmentForm.html" title="Decidim::Projects::Admin::ReturnToDepartmentForm (class)">ReturnToDepartmentForm</a></span>, <span class='object_link'><a href="Admin/SaveStatisticsParticipatoryProcess.html" title="Decidim::Projects::Admin::SaveStatisticsParticipatoryProcess (class)">SaveStatisticsParticipatoryProcess</a></span>, <span class='object_link'><a href="Admin/SendImplementationMessages.html" title="Decidim::Projects::Admin::SendImplementationMessages (class)">SendImplementationMessages</a></span>, <span class='object_link'><a href="Admin/SendMessages.html" title="Decidim::Projects::Admin::SendMessages (class)">SendMessages</a></span>, <span class='object_link'><a href="Admin/StatisticForm.html" title="Decidim::Projects::Admin::StatisticForm (class)">StatisticForm</a></span>, <span class='object_link'><a href="Admin/StatisticsController.html" title="Decidim::Projects::Admin::StatisticsController (class)">StatisticsController</a></span>, <span class='object_link'><a href="Admin/UpdateAppeal.html" title="Decidim::Projects::Admin::UpdateAppeal (class)">UpdateAppeal</a></span>, <span class='object_link'><a href="Admin/UpdatePosterTemplate.html" title="Decidim::Projects::Admin::UpdatePosterTemplate (class)">UpdatePosterTemplate</a></span>, <span class='object_link'><a href="Admin/UpdateProject.html" title="Decidim::Projects::Admin::UpdateProject (class)">UpdateProject</a></span>, <span class='object_link'><a href="Admin/UpdateProjectConflicts.html" title="Decidim::Projects::Admin::UpdateProjectConflicts (class)">UpdateProjectConflicts</a></span>, <span class='object_link'><a href="Admin/UpdateProjectStatus.html" title="Decidim::Projects::Admin::UpdateProjectStatus (class)">UpdateProjectStatus</a></span>, <span class='object_link'><a href="Admin/UpdateVote.html" title="Decidim::Projects::Admin::UpdateVote (class)">UpdateVote</a></span>, <span class='object_link'><a href="Admin/UpdateVoteStatus.html" title="Decidim::Projects::Admin::UpdateVoteStatus (class)">UpdateVoteStatus</a></span>, <span class='object_link'><a href="Admin/VerifyVotes.html" title="Decidim::Projects::Admin::VerifyVotes (class)">VerifyVotes</a></span>, <span class='object_link'><a href="Admin/VoteForm.html" title="Decidim::Projects::Admin::VoteForm (class)">VoteForm</a></span>, <span class='object_link'><a href="Admin/VotersImportForm.html" title="Decidim::Projects::Admin::VotersImportForm (class)">VotersImportForm</a></span>, <span class='object_link'><a href="Admin/VotersImportsController.html" title="Decidim::Projects::Admin::VotersImportsController (class)">VotersImportsController</a></span>, <span class='object_link'><a href="Admin/VotesCardsController.html" title="Decidim::Projects::Admin::VotesCardsController (class)">VotesCardsController</a></span>, <span class='object_link'><a href="Admin/VotingListsController.html" title="Decidim::Projects::Admin::VotingListsController (class)">VotingListsController</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:03 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

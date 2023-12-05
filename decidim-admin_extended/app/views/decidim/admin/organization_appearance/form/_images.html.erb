@@ -1,0 +1,58 @@
+<!-- custom fields -->
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".edit_mailer_settings") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="organization-images">
+      <div class="preview">
+        <%= form.upload :image_mailer_header,  dimensions_info: current_organization.favicon.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+      </div>
+
+      <div class="preview">
+        <%= image_tag(main_app.rails_representation_path(current_organization.thumbnail_150)) if current_organization.image_mailer_header.attached? %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of custom fields -->
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".layout_appearance_title" %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="minimap">
+      <label for="minimap"><%= t(".preview") %></label>
+      <%= render "decidim/admin/organization_appearance/form/minimap" %>
+    </div>
+
+    <div class="organization-images">
+      <div class="preview">
+        <%= form.upload :favicon, dimensions_info: current_organization.favicon.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+      </div>
+
+      <div class="preview">
+        <%= form.upload :logo, dimensions_info: current_organization.logo.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+      </div>
+
+      <div class="preview">
+        <%= form.upload :official_img_header, dimensions_info: current_organization.official_img_header.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+      </div>
+
+      <div class="preview">
+        <%= form.upload :official_img_footer, dimensions_info: current_organization.official_img_footer.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="row" style="display: grid; grid-template-columns: 1fr 1fr;">
+      <div class="preview-official_url">
+        <%= form.text_field :official_url %>
+      </div>
+    </div>
+  </div>
+</div>

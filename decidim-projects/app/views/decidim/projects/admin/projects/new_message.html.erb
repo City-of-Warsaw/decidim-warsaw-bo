@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Projekty > ", projects_path %>
+      <%= decidim_html_escape(@project&.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="card">
+      <div class="card-divider">
+        <h3 class="card-title">
+          <strong>Autorzy projektu - Zgoda na: <%= t('activemodel.attributes.user.email_on_notification') %></strong>
+        </h3>
+      </div>
+      <div class="card-section">
+        <strong>Wiadomość zostanie wysłana tylko w przypadku, gdy użytkownik podał adres e-mail i wyraził zgodę na otrzymywanie informacji o ewaluacji budżetu</strong>
+        <br>
+        <% @project.authors.each do |author| %>
+          <div>
+            <strong><%= author.public_name(true) %>:</strong>
+            <strong class="<%= author.email_on_notification ? 'text-success' : 'text-alert'  %>"><%= author.email_on_notification ? 'Tak' : 'Nie'  %></strong>
+            <% if author.email.blank? || !(author.email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i) %>
+              <small class="text-alert">brak adresu mailowego</small>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Wyślij wiadomość do Autorów projektu
+        </h2>
+      </div>
+      <div class="card-section">
+        <%= decidim_form_for('', url: send_message_project_path(project), method: :post, html: { class: "form" }) do |f| %>
+          <%= f.editor :body, label: 'Treść wiadomości', rows: 3, value: params[:body] %>
+
+          <div class="button--double form-general-submit">
+            <%= f.submit 'Wyślij', data: { confirm: 'Czy jestes pewien?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

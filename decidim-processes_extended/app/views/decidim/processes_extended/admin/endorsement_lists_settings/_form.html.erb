@@ -1,0 +1,14 @@
+<div class="row column">
+  <%= form.file_field :image_header,
+                      multiple: false,
+                      accept: ".jpg,.jpeg,.png",
+                      label: "Dodaj logo do dokumentu",
+                      class: 'multifile'
+  %><p>Bierzący plik:<%= image_tag main_app.rails_blob_path(@form.image_header, only_path: true), alt: '', class: '' %></p>
+</div>
+<div class="row column">
+  <%= form.text_field :header_description, label: t("decidim.admin.endorsement_list.edit.header_description") %>
+</div>
+<div class="row column">
+  <%= form.editor :footer_description, label: t("decidim.admin.endorsement_list.edit.footer_description") %>
+</div>

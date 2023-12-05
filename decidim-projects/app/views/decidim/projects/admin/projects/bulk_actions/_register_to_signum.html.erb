@@ -1,0 +1,14 @@
+<div id="js-register-to-signum-actions" class="hide js-bulk-action-form">
+  <%= form_tag(register_all_to_signum_projects_path, method: :post, remote: true, id: "js-form-accept-changes", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% projects.each do |project| %>
+        <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-project js-project-id-#{project.id}" %>
+      <% end %>
+    </div>
+    <p>Czy wykonać rejestrację wybranych projektów w Signum?</p>
+
+    <%= submit_tag('Zatwiedź', id: "js-submit-accept-changes", class: "button small button--simple float-left") %>
+
+    <button id="js-cancel-accept-changes" class="button tiny clear compact js-cancel-bulk-action" type="button">Anuluj</button>
+  <% end %>
+</div>

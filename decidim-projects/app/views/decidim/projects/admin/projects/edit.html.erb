@@ -1,0 +1,14 @@
+<% admin_changes = ((current_user.ad_admin? || current_user.ad_coordinator?) && project.admin_changes.present?) %>
+
+<%= decidim_form_for(@form, html: { class: "form edit_project project_form_admin #{ admin_changes ? 'double' : nil }" })  do |f| %>
+  <%= render partial: "form", object: f, locals: { title: "#{t('.title')}: #{project_title_for_admin(project)}", admin_changes: admin_changes } %>
+
+  <div class="button--double form-general-submit">
+    <% if admin_changes %>
+      <%= f.button 'Zaakceptuj', type: 'input', class: "button hollow", name: "subaction", value: "accept" %>
+      <%= f.button 'Zapisz swoje zmiany i zaakceptuj', type: 'input', class: "button hollow", name: "subaction", value: "save-accept" %>
+    <% end %>
+    <%= f.submit t(".update") %>
+  </div>
+<% end %>
+

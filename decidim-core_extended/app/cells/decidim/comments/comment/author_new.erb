@@ -1,0 +1,10 @@
+<% if model.signature.present? %>
+  <span class="author__avatar">
+    <%= image_tag author_presenter.avatar_url, alt: t("decidim.author.avatar") %>
+  </span>
+  <span class="author__name">
+    <%= model.signature %>
+  </span>
+<% else %>
+  <%== cell("decidim/author", author_presenter).profile %>
+<% end %>

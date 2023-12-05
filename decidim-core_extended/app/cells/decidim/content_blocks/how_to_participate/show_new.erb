@@ -1,0 +1,24 @@
+<section class="extended home-section home-bullet">
+  <div class="wrapper-home">
+    <div class="row column text-center">
+      <h2 class="section-heading"><%= actual_edition_schedule_title %></h2>
+    </div>
+    <div class="row small-up-1 small-center medium-up-6 home-bullets">
+      <% if actual_edition %>
+        <% actual_edition.steps.first(5).each_with_index do |step, i| %>
+          <div class="column <%= step.active_step? ? 'active' : nil %>">
+            <div class="home-bullet">
+              <div class="home-bullet__icon">
+                <%= image_tag "decidim/core_extended/step_0#{i + 1}#{step.active_step? ? 'active' : nil}.svg", alt: '' %>
+              </div>
+              <div class="home-bullet__desc">
+                <span class="heading4"><%= translated_attribute(step.title.presence) || t(".step_0#{i + 1}") %></span>
+                <p><%= dates_range(step) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<div class="tiny reveal confirm-reveal vote-modal-js"
+     id="none-projects-selected-modal"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="none-projects-selected-modal-title"
+     aria-describedby="none-projects-selected-modal-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="none-projects-selected-modal-title">Nie wybrałeś(-aś) jeszcze żadnych projektów.</h2>
+    <button class="close-button" data-close aria-label="Zamknij okno" type="button" tabindex="0">
+      <span aria-hidden="true">&times;<span class="wcag-invisible">Zamknij okno</span></span>
+    </button>
+  </div>
+  <div class="confirm-content">
+    <div class="none-projects-selected-modal-content" id="none-projects-selected-modal-content" role="document" tabindex="0">
+      Wybierz co najmniej jeden projekt z listy projektów dzielnicowych lub ogólnomiejskich, aby przejść do uzupełniania danych osobowych.
+    </div>
+  </div>
+  <div class="none-projects-selected-modal-footer reveal__footer">
+    <div class="buttons button--double">
+      <a class="button mt-s mb-s mr-xs ml-xs close-js" role="button" href="#" data-confirm-cancel aria-label="Wróć do głosowania">Cofnij</a>
+      <%= link_to 'Instrukcja głosowania', { step: 'step_1', token: params[:token] }, class: 'button hollow mt-s mb-s mr-xs ml-xs clear black' %>
+    </div>
+  </div>
+</div>

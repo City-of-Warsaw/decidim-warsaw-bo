@@ -1,0 +1,104 @@
+pl:
+  activemodel:
+    attributes:
+      project:
+        # show_my_name: upublicznienie mojego imienia i nazwiska w elektronicznym systemie obsługi budżetu obywatelskiego w m.st. Warszawie (ESOG), w którym będą zawarte informacje o złożonym przeze mnie projekcie. <br />Jeżeli nie wyrazisz zgody, na stronie pojawi się wybrane wcześniej określenie - „Mieszkaniec” lub „Mieszkanka”.
+        show_author_name: upublicznienie mojego imienia i nazwiska w elektronicznym systemie obsługi budżetu obywatelskiego w m.st. Warszawie (ESOG), w którym będą zawarte informacje o złożonym przeze mnie projekcie.
+        inform_author_about_implementations: otrzymywanie informacji mailowo lub telefonicznie o postępach w realizacji mojego projektu, jeżeli zostanie wybrany do realizacji w ramach budżetu obywatelskiego w m.st. Warszawie.
+        email_on_notification: otrzymywanie informacji mailowo lub telefonicznie o ewaluacji bieżącej edycji budżetu obywatelskiego w m.st. Warszawie.
+      user:
+        show_author_name: "Wyrażam zgodę na upublicznienie mojego imienia i nazwiska w elektronicznym systemie obsługi budżetu obywatelskiego w m.st. Warszawie (ESOG), w którym będą zawarte informacje o złożonym przeze mnie projekcie."
+        inform_author_about_implementations: "Chcę otrzymywać powiadomienia na mój adres e-mail o aktualizacji stanu realizacji projektów, które obserwuję."
+        nickname: Nazwa użytkownika
+        email: Twój email
+        birth_year: Rok urodzenia
+        district: Dzielnica
+        gender: Mieszkaniec/Mieszkanka
+        phone_number: Numer telefonu
+        first_name: Imię
+        last_name: Nazwisko
+        acceptance: Akceptacja
+        rodo: |-
+          Na podstawie z art. 6 ust. 1 lit a. Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu tych danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych osobowych) wyrażam zgodę na przetwarzanie moich danych osobowych przez Prezydenta m.st. Warszawy w celu realizacji budżetu obywatelskiego w m.st. Warszawie w zakresie nazwy użytkownika oraz adresu e-mail.
+        show_my_name_info: Wybrane przez Ciebie określenie pojawi się w przypadku braku wyrażenia zgody na upublicznienia imienia i nazwiska przy złożonych projektach.
+        email_on_notification: Wyrażam zgodę na otrzymywanie informacji mailowo lub telefonicznie o ewaluacji bieżącej edycji budżetu obywatelskiego w m.st. Warszawie.
+        allow_private_message: Wyrażam zgodę na otrzymywanie wiadomości prywatnych od innych zalogowanych użytkowników.
+        inform_me_about_comments: Chcę otrzymywać powiadomienia na mój adres e-mail o nowych komentarzach pod moimi projektami i w wątkach, w których brałem udział.
+        newsletter: Chcę otrzymywać newsletter o budżecie obywatelskim w Warszawie.
+        watched_implementations_updates: Chcę otrzymywać powiadomienia na mój adres e-mail o aktualizacji stanu realizacji projektów, które obserwuję.
+        # a tego nie bylo w pliku
+        inform_about_admin_changes: Chcę otrzymywać powiadomienia na mój adres e-mail o zmianach wprowadzanych w moich projektach przez pracowników urzędu.
+  decidim:
+    ad_access:
+      admin_session:
+        create:
+          error: Nieprawidłowe dane logowania
+          success: Zalogowano pomyślnie
+    account:
+      show:
+        select_gender: Wybierz
+    admin_log:
+      user:
+        # custom - city user
+        user_logout: "Użytkownik %{user_name} wylogował(a) się z systemu"
+        user_login: "Użytkownik %{user_name} zalogował(a) się do systemu"
+        user_login_peum: "Użytkownik %{user_name} zalogował(a) się do systemu za pomocą PEUM"
+        # custom - ad users
+        login: "Użytkownik %{user_name} zalogował(a) się z pomocą AD"
+        assign_role: "Użytkownikowi %{user_name} zmieniono rolę na podstawie danych z AD"
+        update_user: "Użytkownik %{user_name} zaktualizował(a) dane użytkownika zewnętrznęgo %{resource_name}"
+        deactivate_ad_user: "Użytkownik %{user_name} zmienił(a) status konta na nieaktywny dla użytkownika %{resource_name}"
+        activate_ad_user:  "Użytkownik %{user_name} zmienił(a) status konta na aktywny dla użytkownika %{resource_name}"
+        auto_activate_ad_user: "System zmienił status konta AD na aktywny dla użytkownika %{resource_name}"
+        auto_deactivate_ad_user:  "System zmienił status konta AD na nieaktywny dla użytkownika %{resource_name}"
+        # exports
+        users_list_export: "Użytkownik %{user_name} wyeksportował(a) listę z danymi użytkowników zewnętrznych"
+        admins_list_export: "Użytkownik %{user_name} wyeksportował(a) listę z danymi użytkowników wewnętrznych"
+        admins_logs_export: "Użytkownik %{user_name} pobrał(a) bazę logów"
+        #front user changes
+        user_updated_account: "Użytkownik %{user_name} zaktualizował(a) swoje dane"
+        user_show_my_name: "Użytkownik %{user_name} zaktualizował(a) zgodę na upublicznienie imienia i nazwiska"
+        user_watched_implementations_updates: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie powiadomień o aktualizacji stanu realizacji projektów"
+        user_inform_about_admin_changes: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie powiadomień o zmianach w projektach"
+        user_inform_me_about_proposal: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie informacji mailowo lub telefonicznie o realizacji projektu"
+        user_email_on_notification: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie informacji mailowo lub telefonicznie o ewaluacji budżetu"
+        user_allow_private_message: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie wiadomości prywatnych"
+        user_inform_me_about_comments: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie informacji o komentarzach"
+        user_newsletter: "Użytkownik %{user_name} zaktualizował(a) zgodę na otrzymywanie newslettera"
+    devise:
+      registrations:
+        new:
+          sign_up: "Zarejestruj <strong>nowe konto</strong>"
+          select_gender: Wybierz
+          remind_password: Zapomniałeś hasła?
+      sessions:
+        new:
+          remind_password: Zapomniałeś hasła?
+    users:
+      gender:
+        female: Mieszkanka
+        male: Mieszkaniec
+        other: Inna
+    users_extended:
+      admin:
+        sessions:
+          new:
+            sign_in: Zaloguj się do panelu administracyjnego
+            nickname: Twój login do konta AD
+            password: Hasło
+            submit: Zaloguj się
+  devise:
+    passwords:
+      user:
+        form_errors: Popraw błędy w formularzu
+        reset_password_token_invalid: Link do zmiany hasła stracił ważność. Wygeneruj link ponownie
+    shared:
+      links:
+        forgot_your_password: Przypomnij hasło
+    confirmations:
+      new:
+        resend_confirmation_instructions: Wyślij instrukcję potwierdzenia adresu e-mail
+        resend_confirmation_instructions_button: Wyślij instrukcję
+    unlocks:
+      new:
+        resend_unlock_instructions: Wyślij instrukcję

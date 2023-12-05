@@ -1,0 +1,17 @@
+<div id="js-send-messages-projects-actions" class="hide js-bulk-action-form">
+  <%= form_tag(send_messages_projects_path, method: :post, remote: true, id: "js-form-send-messages", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% projects.each do |project| %>
+        <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-project js-project-id-#{project.id}" %>
+      <% end %>
+    </div>
+    <p><%= t("decidim.projects.admin.projects.send_messages.number_of_projects", number: '<span id="js-form-send-messages-number"></span>').html_safe %></p>
+
+    <div class="custom-message" style="position: absolute; top: 115px; width: 400px; height: 200px; z-index: 5;">
+      <%= text_area_tag "body", '', placeholder: 'Treść wiadomości', style: 'height: 100%; border-color: #222' %>
+    </div>
+    <%= submit_tag('Zatwiedź', id: "js-submit-send-messages", class: "button small button--simple float-left") %>
+
+    <button id="js-cancel-send-messages" class="button tiny clear compact js-cancel-bulk-action" type="button">Anuluj</button>
+  <% end %>
+</div>

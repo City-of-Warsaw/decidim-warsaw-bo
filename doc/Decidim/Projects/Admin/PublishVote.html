@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Admin::PublishVote
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin::PublishVote";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span>
+     &raquo; 
+    <span class="title">PublishVote</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Admin::PublishVote
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rectify::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rectify::Command</li>
+          
+            <li class="next">Decidim::Projects::Admin::PublishVote</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A command with all the business logic when a user publishes a paper vote.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#current_user-instance_method" title="#current_user (instance method)">#<strong>current_user</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute current_user.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#vote-instance_method" title="#vote (instance method)">#<strong>vote</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute vote.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(vote, current_user)  &#x21d2; PublishVote </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#publish_vote-instance_method" title="#publish_vote (instance method)">#<strong>publish_vote</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prevent PaperTrail from creating an additional version.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#vote_attributes-instance_method" title="#vote_attributes (instance method)">#<strong>vote_attributes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: vote attributes.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(vote, current_user)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::Admin::PublishVote (class)">PublishVote</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the command.</p>
+
+<p>vote         - A vote object with the params. current_user - The current user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_vote'>vote</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span>
+  <span class='ivar'>@vote</span> <span class='op'>=</span> <span class='id identifier rubyid_vote'>vote</span>
+  <span class='ivar'>@current_user</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="current_user-instance_method">
+  
+    #<strong>current_user</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute current_user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current_user'>current_user</span>
+  <span class='ivar'>@current_user</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vote-instance_method">
+  
+    #<strong>vote</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute vote.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote'>vote</span>
+  <span class='ivar'>@vote</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="call-instance_method">
+  
+    #<strong>call</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes the command. Broadcasts these events:</p>
+<ul><li>
+<p>:ok when everything is valid, together with the appeal.</p>
+</li><li>
+<p>:invalid if the vote has not proper status</p>
+</li></ul>
+
+<p>Returns nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_vote'>vote</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote.html" title="Decidim::Projects::Vote (class)">Vote</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote/STATUSES.html" title="Decidim::Projects::Vote::STATUSES (module)">STATUSES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote/STATUSES.html#WAITING-constant" title="Decidim::Projects::Vote::STATUSES::WAITING (constant)">WAITING</a></span></span>
+
+  <span class='id identifier rubyid_transaction'>transaction</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_publish_vote'>publish_vote</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='comma'>,</span> <span class='ivar'>@vote</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="publish_vote-instance_method">
+  
+    #<strong>publish_vote</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Prevent PaperTrail from creating an additional version</p>
+
+<p>Creates ActionLog</p>
+
+<p>returns Vote</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_publish_vote'>publish_vote</span>
+  <span class='const'>PaperTrail</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='label'>enabled:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='ivar'>@vote</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='period'>.</span><span class='id identifier rubyid_traceability'>traceability</span><span class='period'>.</span><span class='id identifier rubyid_perform_action!'>perform_action!</span><span class='lparen'>(</span>
+      <span class='symbol'>:publish</span><span class='comma'>,</span>
+      <span class='ivar'>@vote</span><span class='comma'>,</span>
+      <span class='ivar'>@current_user</span><span class='comma'>,</span>
+      <span class='label'>visibility:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin-only</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='ivar'>@vote</span><span class='period'>.</span><span class='id identifier rubyid_update_columns'>update_columns</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_attributes'>vote_attributes</span><span class='rparen'>)</span>
+          <span class='ivar'>@vote</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_attributes-instance_method">
+  
+    #<strong>vote_attributes</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: vote attributes</p>
+
+<p>returns Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/publish_vote.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_attributes'>vote_attributes</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>status:</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote.html" title="Decidim::Projects::Vote (class)">Vote</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote/STATUSES.html" title="Decidim::Projects::Vote::STATUSES (module)">STATUSES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Vote/STATUSES.html#SUBMITTED-constant" title="Decidim::Projects::Vote::STATUSES::SUBMITTED (constant)">SUBMITTED</a></span></span><span class='comma'>,</span>
+    <span class='label'>publisher_id:</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+    <span class='label'>publication_time:</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Sep 30 13:22:25 2022 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.27 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Głosy > ", votes_cards_path %>
+      <%= "Głos: #{vote.card_number}" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Ustaw status ręcznie
+        </h2>
+      </div>
+      <div class="card-section">
+        <%= decidim_form_for(@form, url: change_status_votes_card_path(vote), method: :post, html: { class: "form" }) do |f| %>
+          <%= f.select :status, @form.possible_states, label: 'Status karty' %>
+
+          <div class="button--double form-general-submit">
+            <%= f.submit 'Zapisz', data: { confirm: 'Czy jesteś pewien?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<p>Witaj Mieszkano/Mieszkańcu</p>
+<% if @sender %>
+  <p>Otrzymałeś wiadomość od <%= @sender.public_name(true) %> o treści:</p>
+<% end %>
+
+<p><%= @body.html_safe %></p>
+
+<%= render 'mailer_footer', organization: @organization %>

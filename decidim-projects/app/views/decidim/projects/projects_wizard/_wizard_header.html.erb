@@ -1,0 +1,8 @@
+<h1 class="section-heading">
+  <% unless defined? hide_wcag_title %>
+    <span class="wcag-invisible">
+      Zgłoś projekt do budżetu obywatelskiego - krok <%= wizard.step_number %>:
+    </span>
+  <% end %>
+  <%= project_wizard_step_title wizard %>
+</h1>

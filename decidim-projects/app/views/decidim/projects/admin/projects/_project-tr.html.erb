@@ -1,0 +1,111 @@
+<tr data-id="<%= project.id %>">
+  <td>
+    <%= check_box_tag "project_ids_s[]", project.id, false, class: "js-check-all-project js-project-list-check  js-project-id-#{project.id}" %><br>
+    <% if (project.admin_changes.present? && allowed_to?(:accept, :project, project: project)) %>
+      <%= icon 'warning', 'aria-label': 'Wymaga akceptacji', class: 'text-alert' %>
+    <% end %>
+  </td>
+  <td>
+    <%= project.esog_number %><br>
+  </td>
+
+  <td>
+    <%= project.is_paper ? 'Papierowo' : 'Elektronicznie' %><br>
+  </td>
+
+  <td>
+    <%= link_to(decidim_html_escape(project&.title).html_safe, project_path(project)) %><br>
+  </td>
+
+  <td>
+    <%= translated_attribute(project.scope&.name) %>
+  </td>
+
+  <td>
+    <%= admin_public_status(project) %>
+  </td>
+  <td>
+    <%= verification_status(project) %>
+  </td>
+  <td class="valuators-count">
+    <% if project.current_department %>
+      <strong>Komórka:</strong>
+      <%= project.current_department.name %>
+      <br>
+    <% end %>
+    <% if project.current_sub_coordinator %>
+      <%= "<strong>Podkoordynator:</strong> #{project.current_sub_coordinator.ad_full_name}".html_safe %>
+      <br>
+    <% end %>
+    <% if project.evaluator %>
+      <%= "<strong>Weryfikator: </strong>#{project.evaluator.ad_full_name}".html_safe %>
+    <% end %>
+  </td>
+
+  <td>
+    <% if project.conflict_status_waiting? %>
+      <%= icon 'warning', 'aria-label': 'Konflikty oczekują na decyzję', class: 'text-alert' %>
+    <% end %>
+    <%= t("decidim.projects.admin.conflict_status.#{project.conflict_status}") %>
+  </td>
+
+  <td><%= project.signum_znak_sprawy.presence || '-' %></td>
+  <td><%= project.signum_registered_at&.to_date.presence || '-' %> </td>
+
+  <td class="table-list__actions">
+    <!--Dodatkowe akcje na projektach-->
+    <% if allowed_to? :edit, :project, project: project %>
+      <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit_project", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+    <% end %>
+    <%= icon_with_link_to_project(project) %>
+    <% if allowed_to? :status_change, :project, project: project %>
+      <%= icon_link_to "aperture", [:status, project], 'Zmień status', class: "action-icon--edit-project" %>
+    <% end %>
+    <% if allowed_to? :manage, :project_conflict, project: project %>
+      <%= icon_link_to "link-intact", edit_project_project_conflict_path(project, project), 'Wykluczające się projekty', class: "action-icon--edit-project" %>
+    <% end %>
+    <%= icon_link_to "eye", resource_locator(project).path, t("actions.preview", scope: "decidim.projects.admin"), class: "action-icon--preview", target: :blank %>
+    <br>
+
+    <!--Zarządzanie oceną formalną lub merytoryczną-->
+    <%= evaluation_actions(project, 'icon') %>
+    <!--Zarządzanie ponowną oceną-->
+    <%= reevaluation_actions(project, 'icon') %>
+    <!--Linki do edycji ocen-->
+    <% if allowed_to? :edit_formal, :project_evaluate, project: project %>
+      <% if project.formal_evaluation %>
+        <%= icon_link_to "clipboard", edit_project_formal_evaluation_path(project, project.formal_evaluation), t("actions.edit_project_formal", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% else %>
+        <%= icon_link_to "clipboard", new_project_formal_evaluation_path(project), t("actions.create_project_formal", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% end %>
+    <% end %>
+    <% if allowed_to? :edit_meritorical, :project_evaluate, project: project %>
+      <% if project.meritorical_evaluation %>
+        <%= icon_link_to "clipboard", edit_project_meritorical_evaluation_path(project, project.meritorical_evaluation), t("actions.edit_project_meritorical", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% else %>
+        <%= icon_link_to "clipboard", new_project_meritorical_evaluation_path(project), t("actions.create_project_meritorical", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% end %>
+    <% end %>
+    <% if allowed_to? :edit_reevaluation, :project_evaluate, project: project %>
+      <% if project.reevaluation %>
+        <%= icon_link_to "clipboard", edit_project_reevaluation_path(project, project.reevaluation), t("actions.edit_project_reevaluation", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% else %>
+        <%= icon_link_to "clipboard", new_project_reevaluation_path(project), t("actions.create_project_reevaluation", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% end %>
+    <% end %>
+
+    <!--Podglądy kart oceny-->
+    <% if allowed_to? :show, :project, project: project %>
+      <br>
+      <% if project.formal_evaluation && !project.formal_result.nil? && !project.imported? %>
+        <%= icon_link_to "magnifying-glass", project_formal_evaluation_path(project, project.formal_evaluation, format: 'pdf'), 'Podgląd oceny formalnej', class: "action-icon--edit-project" %>
+      <% end %>
+      <% if project.meritorical_evaluation && !project.meritorical_result.nil? && !project.imported? %>
+        <%= icon_link_to "magnifying-glass", project_meritorical_evaluation_path(project, project.meritorical_evaluation, format: 'pdf'), 'Podgląd oceny merytorycznej', class: "action-icon--edit-project" %>
+      <% end %>
+      <% if project.reevaluation && !project.reevaluation_result.nil? && !project.imported? %>
+        <%= icon_link_to "magnifying-glass", project_reevaluation_path(project, project.reevaluation, format: 'pdf'), 'Podgląd ponownej oceny', class: "action-icon--edit-project" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

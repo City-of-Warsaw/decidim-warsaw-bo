@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Decidim::Projects::VoteWizardHelper
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::VoteWizardHelper";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">VoteWizardHelper</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Decidim::Projects::VoteWizardHelper
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="ProjectWizardHelper.html" title="Decidim::Projects::ProjectWizardHelper (module)">ProjectWizardHelper</a></span></dd>
+  </dl>
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="PublishVoteCard.html" title="Decidim::Projects::PublishVoteCard (class)">PublishVoteCard</a></span>, <span class='object_link'><a href="UpdateVote.html" title="Decidim::Projects::UpdateVote (class)">UpdateVote</a></span>, <span class='object_link'><a href="UpdateVoteCard.html" title="Decidim::Projects::UpdateVoteCard (class)">UpdateVoteCard</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Simple helpers to handle markup variations for project wizard partials</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instruction_element-instance_method" title="#instruction_element (instance method)">#<strong>instruction_element</strong>(i)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_canceling_vote-instance_method" title="#path_for_canceling_vote (instance method)">#<strong>path_for_canceling_vote</strong>(vote_card)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_district_projects-instance_method" title="#path_for_district_projects (instance method)">#<strong>path_for_district_projects</strong>(vote_card)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_filtered_projects-instance_method" title="#path_for_filtered_projects (instance method)">#<strong>path_for_filtered_projects</strong>(vote_card, go_to_step)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_submitting_vote-instance_method" title="#path_for_submitting_vote (instance method)">#<strong>path_for_submitting_vote</strong>(vote_card)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_wizard_update_vote-instance_method" title="#path_for_wizard_update_vote (instance method)">#<strong>path_for_wizard_update_vote</strong>(vote_card, from_step = &#39;step_1&#39;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_for_wizard_vote-instance_method" title="#path_for_wizard_vote (instance method)">#<strong>path_for_wizard_vote</strong>(vote_card, go_to_step = &#39;step_1&#39;, options = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vote_wizard_step_classes-instance_method" title="#vote_wizard_step_classes (instance method)">#<strong>vote_wizard_step_classes</strong>(step, wizard)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the css classes used for the project wizard for the desired step.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vote_wizard_step_name-instance_method" title="#vote_wizard_step_name (instance method)">#<strong>vote_wizard_step_name</strong>(step)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of the step, translated.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vote_wizard_step_title-instance_method" title="#vote_wizard_step_title (instance method)">#<strong>vote_wizard_step_title</strong>(wizard, year)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vote_wizard_stepper-instance_method" title="#vote_wizard_stepper (instance method)">#<strong>vote_wizard_stepper</strong>(wizard, vote_card)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list with all the steps, in html.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#voting_instruction-instance_method" title="#voting_instruction (instance method)">#<strong>voting_instruction</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wider_step_info-instance_method" title="#wider_step_info (instance method)">#<strong>wider_step_info</strong>(wizard)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wizard_stepper_step-instance_method" title="#wizard_stepper_step (instance method)">#<strong>wizard_stepper_step</strong>(wizard, for_step, vote_card)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list item of the given step, in html with link inside.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="ProjectWizardHelper.html" title="Decidim::Projects::ProjectWizardHelper (module)">ProjectWizardHelper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ProjectWizardHelper.html#project_files_count-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_files_count (method)">#project_files_count</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_aside_link_to_back-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_aside_link_to_back (method)">#project_wizard_aside_link_to_back</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_step_classes-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_step_classes (method)">#project_wizard_step_classes</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_step_help_text%3F-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_step_help_text? (method)">#project_wizard_step_help_text?</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_step_title-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_step_title (method)">#project_wizard_step_title</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_stepper-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_stepper (method)">#project_wizard_stepper</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_stepper_step-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_stepper_step (method)">#project_wizard_stepper_step</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#project_wizard_steps_title-instance_method" title="Decidim::Projects::ProjectWizardHelper#project_wizard_steps_title (method)">#project_wizard_steps_title</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#total_steps-instance_method" title="Decidim::Projects::ProjectWizardHelper#total_steps (method)">#total_steps</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#user_group_select_field-instance_method" title="Decidim::Projects::ProjectWizardHelper#user_group_select_field (method)">#user_group_select_field</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#wizard_aside_back_text-instance_method" title="Decidim::Projects::ProjectWizardHelper#wizard_aside_back_text (method)">#wizard_aside_back_text</a></span>, <span class='object_link'><a href="ProjectWizardHelper.html#wizard_aside_info_text-instance_method" title="Decidim::Projects::ProjectWizardHelper#wizard_aside_info_text (method)">#wizard_aside_info_text</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="instruction_element-instance_method">
+  
+    #<strong>instruction_element</strong>(i)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_instruction_element'>instruction_element</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>class:</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>choosing</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>filling</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_interior'>interior</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+              <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:div</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>number</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+              <span class='lparen'>(</span><span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:span</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>line</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>!=</span> <span class='int'>4</span><span class='rparen'>)</span><span class='comma'>,</span>
+              <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>title_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim.projects.votes_cards.instruction</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+              <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+
+  <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:li</span><span class='comma'>,</span> <span class='id identifier rubyid_interior'>interior</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_canceling_vote-instance_method">
+  
+    #<strong>path_for_canceling_vote</strong>(vote_card)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_canceling_vote'>path_for_canceling_vote</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_finish_votes_card_path'>finish_votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_district_projects-instance_method">
+  
+    #<strong>path_for_district_projects</strong>(vote_card)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_district_projects'>path_for_district_projects</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_district_projects_votes_card_path'>district_projects_votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='label'>step:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:step</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_filtered_projects-instance_method">
+  
+    #<strong>path_for_filtered_projects</strong>(vote_card, go_to_step)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_filtered_projects'>path_for_filtered_projects</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='id identifier rubyid_go_to_step'>go_to_step</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filtered_projects_votes_card_path'>filtered_projects_votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='label'>step:</span> <span class='id identifier rubyid_go_to_step'>go_to_step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_submitting_vote-instance_method">
+  
+    #<strong>path_for_submitting_vote</strong>(vote_card)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_submitting_vote'>path_for_submitting_vote</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_publish_votes_card_path'>publish_votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_wizard_update_vote-instance_method">
+  
+    #<strong>path_for_wizard_update_vote</strong>(vote_card, from_step = &#39;step_1&#39;)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_wizard_update_vote'>path_for_wizard_update_vote</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='id identifier rubyid_from_step'>from_step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_1</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_votes_card_path'>votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='label'>step:</span> <span class='id identifier rubyid_from_step'>from_step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_for_wizard_vote-instance_method">
+  
+    #<strong>path_for_wizard_vote</strong>(vote_card, go_to_step = &#39;step_1&#39;, options = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_for_wizard_vote'>path_for_wizard_vote</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='id identifier rubyid_go_to_step'>go_to_step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>step_1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_edit_votes_card_url'>edit_votes_card_url</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>step:</span> <span class='id identifier rubyid_go_to_step'>go_to_step</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_wizard_step_classes-instance_method">
+  
+    #<strong>vote_wizard_step_classes</strong>(step, wizard)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the css classes used for the project wizard for the desired step</p>
+
+<p>step - A symbol of the target step wizard - current voting wizard for user, for checking current step for stepper</p>
+
+<p>Returns a string with the css classes for the desired step</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_wizard_step_classes'>vote_wizard_step_classes</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_active?'>stepper_active?</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+    <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_content'>step--active </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_step'>step</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_step'>stepper_step</span><span class='embexpr_end'>}</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_past?'>stepper_past?</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+    <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_content'>step--past </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_step'>step</span><span class='embexpr_end'>}</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_wizard_step_name-instance_method">
+  
+    #<strong>vote_wizard_step_name</strong>(step)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name of the step, translated</p>
+
+<p>step - A symbol of the target step</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_wizard_step_name'>vote_wizard_step_name</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim.projects.votes_cards.wizard_steps.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_step'>step</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_wizard_step_title-instance_method">
+  
+    #<strong>vote_wizard_step_title</strong>(wizard, year)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_wizard_step_title'>vote_wizard_step_title</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='comma'>,</span> <span class='id identifier rubyid_year'>year</span><span class='rparen'>)</span>
+  <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_step'>stepper_step</span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim.projects.votes_cards.wizard_steps.step_titles</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>year:</span> <span class='id identifier rubyid_year'>year</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="vote_wizard_stepper-instance_method">
+  
+    #<strong>vote_wizard_stepper</strong>(wizard, vote_card)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list with all the steps, in html</p>
+
+<p>wizard - Decidim::Projects::VotingWizard instance vote_card - Decidim::Projects::VoteCard - vote_card instance for generating proper link</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vote_wizard_stepper'>vote_wizard_stepper</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='comma'>,</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:ol</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wizard__steps voting</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard.html" title="Decidim::Projects::VotingWizard (class)">VotingWizard</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="VotingWizard.html#STEPPER_LIST-constant" title="Decidim::Projects::VotingWizard::STEPPER_LIST (constant)">STEPPER_LIST</a></span></span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_step'>step</span><span class='op'>|</span>
+      <span class='id identifier rubyid_wizard_stepper_step'>wizard_stepper_step</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='comma'>,</span> <span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="voting_instruction-instance_method">
+  
+    #<strong>voting_instruction</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_voting_instruction'>voting_instruction</span>
+  <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:ol</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>voting-instruction</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+      <span class='id identifier rubyid_instruction_element'>instruction_element</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wider_step_info-instance_method">
+  
+    #<strong>wider_step_info</strong>(wizard)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wider_step_info'>wider_step_info</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Oddaj głos w Budżecie Obywatelskim - krok </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_number'>stepper_number</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wizard_stepper_step-instance_method">
+  
+    #<strong>wizard_stepper_step</strong>(wizard, for_step, vote_card)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list item of the given step, in html with link inside</p>
+
+<p>wizard - Decidim::Projects::VotingWizard instance for_step - String -&gt; for what step is this element created vote - Decidim::Projects::Vote - vote instance for generating proper link</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/helpers/decidim/projects/vote_wizard_helper.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wizard_stepper_step'>wizard_stepper_step</span><span class='lparen'>(</span><span class='id identifier rubyid_wizard'>wizard</span><span class='comma'>,</span> <span class='id identifier rubyid_for_step'>for_step</span><span class='comma'>,</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>class:</span> <span class='id identifier rubyid_vote_wizard_step_classes'>vote_wizard_step_classes</span><span class='lparen'>(</span><span class='id identifier rubyid_for_step'>for_step</span><span class='comma'>,</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_step_title'>step_title</span> <span class='op'>=</span> <span class='id identifier rubyid_vote_wizard_step_name'>vote_wizard_step_name</span><span class='lparen'>(</span><span class='id identifier rubyid_for_step'>for_step</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_active?'>stepper_active?</span><span class='lparen'>(</span><span class='id identifier rubyid_for_step'>for_step</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_current_step_title'>current_step_title</span> <span class='op'>=</span> <span class='id identifier rubyid_vote_wizard_step_name'>vote_wizard_step_name</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>current_step</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+    <span class='id identifier rubyid_step_title'>step_title</span> <span class='op'>=</span> <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:span</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_current_step_title'>current_step_title</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show-for-sr</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_step_title'>step_title</span>
+    <span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>aria-current</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>step</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_stepper_past?'>stepper_past?</span><span class='lparen'>(</span><span class='id identifier rubyid_for_step'>for_step</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_wizard'>wizard</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>step_6</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_href'>href</span> <span class='op'>=</span> <span class='id identifier rubyid_edit_votes_card_path'>edit_votes_card_path</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='comma'>,</span> <span class='label'>step:</span> <span class='id identifier rubyid_for_step'>for_step</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_step_title'>step_title</span> <span class='op'>=</span> <span class='id identifier rubyid_link_to'>link_to</span> <span class='id identifier rubyid_step_title'>step_title</span><span class='comma'>,</span> <span class='id identifier rubyid_href'>href</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wizard-step-link</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:li</span><span class='comma'>,</span> <span class='id identifier rubyid_step_title'>step_title</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:03 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

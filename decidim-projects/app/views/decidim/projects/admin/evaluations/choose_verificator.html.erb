@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Projekty > ", projects_path %>
+      <%= decidim_html_escape(@project&.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Wybierz weryfikatora by przekazać projekt do
+          <%= t(allowed_to?(:submit_for_formal, :project_evaluate, project: @project) ? 'waiting' : 'formal_finished' , scope: 'decidim.projects.choose_verificator.title') rescue 'weryfikacji' %>
+        </h2>
+      </div>
+      <div class="card-section">
+        <% url = if allowed_to?(:submit_for_formal, :project_evaluate, project: @project)
+                   submit_for_formal_project_evaluations_path(@project)
+                 else
+                   submit_for_meritorical_project_evaluations_path(@project)
+                 end
+        %>
+        <%= decidim_form_for(@form, url: url, method: :post, html: { class: "form new_user" }) do |f| %>
+          <%= f.select :evaluator_id, @form.possible_verifacator_ids, include_blank: true, label: 'Weryfikator' %>
+
+          <div class="button--double form-general-submit">
+            <%= f.submit 'Przypisz' %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

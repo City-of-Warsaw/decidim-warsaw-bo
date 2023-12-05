@@ -1,0 +1,213 @@
+<% 
+  edition_stats = @statistics.first
+
+  projects_graph_max = get_maximum_graph_value([edition_stats[:number_of_projects_papers], edition_stats[:number_of_projects_electronic]].max)
+  evaluation_graph_max = get_maximum_graph_value([edition_stats[:number_of_projects_withdrawn_by_authors], edition_stats[:number_of_projects_rejected]].max)
+
+  all_voters = edition_stats[:number_of_voters_0_18].to_i + edition_stats[:number_of_voters_19_24].to_i + edition_stats[:number_of_voters_25_34].to_i + edition_stats[:number_of_voters_35_44].to_i + edition_stats[:number_of_voters_45_64].to_i + edition_stats[:number_of_voters_65_100].to_i
+
+  ages_graph_max = get_maximum_graph_value([edition_stats[:number_of_voters_0_18].to_i, edition_stats[:number_of_voters_19_24].to_i, edition_stats[:number_of_voters_25_34].to_i, edition_stats[:number_of_voters_35_44].to_i, edition_stats[:number_of_voters_45_64].to_i, edition_stats[:number_of_voters_65_100].to_i].max)
+%>
+
+  <div class="row column column--stats">
+    <div class="page-title-wrapper">
+      <h2 class="section-heading">
+        <span>Składanie</span>
+        projektów
+      </h2>
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Kwota na budżet obywatelski w danym roku</h5>
+
+      <div class="single-stat__main">
+        <div class="single-stat__icon">
+          <img src="<%= asset_path("stats/coins.svg") %>" />
+        </div>
+        
+        <div class="single-stat__value">
+          <strong><%= number_with_delimiter(edition_stats[:budget], locale: :pl) %></strong> zł
+        </div>
+      </div>
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba zgłoszonych projektów</h5>
+
+      <div class="single-stat__main">
+        <div class="single-stat__icon">
+          <img src="<%= asset_path("stats/hands.svg") %>" />
+        </div>
+        
+        <div class="single-stat__value">
+          <strong><%= number_with_delimiter(edition_stats[:number_of_projects_papers] + edition_stats[:number_of_projects_electronic], locale: :pl) %></strong>
+        </div>
+      </div> 
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_projects_papers].to_i / projects_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= edition_stats[:number_of_projects_papers] %></strong> papierowo</div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_projects_electronic].to_i / projects_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= edition_stats[:number_of_projects_electronic] %></strong> elektronicznie</div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= projects_graph_max / 2 %></span>
+          <span><%= projects_graph_max %></span>
+        </div>
+      </div>
+
+      <div class="single-stat__substats">
+        <div class="single-stat">
+          <h5 class="single-stat__title">Liczba autorów projektów</h5>
+
+          <div class="single-stat__main">
+            <div class="single-stat__icon">
+              <img src="<%= asset_path("stats/people.svg") %>" />
+            </div>
+            
+            <div class="single-stat__value">
+              <strong><%= number_with_delimiter(edition_stats[:number_of_authors], locale: :pl) %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-stat">
+          <h5 class="single-stat__title">Średnia liczba zgłoszonych projektów na autora projektu</h5>
+
+          <div class="single-stat__main">
+            <div class="single-stat__icon">
+              <img src="<%= asset_path("stats/magnifier.svg") %>" />
+            </div>
+            
+            <div class="single-stat__value">
+              <strong><%= number_with_delimiter(edition_stats[:average_number_project_person], locale: :pl) %></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="wrapper"> 
+  <div class="row column column--stats">
+    <div class="page-title-wrapper">
+      <h2 class="section-heading">
+        <span>Ocena</span>
+        projektów
+      </h2>
+    </div> 
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba projektów dopuszczonych do głosowania</h5>
+
+      <div class="single-stat__main">
+        <div class="single-stat__icon">
+          <img src="<%= asset_path("stats/consultations.svg") %>" />
+        </div>
+        
+        <div class="single-stat__value">
+          <strong><%= number_with_delimiter(edition_stats[:number_of_projects_approved], locale: :pl) %></strong>
+        </div>
+      </div>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_projects_rejected] / evaluation_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= edition_stats[:number_of_projects_rejected] %></strong> ocenionych negatywnie</div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_projects_withdrawn_by_authors] / evaluation_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= edition_stats[:number_of_projects_withdrawn_by_authors] %></strong> wycofanych przez autorów</div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= evaluation_graph_max / 2 %></span>
+          <span><%= evaluation_graph_max %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="wrapper"> 
+  <div class="row column column--stats">
+    <div class="page-title-wrapper">
+      <h2 class="section-heading">
+        <span>Głosowanie</span>
+        na projekty
+      </h2>
+    </div> 
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba głosujących</h5>
+
+      <div class="single-stat__main">
+        <div class="single-stat__icon">
+          <img src="<%= asset_path("stats/voting.svg") %>" />
+        </div>
+        
+        <div class="single-stat__value">
+          <strong><%= number_with_delimiter(all_voters, locale: :pl) %></strong>
+        </div>
+      </div>
+
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_0_18].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>0-18 / <strong><%= edition_stats[:number_of_voters_0_18].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_19_24].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>19-24 / <strong><%= edition_stats[:number_of_voters_19_24].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_25_34].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>25-34 / <strong><%= edition_stats[:number_of_voters_25_34].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_35_44].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>35-44 / <strong><%= edition_stats[:number_of_voters_35_44].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_45_64].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>45-64 / <strong><%= edition_stats[:number_of_voters_45_64].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * edition_stats[:number_of_voters_65_100].to_i / ages_graph_max * 100, 0.2].max %>%"></span>
+
+          <div>65+ / <strong><%= edition_stats[:number_of_voters_65_100].to_i %></strong></div>
+        </div> 
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= ages_graph_max / 2 %></span>
+          <span><%= ages_graph_max %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

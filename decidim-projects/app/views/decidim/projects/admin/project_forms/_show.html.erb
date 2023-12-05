@@ -1,0 +1,140 @@
+<div class="card with-overflow" style="border: none;">
+  <div class="card-section">
+    <strong>
+      Ponieważ Mieszkańcy juz złożyli swoje projekty w tej edycji, formualrza nie można edytować.
+      <br>
+      Poniżej możesz zobaczyć, jak obecnie wygląda formularz.
+    </strong>
+  </div>
+</div>
+
+
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title">Dane projektu</h2>
+  </div>
+  <div class="card-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Nazwa domyślna</th>
+          <th>Nazwa ustawiona</th>
+          <th>Pole pomocy</th>
+          <th>Pole ukryte pod znakiem zapytania</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% fields = ['title', 'short_description', 'body', 'universal_design', 'universal_design_argumentation', 'justification_info'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'activemodel.attributes.project') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+
+        <% fields = ['category_ids', 'potential_recipient_ids'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'activemodel.attributes.project') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+
+        <% fields = ['scope_id', 'localization_info', 'localization_additional_info', 'budget_value'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'activemodel.attributes.project') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title">Dane użytkownika</h2>
+  </div>
+  <div class="card-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Nazwa domyślna</th>
+          <th>Nazwa ustawiona</th>
+          <th>Pole pomocy</th>
+          <th>Pole ukryte pod znakiem zapytania</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% fields = ['first_name', 'last_name', 'gender', 'phone_number', 'email'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'decidim.projects.projects.part_form_fields.author_fields') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+
+        <% fields = ['street', 'street_number', 'flat_number', 'zip_code', 'city'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'decidim.projects.projects.part_form_fields.author_fields') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+
+        <% fields = ['coauthor_email_one'] %>
+        <% fields.each do |el| %>
+          <tr>
+            <td><%= t(el, scope: 'activemodel.attributes.project') %></td>
+            <td><%= @form.send(el) %></td>
+            <td><%= @form.send("#{el}_help_text")&.html_safe.presence || '-' %></td>
+            <td><%= decidim_sanitize(@form.send("#{el}_hint"), strip_tags: true).presence || '-' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title">Dodatkowe pola (zgodnie z kolejnością)</h2>
+  </div>
+  <div class="card-section">
+    <% if @project_customization.additional_attributes&.any? %>
+      <table>
+        <thead>
+        <tr>
+          <th>Nazwa domyślna</th>
+          <th>Pole pomocy</th>
+          <th>Pole ukryte pod znakiem zapytania</th>
+          <th>Wymagane?</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @project_customization.additional_attributes[0].each do |k, v| %>
+            <tr>
+              <td><%= v[0].dig('name').presence || v[0].dig(:name) %></td>
+              <td><%= v[0].dig('help_text').presence || v[0].dig(:help_text).presence || '-' %></td>
+              <td><%= v[0].dig('hint').presence || v[0].dig(:hint).presence || '-' %></td>
+              <td><%= t((v[0].dig('required').presence || v[0].dig(:required)) == '1', scope: 'booleans', default: '-') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      Nie dodano żadnych pól
+    <% end %>
+  </div>
+</div>

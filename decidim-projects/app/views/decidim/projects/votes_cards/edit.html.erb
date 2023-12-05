@@ -1,0 +1,20 @@
+<% add_decidim_page_title(wider_step_info(wizard)) %>
+
+<%= render "decidim/projects/votes_cards/wizard_aside" %>
+<%= render "decidim/projects/votes_cards/wizard_header", title: vote_wizard_step_title(wizard, vote_card.participatory_space.edition_year), wider_step_info: wider_step_info(wizard) %>
+
+<% if wizard.with_form? %>
+  <%= decidim_form_for(@form, url: path_for_wizard_update_vote(vote_card, wizard.step), method: :patch) do |form| %>
+    <%= render wizard.partial_name, form: form %>
+  <% end %>
+  <%= hidden_field_tag 'markersMap', @all_locations_json %>
+  <%= hidden_field_tag 'highlightedProjects', '', { class: "highlighted-projects-js" } %>
+<% else %>
+  <%= render wizard.partial_name %>
+<% end %>
+
+<%= render 'modal_session_control' %>
+<%= render 'modal_session_expired' %>
+<%= render 'modal_cancel_voting' %>
+
+<%= javascript_include_tag "decidim/projects/voting_form" %>

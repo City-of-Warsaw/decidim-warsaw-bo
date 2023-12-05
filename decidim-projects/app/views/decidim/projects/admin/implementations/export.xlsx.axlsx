@@ -1,0 +1,50 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row [
+                  'Lp.',
+                  'Numer projektu',
+                  'Rok edycji',
+                  'Poziom',
+                  'Dzielnica',
+                  'Obszar',
+                  'Lokalizacja projektu',
+                  'Istotne informacje o lokalizacji',
+                  'Tytuł',
+                  'Krótki opis',
+                  'Szacunkowy koszt realizacji',
+                  'Faktyczny koszt realizacji',
+                  'Opis stanu realizacji',
+                  'Realizator',
+                  'Etap stanu realizacji',
+                  'Status',
+                  'Datę aktualizacji',
+                  'Informację czy posiada zdjęcia (TAK/NIE)',
+                  'Link do publicznej karty projektu'
+                ]
+  @projects.each_with_index do |p, index|
+    impl = p.implementations.visible.last
+    sheet.add_row [
+                    index + 1,
+                    p.esog_number,
+                    p.edition_year,
+                    (p.scope.scope_type.name["pl"] rescue "brak typu dla dzielnicy"),
+                    (p.scope.name["pl"] rescue "brak dzielnicy"),
+                    p.region&.name,
+                    p.localization_info, # Lokalizacja projektu - ulica i nr / rejon ulic w Warszawie
+                    p.localization_additional_info, # Istotne informacje o lokalizacji
+                    p.title,
+                    p.short_description,
+                    p.budget_value,
+                    (impl.update_data['factual_budget_value'] rescue ""),
+                    ActionView::Base.full_sanitizer.sanitize(impl&.body),
+                    (impl.update_data['producer_list'] rescue ""),
+                    implementation_stage(p),
+                    (impl.update_data['implementation_status'] rescue ""),
+                    impl&.implementation_date,
+                    (p.implementation_photos.any? ? 'Tak' : 'Nie' rescue ""),
+                    Decidim::ResourceLocatorPresenter.new(p).url
+                  ]
+  end
+  column_width = 10
+  sheet.column_widths *(Array.new(19, column_width))
+end

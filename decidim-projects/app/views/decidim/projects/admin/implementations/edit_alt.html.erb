@@ -1,0 +1,40 @@
+<%= decidim_form_for(@form, url: alt_project_attachment_path(@project, @implementation_photo), html: { class: "form new_project project_form_admin" }, method: :patch) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">Zdjęcie z realizacji</h2>
+    </div>
+
+    <div class="card-section">
+      <div class="field">
+        <% if @form.project %>
+          <strong>Projekt</strong>
+          <div style="margin-bottom: 15px;">
+            <%= form.hidden_field :project_id %>
+            <%= @form.project.title %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="field">
+
+        <strong>Podgląd</strong>
+        <br>
+        <%= link_to main_app.rails_blob_path(@implementation_photo.file, only_path: true), target: "_blank", rel: "noopener" do %>
+          <%= image_tag main_app.rails_representation_path(@implementation_photo.thumbnail), style: 'margin-bottom: 10px;' %>
+          <br>
+          <%= strip_tags(@implementation_photo.file.filename.to_s) %>
+        <% end %>
+
+      </div>
+
+      <div class="row column hashtags__container">
+        <%= form.text_field :alt, autofocus: true, label: 'Tekst alternatywny' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t("decidim.appeals.actions.update") %>
+    <%= link_to 'Anuluj', edit_implementation_path(@project), class: "link" %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<td class="text-left title-column">
+  <%= link_to (project.title.present? ? project.title : "Brak tytułu"), resource_locator(project).path, class: "card__link" %>
+  
+  <div class="scope-and-number">
+    <span><%= translated_attribute(project.scope.name) if project.scope %></span>
+    <%= project.esog_number.present? ? ' / ' : '' %>
+    <strong><%= project.esog_number %></strong>
+    <%= project.budget_value.present? ? ' / ' : '' %>
+    <%= budget_to_currency project.budget_value %>
+  </div>
+</td> 
+
+<td class="state-column"> 
+  <span class="state-circle <%= status_class_for_public_status(project) %>"></span>
+  <%= public_status(project) %>
+</td>

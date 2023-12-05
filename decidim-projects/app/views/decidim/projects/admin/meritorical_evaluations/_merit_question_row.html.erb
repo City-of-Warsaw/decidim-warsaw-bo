@@ -1,0 +1,47 @@
+<div class="row column hashtags__container">
+  <% if q[:type] == 'radio'%>
+    <%=  label_tag q[:name], "#{index+1}. #{q[:label]}" %>
+    <label style="display: inline-block;">
+      <%= check_box_tag "meritorical_evaluation[#{q[:name]}]", 1, @form.send(q[:name]) == 1, id: "meritorical_evaluation_#{q[:name]}_1" %> spełniono
+    </label>
+    <label style="display: inline-block;">
+      <%= check_box_tag "meritorical_evaluation[#{q[:name]}]", 2, @form.send(q[:name]) == 2, id: "meritorical_evaluation_#{q[:name]}_2" %> nie spełniono
+    </label>
+    <% if q[:not_applicable] %>
+      <label style="display: inline-block;">
+        <%= check_box_tag "meritorical_evaluation[#{q[:name]}]", 3, @form.send(q[:name]) == 3, id: "meritorical_evaluation_#{q[:name]}_3" %> nie dotyczy
+      </label>
+    <% end %>
+    <%= form.error_for q[:name] %>
+    <%= form.text_area "#{q[:name]}_comment", label: 'Uwagi', rows: 3 %>
+
+  <% elsif q[:type] == 'radio2' %>
+    <%=  label_tag q[:name], "#{index+1}. #{q[:label]}" %>
+    <% q[:fields].each do |ff| %>
+      <div>
+        <%=  label_tag ff[:name], ff[:label] %>
+        <label style="display: inline-block;">
+          <%= check_box_tag "meritorical_evaluation[#{ff[:name]}]", 1, @form.send(ff[:name]) == 1, id: "meritorical_evaluation_#{ff[:name]}_1" %> spełniono
+        </label>
+        <label style="display: inline-block;">
+          <%= check_box_tag "meritorical_evaluation[#{ff[:name]}]", 2, @form.send(ff[:name]) == 2, id: "meritorical_evaluation_#{ff[:name]}_2" %> nie spełniono
+        </label>
+        <% if ff[:not_applicable] %>
+          <label style="display: inline-block;">
+            <%= check_box_tag "meritorical_evaluation[#{ff[:name]}]", 3, @form.send(ff[:name]) == 3, id: "meritorical_evaluation_#{ff[:name]}_3" %> nie dotyczy
+          </label>
+        <% end %>
+        <%= form.error_for ff[:name] %>
+      </div>
+    <% end %>
+
+    <%= form.text_area "#{q[:name]}_comment", label: 'Uwagi', rows: 3 %>
+
+  <% elsif q[:type] == 'text' %>
+    <%= form.text_area q[:name], label: "#{index+1}. #{q[:label]}", rows: 3 %>
+    <!--    <textarea rows="2" class="input-block-level span12" name="TaskMeritVerification[other]" id="TaskMeritVerification_other"></textarea>-->
+
+  <% else %>
+    brak rodzaju
+  <% end %>
+</div>

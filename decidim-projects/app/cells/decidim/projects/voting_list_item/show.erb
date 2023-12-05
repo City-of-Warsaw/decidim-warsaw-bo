@@ -1,0 +1,25 @@
+<tr data-id="<%= model.id %>">
+  <td class="text-center vote-number-column number-td-<%= model.id %>-js"><%= voting_number %></td>
+  <td class="text-left title-column">
+    <%= render :header if has_header? %>
+    
+    <img src="<%= asset_path('info-graph.svg') %>" class="info-icon" width="20" height="20" alt="Info" />
+    
+    <% if short_description.present? %>
+      <div class="info-tooltip">
+        <%= short_description %>
+      </div>
+    <% end %>
+
+    <span class="hide-for-mobile"><%= esog_number %></span>
+  </td>
+  <td class="text-center categories-column">
+    <%= render :categories %>
+  </td>
+  <td class="text-center text-bold budget-column">
+    <%= budget_to_currency model.budget_value %>
+  </td>
+  <td class="text-center vote-link-column">
+    <%= link_to t('.vote'), vote_for_project_url, data: { id: model.id }, class: 'choose-project-js' %>
+  </td>
+</tr>

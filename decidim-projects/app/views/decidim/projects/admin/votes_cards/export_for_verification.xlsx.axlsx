@@ -1,0 +1,30 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row [
+                  'Lp.',
+                  t("models.votes.fields.card_number", scope: "decidim.projects"),
+                  t("models.votes.fields.is_paper", scope: "decidim.projects"),
+                  t("models.votes.fields.pesel_number", scope: "decidim.projects"),
+                  t("models.votes.fields.status", scope: "decidim.projects"),
+                  t("models.votes.fields.email", scope: "decidim.projects"),
+                  t("models.votes.fields.first_name", scope: "decidim.projects"),
+                  t("models.votes.fields.last_name", scope: "decidim.projects"),
+                  t("models.votes.fields.verified_first_name", scope: "decidim.projects"),
+                  t("models.votes.fields.verified_last_name", scope: "decidim.projects"),
+                  t('street', scope: 'activemodel.attributes.vote_card'),
+                  t('street_number', scope: 'activemodel.attributes.vote_card'),
+                  t('flat_number', scope: 'activemodel.attributes.vote_card'),
+                  t('zip_code', scope: 'activemodel.attributes.vote_card'),
+                  t('city', scope: 'activemodel.attributes.vote_card'),
+                  "Dzielnica",
+                  t("models.votes.fields.created_at", scope: "decidim.projects"),
+                  t("models.votes.fields.updated_at", scope: "decidim.projects"),
+                  t("models.votes.fields.author", scope: "decidim.projects"),
+                  t("models.votes.fields.ip_number", scope: "decidim.projects")
+                ]
+  index = 0
+  @votes.each do |vote_card|
+    sheet.add_row Decidim::Projects::VoteCardForVerificationSerializer.new(vote_card, index+=1).serialize.values, types: [:integer, :string,  :string, :string]
+  end
+  sheet.column_widths 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+end

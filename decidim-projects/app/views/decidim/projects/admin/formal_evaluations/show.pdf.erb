@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <style>
+    body {
+      font-family:  Helvetica;
+      line-height: 150%;
+    }
+    h1 {
+        line-height: 160%;
+    }
+    h3.slim {
+        font-weight: normal;
+    }
+    h4.slim {
+        font-weight: normal;
+    }
+    ul {
+      list-style: none;
+    }
+    .deep {
+        padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>
+  Karta oceny formalnej<br>
+  projektu zgłoszonego do budżetu obywatelskiego w Warszawie na rok <%= @evaluation.project.edition_year %>
+</h2>
+
+<p>
+  Nr ESOG<sup>i</sup>: <%= @evaluation.project.esog_number %>
+  <br>
+  Znak Signum<sup>ii</sup>: <%= @evaluation.details['signum_number'] %>
+  <br><br>
+</p>
+<h3 class="slim">
+  Nazwa projektu:
+  <strong><%= @evaluation.project.title %></strong>
+</h3>
+
+<h3>Kryteria oceny</h3>
+<ul>
+  <% FormalEvaluationFieldsDefinition::FORMAL_FIELDS.each do |f| %>
+    <li class="<%= 'deep' if FormalEvaluationFieldsDefinition::SECOND_DEPTH_FORMAL_FIELDS.include?(f[:name].to_s) %>">
+      <%= "#{f[:translation]}#{':' if f[:name] == :qq1}" %>
+      <% if f[:value] %>
+        <% if @evaluation.details["#{f[:name]}_corrected"] %>
+          - braki usunięto w terminie
+        <% else %>
+          - <%= @evaluation.status f[:name].to_s %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Inne uwagi: <%= @evaluation.details['additional_info'].presence || '-' %></p>
+
+<h3>Informacje o wezwaniu do usunięcia stwierdzonych braków:</h3>
+
+<% if @evaluation.details['all_summons'] && @evaluation.details['all_summons'].any? %>
+  <% @evaluation.details['all_summons'].each do |as| %>
+    <p>
+      Data przekazania wezwania: <%= as[0] %>
+      <br>
+      Sposób przekazania wezwania: <%= t("#{as[1]}", scope: 'decidim.projects.admin.formal_evaluations.form_formal') %>
+      <br>
+      Uwagi: <%= as[2].presence || '-' %>
+    </p>
+  <% end %>
+<% else %>
+  Nie było wezwań.
+<% end %>
+
+<h2>Wynik oceny formalnej: <%= @evaluation.details['result'] == 1 ? 'pozytywny' : 'negatywny' %></h2>
+
+<% if @evaluation.negative_verification_reason %>
+  <h3>Uzasadnienie negatywnej oceny:</h3>
+  <p>Ocena negatywna ze względu na braki formalne:</p>
+  <ul>
+    <% FormalEvaluationFieldsDefinition::FORMAL_FIELDS.each do |ff| %>
+      <% if @evaluation.details["#{ff[:name]}_negative_reason"].present? %>
+        <li><%= @evaluation.details["#{ff[:name]}_negative_reason"] %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  Data przeprowadzonej oceny: <%= @evaluation.details['verification_date'] %>
+</p>
+<p>
+  Imię i nazwisko pracownika oceniającego: <%= @evaluation.details['verifier_name'] %>
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<p><small>
+  <sup>i</sup>
+  ESOG – elektroniczny system obsługi budżetu obywatelskiego, umożliwia zgłaszanie projektów i ich
+  ocenę oraz głosowanie.
+  <br>
+  <sup>ii</sup>
+  Signum – elektroniczny system obiegu dokumentów w Urzędzie Miasta
+</small></p>
+
+</body>
+</html>

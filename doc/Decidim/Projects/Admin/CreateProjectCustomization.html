@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Admin::CreateProjectCustomization
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin::CreateProjectCustomization";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span>
+     &raquo; 
+    <span class="title">CreateProjectCustomization</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Admin::CreateProjectCustomization
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Rectify::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rectify::Command</li>
+          
+            <li class="next">Decidim::Projects::Admin::CreateProjectCustomization</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A command with all the business logic when a user creates or updates a customized project form.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#form-instance_method" title="#form (instance method)">#<strong>form</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute form.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#process-instance_method" title="#process (instance method)">#<strong>process</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute process.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#create_customization-instance_method" title="#create_customization (instance method)">#<strong>create_customization</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: creating customization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#customization_attributes-instance_method" title="#customization_attributes (instance method)">#<strong>customization_attributes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: customization attributes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(form, current_user, process, customization)  &#x21d2; CreateProjectCustomization </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Initializes the command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#update_customization-instance_method" title="#update_customization (instance method)">#<strong>update_customization</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Private: updating customization.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(form, current_user, process, customization)  &#x21d2; <tt><span class='object_link'><a href="" title="Decidim::Projects::Admin::CreateProjectCustomization (class)">CreateProjectCustomization</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Initializes the command.</p>
+
+<p>form          - A form object with the params. current_user  - current user process       - Participatory Process customization - Decidim::Projects::ProjectCustomization</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_process'>process</span><span class='comma'>,</span> <span class='id identifier rubyid_customization'>customization</span><span class='rparen'>)</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@current_user</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
+  <span class='ivar'>@process</span> <span class='op'>=</span> <span class='id identifier rubyid_process'>process</span>
+  <span class='ivar'>@customization</span> <span class='op'>=</span> <span class='id identifier rubyid_customization'>customization</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="form-instance_method">
+  
+    #<strong>form</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute form.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_form'>form</span>
+  <span class='ivar'>@form</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="process-instance_method">
+  
+    #<strong>process</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly, private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
+  <span class='ivar'>@process</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="call-instance_method">
+  
+    #<strong>call</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes the command. Broadcasts these events:</p>
+<ul><li>
+<p>:ok when everything is valid, together with the proposal.</p>
+</li><li>
+<p>:invalid if the form wasn&#39;t valid and we couldn&#39;t proceed.</p>
+</li></ul>
+
+<p>Method calls either update or create method for customization</p>
+
+<p>Returns nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_invalid?'>invalid?</span>
+
+  <span class='id identifier rubyid_transaction'>transaction</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='ivar'>@customization</span><span class='period'>.</span><span class='id identifier rubyid_persisted?'>persisted?</span>
+      <span class='id identifier rubyid_update_customization'>update_customization</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_create_customization'>create_customization</span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_broadcast'>broadcast</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='comma'>,</span> <span class='id identifier rubyid_process'>process</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_customization-instance_method">
+  
+    #<strong>create_customization</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: creating customization</p>
+
+<p>returns Decidim::Projects::ProjectCustomization</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_customization'>create_customization</span>
+  <span class='ivar'>@customization</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='period'>.</span><span class='id identifier rubyid_traceability'>traceability</span><span class='period'>.</span><span class='id identifier rubyid_perform_action!'>perform_action!</span><span class='lparen'>(</span>
+    <span class='symbol'>:create_customization</span><span class='comma'>,</span>
+    <span class='ivar'>@process</span><span class='comma'>,</span>
+    <span class='ivar'>@current_user</span><span class='comma'>,</span>
+    <span class='label'>visibility:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin-only</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_customization'>customization</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ProjectCustomization.html" title="Decidim::Projects::ProjectCustomization (class)">ProjectCustomization</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_customization_attributes'>customization_attributes</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='label'>process:</span> <span class='id identifier rubyid_process'>process</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_customization'>customization</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="customization_attributes-instance_method">
+  
+    #<strong>customization_attributes</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: customization attributes</p>
+
+<p>returns Hash</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_customization_attributes'>customization_attributes</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>additional_attributes:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_additional_attributes'>additional_attributes</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='comment'># custom_names
+</span>    <span class='label'>custom_names:</span> <span class='lbrace'>{</span>
+      <span class='label'>title:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='comma'>,</span>
+      <span class='label'>title_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_title_help_text'>title_help_text</span><span class='comma'>,</span>
+      <span class='label'>title_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_title_hint'>title_hint</span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='comma'>,</span>
+      <span class='label'>body_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_body_help_text'>body_help_text</span><span class='comma'>,</span>
+      <span class='label'>body_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_body_hint'>body_hint</span><span class='comma'>,</span>
+      <span class='label'>short_description:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_short_description'>short_description</span><span class='comma'>,</span>
+      <span class='label'>short_description_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_short_description_help_text'>short_description_help_text</span><span class='comma'>,</span>
+      <span class='label'>short_description_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_short_description_hint'>short_description_hint</span><span class='comma'>,</span>
+      <span class='label'>universal_design:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design'>universal_design</span><span class='comma'>,</span>
+      <span class='label'>universal_design_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_help_text'>universal_design_help_text</span><span class='comma'>,</span>
+      <span class='label'>universal_design_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_hint'>universal_design_hint</span><span class='comma'>,</span>
+      <span class='label'>universal_design_argumentation:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_argumentation'>universal_design_argumentation</span><span class='comma'>,</span>
+      <span class='label'>universal_design_argumentation_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_argumentation_help_text'>universal_design_argumentation_help_text</span><span class='comma'>,</span>
+      <span class='label'>universal_design_argumentation_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_universal_design_argumentation_hint'>universal_design_argumentation_hint</span><span class='comma'>,</span>
+      <span class='label'>justification_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_justification_info'>justification_info</span><span class='comma'>,</span>
+      <span class='label'>justification_info_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_justification_info_help_text'>justification_info_help_text</span><span class='comma'>,</span>
+      <span class='label'>justification_info_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_justification_info_hint'>justification_info_hint</span><span class='comma'>,</span>
+      <span class='label'>category_ids:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_category_ids'>category_ids</span><span class='comma'>,</span>
+      <span class='label'>category_ids_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_category_ids_help_text'>category_ids_help_text</span><span class='comma'>,</span>
+      <span class='label'>category_ids_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_category_ids_hint'>category_ids_hint</span><span class='comma'>,</span>
+      <span class='label'>potential_recipient_ids:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_potential_recipient_ids'>potential_recipient_ids</span><span class='comma'>,</span>
+      <span class='label'>potential_recipient_ids_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_potential_recipient_ids_help_text'>potential_recipient_ids_help_text</span><span class='comma'>,</span>
+      <span class='label'>potential_recipient_ids_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_potential_recipient_ids_hint'>potential_recipient_ids_hint</span><span class='comma'>,</span>
+      <span class='label'>localization_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_info'>localization_info</span><span class='comma'>,</span>
+      <span class='label'>localization_info_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_info_help_text'>localization_info_help_text</span><span class='comma'>,</span>
+      <span class='label'>localization_info_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_info_hint'>localization_info_hint</span><span class='comma'>,</span>
+      <span class='label'>localization_additional_info:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_additional_info'>localization_additional_info</span><span class='comma'>,</span>
+      <span class='label'>localization_additional_info_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_additional_info_help_text'>localization_additional_info_help_text</span><span class='comma'>,</span>
+      <span class='label'>localization_additional_info_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_localization_additional_info_hint'>localization_additional_info_hint</span><span class='comma'>,</span>
+      <span class='label'>budget_value:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_budget_value'>budget_value</span><span class='comma'>,</span>
+      <span class='label'>budget_value_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_budget_value_help_text'>budget_value_help_text</span><span class='comma'>,</span>
+      <span class='label'>budget_value_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_budget_value_hint'>budget_value_hint</span><span class='comma'>,</span>
+      <span class='label'>scope_id:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_id'>scope_id</span><span class='comma'>,</span>
+      <span class='label'>scope_id_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_id_help_text'>scope_id_help_text</span><span class='comma'>,</span>
+      <span class='label'>scope_id_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_scope_id_hint'>scope_id_hint</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_one:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_one'>coauthor_email_one</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_one_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_one_help_text'>coauthor_email_one_help_text</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_one_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_one_hint'>coauthor_email_one_hint</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_two:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_two'>coauthor_email_two</span><span class='op'>&amp;.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_two_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_two_help_text'>coauthor_email_two_help_text</span><span class='comma'>,</span>
+      <span class='label'>coauthor_email_two_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_coauthor_email_two_hint'>coauthor_email_two_hint</span><span class='comma'>,</span>
+      <span class='comment'># user data
+</span>      <span class='label'>first_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_first_name'>first_name</span><span class='comma'>,</span>
+      <span class='label'>first_name_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_first_name_help_text'>first_name_help_text</span><span class='comma'>,</span>
+      <span class='label'>first_name_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_first_name_hint'>first_name_hint</span><span class='comma'>,</span>
+      <span class='label'>last_name:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_last_name'>last_name</span><span class='comma'>,</span>
+      <span class='label'>last_name_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_last_name_help_text'>last_name_help_text</span><span class='comma'>,</span>
+      <span class='label'>last_name_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_last_name_hint'>last_name_hint</span><span class='comma'>,</span>
+      <span class='label'>gender:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='comma'>,</span>
+      <span class='label'>gender_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_gender_help_text'>gender_help_text</span><span class='comma'>,</span>
+      <span class='label'>gender_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_gender_hint'>gender_hint</span><span class='comma'>,</span>
+      <span class='label'>phone_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_phone_number'>phone_number</span><span class='comma'>,</span>
+      <span class='label'>phone_number_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_phone_number_help_text'>phone_number_help_text</span><span class='comma'>,</span>
+      <span class='label'>phone_number_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_phone_number_hint'>phone_number_hint</span><span class='comma'>,</span>
+      <span class='label'>email:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
+      <span class='label'>email_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_email_help_text'>email_help_text</span><span class='comma'>,</span>
+      <span class='label'>email_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_email_hint'>email_hint</span><span class='comma'>,</span>
+      <span class='label'>street:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street'>street</span><span class='comma'>,</span>
+      <span class='label'>street_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_help_text'>street_help_text</span><span class='comma'>,</span>
+      <span class='label'>street_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_hint'>street_hint</span><span class='comma'>,</span>
+      <span class='label'>street_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_number'>street_number</span><span class='comma'>,</span>
+      <span class='label'>street_number_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_number_help_text'>street_number_help_text</span><span class='comma'>,</span>
+      <span class='label'>street_number_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_street_number_hint'>street_number_hint</span><span class='comma'>,</span>
+      <span class='label'>flat_number:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_flat_number'>flat_number</span><span class='comma'>,</span>
+      <span class='label'>flat_number_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_flat_number_help_text'>flat_number_help_text</span><span class='comma'>,</span>
+      <span class='label'>flat_number_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_flat_number_hint'>flat_number_hint</span><span class='comma'>,</span>
+      <span class='label'>zip_code:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_zip_code'>zip_code</span><span class='comma'>,</span>
+      <span class='label'>zip_code_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_zip_code_help_text'>zip_code_help_text</span><span class='comma'>,</span>
+      <span class='label'>zip_code_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_zip_code_hint'>zip_code_hint</span><span class='comma'>,</span>
+      <span class='label'>city:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_city'>city</span><span class='comma'>,</span>
+      <span class='label'>city_help_text:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_city_help_text'>city_help_text</span><span class='comma'>,</span>
+      <span class='label'>city_hint:</span> <span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_city_hint'>city_hint</span>
+    <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_customization-instance_method">
+  
+    #<strong>update_customization</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Private: updating customization</p>
+
+<p>returns Decidim::Projects::ProjectCustomization</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/commands/decidim/projects/admin/create_project_customization.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_customization'>update_customization</span>
+  <span class='ivar'>@customization</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='period'>.</span><span class='id identifier rubyid_traceability'>traceability</span><span class='period'>.</span><span class='id identifier rubyid_perform_action!'>perform_action!</span><span class='lparen'>(</span>
+    <span class='symbol'>:update_customization</span><span class='comma'>,</span>
+    <span class='ivar'>@process</span><span class='comma'>,</span>
+    <span class='ivar'>@current_user</span><span class='comma'>,</span>
+    <span class='label'>visibility:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin-only</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_customization'>customization</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ProjectCustomization.html" title="Decidim::Projects::ProjectCustomization (class)">ProjectCustomization</a></span></span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_customization_attributes'>customization_attributes</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_customization'>customization</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:42 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

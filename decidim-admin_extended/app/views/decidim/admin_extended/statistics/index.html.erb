@@ -1,0 +1,75 @@
+<% add_decidim_page_title(t("decidim.statistics.index.title")) %>
+
+<%
+  def get_pretty_value(value)
+    if (value < 100)
+      return value / (10 ** (value.to_s.size - 1)) * (10 ** (value.to_s.size - 1))
+    else
+      return value / (10 ** (value.to_s.size - 2)) * (10 ** (value.to_s.size - 2))
+    end
+  end
+
+  def get_maximum_graph_value(max)
+    ratio = 1.5
+    raw_value = [10, max].max
+    pretty_value = get_pretty_value(raw_value)
+
+    while pretty_value <= max + 0.25 * max
+      raw_value = (raw_value * ratio).ceil
+      pretty_value = get_pretty_value(raw_value)
+    end
+
+    return pretty_value.to_i
+  end
+%>
+
+<div class="static-page stats">
+  <div class="row text-center mt-m">
+    <h1 class="devise-header">
+      Budżet
+      <strong>w liczbach</strong>
+    </h1>
+  </div>
+
+  <div class="wrapper">
+    <div class="row column column--stats">
+        <%= form_tag url_for, { method: :get , class: "stats-filters"} do  %>
+        <%= select_tag :edition_year, options_for_select(filter_year_values(nil),params[:edition_year] || Decidim::ParticipatoryProcess.actual_edition.edition_year), { label: false, multiple: true, "data-placeholder": "Rok" } %>
+        <%= select_tag :scope_type, options_for_select(filter_scope_types_values,params[:scope_type]), { label: false, multiple: true, "data-placeholder": "Poziom projektu" } %>
+        <%= select_tag :scope_id, options_for_select(filter_scopes_values,params[:scope_id]), { label: false, multiple: true, "data-placeholder": "Dzielnica" } %>
+        <%= submit_tag 'Pokaż', class: 'button tiny button--simple mr-s' %>
+      <% end %>
+
+    </div>
+
+    <% if @statistics.size == 1 %>
+      <%= render partial: "single_year" %>
+    <% elsif @statistics.size == 2 %>
+      <%= render partial: "two_years" %>
+    <% else %>
+      <%= render partial: "multiple_years" %>
+    <% end %>
+  </div>
+</div>
+
+<%= nonced_javascript_tag do %>
+  $(function () {
+    $("select[multiple]").multiselect({
+      columns: 1,
+      search: false,
+      selectAll: true,
+      placeholder: 'Wybierz',
+      showCheckbox: false,
+      texts: {
+        search         : 'Szukaj',
+        selectedOptions: ' wybrano',
+        selectAll      : 'Zaznacz wszystkie',
+        unselectAll    : 'Odznacz wszystkie',
+        noneSelected   : 'Nie zaznaczono'
+      },
+      // onControlClose: function (el) {
+      //   $(el).parents('form').submit();
+      // },
+    });
+  });
+<% end %>

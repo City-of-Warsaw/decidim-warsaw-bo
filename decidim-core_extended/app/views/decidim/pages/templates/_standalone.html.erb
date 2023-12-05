@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div class="row column">
+    <div class="page-title-wrapper">
+      <h2 class="section-heading"><%= title %></h2>
+    </div>
+
+    <div>
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <div class="columns small-12">
+        <div class="card">
+          <div class="card__content">
+            <% if page.slug == 'ile-kosztuje-miasto' %>
+              <div class="column large-12" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px">
+                <% cell('decidim/content_blocks/metrics', '').costs.each do |c| %>
+                  <%= cell("decidim/core_extended/cost", c, size: :page) %>
+                <% end %>
+              </div>
+            <% else %>
+              <%= decidim_sanitize translated_attribute page.content %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns small-12">
+        <%= cell "decidim/tos_page", :form %>
+      </div>
+    </div>
+  </div>
+</div>

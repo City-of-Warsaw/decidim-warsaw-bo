@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Projekty > ", projects_path %>
+      <%= decidim_html_escape(@project&.title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Wybierz nowego weryfikatora
+        </h2>
+      </div>
+      <div class="card-section">
+        <% url = change_verificator_project_evaluations_path(@project) %>
+        <%= decidim_form_for(@form, url: url, method: :post, html: { class: "form new_user" }) do |f| %>
+          <%= f.select :evaluator_id, @form.possible_verifacator_ids, include_blank: true, label: 'Weryfikator' %>
+
+          <div class="button--double form-general-submit">
+            <%= f.submit 'Zmień' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

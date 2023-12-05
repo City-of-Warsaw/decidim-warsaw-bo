@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Współautorzy projektu
+    </h2>
+  </div>
+  <div class="card-section">
+    <% if project_coauthors_list(@project).any? %>
+      <% project_coauthors_list(@project).each do |u| %>
+
+        <div class="row column">
+          <strong>Status:</strong>
+          <% if u.confirmation_status == "confirmed" %>
+            <span class="success">Mieszkaniec potwierdził współautorstwo</span>
+          <% else %>
+            <span class="alert">Czeka na potwierdzenie współautorstwa</span>
+            <% if allowed_to? :coauthor_accept, :project, project: @project %>
+            <span class="float-right">
+              <%= link_to t("actions.confirm_coauthorship", scope: "decidim.projects"),
+                          accept_coautorship_project_path(@project,user_id: u.author_user_id),method: :post, class: "button warning",
+                          data: { confirm: t('confirm_coauthorship_confirmation',scope: "decidim.projects") } %>
+            </span>
+        <% end %>
+        <% end %>
+        </div>
+        <div class="row column">
+          <strong>Imię:</strong> <%= u.first_name %>
+        </div>
+        <div class="row column">
+          <strong>Nazwisko:</strong> <%= u.last_name %>
+        </div>
+        <div class="row column">
+          <strong>Płeć:</strong> <%= gender_for(u) %>
+        </div>
+        <div class="row column">
+          <strong>Telefon kontaktowy:</strong> <%= u.phone_number %>
+        </div>
+        <div class="row column">
+          <strong>Adres e-mail:</strong> <%= u.email %>
+        </div>
+        <div class="row column">
+          <strong>Adres:</strong> <%= "#{u.street} #{u.street_number}#{u.flat_number.present? ? '/' : nil}#{u.flat_number}, #{u.zip_code} #{u.city}" %>
+        </div>
+
+        <div class="row column">
+          <strong><%= t('show_author_name', scope: 'activemodel.attributes.project', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= u.show_author_name ? 'tak' : 'nie' %>
+        </div>
+        <div class="row column">
+          <strong><%= t('inform_author_about_implementations', scope: 'activemodel.attributes.project', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= u.inform_author_about_implementations ? 'tak' : 'nie' %>
+        </div>
+        <div class="row column">
+          <strong><%= t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= u.email_on_notification ? 'tak' : 'nie' %>
+        </div>
+        <br>
+      <% end %>
+    <% else %>
+      Nie podano
+    <% end %>
+  </div>
+</div>

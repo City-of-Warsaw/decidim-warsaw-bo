@@ -1,0 +1,22 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row [
+                  'Lp.',
+                  'Data i godzina',
+                  'Użytkownik',
+                  'Rola',
+                  'Email',
+                  'Zdarzenie'
+                ]
+  all_logs.each_with_index do |log, index|
+    sheet.add_row [
+                    index + 1,
+                    l(log.created_at, format: :short),
+                    log.user.has_ad_role? ? log.user.name_and_surname : log.user.public_name,
+                    log.user.has_ad_role? ? log.user.role_name : '',
+                    log.user.email,
+                    decidim_sanitize(log.log_presenter_class_for(:admin_log).new(log, self).translated_action_explanation, strip_tags: true)
+                  ]
+  end
+  sheet.column_widths 10, 10, 10, 10, 10
+end

@@ -1,0 +1,171 @@
+<% custom = @project.component.participatory_space.project_customization %>
+<% tr_scope = 'decidim.projects.projects.part_form_fields.author_fields' %>
+<fieldset class="card">
+  <div class="row">
+    <div class="columns large-12">
+      <legend class="section-heading">
+        <h2><%= t('first', scope: 'decidim.projects.projects.wizard_author_headers').html_safe %></h2>
+      </legend>
+
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :first_name,
+                                label: customized_attribute_texts(custom, 'first_name', 'label', tr_scope),
+                                help_text: customized_attribute_texts(custom, 'first_name_help_text', 'help_text', tr_scope),
+                                tooltip_helper: customized_attribute_texts(custom, 'first_name_hint', 'hint', tr_scope),
+                                'aria-required': true,
+                                autocomplete: "given-name" %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :last_name,
+                                label: customized_attribute_texts(custom, 'last_name', 'label', tr_scope),
+                                help_text: customized_attribute_texts(custom, 'last_name_help_text', 'help_text', tr_scope),
+                                tooltip_helper: customized_attribute_texts(custom, 'last_name_hint', 'hint', tr_scope),
+                                'aria-required': true,
+                                autocomplete: "family-name" %>
+          </div>
+        </div>
+      </div>
+
+      <hr class='full-width'>
+
+      <fieldset class="field hashtags__container">
+        <legend>
+          <% if custom&.get_custom_label('gender').present? %>
+            <%= custom&.get_custom_label('gender') %>
+          <% else %>
+            <span class="wcag-invisible">Wybierz formę grzecznościową Mieszkaniec lub Mieszkanka</span>
+          <% end %>
+          <%= custom_tooltip_helper_icon(customized_attribute_texts(custom, 'gender_hint', 'hint', tr_scope)) %>
+          <% if customized_attribute_texts(custom, 'gender_help_text', 'help_text', tr_scope).present? %>
+            <span class="help-text"><%= customized_attribute_texts(custom, 'gender_help_text', 'help_text', tr_scope) %></span>
+          <% end %>
+        </legend>
+
+        <div class="collection-radio-field mt-none">   
+          <%= form.collection_radio_buttons :gender, [['male', t('.male')], ['female', t('.female')]], :first, :last %>  
+        </div> 
+      </fieldset>
+
+      <hr class='full-width'>
+
+      <div class="field hashtags__container">
+        <%= form.text_field :phone_number,
+                            label: customized_attribute_texts(custom, 'phone_number', 'label', tr_scope),
+                            help_text: customized_attribute_texts(custom, 'phone_number_help_text', 'help_text', tr_scope),
+                            tooltip_helper: customized_attribute_texts(custom, 'phone_number_hint', 'hint', tr_scope),
+                            autocomplete: 'tel' %>
+      </div>
+
+      <div class="field hashtags__container">
+        <%= form.text_field :email,
+                            label: customized_attribute_texts(custom, 'email', 'label', tr_scope),
+                            help_text: customized_attribute_texts(custom, 'email_help_text', 'help_text', tr_scope),
+                            tooltip_helper: customized_attribute_texts(custom, 'email_hint', 'hint', tr_scope),
+                            disabled: true,
+                            value: current_user.email %>
+      </div>
+
+      <hr class='full-width'>
+
+      <fieldset>
+        <legend class='agreements-header'>
+          Zgody
+          <small>
+            <strong>Fakultatywnie</strong> wyrażam zgodę na:
+          </small>
+        </legend>
+
+        <div class="field label-regular">
+          <%= form.check_box :show_author_name, label: t('show_author_name', scope: 'activemodel.attributes.project') %>
+        </div>
+
+        <div class="field label-regular">
+          <%= form.check_box :inform_author_about_implementations, label: t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+        </div>
+
+        <div class="field label-regular">
+          <%= form.check_box :email_on_notification, label: t('email_on_notification', scope: 'activemodel.attributes.project') %>
+        </div>
+      </fieldset>
+
+      <hr class='full-width'>
+
+      <div class="field hashtags__container">
+        <%= form.email_field :coauthor_email_one,
+                             label: customized_attribute_texts(custom, 'coauthor_email_one', 'label', 'activemodel.attributes.project'),
+                             help_text: customized_attribute_texts(custom, 'coauthor_email_one_help_text', 'help_text', 'activemodel.attributes.project'),
+                             tooltip_helper: customized_attribute_texts(custom, 'coauthor_email_one_hint', 'hint', 'activemodel.attributes.project'),
+                             autocomplete: 'email' %>
+      </div>
+
+      <div class="field hashtags__container">
+        <label class="wcag-invisible" id="project_author_step_coauthor_email_two"><%= customized_attribute_texts(custom, 'coauthor_email_one', 'label', tr_scope) %></label>
+        <%= form.email_field :coauthor_email_two, label: false, autocomplete: 'email', 'aria-labelledby': 'project_author_step_coauthor_email_two' %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset class="card">
+  <div class="row">
+    <div class="columns large-12">
+      <legend class="section-heading">
+        <h2><%= t('second', scope: 'decidim.projects.projects.wizard_author_headers').html_safe %></h2>
+      </legend>
+
+      <div class="row">
+        <div class="columns large-6">
+          <div class="field hashtags__container">
+            <%= form.text_field :street,
+                                label: customized_attribute_texts(custom, 'street', 'label', tr_scope),
+                                help_text: customized_attribute_texts(custom, 'street_help_text', 'help_text', tr_scope),
+                                tooltip_helper: customized_attribute_texts(custom, 'street_hint', 'hint', tr_scope),
+                                'aria-required': true %>
+          </div>
+        </div>
+        <div class="columns large-6">
+          <div class="row">
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :street_number,
+                                    label: customized_attribute_texts(custom, 'street_number', 'label', tr_scope),
+                                    help_text: customized_attribute_texts(custom, 'street_number_help_text', 'help_text', tr_scope),
+                                    tooltip_helper: customized_attribute_texts(custom, 'street_number_hint', 'hint', tr_scope),
+                                    'aria-required': true %>
+              </div>
+            </div>
+            <div class="columns large-6">
+              <div class="field hashtags__container">
+                <%= form.text_field :flat_number,
+                                    label: customized_attribute_texts(custom, 'flat_number', 'label', tr_scope),
+                                    help_text: customized_attribute_texts(custom, 'flat_number_help_text', 'help_text', tr_scope),
+                                    tooltip_helper: customized_attribute_texts(custom, 'flat_number_hint', 'hint', tr_scope)
+                %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field hashtags__container">
+        <%= form.text_field :zip_code,
+                            label: customized_attribute_texts(custom, 'zip_code', 'label', tr_scope),
+                            help_text: customized_attribute_texts(custom, 'zip_code_help_text', 'help_text', tr_scope),
+                            tooltip_helper: customized_attribute_texts(custom, 'zip_code_hint', 'hint', tr_scope),
+                            'aria-required': true,
+                            autocomplete: 'postal-code' %>
+      </div>
+      <div class="field hashtags__container">
+        <%= form.text_field :city,
+                            label: customized_attribute_texts(custom, 'city', 'label', tr_scope),
+                            help_text: customized_attribute_texts(custom, 'city_help_text', 'help_text', tr_scope),
+                            tooltip_helper: customized_attribute_texts(custom, 'city_hint', 'hint', tr_scope),
+                            'aria-required': true,
+                            autocomplete: 'address-level2'  %>
+      </div>
+    </div>
+  </div>
+</fieldset>

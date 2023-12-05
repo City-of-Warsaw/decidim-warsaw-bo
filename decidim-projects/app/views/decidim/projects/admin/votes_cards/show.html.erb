@@ -1,0 +1,320 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Karty do głosowania > ", votes_cards_path %>
+
+      <% if allowed_to? :edit, :votes, vote: vote %>
+        <%= icon_link_to "pencil", edit_votes_card_path(vote), 'Edytuj głos', class: "action-icon--edit-project" %>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Dane karty</h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Numer karty:</strong>
+          <p><%= vote.card_number %></p>
+        </div>
+        <div class="row column">
+         <p> <strong>Status:</strong> <%= vote_status(vote).capitalize %></p>
+        </div>
+
+        <div class="row column">
+          <strong>Sposób wpłynięcia:</strong>
+          <% if vote.is_paper %>
+            <p>Papierowa karta do głosowania, wprowadzona przez Urząd</p>
+          <% else %>
+            <p>Karta do głosowania złożona elektronicznie</p>
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Karta wprowadzona przez:</strong>
+          <% if vote.is_paper %>
+            <p><%= vote.author_name %></p>
+          <% else %>
+            <p>Nie dotyczy</p>
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Karta zatwierdzona przez:</strong>
+          <% if vote.is_paper %>
+            <p><%= vote.publisher_name %></p>
+          <% else %>
+            <p>Nie dotyczy</p>
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Kartę utworzono:</strong>
+          <p><%= l vote.created_at, format: :decidim_short %></p>
+        </div>
+        <div class="row column">
+          <strong>Kartę zatwierdzono:</strong>
+          <% if vote.is_paper %>
+            <p><%= vote.publication_time ? l(vote.publication_time, format: :decidim_short) : t('.not_published') %></p>
+          <% else %>
+            <p>Nie dotyczy</p>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Głosowanie zakończono:</strong>
+          <% if vote.is_paper %>
+            <p><%= vote.publication_time.present? ? l(vote.publication_time, format: :decidim_short) : t('.not_published') %></p>
+          <% else %>
+            <p><%= vote.voting_finish_time.present? ? l(vote.voting_finish_time, format: :decidim_short) : '-' %></p>
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Wysyłka maila z powiadomieniem o dokończeniu głosowania:</strong>
+            <p><%= vote.resend_email_date.present? ? l(vote.resend_email_date, format: :decidim_short) : t('.not_sended') %>
+              <%= vote.resend_email_user.present? ? (" - " + vote.resend_email_user.public_name(true)) : "" %>
+            </p>
+        </div>
+
+        <div class="row column">
+          <strong>Liczba kliknięć w link do głosowania:</strong>
+          <br>
+          <% if vote.is_paper %>
+            <p>Karta wprowadzona przez urząd</p>
+          <% else %>
+            <p><%= vote.statistics.count %></p>
+            <%= link_to "Zobacz szczegółowe statystyki", '#statistics', class: "button hollow " %>
+          <% end %>
+          <% if allowed_to? :get_link_for_vote, :votes, vote: vote %>
+            <%= link_to 'Pobierz link do głosowania', get_voting_link_votes_card_path(vote), class: "button warning copy-link-js" %>
+
+            <span class="copy-link-loading hidden auto-is-loading">Pobieranie</span>
+            <span class="copy-link-success hidden">Skopiowano do schowka!</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="card-divider">
+        <h2 class="card-title">Powody nieważności karty</h2>
+      </div>
+      <div class="card-section">
+        <%= list_of_warnings(vote_card_validity.list_vote_invalid_reasons) %>
+      </div>
+      <div class="card-divider">
+        <h2 class="card-title">Ostrzeżenia</h2>
+      </div>
+      <div class="card-section">
+        <%= list_of_warnings(vote_card_validity.list_vote_warnings) %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Wybrane projekty</h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row text-center">
+          <div class="card card-column">
+            <div class="card-divider">
+              <h2 class="card-title text-left">
+                Dzielnicowe
+                <% if vote.scope %>
+                  - <%= translated_attribute vote.scope.name %>
+                <% end %>
+              </h2>
+            </div>
+            <div class="card-section text-left">
+              <% if vote.projects.in_district_scope.any? %>
+                <ul>
+                  <% vote.projects.in_district_scope.each do |project| %>
+                    <li><%= link_to project.title, project_path(project) %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                Nie wskazano projektów dzielnicowych
+              <% end %>
+            </div>
+            <div class="card-divider">
+              <strong class="mr-s">Łączny koszt projektów:</strong>
+              <%= budget_to_currency vote.district_projects_cost_summary %>
+            </div>
+          </div>
+
+          <div class="card card-column">
+            <div class="card-divider">
+              <h2 class="card-title text-left">Ogólnomiejskie</h2>
+            </div>
+            <div class="card-section text-left">
+              <% if vote.projects.in_global_scope.any? %>
+                <ul>
+                  <% vote.projects.in_global_scope.each do |project| %>
+                    <li><%= link_to project.title, project_path(project) %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                Nie wskazano projektów ogólnomiejskich
+              <% end %>
+            </div>
+            <div class="card-divider">
+              <strong class="mr-s">Łączny koszt projektów:</strong>
+              <%= budget_to_currency vote.global_scope_projects_cost_summary %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Dane głosującego</h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong><%= t('ip_number', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= ip_number_info(vote) %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('first_name', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.first_name %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('last_name', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.last_name %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('pesel_number', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.pesel_number %></p>
+          <% if vote.pesel_number.present? && vote.pesel_warnings.any? %>
+            <%= list_of_warnings(vote.pesel_warnings) %>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong><%= t('.birth_date') %>:</strong>
+          <p><%= l vote.birth_date, format: :decidim_short, default: 'PESEL jest nieprawidłowy' %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('.gender') %>:</strong>
+          <p><%= vote.gender.present? ? t(".#{vote.gender}") : 'PESEL jest nieprawidłowy' %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('email', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.email %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('street', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.street %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('street_number', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.street_number %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('flat_number', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.flat_number %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('zip_code', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.zip_code %></p>
+        </div>
+        <div class="row column">
+          <strong><%= t('city', scope: 'activemodel.attributes.vote_card') %>:</strong>
+          <p><%= vote.city %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Uwagi urzędu</h2>
+      </div>
+
+      <div class="card-section">
+        <% if vote.is_paper? %>
+          <div class="row column">
+            <strong><%= t('identity_confirmed', scope: 'activemodel.attributes.vote_card') %>:</strong>
+            <p><%= t(vote.identity_confirmed, scope: 'booleans', default: '') %></p>
+          </div>
+          <div class="row column">
+            <strong><%= t('card_signed', scope: 'activemodel.attributes.vote_card') %>:</strong>
+            <p><%= t(vote.card_signed, scope: 'booleans', default: '') %></p>
+          </div>
+          <div class="row column">
+            <strong><%= t('data_unreadable', scope: 'activemodel.attributes.vote_card') %>:</strong>
+            <p><%= t(vote.data_unreadable, scope: 'booleans', default: '') %></p>
+          </div>
+          <div class="row column">
+            <strong><%= t('card_invalid', scope: 'activemodel.attributes.vote_card') %>:</strong>
+            <p><%= t(vote.card_invalid, scope: 'booleans', default: '') %></p>
+          </div>
+          <div class="row column">
+            <strong><%= t('card_received_late', scope: 'activemodel.attributes.vote_card') %>:</strong>
+            <p><%= t(vote.card_received_late, scope: 'booleans', default: '') %></p>
+          </div>
+        <% else %>
+          <div class="row column">
+            <p>Karta złożona elektronicznie</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="button--double form-general-submit">
+      <% if allowed_to? :edit, :votes, vote: vote %>
+        <%= link_to 'Edytuj', edit_votes_card_path(vote), class: "button hollow" %>
+      <% end %>
+
+
+
+      <% if allowed_to? :publish, :votes, vote: vote %>
+        <%= link_to t("actions.publish", scope: "decidim.projects"), publish_votes_card_path(vote), class: "button" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title" id="statistics">
+      <%= t('.statistics') %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <% if vote.is_paper? %>
+        <p>Karta została wprowadzona przez Urząd</p>
+      <% else %>
+        <%= render 'statistics', vote: vote %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= nonced_javascript_tag do %>
+  $(function () {
+    $(".copy-link-js").click(function(event) {
+      event.preventDefault();
+      
+      $(".copy-link-success").addClass("hidden");
+      $(".copy-link-loading").removeClass("hidden");
+
+      $.get($(this).attr("href")).done(function(data) {
+        navigator.clipboard.writeText(data.link);
+
+        $(".copy-link-loading").addClass("hidden");
+        $(".copy-link-success").removeClass("hidden");
+
+        setTimeout(() => $(".copy-link-success").addClass("hidden"), 4000);
+      }); 
+    });
+  });
+<% end %>

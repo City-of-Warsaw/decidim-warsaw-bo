@@ -1,0 +1,77 @@
+<div class="row attachments">
+  <div class="columns large-12">
+    <% if project.public_documents.any? %>
+      <div class="docs__container">
+        <div class="documents">
+          <div class="card card--list">
+            <div class="card--list__item">
+              <div class="card--list__text strong">
+                Załączniki
+              </div>
+            </div>
+            <%= render partial: "document", collection: project.public_documents %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% if project.public_photos.any? %>
+  <hr class='full-width'>
+<% end %>
+<div class="row attachments">
+  <div class="columns large-12">
+    <div class="gallery row <%= project.public_photos.count > 2 ? 'small' : nil %>" id="gallery-for-projects" data-toggler=".small">
+      <% project.public_photos.each_with_index do |photo, i| %>
+        <div class="columns small-12 medium-6">
+          <%= link_to photo.big_url, target: "_blank", rel: "noopener", class: "overflow-hidden" do %>
+            <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: "Zdjęcie do projektu nr #{i + 1}" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% if project.public_photos.count > 2 %>
+      <span class='button hollow dark gray attachments-toggle-button-js' data-toggle="gallery-for-projects">Pokaż więcej</span>
+    <% end %>
+  </div>
+</div>
+
+<% if project.can_show_evaluation? %>
+  <% if project.public_photos.any? %>
+    <hr class='full-width'>
+  <% end %>
+  <div class="row attachments">
+    <div class="columns large-12">
+      <% if project.formal_evaluation || project.meritorical_evaluation || project.reevaluation %>
+        <div class="docs__container">
+          <div class="documents">
+            <div class="card card--list">
+              <div class="card--list__item">
+                <div class="card--list__text strong">
+                  Karty oceny
+                </div>
+              </div>
+              <% if project.formal_evaluation&.documents && project.formal_evaluation&.documents.any? %>
+                <%= render partial: "document", collection: project.formal_evaluation.documents %>
+              <% end %>
+              <% if project.meritorical_evaluation&.documents && project.meritorical_evaluation&.documents.any? %>
+                <%= render partial: "document", collection: project.meritorical_evaluation.documents %>
+              <% end %>
+              <% if project.can_show_reevaluation? && project.reevaluation&.documents && project.reevaluation&.documents.any? %>
+                <%= render partial: "document", collection: project.reevaluation.documents %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= nonced_javascript_tag do %>
+  const attachmentsToggleButton = $(".attachments-toggle-button-js");
+  attachmentsToggleButton.click(function() {
+      if (attachmentsToggleButton.html() === "Pokaż więcej") attachmentsToggleButton.html("Pokaż mniej")
+      else attachmentsToggleButton.html("Pokaż więcej")
+  });
+<% end %>

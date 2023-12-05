@@ -1,0 +1,81 @@
+<% custom = @form.component.participatory_space.project_customization %>
+<div class="field hashtags__container">
+  <%= form.text_field :title,
+                      label: customized_attribute_texts(custom, 'title', 'label'),
+                      value: form_presenter.title,
+                      help_text: customized_attribute_texts(custom, 'title_help_text', 'help_text'),
+                      tooltip_helper: customized_attribute_texts(custom, 'title_hint', 'hint'),
+                      maxLength: 255,
+                      'aria-required': true
+  %>
+</div>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form, :short_description, { rows: 5,
+                                                  label: customized_attribute_texts(custom, 'short_description', 'label'),
+                                                  help_text: customized_attribute_texts(custom, 'short_description_help_text', 'help_text'),
+                                                  tooltip_helper: customized_attribute_texts(custom, 'short_description_hint', 'hint'),
+                                                  class: 'words-limit mb-none', 
+                                                  maxLength: 500,
+                                                  data: { limit: 50 }})
+  %>
+</div>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form, :body, rows: 5,
+                            label: customized_attribute_texts(custom, 'body', 'label'),
+                            help_text: customized_attribute_texts(custom, 'body_help_text', 'help_text'),
+                            tooltip_helper: customized_attribute_texts(custom, 'body_hint', 'hint'),
+                            maxLength: 4000,
+                            'aria-required': true
+                      )
+  %>
+</div>
+
+<fieldset class="field hashtags__container universal-design-js">
+  <legend>
+    <%= customized_attribute_texts(custom, 'universal_design', 'label') %>
+    <%= custom_tooltip_helper_icon(customized_attribute_texts(custom, 'universal_design_hint', 'hint')) %>
+    <span class="help-text"><%= customized_attribute_texts(custom, 'universal_design_help_text', 'help_text') %></span>
+  </legend>
+
+  <div class="checkboxes checkboxes--small checkboxed">
+    <%= form.collection_check_boxes :universal_design,
+                                  [
+                                    [true, "#{t(:true, scope: 'booleans')}<span class='wcag-invisible'>to jest projektowanie uniwersalne</span>".html_safe],
+                                    [false, "#{t(:false, scope: 'booleans')}<span class='wcag-invisible'>to nie jest projektowanie uniwersalne</span>".html_safe]
+                                  ],
+                                  :first, :last %>
+  </div>
+</fieldset>
+
+<div class="field hashtags__container mt-xs" id="universal_design_argumentation">
+  <%= text_editor_for(
+                  form,
+                  :universal_design_argumentation,
+                  label: customized_attribute_texts(custom, 'universal_design_argumentation', 'label'),
+                  help_text: customized_attribute_texts(custom, 'universal_design_argumentation_help_text', 'help_text'),
+                  tooltip_helper: customized_attribute_texts(custom, 'universal_design_argumentation_hint', 'hint'),
+                  maxLength: 1000
+                  ) %>
+</div>
+
+<hr class='full-width'>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form,
+                      :justification_info,
+                      label: customized_attribute_texts(custom, 'justification_info', 'label'),
+                      help_text: customized_attribute_texts(custom, 'justification_info_help_text', 'help_text'),
+                      tooltip_helper: customized_attribute_texts(custom, 'justification_info_hint', 'hint'),
+                      maxLength: 2000,
+                      rows: 7,
+                      'aria-required': true)
+  %>
+</div>
+
+<%= javascript_include_tag "decidim/projects/project_form.js" %>
+<%= javascript_include_tag "decidim/projects/universal_choose.js" %>
+<%= javascript_include_tag "decidim/projects/words-limit.js" %>
+
+

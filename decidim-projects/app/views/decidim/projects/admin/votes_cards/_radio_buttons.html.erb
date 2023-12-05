@@ -1,0 +1,13 @@
+<div class="row column hashtags__container">
+  <input type="hidden" name="vote_card[district_projects][]" value="">
+  <% if projects.any? %>
+    <% projects.each do |project| %>
+      <label for="vote_card_district_projects_<%= project[1] %>">
+        <input type="checkbox" value="<%= project[1] %>" name="vote_card[district_projects][]" id="vote_card_district_projects_<%= project[1] %>">
+        <%= project[0] %>
+      </label>
+    <% end %>
+  <% else %>
+    <p>Brak projektów dla wybranej dzielnicy</p>
+  <% end %>
+</div>

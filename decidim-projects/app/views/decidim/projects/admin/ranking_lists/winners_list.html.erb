@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .text-small {
+      font-size: 13px;
+    }
+
+    .text-italic {
+      font-style: italic;
+    }
+
+    .heading-link {
+      margin-top: 30px;
+      font-size: 40px;
+      color: #0096c3;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+    }
+
+    .legend {
+      font-size: 22px;
+      line-height: 40px;
+      margin-top: 30px;
+    }
+
+    .blue-box {
+      width: 50px;
+      height: 40px;
+      background-color: #ccccff;
+      border: 1px solid black;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .section {
+      margin-top: 25px;
+      clear: both;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 16px;
+      overflow-x: visible;
+    }
+
+    th {
+      font-weight: 400;
+      text-align: left;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid;
+    }
+
+    td,
+    th {
+      padding: 8px 6px;
+    }
+
+    table,
+    tr,
+    td,
+    th,
+    tbody,
+    thead,
+    tfoot {
+      page-break-inside: avoid !important;
+    }
+
+    tr.highlighted td,
+    tr.highlighted th {
+      background-color: #ccccff;
+    }
+    th {
+      font-weight: 400;
+      text-align: left;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    tfoot {
+      display: table-row-group;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    /**
+     * pdfPage, verticalTableSplit_ClassName, verticalTableSplit_leftHeaderClassName
+     * You can overwrite these parameters in the page from where you are loading this script
+     * (and after the point where you loaded it) so you can set pdfPage in one place and use,
+     * if you need it, both this script and the one that split horizontally the table
+     * (wkhtmltopdf.tablesplit.js on GitHub or his forks, see the disclaimer on top)
+     */
+    var pdfPage = {
+      width: 11.7,
+      height: 8.3,
+      margins: {
+        top: 2 / 25.4,
+        left: 2 / 25.4,
+        right: 2 / 25.4,
+        bottom: 26 / 25.4,
+      },
+    };
+    // class name of the tables to automatically split: if not specified, split all tables
+    //var verticalTableSplit_ClassName = 'splitForPrint';
+    var verticalTableSplit_ClassName = "";
+    // class name to specify which columns are part of the vertical left header
+    var verticalTableSplit_leftHeaderClassName = "leftHeader";
+
+    // add_columns
+    // Copy columns from the rows $rows to $target_table in the range of indices "from_idx" and "to_idx"
+    function add_columns($rows, $target_table, from_idx, to_idx) {
+      $rows.each(function () {
+        var $tr = $(this);
+        $target_table.find("> tbody > tr:eq(" + $tr.index() + ")").html(
+          $("<div>")
+            .append(
+              $tr
+                .find("> td." + verticalTableSplit_leftHeaderClassName)
+                .clone()
+            )
+            .append(
+              $tr
+                .find("td")
+                .slice(from_idx, to_idx + 1)
+                .clone()
+            )
+            .html()
+        );
+      });
+    }
+
+    // getHeaderRange
+    // Calculate header columns range based on data columns indeces "from_idx" and "to_idx", taking into account that headers columns can have colspan
+    // attribute (while this function don't manage properly data columns with colspan attributes)
+    function getHeaderRange($row, from_idx, to_idx) {
+      var $header,
+        $new_header_row,
+        cols_counter,
+        start_idx,
+        end_idx,
+        start_diff_colspan,
+        end_diff_colspan,
+        colspan,
+        diff_col_idx,
+        start_colspan,
+        end_colspan;
+      cols_counter = 0;
+      start_idx = undefined;
+      end_idx = undefined;
+      start_diff_colspan = undefined;
+      end_diff_colspan = undefined;
+      // for every header, find starting and ending header columns indices
+      $row.find("> th, > td").each(function () {
+        $header = $(this);
+        colspan = +($header.attr("colspan") || 1);
+        if (start_idx == undefined) {
+          diff_col_idx = from_idx - cols_counter;
+          if (diff_col_idx >= 0 && diff_col_idx < colspan) {
+            start_idx = $header.index();
+            start_colspan = colspan;
+            if (diff_col_idx > 0) start_diff_colspan = diff_col_idx;
+          }
+        }
+        if (end_idx == undefined) {
+          diff_col_idx = to_idx - cols_counter;
+          if (diff_col_idx >= 0 && diff_col_idx < colspan) {
+            end_idx = $header.index();
+            end_colspan = colspan;
+            if (diff_col_idx != colspan - 1)
+              end_diff_colspan = colspan - diff_col_idx - 1;
+          }
+        }
+        if (start_idx != undefined && end_idx != undefined) return false;
+        cols_counter += colspan;
+      });
+      var is_same_idx = start_idx == end_idx;
+      // return info abount the range of header columns
+      var obj = {
+        is_same_idx: is_same_idx,
+        start_idx: start_idx,
+        end_idx: !is_same_idx ? end_idx : undefined,
+        start_colspan: start_colspan,
+        end_colspan: end_colspan,
+        start_diff_colspan:
+          (start_diff_colspan || 0) +
+          (!is_same_idx ? 0 : end_diff_colspan || 0),
+        end_diff_colspan: is_same_idx ? undefined : end_diff_colspan,
+      };
+      return obj;
+    }
+
+    // getHeaderSliceHTML
+    // Create and return the headers slices HTML as specified by the ranges "first_range" (relative to the header on top of the vertical left hader)
+    // and "second_range" (relative to the header on top of data columns).
+    // If header slices are adjacent, it join them
+    function getHeaderSliceHTML($row, first_range, second_range) {
+      var ranges = [];
+      var last_idx_first_range = first_range.is_same_idx
+        ? first_range.start_idx
+        : first_range.end_idx;
+      // if ranges are adjacent, join them
+      if (last_idx_first_range == second_range.start_idx) {
+        // modify first range to include second range, and add only that single range
+        if (second_range.is_same_idx) {
+          if (!first_range.is_same_idx)
+            first_range.end_diff_colspan +=
+              second_range.start_diff_colspan - first_range.colspan;
+        } else {
+          first_range.end_idx = second_range.end_idx;
+          first_range.end_colspan = second_range.end_colspan;
+          if (!first_range.is_same_idx)
+            first_range.end_diff_colspan = second_range.end_diff_colspan;
+        }
+        if (first_range.is_same_idx)
+          first_range.start_diff_colspan +=
+            second_range.start_diff_colspan - first_range.colspan;
+        ranges.push(first_range);
+        // ranges are NOT adjacent, add both of them
+      } else {
+        ranges.push(first_range);
+        ranges.push(second_range);
+      }
+      // create DOM elements from ranges
+      var $ret_slices = $("<div>");
+      var $cur_slice;
+      $.each(ranges, function (idx, range) {
+        var $cur_slice = $row
+          .find("> th, > td")
+          .slice(
+            range.start_idx,
+            (range.is_same_idx ? range.start_idx : range.end_idx) + 1
+          )
+          .clone();
+        if (range.start_diff_colspan > 0)
+          $cur_slice
+            .first()
+            .attr("colspan", range.start_colspan - range.start_diff_colspan);
+        if (range.end_diff_colspan > 0)
+          $cur_slice
+            .last()
+            .attr("colspan", range.end_colspan - range.end_diff_colspan);
+        $ret_slices.append($cur_slice);
+      });
+      // return html code
+      return $ret_slices.html();
+    }
+
+    // setHeader
+    // set the header and footer of $target_table according to vertical left header and data columns specified (through column indeces)
+    function setHeader(
+      $header_rows,
+      $footer_rows,
+      $target_table,
+      from_idx,
+      to_idx,
+      leftHeader_last_idx
+    ) {
+      var $row,
+        $header_slice,
+        leftHeader_header_range,
+        data_header_range,
+        row_type;
+      $.each([$header_rows, $footer_rows], function (idx, $rows) {
+        $rows.each(function () {
+          $row = $(this);
+          leftHeader_header_range = getHeaderRange(
+            $row,
+            0,
+            leftHeader_last_idx
+          );
+          data_header_range = getHeaderRange($row, from_idx, to_idx);
+          row_type = idx == 0 ? "thead" : "tfoot";
+          $target_table
+            .find("> " + row_type + " > tr:eq(" + $row.index() + ")")
+            .html(
+              getHeaderSliceHTML(
+                $row,
+                leftHeader_header_range,
+                data_header_range
+              )
+            );
+        });
+      });
+    }
+
+    // get document resolution
+    var dpi = $('<div id="dpi"></div>')
+      .css({
+        height: "1in",
+        width: "1in",
+        top: "-100%",
+        left: "-100%",
+        position: "absolute",
+      })
+      .appendTo("body")
+      .width();
+
+    // separator div
+    var $separator_div = $(
+      '<div class="page-breaker" style="height: 10px;"></div>'
+    );
+
+    // calculate page width
+    var pageWidth = Math.ceil(
+      (pdfPage.width - pdfPage.margins.left - pdfPage.margins.right) * dpi
+    );
+
+    // temporary set body's width and padding to match pdf's size
+    var $body = $("body");
+    $body.css(
+      "width",
+      pdfPage.width - pdfPage.margins.left - pdfPage.margins.right + "in"
+    );
+    $body.css("padding-left", pdfPage.margins.left + "in");
+    $body.css("padding-right", pdfPage.margins.right + "in");
+
+    //
+    // cycle through all tables and split them if necessary
+    //
+    $(
+      "table" +
+      (verticalTableSplit_ClassName == ""
+        ? ""
+        : "." + verticalTableSplit_ClassName)
+    ).each(function () {
+      var $collectableDiv = $("<div>");
+      var $origin_table = $(this);
+      var $rows = $origin_table.find("> tbody > tr");
+      var $first_row = $rows.first();
+      var $first_row_cols = $first_row.find("> td");
+      var num_cols = $first_row_cols.size();
+      var $header_rows = $origin_table.find("> thead > tr");
+      var $footer_rows = $origin_table.find("> tfoot > tr");
+      var x_offset = 0;
+
+      // create the template for new table slices
+      var $template = $origin_table.clone();
+      $template.find("> tbody > tr > td").remove();
+      $template.find("> thead > tr > th").remove();
+      $template.find("> tfoot > tr > td").remove();
+
+      // create first table slice
+      var $current_table = $template.clone();
+
+      // info abount vertical left header (if present)
+      var $leftHeader_last_col = $first_row.find(
+        "> td." + verticalTableSplit_leftHeaderClassName + ":last"
+      );
+      var leftHeader_last_idx = $leftHeader_last_col.index();
+      var leftHeader_right_x =
+        $leftHeader_last_col.offset().left +
+        $leftHeader_last_col.outerWidth();
+      var last_idx = leftHeader_last_idx + 1;
+      // for every column, check if it fits inside the page width
+      $first_row_cols.slice(last_idx).each(function () {
+        var $td = $(this);
+        // check if column is beyond page right margin
+        var td_left = $td.offset().left;
+        var is_overflow = td_left + $td.outerWidth() - x_offset >= pageWidth;
+        // if there is no space for the new column, add header and footer to current table slice and create new table slice
+        if (is_overflow) {
+          var td_idx = $td.index();
+          // add header and footer to current table
+          setHeader(
+            $header_rows,
+            $footer_rows,
+            $current_table,
+            last_idx,
+            td_idx - 1,
+            leftHeader_last_idx
+          );
+
+          // add to the current table all columns from the one next to previous slice to the one before the current column
+          add_columns($rows, $current_table, last_idx, td_idx - 1);
+          last_idx = td_idx;
+
+          // add current table to the array of slices
+          $collectableDiv.append($current_table);
+          $collectableDiv.append($separator_div.clone());
+          x_offset += td_left - leftHeader_right_x;
+
+          // create new table slice
+          $current_table = $template.clone();
+        }
+        // END each column
+      });
+
+      // add header, footer and remaining columns to last table slice
+      setHeader(
+        $header_rows,
+        $footer_rows,
+        $current_table,
+        last_idx,
+        num_cols - 1,
+        leftHeader_last_idx
+      );
+      add_columns($rows, $current_table, last_idx, num_cols - 1);
+      $collectableDiv.append($current_table.clone());
+
+      // replace original table with new table slices
+      $origin_table.replaceWith($collectableDiv.html());
+      // END each table
+    });
+  </script>
+</head>
+<body>
+<p>
+  <img src="<%= wicked_pdf_asset_path('logo.png') %>" width="520" height="184" alt="Logo" />
+</p>
+
+<a class="heading-link" href="https://bo.um.warszawa.pl">
+  bo.um.warszawa.pl
+</a>
+
+<div class="legend">
+  <div class="blue-box"></div>
+  <div>- pomysły wybrane do realizacji</div>
+</div>
+
+<!-- Tabela projektów -->
+<div class="section">
+  <table>
+    <thead>
+    <tr class="highlighted">
+      <th colspan="2" class="text-center">
+        <% if scope.citywide? %>
+          Poziom <%= scope.name["pl"] %>
+        <% else %>
+          Dzielnica <%= scope.name["pl"] %>
+        <% end %>
+      </th>
+      <th colspan="3" class="text-small">
+        Kwota przeznaczona na realizację pomysłów: <%= budget_to_currency budget_value %> zł<br />
+        Koszt wybranych pomysłów: <%= budget_to_currency projects_total_budget_value %> zł<br />
+        Liczba kart ważnych: <%= valid_cards_count %>
+      </th>
+    </tr>
+
+    <tr class="text-small">
+      <th width="4%" class="text-center">Numer</th>
+      <th width="46%" class="text-center">Nazwa projektu</th>
+      <th width="18%" class="text-center">Koszt realizacji</th>
+      <th width="18%" class="text-center">Liczba ważnych głosów</th>
+      <th width="14%" class="text-center">Poparcie *</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <!-- Projekty -->
+      <% collection.each do |pr| %>
+        <tr
+          <% if pr.on_the_list? %>
+            class="highlighted"
+          <% end %>
+        >
+          <td class="text-center"><%= pr.project.voting_number %></td>
+          <td><%= pr.project.title %></td>
+          <td class="text-center"><%= budget_to_currency pr.project.budget_value&.to_i %></td>
+          <td class="text-center"><%= pr.valid_votes_count %></td>
+          <!-- Procent osób, które oddały ważne głosy w tym obszarze i zagłosowały na dany pomysł -->
+          <td class="text-center"><%= pr.percentage_of_scope_votes %>%</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p class="text-italic">
+    * Procent osób, które oddały ważne głosy w tym obszarze i zagłosowały na
+    dany pomysł
+  </p>
+</div>
+</body>
+</html>

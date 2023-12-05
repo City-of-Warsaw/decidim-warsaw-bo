@@ -1,0 +1,289 @@
+<% custom = @form.component.participatory_space.project_customization %>
+<% if @form.available_categories.any? %>
+  <fieldset class="field">
+    <legend class="styled-legend <%= @form.errors[:custom_categories].any? ? 'is-invalid-label' : nil %>">
+      <%= customized_attribute_texts(custom, 'category_ids', 'label') %>
+      <%= custom_tooltip_helper_icon(customized_attribute_texts(custom, 'category_ids_hint', 'hint')) %>
+      <% if customized_attribute_texts(custom, 'category_ids_help_text', 'help_text').present? %>
+        <span class="help-text"><%= customized_attribute_texts(custom, 'category_ids_help_text', 'help_text') %></span>
+      <% end %>
+      <span class="wcag-invisible">Zaznacz co najmniej jedną pozycję lub Zaznacz "Inna kategoria" i wpisz po przecinku własne kategorie</span>
+    </legend>
+    <div class="checkboxes">
+      <%= form.collection_check_boxes :category_ids, @form.available_categories.map { |cat| [cat.id, translated_attribute(cat.name)] }, :first, :last do |option|
+        option.label(class: "checkboxed") { option.check_box(checked: @form.category_checked?(option.value)) + option.text }
+      end %>
+    </div>
+
+    <label class='light-label checkboxed custom-categories-checkbox-js' for="project_category_ids_other">
+      <input type="checkbox" value="other" name="project[category_ids_other]" id="project_category_ids_other" <%= @form.category_ids_other.present? ? 'checked="true"' : nil %>>inna <span class="wcag-invisible">kategoria</span>
+    </label>
+
+    <label class="wcag-invisible" id="project_category_ids_other_label" for="project_category_ids_other">Inna kategoria - podaj własną</label>
+    
+    <div class="custom-categories <%= @form.category_ids_other.present? ? 'visible' : nil %>">
+      <div class="custom-categories__input">
+        <input type="text" class="custom-category-name-js" placeholder='Wpisz nazwę...' aria-labelledby='project_category_ids_other_label' maxlength="50" />
+        <button type="button" class="hollow tiny button add-custom-category-js">Dodaj kategorię</button>
+      </div>
+
+      <ol class="custom-categories__list"></ol>
+
+      <%= form.hidden_field :custom_categories %>
+    </div>
+
+    <% if @form.errors[:custom_categories].any? %>
+      <small class="form-error is-visible mt-xs" role="alert"><%= @form.errors[:custom_categories][0] %></small>
+    <% end %>
+
+    </fieldset>
+<% end %>
+
+<hr class='full-width'>
+
+<% if @form.potential_recipients.any? %>
+  <fieldset class="field">
+    <legend class="styled-legend <%= @form.errors[:custom_categories].any? ? 'is-invalid-label' : nil %>">
+      <%= customized_attribute_texts(custom, 'potential_recipient_ids', 'label') %>
+      <%= custom_tooltip_helper_icon(customized_attribute_texts(custom, 'potential_recipient_ids_hint', 'hint')) %>
+      <% if customized_attribute_texts(custom, 'potential_recipient_ids_help_text', 'help_text').present? %>
+        <span class="help-text"><%= customized_attribute_texts(custom, 'potential_recipient_ids_help_text', 'help_text') %></span>
+      <% end %>
+      <span class="wcag-invisible">Zaznacz co najmniej jedną pozycję lub Zaznacz "Inni odbiorcy" i wpisz po przecinku własnych odbiorców</span>
+    </legend>
+    <div class="checkboxes">
+      <%= form.collection_check_boxes :potential_recipient_ids, @form.potential_recipients.map { |recipient| [recipient.id, recipient.name] }, :first, :last do |option|
+        option.label(class: "checkboxed") { option.check_box(checked: @form.potential_recipient_checked?(option.value)) + option.text }
+      end %>
+    </div>
+
+    <label class="light-label checkboxed custom-recipients-checkbox-js" for="project_potential_recipient_ids_other">
+      <input type="checkbox" value="other" name="project[potential_recipient_ids_other]" id="project_potential_recipient_ids_other" <%= @form.potential_recipient_ids_other.present? ? 'checked="true"' : nil %> >inni <span class="wcag-invisible">odbiorcy</span>
+    </label>
+    <label class="wcag-invisible" id="project_potential_recipient_ids_other_label" for="project_potential_recipient_ids_other">Inni odbiorcy - podaj własnych</label>
+
+    <div class="custom-recipients <%= @form.potential_recipient_ids_other.present? ? 'visible' : nil %>">
+      <div class="custom-recipients__input">
+        <input type="text" class="custom-recipient-name-js" placeholder='Wpisz nazwę...' aria-labelledby='project_potential_recipient_ids_other_label' maxlength="50" />
+        <button type="button" class="hollow tiny button add-custom-recipient-js">Dodaj grupę</button>
+      </div>
+      <ol class="custom-recipients__list"></ol>
+
+      <%= form.hidden_field :custom_recipients %>
+    </div> 
+
+    <% if @form.errors[:custom_recipients].any? %>
+      <small class="form-error is-visible mt-xs" role="alert"><%= @form.errors[:custom_recipients][0] %></small>
+    <% end %>
+  </fieldset>
+<% end %>
+
+<%= nonced_javascript_tag do %> 
+  var customCategoryNameInput = $('.custom-category-name-js');
+  var customCategoryAddButton = $('.add-custom-category-js');
+  var customCategoriesInput = $('#project_custom_categories');
+  var customCategoriesList = $('.custom-categories__list');
+
+  var customCategoriesCount = 0;
+
+  $('.custom-categories-checkbox-js input').change(function() { 
+    if (this.checked) {
+      $('.custom-categories').show();
+    } else {
+      $('.custom-categories').hide(); 
+    }
+  }); 
+
+  function updateCustomCategoriesInput() {
+    customCategoriesInput.val(customCategoriesList.find("span").map(function(){ return $(this).text() }).get().join(","));
+  }
+  
+  function updateCustomCategoriesList() { 
+    customCategoriesInput.val().split(",").forEach(function(item, index) {
+      if (item.length > 0) {
+        var categoryName = item;
+        var categoryId = Math.ceil(+Date.now() * Math.random() * 10);
+
+        customCategoriesList.append(`
+                                <li>
+                                  <div>
+                                    <span>${categoryName}</span>
+
+                                    <input type="button" class="small button delete-list-item-${categoryId}-js" value="usuń" />
+                                  </div>
+                                </li>
+                              `);
+        
+        customCategoriesCount++;
+        updateCustomCategoriesInput();
+        
+        $(`.delete-list-item-${categoryId}-js`).click(function() { 
+          $(this).parents("li").remove();
+
+          customCategoriesCount--;
+          updateCustomCategoriesInput();
+
+          customCategoryAddButton.prop("disabled", false);
+          customCategoryNameInput.prop("disabled", false);
+        });
+
+        if (customCategoriesCount === 10) {
+          customCategoryAddButton.prop("disabled", true);
+          customCategoryNameInput.prop("disabled", true);
+        }
+      }
+   });    
+  }
+
+  customCategoryNameInput.keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      customCategoryAddButton.click();
+      return false;
+    }
+  });
+  
+  customCategoryAddButton.click(function() { 
+    if (customCategoryNameInput.val().length > 0 && customCategoriesCount < 10) {
+      var categoryName = customCategoryNameInput.val().replace(/,/g, '');
+      var categoryId = Math.ceil(+Date.now() * Math.random() * 10);
+
+      customCategoriesList.append(`
+                              <li>
+                                <div>
+                                  <span>${categoryName}</span>
+
+                                  <input type="button" class="small button delete-list-item-${categoryId}-js" value="usuń" />
+                                </div>
+                              </li>
+                            `);
+
+      customCategoryNameInput.val('');
+      
+      customCategoriesCount++;
+      updateCustomCategoriesInput();
+      
+      $(`.delete-list-item-${categoryId}-js`).click(function() { 
+        $(this).parents("li").remove();
+
+        customCategoriesCount--;
+        updateCustomCategoriesInput();
+
+        customCategoryAddButton.prop("disabled", false);
+        customCategoryNameInput.prop("disabled", false);
+      });
+
+      if (customCategoriesCount === 10) {
+        customCategoryAddButton.prop("disabled", true);
+        customCategoryNameInput.prop("disabled", true);
+      }
+    }   
+  });  
+
+  updateCustomCategoriesList();
+<% end %>
+
+<%= nonced_javascript_tag do %> 
+  var customRecipientNameInput = $('.custom-recipient-name-js');
+  var customRecipientAddButton = $('.add-custom-recipient-js');
+  var customRecipientsInput = $('#project_custom_recipients');
+  var customRecipientsList = $('.custom-recipients__list');
+
+  var customRecipientsCount = 0;
+
+  $('.custom-recipients-checkbox-js input').change(function() { 
+    if (this.checked) {
+      $('.custom-recipients').show();
+    } else {
+      $('.custom-recipients').hide(); 
+    }
+  }); 
+
+  function updateCustomRecipientsInput() {
+    customRecipientsInput.val(customRecipientsList.find("span").map(function(){ return $(this).text() }).get().join(","));
+  }
+  
+  function updateCustomRecipientsList() { 
+    customRecipientsInput.val().split(",").forEach(function(item, index) {
+      if (item.length > 0) {
+        var recipientName = item;
+        var recipientId = Math.ceil(+Date.now() * Math.random() * 10);
+
+        customRecipientsList.append(`
+                                <li>
+                                  <div>
+                                    <span>${recipientName}</span>
+
+                                    <input type="button" class="small button delete-list-item-${recipientId}-js" value="usuń" />
+                                  </div>
+                                </li>
+                              `);
+        
+        customRecipientsCount++;
+        updateCustomRecipientsInput();
+        
+        $(`.delete-list-item-${recipientId}-js`).click(function() { 
+          $(this).parents("li").remove();
+
+          customRecipientsCount--;
+          updateCustomRecipientsInput();
+
+          customRecipientAddButton.prop("disabled", false);
+          customRecipientNameInput.prop("disabled", false);
+        });
+
+        if (customRecipientsCount === 10) {
+          customRecipientAddButton.prop("disabled", true);
+          customRecipientNameInput.prop("disabled", true);
+        }
+      }
+   });    
+  }
+
+  customRecipientNameInput.keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      customRecipientAddButton.click();
+      return false;
+    }
+  });
+  
+  customRecipientAddButton.click(function() { 
+    if (customRecipientNameInput.val().length > 0 && customRecipientsCount < 10) {
+      var recipientName = customRecipientNameInput.val().replace(/,/g, '');
+      var recipientId = Math.ceil(+Date.now() * Math.random() * 10);
+
+      customRecipientsList.append(`
+                              <li>
+                                <div>
+                                  <span>${recipientName}</span>
+
+                                  <input type="button" class="small button delete-list-item-${recipientId}-js" value="usuń" />
+                                </div>
+                              </li>
+                            `);
+
+      customRecipientNameInput.val('');
+      
+      customRecipientsCount++;
+      updateCustomRecipientsInput();
+      
+      $(`.delete-list-item-${recipientId}-js`).click(function() { 
+        $(this).parents("li").remove();
+
+        customRecipientsCount--;
+        updateCustomRecipientsInput();
+
+        customRecipientAddButton.prop("disabled", false);
+        customRecipientNameInput.prop("disabled", false);
+      });
+
+      if (customRecipientsCount === 10) {
+        customRecipientAddButton.prop("disabled", true);
+        customRecipientNameInput.prop("disabled", true);
+      }
+    }   
+  });  
+
+  updateCustomRecipientsList();
+<% end %>

@@ -1,0 +1,97 @@
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+        <span id="js-selected-projects-count" class="component-counter component-counter--inline" title="<%= t("decidim.projects.admin.projects.index.selected") %>"></span>
+      </div>
+      <div class="pull-right text-right">
+        <%= link_to t('.publish_rank_list'),
+                    publish_ranking_lists_path,
+                    method: :post,
+                    class: "button tiny button--simple",
+                    data: { confirm: t('.confirm_publishing_rank_list', results_name: current_participatory_space.results_step.title['pl']).html_safe }
+        %>
+
+
+        <%= link_to t('.generate_rank_list'),
+                    generate_ranks_ranking_lists_path,
+                    method: :post,
+                    class: "button tiny button--simple",
+                    data: { confirm: t('.confirm_generate_ranking_lists')}%>
+        <%= link_to t('.clear_votes'),
+                    clear_vote_cards_ranking_lists_path,
+                    method: :post,
+                    class: "button tiny button--simple alert",
+                    data: { confirm: t('.confirm_clear_votes')}
+        %>
+        <span class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+        <div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+          <ul class="vertical menu add-components">
+            <li class="exports--format--xlsx exports--xlsx">
+              <%= link_to 'Wyniki głosowania PDF', export_ranking_list_path(id: scope.id, format: 'pdf') %>
+            </li>
+            <li>
+              <%= link_to 'Wyniki głosowania EXL', export_ranking_list_path(id: scope.id, format: 'xlsx') %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </h2>
+  </div>
+  <%= admin_filter_selector(:project_ranks) %>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              Poziom/<br>dzielnica/<br>obszar
+            </th>
+            <th>
+              <%= sort_link(query, :project_esog_number, t("models.project.fields.esog_number", scope: "decidim.projects"), default_order: :desc) %>
+            </th>
+            <th>
+              <%= sort_link(query, :project_title, t("models.project.fields.title", scope: "decidim.projects")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :project_budget_value, t("models.project.fields.budget_value", scope: "decidim.projects")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :valid_votes_count, t('.votes_summary.validation').html_safe) %>
+            </th>
+            <th>
+              <%= t('.votes_summary.type').html_safe %>
+            </th>
+            <th>
+              <%= sort_link(query, :percentage_of_not_verified_votes, t('.votes_summary.percentage').html_safe) %>
+            </th>
+            <th class="actions">Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if project_ranks.any? %>
+            <% project_ranks.on_the_list.each do |project_rank| %>
+              <%= render "project-tr", project_rank: project_rank %>
+            <% end %>
+            <tr class="bg-success">
+              <td colspan="3">Dostepny budżet: <%= budget_to_currency @budget_value %></td>
+              <td>Suma projektów: <%= budget_to_currency @projects_total_budget_value %></td>
+              <td colspan="4"></td>
+            </tr>
+            <% project_ranks.not_on_the_list.each do |project_rank| %>
+              <%= render "project-tr", project_rank: project_rank %>
+            <% end %>
+          <% else %>
+            </tr>
+              <td colspan="8"><p class="mt-m mb-m text-center">Brak danych, wygeneruj listę rankingową</p></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center pagination-stats"><%= project_ranks.on_the_list.count %> projektów na liscie / <%= project_ranks.not_on_the_list.count %> poza listą</div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/projects" %>

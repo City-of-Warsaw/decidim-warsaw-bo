@@ -1,0 +1,40 @@
+<% add_decidim_page_title(t("my_notes", scope: "layouts.decidim.wrapper")) %>
+
+<div class="bordered-box">
+  <p><%= t("decidim.core_extended.account.notes.index.notes_info").html_safe %></p>
+  <%= link_to t("actions.new", scope: "decidim.core_extended.account.notes"), new_account_note_path, class: "button button--title wide" %>
+</div>
+
+<% if help_section.present? %>
+  <div class="primary-info-box info-graph">
+    <%= translated_attribute(help_section).html_safe %>
+  </div>
+<% end %>
+
+<div class="notes-list">
+  <% notes.each do |note| %>
+    <div class="notes-list__item">
+      <div class="notes-list__item-header">
+        <h3><%= note.title %></h3>
+
+        <div>
+          <span><%= l note.created_at, format: :decidim_short %></span>
+
+          <%= link_to [:edit, :account, note], method: :get, data: {}, class: "action-icon-button", title: t("actions.edit", scope: "decidim.core_extended.account.notes") do %>
+            <%= account_icon('edit') %>
+          <% end %>
+          
+          <%= link_to [:account, note], method: :delete, data: { confirm: t("actions.confirm", scope: "decidim.core_extended.account.notes") }, class: "action-icon-button", title: t("actions.destroy", scope: "decidim.core_extended.account.notes") do %>
+            <%= account_icon('delete') %>
+          <% end %>
+        </div>
+      </div>
+
+      <p>
+        <%= note.body %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate notes, theme: "decidim" %>

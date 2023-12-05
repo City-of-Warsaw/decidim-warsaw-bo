@@ -1,0 +1,40 @@
+<% add_decidim_meta_tags({
+   description: 'Lista zgłoszonych projektów',
+   title: 'Przeglądaj projekty',
+   url: '\projects'
+ }) %>
+
+<div class="row text-center mt-m">
+  <h1 class="devise-header">
+    <strong>Zgłoszone</strong>
+    projekty
+  </h1>
+</div>
+
+<div class='filters-gradient-background'>
+  <div class="row projects-filters-row">
+    <%= render partial: "filters", locals: {
+      show_map: true,
+      legend_labels: '{"blue":"Zgłoszone projekty","green":"","gray":"","orange":""}',
+      search_link: decidim_projects.projects_lists_path }
+    %>
+  </div>
+</div>
+
+<!-- list - table -->
+<div class="row projects-list-grid">
+  <table id="projects" class="projects-list-table">
+    <%= render "list_headers", show_for_result: false %>
+    <%= render "projects", projects: @projects %>
+  </table>
+</div>
+
+<%= decidim_paginate @projects %>
+<%= paginated_results_count(@all_projects_count, params[:page] || 1, per_page) %>
+
+<%= javascript_include_tag("decidim/filters") %>
+<%= javascript_include_tag "decidim/results_listing" %>
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+<%= javascript_include_tag "decidim/projects/markers-map" %>

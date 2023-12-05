@@ -1,0 +1,67 @@
+<% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
+
+<div class="wrapper with-double-decor">
+  <div class="primary-info-box info-graph mb-l">
+    <p>
+      Ze względów bezpieczeństwa hasła do kont oraz zgody nie zostały zmigrowane. Dlatego jeżeli posiadasz już konto, ale nie logowałaś (-eś) się do nowej strony, musisz zmienić hasło. Aby to zrobić kliknij w <%= link_to "Przypomnij hasło", new_password_path(resource_name) %> i postępuj zgodnie z instrukcją. Po zalogowaniu pamiętaj, aby zaktualizować zgody na swoim koncie np. czy chcesz upublicznić swoje imię i nazwisko.
+    </p>
+  </div>
+
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1 class="devise-header"><%= t("devise.sessions.new.sign_in") %></h1>
+        <ul class="primary-info-box">
+          <% if current_organization.sign_up_enabled? %>
+            <li>
+              <%= t(".are_you_new?") %>
+              <%= link_to t(".register"), new_user_registration_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= t(".sign_in_disabled") %>
+            </li>
+          <% end %>
+          <li>
+            <%= t(".remind_password") %>
+            <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(resource_name) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
+
+    <% if current_organization.sign_in_enabled? %>
+      <div class="row">
+        <div class="columns large-6 medium-centered">
+          <div class="card no-border">
+            <div class="card__content">
+              <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+                <div>
+                  <div class="field">
+                    <%= f.email_field :email, autocomplete: "email", required: true %>
+                  </div>
+                  <div class="field">
+                    <%= f.password_field :password, autocomplete: "off", required: true %>
+                  </div>
+                </div>
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field checkboxed">
+                      <%= f.check_box :remember_me %>
+                    </div>
+                  <% end %>
+                <div class="actions text-center pt-s pb-s">
+                  <%= f.submit t("devise.sessions.new.sign_in"), class: "button hollow devise" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%= render "decidim/devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<%= decidim_form_for(@form, url: votes_card_path(vote), html: { class: "form new_project project_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("decidim.votes.actions.update") %>
+    <%= link_to 'Anuluj', votes_cards_path, class: "link" %>
+  </div>
+<% end %>

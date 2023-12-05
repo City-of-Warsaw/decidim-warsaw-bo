@@ -1,0 +1,48 @@
+<div class="row step-introduction-js">
+  <div class="columns large-12">
+    <legend>
+      <div class="bordered-box">
+        <strong class="text-color-primary">Głosujesz na maksymalnie <%= vote_card.district_scope_projects_voting_limit %> projektów.</strong>
+        Możesz zagłosować na projekty tylko w jednej wybranej dzielnicy.
+        <strong>W trakcie głosowania możesz zmienić dzielnicę, <span class="text-red">ale Twoje wcześniejsze wybory zostaną utracone.</span></strong>
+      </div>
+      
+      <div class="primary-info-box info-graph">
+        Możesz zagłosować na projekty dzielnicowe lub pominąć ten etap
+        i przejść do głosowania na projekty ogólnomiejskie.
+      </div>
+
+      <p>
+        Aby rozpocząć głosowanie na projekty dzielnicowe kliknij przycisk “Wybierz projekty”.
+        Przycisk “Pomiń” przeniesie Cię do wyboru projektów ogólnomiejskich.
+      </p>
+      <p>
+        Twoje głosowanie będzie ważne dopiero po wysłaniu pełnego zgłoszenia widocznego w podsumowaniu.
+        Po zakończonym głosowaniu otrzymasz e-mail z potwierdzeniem oddania głosu.
+      </p>
+    </legend>
+  </div>
+
+  <%= hidden_field_tag :district_projects, @form.district_projects, class: "selected-projects-js" %>
+  <input type="hidden" id="limit-count-js" value="<%= @wizard.step_limit %>">
+  <span class="chosen-count-js" style="display: none"><%= @form.district_projects.split(',').size %></span>
+  <span class="limit-count-js" style="display: none"><%= @wizard.step_limit %></span>
+
+
+  <div class="columns large-12">
+    <div class="actions text-center">
+      <%= link_to t(".choose_projects"), path_for_wizard_vote(vote_card, wizard.next_step), class: "button mt-s mb-s mr-xs ml-xs voting-wizard-wide" %>
+      <%= link_to t(".skip"), path_for_wizard_vote(vote_card, 'step_3_info'), class: "button hollow mr-xs ml-xs mt-s mb-s skip-district-projects-voting-js" %>
+    </div>
+  </div>
+</div>
+
+
+<%= render 'modal_district_not_selected' %>
+<%= render 'modal_district_free_votes', next_step_url: path_for_wizard_vote(vote_card, 'step_3_info') %>
+
+<%= nonced_javascript_tag do %>
+  $(document).ready(function () {
+    resetMapVisible()
+  });
+<% end %>

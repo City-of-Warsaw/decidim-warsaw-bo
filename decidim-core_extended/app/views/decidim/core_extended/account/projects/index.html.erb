@@ -1,0 +1,77 @@
+<% add_decidim_page_title(t("my_projects", scope: "layouts.decidim.wrapper")) %>
+
+<% if time_for_submitting?(projects_component) %>
+  <div class="bordered-box">
+    <p>
+      <strong class="text-primary">Zgłoś swój projekt do realizacji w <%= latest_edition.edition_year %>r.</strong>
+      Możesz zgłosić projekty, które mają charakter dzielnicowy i ogólnomiejski.
+    </p>
+
+    <%= link_to t('.submit'), path_for_new_project, class: 'button secondary wide' %>
+  </div>
+<% end %>
+<div class="row projects-list-grid">
+  <h2><%= t('.current_edition_projects').html_safe %></h2>
+<% if my_projects.any? %>
+  <% my_projects.group(:edition_year).order(edition_year: :desc).pluck(:edition_year).each do |edition_year| %>
+    <!-- Wszystkie moje projekty -->
+    <h2>Edycja na rok <%= edition_year %></h2>
+    <div class="row projects-list-grid">
+      <table class="projects-list-table">
+        <%= render 'headers' %>
+        <tbody>
+        <% my_projects.where(edition_year: edition_year).order(created_at: :desc).each do |project| %>
+          <tr>
+            <%= render 'sharable_table_cells', project: project %>
+            <td class="text-center last-column">
+              <div class="actions">
+                <%= render 'latest_edition_action_icons', project: project %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% else %>
+  <p>
+  <h2> <%= t(".empty") %> </h2>
+  </p>
+<% end %>
+</div>
+
+<!-- Projekty - współautorstwo -->
+
+<div class="row projects-list-grid">
+  <h2><%= t('.latest_edition_coauthored_projects').html_safe %></h2>
+  <% if coauthored_projects.any? %>
+    <% coauthored_projects.group(:edition_year).order(edition_year: :desc).pluck(:edition_year).each do |edition_year| %>
+      <!-- Wszystkie moje projekty -->
+      <h2>Edycja na rok <%= edition_year %></h2>
+      <table class="projects-list-table">
+        <%= render 'headers' %>
+        <tbody>
+        <% coauthored_projects.where(edition_year: edition_year).order(created_at: :desc).each do |project| %>
+          <tr>
+            <%= render 'sharable_table_cells', project: project %>
+            <td class="text-center last-column">
+              <div class="actions">
+                <%= render 'latest_edition_action_icons', project: project %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+    <p>
+    <h2> <%= t(".empty") %> </h2>
+    </p>
+  <% end %>
+</div>
+<!-- for closing original wrapper from application.html -->
+</div>
+</div>
+</div>

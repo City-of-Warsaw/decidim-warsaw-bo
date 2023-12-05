@@ -1,0 +1,173 @@
+<% number = case number
+            when 'one'
+              1
+            when 'two'
+              2
+            end
+%>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Imię <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.first_name.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_first_name".to_sym, label: "Imię <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Nazwisko <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.last_name.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_last_name".to_sym, label: "Nazwisko <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong>
+        <%= t('gender', scope: 'activemodel.attributes.user') %>:
+        <%= gender_for(project.send("coauthor#{coauthor_index}"), t('decidim.users.gender.male')) %>
+      </strong>
+    </div>
+  <% end %>
+  <div class="current-data">
+    <%= form.collection_radio_buttons "coauthor#{coauthor_index}_gender".to_sym, [['male', t('male', scope: 'decidim.users.gender')], ['female', t('female', scope: 'decidim.users.gender')]], :first, :last %>
+  </div>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Numer telefonu <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.phone_number.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_phone_number".to_sym, label: "Numer telefonu <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="field hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong>Email <span class='wcag-invisible'>współautora <%= number %></span></strong>
+      <%= project.send("coauthor#{coauthor_index}_email").presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_email".to_sym,
+                      label: "Email <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe,
+                      placeholder: "Adres e-mail" %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Ulica <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.street.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_street".to_sym, label: "Ulica <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Numer domu <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.street_number.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_street_number".to_sym, label: "Numer domu <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Numer mieszkania <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.flat_number.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_flat_number".to_sym, label: "Numer mieszkania <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Kod pocztowy <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.zip_code.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_zip_code".to_sym, label: "Kod pocztowy <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="row column hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong><%= "Miasto <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %></strong>
+      <%= project.send("coauthor#{coauthor_index}")&.city.presence || '-' %>
+    </div>
+  <% end %>
+  <%= form.text_field "coauthor#{coauthor_index}_city".to_sym, label: "Miasto <span class='wcag-invisible'>współautora #{coauthor_index}</span>".html_safe %>
+</div>
+
+<div class="field label-regular hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong>
+        <%= t('show_author_name', scope: 'activemodel.attributes.project') %>:
+        <%= project.send("coauthor#{coauthor_index}")&.show_author_name ? 'Tak' : 'Nie' %>
+      </strong>
+    </div>
+  <% end %>
+  <%= form.check_box "coauthor#{coauthor_index}_show_author_name".to_sym, label: t('show_author_name', scope: 'activemodel.attributes.project') %>
+</div>
+
+<div class="field label-regular hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong>
+        <%= t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>:
+        <%= project.send("coauthor#{coauthor_index}")&.inform_author_about_implementations ? 'Tak' : 'Nie' %>
+      </strong>
+    </div>
+  <% end %>
+  <%= form.check_box "coauthor#{coauthor_index}_inform_author_about_implementations".to_sym, label: t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+</div>
+
+<div class="field label-regular hashtags__container">
+  <% if admin_changes %>
+    <div class="current-data">
+      <strong>
+        <%= t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>:
+        <%= project.send("coauthor#{coauthor_index}")&.email_on_notification ? 'Tak' : 'Nie' %>
+      </strong>
+    </div>
+  <% end %>
+  <%= form.check_box "coauthor#{coauthor_index}_email_on_notification".to_sym, label: t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>
+</div>
+
+
+<div class="field hashtags__container">
+  <% if @form.is_paper %>
+    <div class="field label-regular">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong>
+            Współautor <%= number %> podpisał wniosek:
+            <%= project.send("signed_by_coauthor#{coauthor_index}") %>
+          </strong>
+        </div>
+      <% end %>
+      <%= form.check_box "signed_by_coauthor#{coauthor_index}", label: "Współautor #{coauthor_index} podpisał wniosek" %>
+    </div>
+  <% end %>
+</div>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $('#project_coauthor_one_zip_code').mask('00-000');
+    $('#project_coauthor_two_zip_code').mask('00-000');
+  });
+<% end %>

@@ -1,0 +1,61 @@
+<%= decidim_form_for filter, url: search_link, method: :get, as: 'filter', html: { class: "projects-filters" } do |form| %>
+  <% if defined?(show_map) && show_map %>
+    <div id="map" data-legend="<%= legend_labels.present? %>" data-labels="<%= legend_labels %>"></div>
+  <% end %>
+
+  <div class="input-row">
+    <div class='input-btn-wrap'>
+      <%= form.text_field :search_text, label: "<span class='wcag-invisible'>Przeszukaj pomysły</span>", placeholder: 'Przeszukaj pomysły' %>
+      <%= form.submit icon('magnifying-glass', aria_label: 'Szukaj', role: 'img'), id: 'search-projects-submit' %>
+      <div class="per-page-wrapper">
+        Pokazuj
+        <%= form.select :per_page, per_page_options, label: "<span class='wcag-invisible'>Liczba projektów wyświetlanych na stronie</span>" %>
+        projektów
+      </div>
+    </div>
+  </div>
+
+  <div class="select-row">
+    <%= form.select :edition_year, filter_year_values(action_name), { label: "<span class='wcag-invisible'>Wybierz rok</span>", include_blank: false, legend_title: t(".edition_year") }, { multiple: true, "data-placeholder": t(".edition_year"), "aria-controls": "projects" } %>
+
+    <%= form.select :scope_type, filter_scope_types_values, { label: "<span class='wcag-invisible'>Wybierz poziom projektu/dzielnicę</span>", include_blank: false, legend_title: t(".scope_type") }, { multiple: true, "data-placeholder": t(".scope_type"), "aria-controls": "projects" } %>
+
+    <%= form.select :scope_id, filter_scopes_values, { label: "<span class='wcag-invisible'>Wybierz dzielnicę lub poziom ogólnomiejski</span>", include_blank: false, legend_title: t(".scope") }, { multiple: true, "data-placeholder": t(".scope"), "aria-controls": "projects" } %>
+
+    <%= form.select :category, filter_categories_values, { label: "<span class='wcag-invisible'>Wybierz kategorię</span>", include_blank: false, legend_title: t(".category") }, { multiple: true, "data-placeholder": t(".category"), "aria-controls": "projects" } %>
+
+    <%= form.select :potential_recipient, filter_potential_recipients_values, { label: "<span class='wcag-invisible'>Wybierz potencjalnych odbiorców</span>", include_blank: false, legend_title: t(".potential_recipient") }, { multiple: true, "data-placeholder": t(".potential_recipient"), "aria-controls": "projects" } %>
+
+    <% if action_name == 'realizations' %>
+      <%= form.select :implementation_state, filter_projects_implementation_state_values, { label: "<span class='wcag-invisible'>Wybierz stan realizacji</span>", include_blank: false, legend_title: t(".state") }, { multiple: true, "data-placeholder": t(".state"), "aria-controls": "projects" } %>
+    <% elsif action_name == 'results' %>
+      <%= form.select :state, filter_projects_result_state_values, { label: "<span class='wcag-invisible'>Wybierz stan realizacji</span>", include_blank: false, legend_title: t(".state") }, { multiple: true, "data-placeholder": t(".state"), "aria-controls": "projects" } %>
+    <% else %>
+      <%= form.select :state, filter_projects_state_values, { label: "<span class='wcag-invisible'>Wybierz status</span>", include_blank: false, legend_title: t(".state") }, { multiple: true, "data-placeholder": t(".state"), "aria-controls": "projects" } %>
+    <% end %>
+  </div>
+
+<% end %>
+
+<%= hidden_field_tag 'markersMap', @all_locations_json %>
+<%= nonced_javascript_tag do %>
+  $(function () {
+    $("select[multiple]").multiselect({
+      columns: 1,
+      search: false,
+      selectAll: true,
+      placeholder: 'Wybierz',
+      showCheckbox: false,
+      texts: {
+        search         : 'Szukaj',
+        selectedOptions: ' wybrano',
+        selectAll      : 'Zaznacz wszystkie',
+        unselectAll    : 'Odznacz wszystkie',
+        noneSelected   : 'Nie zaznaczono'
+      },
+      // onControlClose: function (el) {
+      //   $(el).parents('form').submit();
+      // },
+    });
+  });
+<% end %>

@@ -1,0 +1,25 @@
+<fieldset>
+  <div class="row column">
+    <%= form.text_field :name %>
+  </div>
+  <div class="row column">
+    <%= form.text_field :system_name %>
+  </div>
+  <div class="row column">
+    <%= form.text_field :subject %>
+  </div>
+  <div class="row column">
+    <%= form.editor :body, rows: 3 %>
+  </div>
+  <div>
+   Zmienne używane w temacie i treści wiadomości powinny przyjmować następujaca postać:
+   <ul>
+     <li>%{user_name} - Publiczna nazwa użytkownika</li>
+     <li>%{project_title} - Nazwa projektu (jeśli dotyczy)</li>
+     <li>%{project_public_url} - Link do publicznej karty projektu (jeśli dotyczy)</li>
+     <li>%{current_department} - Nazwa biura / jednostki (jeśli dotyczy)</li>
+     <li>%{verifier_name} - Publiczna nazwa weryfikatora</li>
+     <li>%{district_name} - Nazwa dzielnicy</li>
+    </ul>
+  </div>
+</fieldset>

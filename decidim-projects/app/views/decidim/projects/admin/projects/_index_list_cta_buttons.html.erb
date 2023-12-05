@@ -1,0 +1,46 @@
+<% if allowed_to? :create, :project, component: current_component %>
+  <%= link_to t("actions.new", scope: "decidim.projects"), new_project_path, class: "button tiny button--simple" %>
+<% end %>
+
+<% if allowed_to? :notify_authors_about_evaluation_results, :projects, component: current_component %>
+  <%= link_to 'Powiadom o publikacji wyników oceny', notify_authors_about_evaluation_results_projects_path, method: :post, class: 'button button--nomargin tiny success light' %>
+<% end %>
+
+<% if allowed_to? :erase_user_data, :projects, component: current_component %>
+  <%= link_to 'Wyczyść dane użytkowników', erase_user_data_projects_path, method: :post, class: 'button button--simple tiny light' %>
+<% end %>
+
+<span class="exports dropdown tiny button button--simple" data-toggle="notifications-dropdown">Powiadomienia</span>
+<div class="dropdown-pane" id="notifications-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+  <ul class="vertical menu add-components" style="text-align: left">
+    <% if allowed_to? :remind_about_drafts, :projects, component: current_component %>
+      <li>
+        <%= link_to 'Przypomnij autorom o kopiach roboczych', remind_about_drafts_projects_path, method: :post %>
+      </li>
+    <% end %>
+    <% if allowed_to? :remind_about_missing_evaluations, :projects, component: current_component %>
+      <li>
+        <%= link_to 'O brakach w ocenie', remind_about_missing_evaluations_projects_path, method: :post %>
+      </li>
+    <% end %>
+    <% if allowed_to? :notify_authors_about_evaluation_results, :projects, component: current_component %>
+      <li>
+        <%= link_to "O publikacji wyników oceny (#{current_user.department.name})", notify_authors_about_evaluation_results_projects_path, method: :post %>
+      </li>
+    <% end %>
+    <% if allowed_to? :notify_authors_about_all_evaluation_results, :projects, component: current_component %>
+    <li>
+      <%= link_to 'O publikacji wyników wszystkich ocen', notify_authors_about_all_evaluation_results_projects_path, method: :post %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<% if allowed_to? :mark_conflicts, :projects %>
+  <%= link_to 'Oznacz konflikty',
+              mark_conflicts_projects_path,
+              method: :post,
+              class: "button tiny button--simple",
+              data: { confirm: "Oznaczyć projekty kolidujące lokalizacją? Wyczyści to oznaczone do tej pory konflikty. Może to chwilę potrwać" } %>
+<% end %>

@@ -1,0 +1,102 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.lower_district')%></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="field fetch-projects-via-scope-js" data-href="<%= fetch_projects_via_scope_votes_cards_path %>">
+      <%= form.select :scope_id, @form.scopes_for_select, include_blank: true, label: 'Wybierz dzielnicę', selected: @form.scope_id %>
+    </div>
+
+    <div class="row column hashtags__container fill-with-projects-js">
+      <% if @form.district_scope_projects_for_select(@form.scope).any? %>
+        <%= form.collection_check_boxes :district_projects, @form.district_scope_projects_for_select(@form.scope), :last, :first,{include_hidden: false} do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
+      <% else %>
+        <p>Należy wybrać dzielnicę, żeby wyświetlić dostępne projekty</p>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.higher_district')%></h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="row column hashtags__container">
+      <% if @form.global_scope_projects_for_select.any? %>
+        <%= form.collection_check_boxes :global_projects, @form.global_scope_projects_for_select, :last, :first,{include_hidden: false} do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
+      <% else %>
+        Brak projektów ogólnomiejskich
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.user_data')%></h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="row column hashtags__container">
+      <%= form.text_field :first_name %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :last_name %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :pesel_number %>
+      <% if @form.pesel_warnings.any? %>
+        <%= list_of_warnings(@form.pesel_warnings) %>
+      <% end %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :street %>
+    </div>
+    <% if allowed_to? :edit_email, :votes, vote: vote %>
+      <div class="row column hashtags__container">
+        <%= form.text_field :email %>
+      </div>
+    <% end %>
+    <div class="row column hashtags__container">
+      <%= form.text_field :street_number %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :flat_number %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :zip_code %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.text_field :city %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.check_box :identity_confirmed %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.check_box :card_signed %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.check_box :data_unreadable %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.check_box :card_invalid %>
+    </div>
+    <div class="row column hashtags__container">
+      <%= form.check_box :card_received_late %>
+    </div>
+  </div>
+</div>
+
+
+
+<%= javascript_include_tag "decidim/projects/admin/votes" %>

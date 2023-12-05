@@ -1,0 +1,190 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Odwołanie:
+    </h2>
+  </div>
+  <div class="card-section">
+    <strong>Data wpłynięcia odwołania do Urzędu</strong>
+    <br>
+    <%= l @project.appeal.time_of_submit if @project.appeal.time_of_submit %>
+    <br>
+    <strong>Treść</strong>
+    <br>
+    <%= @project.appeal.body %>
+    <br>
+    <% if @project.evaluation_note.present? %>
+      <strong>Uwagi robocze:</strong>
+      <p class='text-alert'><%= @project.evaluation_note %></p>
+      <br>
+    <% end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title" id='reev-dep'>
+      Podmiot dokonujący ponownej oceny<br>
+      <small>nazwa wydziału oraz urzędu dzielnicy/biura lub jednostki</small>
+    </h2>
+  </div>
+  <div class="card-section">
+    <%= form.text_field :reevaluator_department,
+                        label: false,
+                        aria: { labelledby: 'reev-dep' }
+                         %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Kryteria oceny formalnej, do których autor miał zastrzeżenia
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column hashtags__container">
+
+     <%= form.collection_check_boxes :formal_appeal, @form.formal_elements, :last, :first do |option|
+         option.label(class: 'custom-styled-label') { option.check_box(checked: @form.formal_element_checked?(option.value)) + "<span>#{option.text}</span>".html_safe }
+     end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Kryteria oceny merytorycznej, do których autor miał zastrzeżenia
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <%= form.collection_check_boxes :meritorical_appeal, @form.meritorical_elements, :last, :first do |option|
+        option.label(class: 'custom-styled-label') { option.check_box(checked: @form.meritorical_element_checked?(option.value)) + "<span>#{option.text}</span>".html_safe }
+    end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title" id='other_appeal'>
+      Inne zastrzeżenia autora<br>
+      <small>
+        Jeśli zastrzeżenia nie dotyczą kryteriów formalnych lub merytorycznych, a&nbsp;sposobu przeprowadzenia oceny, wpisz je poniżej
+      </small>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <%= form.text_area :user_additional_appeal, rows: 3, aria: { labelledby: 'other_appeal' }, label: false %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title" id='other_appeal'>
+      Dane oceny
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <%= form.text_area :reevaluation_body,
+                        rows: 3,
+                        label: 'Ponowna ocena projektów w oparciu o kryteria oceny' %>
+    <p class='help-text'>Odbywa się w&nbsp;oparciu o&nbsp;te kryteria, co do których autor miał zastrzeżenia. Wpisz wszystkie istotne informacje dotyczące ponownej oceny.
+      W&nbsp;przypadku propozycji pozytywnego rozpatrzenia odwołania, opisz konieczne do wprowadzenia w&nbsp;projekcie zmiany oraz kosztorys projektu.</p>
+  </div>
+
+  <div class="card-section">
+    <label>Propozycja wyniku rozpatrzenia odwołania (pole obowiązkowe)</label>
+    <%= form.collection_radio_buttons :reevaluation_result, [['1', 'Pozytywny'], ['2', 'Negatywny']], :first, :last %>
+    <p class='help-text'>Propozycja wyniku rozpatrzenia odwołania przez dzielnicę, biuro lub jednostkę</p>
+
+    <%= form.text_area :negative_reevaluation_body, rows: 3, label: 'Uzasadnienie negatywnej oceny' %>
+
+    <%= form.text_area :positive_reevaluation_body, rows: 3, label: 'Skutki realizacji projektu' %>
+
+    <%= form.text_field :signum_number, label: 'Znak signum_number', label: 'Znak signum' %>
+
+    <%= form.text_field :reevaluator_user_name, label: 'Imię i nazwisko osoby dokonującej oceny' %>
+    <%= form.date_field :reevaluation_date, label: 'Data przeprowadzonej oceny' %>
+
+    <%= form.text_field :reevaluation_approve_name, label: 'Imię, nazwisko oraz funkcja osoby zatwierdzającej ocenę' %>
+    <p class='help-text'>Osobą zatwierdzającą ocenę może być Burmistrz, Dyrektor lub ich zastępcy. Powinien być to inny Burmistrz lub Dyrektor niż ten,
+      który podpisał kartę oceny merytorycznej. Na wydrukowanej karcie może podpisać się dodatkowo naczelnik lub kierownik wydziału, ale w&nbsp;systemie wpisujemy nazwisko tylko jednej osoby.
+      Pole do&nbsp;uzupełnieniu już po&nbsp;uzyskaniu podpisów na&nbsp;wydrukowanej karcie
+    </p>
+    <%= form.date_field :reevaluation_approve_date, label: 'Data zatwierdzenia oceny' %>
+  </div>
+</div>
+
+<% disabled = !current_user.ad_admin? %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title" id='other_appeal'>
+      Wynik rozpatrzenia odwołania
+    </h2>
+  </div>
+  <div class="card-section">
+    <%= form.collection_radio_buttons :result, [['1', 'Pozytywny'], ['2', 'Negatywny']], :first, :last, {}, disabled: disabled %>
+    <p class='help-text'>Wynik rozpatrzenia odwołania na podstawie decyzji Dyrektor Koordynator ds. Przedsiębiorczości i&nbsp;Dialogu Społecznego.</p>
+    <% if disabled %><%= form.hidden_field :result %><% end %>
+
+    <%= form.hidden_field :reevaluation_card_approve_body %>
+    <%= form.text_area :reevaluation_card_approve_body, rows: 3, label: 'Uwagi', disabled: disabled %>
+
+    <%= form.hidden_field :reevaluation_card_approve_date %>
+    <%= form.date_field :reevaluation_card_approve_date, label: 'Data zatwierdzenia karty oceny', disabled: disabled %>
+
+    <%= form.hidden_field :reevaluation_card_approve_name %>
+    <%= form.text_field :reevaluation_card_approve_name, label: 'Imię, nazwisko oraz funkcja osoby zatwierdzającej ocenę', disabled: disabled %>
+
+    <div class="field hashtags__container">
+      <%= form.file_field :add_documents, multiple: true,
+                          # label: t("add_images", scope: "decidim.projects.projects.edit"),
+                          label: 'Karta ponownej oceny (skan)',
+                          class: 'multifile', style: 'display: block',
+                          disabled: disabled
+      %>
+
+      <% if @form.reevaluation && @form.reevaluation.documents.any? %>
+        <div class="row column">
+          <div id="photos" class="gallery row">
+            <% @form.reevaluation.documents.each do |document| %>
+              <%= link_to document.url, target: "_blank", rel: "noopener" do %>
+                <%= strip_tags(translated_attribute(document.title)) %>
+              <% end %>
+              <% unless disabled %>
+                (<label style="display: inline"><%= check_box_tag 'reevaluation[remove_documents][]', document.id, false %> usuń</label>)
+              <% end %>
+              <br>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/reevaluation" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

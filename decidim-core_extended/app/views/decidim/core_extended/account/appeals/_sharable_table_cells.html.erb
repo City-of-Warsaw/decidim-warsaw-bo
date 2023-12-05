@@ -1,0 +1,17 @@
+<td class="text-left title-column">
+  <%= link_to "Odwołanie do: " + project.title, account_appeal_path(appeal), class: "card__link" %>
+ 
+  <div class="scope-and-number">
+    <span><%= translated_attribute(project.scope.name) if project.scope %></span>
+    <%= project.esog_number.present? ? ' / ' : '' %>
+    <strong><%= project.esog_number %></strong>
+    <%= project.budget_value.present? ? ' / ' : '' %>
+    <%= budget_to_currency project.budget_value %>
+  </div> 
+</td> 
+
+<td class="state-column">
+  <span class="state-circle <%= status_class_for_reevaluation_status(project) %>"></span>
+  <%= public_reevaluation_status(project) %>
+  <strong><%= l(appeal.time_of_submit, format: "%d.%m.%Y %H:%M") if appeal.time_of_submit.present? %></strong>
+</td>

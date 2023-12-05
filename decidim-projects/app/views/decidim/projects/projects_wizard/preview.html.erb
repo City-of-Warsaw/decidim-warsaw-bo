@@ -1,0 +1,198 @@
+<% custom = @form.component.participatory_space.project_customization %>
+<% add_decidim_page_title(project_wizard_step_title(wizard)) %>
+
+<%= render partial: "wizard_aside" %>
+<%= render partial: "wizard_header" %>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="legend"><%= render partial: "decidim/projects/projects_wizard/explanation/step_3_preview" %></div>
+  </div>
+</div>
+
+<div class="card fieldset">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('project', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+      <dl class="row project_data_row">
+        <% %w[title short_description body universal_design universal_design_argumentation justification_info].each do |el| %>
+          <dd class='columns large-12 strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix') %>
+          </dd>
+          <dt class="<%= el == 'justification_info' ? 'no-border' : nil %> columns large-12"><%= simple_format show_project_data(@project, el) %></dt>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="card fieldset">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('characteristics', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+      <dl class="row project_data_row">
+        <% %w[category_ids potential_recipient_ids].each do |el| %>
+          <dd class='columns large-12 strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix') %>
+          </dd>
+          <dt class="<%= el == 'potential_recipient_ids' ? 'no-border' : nil %> light columns large-12 pt-xs"><%= sanitize show_project_data(@project, el) %></dt>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="card fieldset">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('locations', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+      <dl class="row project_data_row">
+        <% %w[scope_id localization_info localization_additional_info].each do |el| %>
+          <dd class='columns large-12 strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix') %>
+          </dd>
+          <dt  class="<%= el == 'localization_additional_info' ? 'no-border' : nil %> columns large-12"><%= simple_format show_project_data(@project, el) %></dt>
+        <% end %>
+      </dl>
+      <!-- MAPA -->
+    </div>
+  </div>
+</div>
+
+<div class="card fieldset">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('estimate', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+      <dl class="row project_data_row">
+        <dd class='columns large-12 strong'>
+          <%= customized_attribute_texts(custom, 'budget_value', 'label_no_asterix') %>
+        </dd>
+        <dt class='no-border columns large-12'>
+          <%= show_project_data(@project, 'budget_value') %>
+          <% if @project.exceeds_limit? %>
+            <br>
+            <span class="text-alert">
+              Przekroczono o <strong><%= budget_to_currency @project.limit_exceeded_value %></strong> limit kwoty dla jednego projektu w dzielnicy <%= translated_attribute(@project.scope.name) %>,
+              który wynosi <strong><%= budget_to_currency @project.participatory_space.limit_for_scope(@project.scope) %></strong>
+            </span>
+          <% end %>
+        </dt>
+      </dl>
+    </div>
+  </div>
+</div>
+
+
+<div class="card fieldset">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('documents', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+      <dl class="row project_data_row">
+        <% %w[endorsements files consents].each do |el| %>
+          <dd class='columns large-12 strong'><%= t(el, scope: 'activemodel.attributes.project.attachments.attachment_type') %></dd>
+          <dt  class="<%= el == 'consents' ? 'no-border' : nil %> columns large-12"><%= show_project_data(@project, el) %></dt>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<% if @form.component.participatory_space.project_customization %>
+  <% if @project.additional_data&.any? %>
+    <div class="card fieldset gray">
+      <div class="row">
+        <div class="columns large-12">
+          <h2 class="section-heading legend-like mb-m"><%= t('custom', scope: 'decidim.projects.projects.wizard_creator_headers').html_safe %></h2>
+          <dl class="row project_data_row">
+              <% i = @project.additional_data.size - 1 %>
+              <% @project.additional_data&.each_with_index do |(k, v), index| %>
+              <dd class='columns large-12 strong'><%= @project.custom_label(k) %></dd>
+              <dt class='<%= i == index ? 'no-border ' : nil %>columns large-12'><%= v %></dt>
+            <% end %>
+          </dl>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="card fieldset white">
+  <div class="row">
+    <div class="columns large-12">
+      <h2 class="section-heading legend-like mb-m"><%= t('first', scope: 'decidim.projects.projects.wizard_author_headers').html_safe %></h2>
+      <dl class="project_data_row">
+        <% %w[first_name last_name].each do |el| %>
+          <dd class='strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix', 'decidim.projects.projects.part_form_fields.author_fields') %>:
+          </dd>
+          <dt <%= el == 'first_name' ? 'no-border' : nil %>>
+          <%= show_project_data(@project, el) %>
+          <%= show_explanation(el).html_safe %>
+          </dt>
+        <% end %>
+
+        <% %w[gender phone_number email].each do |el| %>
+          <dd class='strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix', 'decidim.projects.projects.part_form_fields.author_fields') %>:
+          </dd>
+          <dt>
+            <%= show_project_data(@project, el) %>
+            <%= show_explanation(el).html_safe %>
+          </dt>
+        <% end %>
+
+        <% %w[coauthor_email_one coauthor_email_two].each do |el| %>
+          <dd class='strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix', 'decidim.projects.projects.part_form_fields.author_fields') %>:
+          </dd>
+          <dt class="<%= el == 'coauthor_email_two' ? 'no-border' : nil %>">
+            <%= show_project_data(@project, el) %>
+            <%= show_explanation(el).html_safe %>
+          </dt>
+        <% end %>
+
+        <% %w[street street_number flat_number zip_code city].each do |el| %>
+          <dd class='strong'>
+            <%= customized_attribute_texts(custom, el, 'label_no_asterix', 'decidim.projects.projects.part_form_fields.author_fields') %>:
+          </dd>
+          <dt class="no-border">
+            <%= show_project_data(@project, el) %>
+            <%= show_explanation(el).html_safe %>
+          </dt>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="card fieldset gray">
+  <div class="row">
+    <div class="columns large-12 text-right">
+      <div class="actions">
+        <% if !allowed_to?(:publish, :project, project: @project) && @project.draft? %>
+          <div class="primary-info-box info-graph">
+            <p>
+              Nie mogliśmy przyjąć Twojego zgłoszenia, ponieważ zakończyliśmy etap zgłaszania projektów w tej edycji budżetu obywatelskiego.
+              Twój projekt został zapisany jako kopia robocza. Możesz skorzystać z niego przy zgłaszaniu projektów w kolejnej edycji budżetu obywatelskiego.
+            </p>
+          </div>
+        <% end %>
+
+        <%= link_to t(".cancel"), decidim_core_extended.account_projects_path, class: "button button-link mt-s mb-none" %>
+        <%= link_to t(".edit"), [:edit_draft, :projects_wizard], class: "button hollow mt-s mb-none" %>
+        <%= link_to t(".back"), [:author, :projects_wizard], class: "button hollow ml-s mt-s mb-none" %>
+
+        <%= link_to t(".draft"), [:preview, :projects_wizard], type: 'input', class: "button hollow ml-s mt-s mb-none" %>
+        <% if allowed_to? :publish, :project, project: @project %>
+          <% if @form.valid? %>
+            <%= link_to t(".publish"), [:publish, :projects_wizard], class: "button submit mt-s mb-none", method: :post, data: { confirm: t('.publish_confirmation') } %>
+          <% else %>
+            <%= link_to t(".publish"), '', class: "button submit mt-s mb-none", disabled: true, title: 'Popraw błędy, żeby móc zgłosić projekt' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/add_project" %>

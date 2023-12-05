@@ -1,0 +1,13 @@
+<section class="wrapper-home archive-section home-section">
+  <div class="row">
+    <h2 class="section-heading"><%= t("decidim.content_blocks.archive.title").html_safe %></h2>
+    <div class="row archive-flex-row slicked">
+      <% last_editions.each do |edition| %>
+        <%= link_to t('decidim.participatory_processes.content_blocks.archive.results_link', year: edition.edition_year),
+                    decidim_projects.results_path(filter: { edition_year: edition.edition_year }),
+                    class: "column large-4 button hollow edition-button"
+        %>
+      <% end %>
+    </div>
+  </div>
+</section>

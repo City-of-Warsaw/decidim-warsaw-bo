@@ -1,0 +1,6 @@
+<% if @project.availability_description.present? %>
+  <strong><%= t('activemodel.attributes.project.availability_description') %>:</strong>
+  <%= decidim_sanitize @project.availability_description %>
+<% end %>
+
+

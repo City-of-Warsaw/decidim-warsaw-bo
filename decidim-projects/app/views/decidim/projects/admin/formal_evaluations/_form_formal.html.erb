@@ -1,0 +1,251 @@
+<div class="card">
+  <div class="card-divider">
+    <legend>Dane projektu</legend>
+  </div>
+  <div class="card-section">
+    <div class="field">
+      <strong>Numer ESOG: </strong> <%= @project.esog_number %>
+      <br>
+      <strong>Nazwa projektu: </strong> <%= @project.title %>
+      <% if @project.evaluation_note.present? %>
+        <br>
+        <strong>Uwagi robocze:</strong>
+        <span class='text-alert'><%= @project.evaluation_note %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Ocena formalna projektu
+    </h2>
+  </div>
+  <div class="card-section">
+
+    <table class='formal-evaluation-table-js'>
+      <thead>
+        <tr>
+          <td>
+            <strong>
+              Kryterium weryfikacji
+            </strong>
+          </td>
+          <td>
+            <strong>Spełniono</strong>
+          </td>
+          <td>
+            <strong>Nie spełniono</strong>
+          </td>
+          <td>
+            <strong>Nie dotyczy</strong>
+          </td>
+          <td>
+            <strong>Braki usunięto <br>w terminie</strong>
+          </td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% FormalEvaluationFieldsDefinition::FORMAL_FIELDS.each do |f| %>
+          <% if f[:value].nil? %>
+            <tr>
+              <td><%= f[:translation] %></td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+          <% else %>
+            <tr>
+              <td id="<%= "formal_evaluation_#{f[:name]}" %>"><%= f[:translation] %></td>
+              <td>
+                <label>
+                  <%= radio_button_tag "formal_evaluation[#{f[:name]}]", 1, @form.send(f[:name]) == 1 || @form.send(f[:name]).nil?, { disabled: false } %>
+                </label>
+              </td>
+              <td>
+                <label>
+                  <%= radio_button_tag "formal_evaluation[#{f[:name]}]", 2, @form.send(f[:name]) == 2,
+                                       { disabled: false,
+                                         class: 'formal-not-ok-js',
+                                         data: {
+                                           correctable: f[:correctable] ? "#formal_evaluation_#{f[:name]}_corrected" : nil,
+                                           reason: f[:negative_translation]
+                                         } } %>
+                </label>
+              </td>
+              <td>
+                <% if f[:applicable] %>
+                  <label>
+                    <%= radio_button_tag "formal_evaluation[#{f[:name]}]", 3, @form.send(f[:name]) == 3, { disabled: false } %>
+                  </label>
+                <% else %>
+                  ---
+                <% end %>
+              </td>
+              <td>
+                <% if f[:correctable] %>
+                  <label>
+                    <%= check_box_tag "formal_evaluation[#{f[:name]}_corrected]", 1, @form.send("#{f[:name]}_corrected") == 1, { disabled: @form.send(f[:name]) == 2 ? false : true } %>
+                  </label>
+                <% else %>
+                  --
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+
+        <tr>
+          <td id='additional-info-label'><%= form.label :additional_info, 'Inne uwagi', style: 'font-weight: normal' %></td>
+          <td colspan="4">
+            <%= form.text_area :additional_info, { rows: 3,  label: false } %>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <legend>Wynik oceny formalnej</legend>
+  </div>
+  <div class="card-section">
+    <div class="field">
+      <label>
+        <%= radio_button_tag "formal_evaluation[result]", "1", checked = false, disabled: true %> Pozytywny
+      </label>
+      <label>
+        <%= radio_button_tag "formal_evaluation[result]", "2", checked = false, disabled: true %> Negatywny
+      </label>
+      <%= hidden_field_tag "formal_evaluation[result]", nil %>
+    </div>
+
+    <div class="field result-negative-js">
+      <strong>Uzasadnienie negatywnej oceny:</strong><br>
+      Ocena negatywna ze względu na braki formalne:
+      <ul></ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <legend>Informacje o wezwaniu do usunięcia stwierdzonych braków</legend>
+  </div>
+  <div class="card-section">
+    <p>
+      (wypełnia się wyłącznie w przypadku projektów zawierających braki formalne)
+    </p>
+
+    <div class="field label-regular">
+      <%= form.date_field :summons_date, label: 'Data przekazania wezwania' %>
+    </div>
+    <div class="field label-regular">
+      <label>Sposób przekazania wezwania</label>
+      <label>
+        <%= radio_button_tag "formal_evaluation[summons_method]", "email", checked = false %>
+        <%= t('.email') %>
+      </label>
+      <label>
+        <%= radio_button_tag "formal_evaluation[summons_method]", "phone", checked = false %>
+        <%= t('.phone') %>
+      </label>
+      <%= link_to 'Wyczyść wartość', '', style: 'font-size: 12px; margin-top: -10px; display: block; margin-bottom: 1rem;', id: 'clear-summons-method' %>
+    </div>
+
+    <div class="field label-regular">
+      <%= form.text_area :notes, { rows: 3,  label: 'Uwagi' } %>
+    </div>
+
+    <% if @form.all_summons.any? %>
+      <strong class='strong'>Dotychczasowe wezwania:</strong>
+      <ul>
+        <% @form.all_summons.each do |as| %>
+          <li>
+            <%= as[0] %>: <%= t(".#{as[1]}") %>
+            <br>
+            <%= as[2] %>
+          </li>
+          <br>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <legend>Meta dane</legend>
+  </div>
+  <div class="card-section">
+
+    <div class="field label-regular">
+      <%= form.text_field :signum_number, label: 'Znak signum' %>
+    </div>
+
+    <div class="field label-regular">
+      <%= form.text_field :verifier_name, label: 'Imię i nazwisko pracownika oceniającego' %>
+    </div>
+    <div class="field label-regular">
+      <%= form.date_field :verification_date, label: 'Data przeprowadzonej oceny' %>
+    </div>
+
+    <div class="field hashtags__container">
+      <%= form.file_field :add_documents, multiple: true,
+                          label: 'Dołącz skan oceny formalnej',
+                          class: 'multifile', style: 'display: block'
+      %>
+
+      <% if @form.formal_evaluation && @form.formal_evaluation.documents.any? %>
+        <div class="row column">
+          <div id="photos" class="gallery row">
+            <% @form.formal_evaluation.documents.each do |document| %>
+              <%= link_to document.url, target: "_blank", rel: "noopener" do %>
+                <%= strip_tags(translated_attribute(document.title)) %>
+              <% end %>
+              (<label style="display: inline">
+                <%= check_box_tag 'formal_evaluation[remove_documents][]', document.id, false %> usuń
+                </label>)
+              <br>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <!-- Karta oceny formalnej (skan) -->
+
+  </div>
+</div>
+
+
+<%= javascript_include_tag "decidim/projects/admin/formal_evaluation" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+
+    $('#clear-summons-method').click(function(e) {
+      e.preventDefault();
+      $('#formal_evaluation_summons_method_email').prop('checked', false);
+      $('#formal_evaluation_summons_method_phone').prop('checked', false);
+    });
+  });
+<% end %>

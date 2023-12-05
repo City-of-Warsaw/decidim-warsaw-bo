@@ -1,0 +1,51 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+module Decidim
+  module AdminExtended
+    module Admin
+      describe BudgetInfoGroupForm do
+        include Rack::Test::Methods
+
+        # temporary solution for testing form
+        subject do
+          form = described_class.from_params(
+            attributes
+          )
+          form.valid?
+          form
+        end
+
+        # decidim solution - decidim specs form (static_pages), DO not have specs for expecting errors content
+        # subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
+        let!(:organization) { create :organization, available_locales: [:pl] }
+        let(:attributes) { attributes_for(:budget_info_group) }
+
+        context "when form is correct" do
+          it { expect(subject).to be_valid }
+          it { expect(subject.errors.messages).to be_empty }
+        end
+
+        context "when name is empty" do
+          let(:attributes) { super().merge(name: nil) }
+          it { expect(subject).not_to be_valid }
+          it { expect(subject.errors[:name]).to include('nie może być puste') }
+        end
+
+        context "when published is not a boolean" do
+          let(:attributes) { super().merge(published: "invalid") }
+          it { expect(subject).not_to be_valid }
+          it { expect(subject.errors[:published]).to include('nie znajduje się na liście dopuszczalnych wartości') }
+        end
+
+        context "when weight is empty" do
+          let(:attributes) { super().merge(weight: nil) }
+          it { expect(subject).not_to be_valid }
+          it { expect(subject.errors[:weight]).to include('nie może być puste') }
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,17 @@
+// Place all the styles related to the admin/ranking_lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bg-success {
+  background-color: #cffed4 !important;
+  font-weight: bold;
+}
+
+.bg-alert {
+  background-color: red !important;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,991 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+      body {
+          margin: 0;
+          padding: 0;
+
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+      }
+
+      .page {
+          page-break-after: always !important;
+      }
+
+      h1 {
+          padding-top: 12px;
+          font-size: 25px;
+          text-align: center;
+      }
+
+      h2 {
+          margin: 0;
+          padding: 4px 0;
+          font-size: 22px;
+      }
+
+      h3 {
+          margin: 0;
+          padding: 4px 0;
+          font-size: 16px;
+      }
+
+      h3 span {
+          font-weight: normal;
+      }
+
+      p {
+          margin: 0;
+          padding: 0;
+      }
+
+      .caption {
+          font-size: 120%;
+      }
+
+      .center {
+          text-align: center;
+      }
+      .text-right {
+          text-align: right;
+      }
+
+      .version {
+          padding: 24px 0;
+          text-align: right;
+      }
+
+      .section {
+          padding-top: 16px;
+      }
+
+      .fill {
+          position: relative;
+          padding: 8px;
+          min-height: 21px;
+          border: 1px solid;
+          font-size: 130%;
+      }
+
+      .additional-info {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          padding: 8px;
+          border-top: 1px solid #000;
+          border-left: 1px solid #000;
+      }
+
+      div.fill {
+          margin: 4px 0;
+      }
+
+      .fill.price {
+          margin-top: 8px;
+          padding: 16px 0;
+          text-align: center;
+          font-size: 400%;
+          line-height: 1;
+      }
+
+      .mh50 {
+          min-height: 50px;
+      }
+      .mh100 {
+          min-height: 100px;
+      }
+      .mw20 {
+          min-width: 20%;
+      }
+      .mw40 {
+          min-width: 40%;
+      }
+      .w5 {
+          width: 5%;
+      }
+      .w10 {
+          width: 10%;
+      }
+      .w15 {
+          width: 15%;
+      }
+      .w125 {
+          width: 12.5%;
+      }
+      .w20 {
+          width: 20%;
+      }
+      .w25 {
+          width: 25%;
+      }
+      .w30 {
+          width: 30%;
+      }
+      .w40 {
+          width: 40%;
+      }
+      .w50 {
+          width: 50%;
+      }
+      .w60 {
+          width: 60%;
+      }
+      .w70 {
+          width: 70%;
+      }
+      .w75 {
+          width: 75%;
+      }
+      .w90 {
+          width: 90%;
+      }
+      .w95 {
+          width: 95%;
+      }
+      .w100 {
+          width: 100%;
+      }
+
+      .msg-info {
+          text-align: center;
+          color: #ff0000;
+          font-size: 110%;
+      }
+
+      .msg-info.large {
+          font-size: 130%;
+      }
+
+      table td {
+          padding: 0;
+      }
+      table.collapse td {
+          padding: 4px 0;
+      }
+      table td:first-child {
+          padding-right: 8px;
+      }
+      table.collapse td.w125 {
+          padding-left: 10px;
+      }
+      table.pt12 {
+          padding-top: 12px;
+      }
+      table.pb12 {
+          padding-bottom: 12px;
+      }
+
+      table.agreements {
+          font-size: 120%;
+      }
+      table.agreements td {
+          padding: 8px 0;
+      }
+
+      .checkbox {
+      }
+
+      .checkbox.large {
+          font-size: 140%;
+          line-height: 100%;
+      }
+
+      .checkbox::before {
+          margin-right: 8px;
+          display: inline-block;
+          content: "";
+          width: 16px;
+          height: 16px;
+          border: #000 1px solid;
+          vertical-align: middle;
+      }
+
+      .checkbox.large::before {
+          width: 20px;
+          height: 20px;
+      }
+
+      .checkbox.checked::before {
+          background: #000;
+      }
+
+      .signature {
+          padding-top: 96px;
+          text-align: right;
+          font-size: 100%;
+      }
+
+      .signature span {
+          color: #ff0000;
+      }
+
+      .postcode {
+      }
+
+      .postcode * {
+          display: inline-block;
+          vertical-align: middle;
+      }
+
+      .postcode span {
+          padding: 8px;
+          min-width: 12px;
+          min-height: 21px;
+          border: 1px solid;
+          font-size: 130%;
+      }
+
+      .postcode strong {
+          padding-left: 24px;
+          font-size: 20px;
+          line-height: 1;
+      }
+  </style>
+</head>
+<body>
+<!--
+  -------------------
+  STRONA 1
+  -------------------
+ -->
+<div class="page">
+  <p class="version">Nr ESOG <%= @project.esog_number %></p>
+  <p class="center">
+    <img src="<%= wicked_pdf_asset_path('logo.svg') %>" width="376" height="108" alt="Logo" />
+  </p>
+  <h1>
+    Formularz zgłoszeniowy projektu<br />
+    do budżetu obywatelskiego w m.st. Warszawie na rok <%= @project.edition_year %>
+  </h1>
+
+  <p class="msg-info large">
+    Wypełnij dane w sposób czytelny, najlepiej drukowanymi literami.
+  </p>
+
+  <!-- Nazwa projektu -->
+  <div class="section">
+    <h3>Nazwa projektu</h3>
+    <p>
+      Nazwę sformułuj w taki sposób, aby informowała o treści projektu.<br />W
+      trakcie głosowania to właśnie nazwa znajdzie się na karcie do
+      głosowania.
+    </p>
+    <div class="fill">
+      <p><%= @project.title %></p>
+    </div>
+  </div>
+
+  <!-- Poziom zgłaszanego projektu / dzielnica -->
+  <div class="section">
+    <table class="w100">
+      <tbody>
+      <tr>
+        <td class="w30" rowspan="2" style="vertical-align: top">
+          <h3>Poziom zgłaszanego projektu / dzielnica</h3>
+          <p>(wybierz jedno pole)</p>
+        </td>
+        <td class="w20" style="vertical-align: bottom">
+          <p class="checkbox large <%= 'checked' if @project.scope&.citywide? %>">ogólnomiejski</p>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="w20" style="padding-top: 8px; vertical-align: top">
+          <p class="checkbox large <%= 'checked' if @project.scope && !@project.scope.citywide? %>">dzielnicowy</p>
+        </td>
+        <td>
+          <div class="fill"><%= translated_attribute(@project.scope&.name).presence || 'Nie podano' %></div>
+          <p class="center">
+            (wpisz nazwę dzielnicy - w przypadku zgłoszenia projektu na
+            poziomie dzielnicowym)
+          </p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Lokalizacja projektu -->
+  <div class="section">
+    <h3>Lokalizacja projektu</h3>
+    <table class="w100">
+      <tbody>
+      <tr>
+        <td class="w25">
+          <p class="caption">Ulica i nr / rejon ulic w Warszawie</p>
+        </td>
+        <td class="fill">
+          <p><%= @project.localization_info %></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="w20">
+          <p class="caption">
+            Inne istotne informacje dotyczące lokalizacji np. nr działki,
+            obręb, dysponent terenu
+          </p>
+        </td>
+        <td class="fill"><%= @project.localization_additional_info %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Skrócony opis projektu -->
+  <div class="section">
+    <h3>Skrócony opis projektu</h3>
+    <p>
+      Opisz w kilku zdaniach, na czym polega Twój projekt (maksymalnie 50
+      słów).
+    </p>
+    <div class="fill mh50">
+      <p><%= @project.short_description %></p>
+    </div>
+  </div>
+</div>
+
+<!--
+-------------------
+STRONA 2
+-------------------
+-->
+<div class="page">
+  <!-- Opis projektu -->
+  <div class="section">
+    <h3>Opis projektu</h3>
+    <p>
+      Opisz, na czym polega projekt i z jakich działań, elementów będzie się
+      składał.<br />
+      Opisz, w jaki sposób mieszkańcy będą mogli korzystać z projektu.
+      Uwzględnij, że mieszkańcy powinni móc korzystać nieodpłatnie z tego
+      projektu. Określ: minimalną dostępność w wymiarze co najmniej 25
+      godzin tygodniowo, pomiędzy 6:00 a 22:00, z uwzględnieniem soboty lub
+      niedzieli (w przypadku projektów infrastrukturalnych, remontowych lub
+      polegających na zakupie sprzętu lub urządzeń) oraz wskaż zasady
+      rekrutacji, w tym sposób informowania o rekrutacji, termin jej
+      rozpoczęcia i zakończenia oraz kryteria naboru (w przypadku gdy
+      projekt jest skierowany do ograniczonej grupy odbiorców). Nie wskazuj
+      potencjalnego wykonawcy, trybu jego wyboru lub znaków towarowych.
+    </p>
+    <div class="fill mh50">
+      <p><%= @project.body %></p>
+    </div>
+  </div>
+
+  <!-- Projektowanie uniwersalne -->
+  <div class="section">
+    <h3>Projektowanie uniwersalne</h3>
+    <p>
+      Zastanów się, czy projekt jest zgodny z zasadami projektowania
+      uniwersalnego. Określ, czy Twoim zdaniem z projektu będą mogli
+      skorzystać wszyscy mieszkańcy (w możliwie największym stopniu) z
+      uwzględnieniem osób ze specjalnymi potrzebami.<br />
+      Zaznacz poniżej odpowiednie pole (zaznaczenie jest nieobowiązkowe).
+      Jeśli zaznaczysz „Nie”, napisz dlaczego projekt nie jest zgodny z tymi
+      zasadami.
+    </p>
+    <table class="w100">
+      <tbody>
+      <tr>
+        <td class="w15">
+          <p class="checkbox <%= 'checked' if @project.universal_design_set_true? %>">Tak</p>
+        </td>
+        <td class="w15">
+          <p class="checkbox <%= 'checked' if @project.universal_design_set_false? %>">Nie</p>
+        </td>
+        <td>
+          <div class="fill mh50">
+            <%= @project.universal_design_argumentation %>
+
+            <div class="additional-info mw20">
+              <p class="checkbox"></p>
+            </div>
+          </div>
+          <p class="center">
+            (napisz uzasadnienie, jeżeli zaznaczasz pole „Nie”)
+          </p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Uzasadnienie realizacji projektu -->
+  <div class="section">
+    <h3>Uzasadnienie realizacji projektu</h3>
+    <p>
+      Uzasadnij, dlaczego warto zrealizować projekt. Opisz problemy, które
+      rozwiązuje lub napisz, na jakie potrzeby odpowiada.
+    </p>
+    <div class="fill mh100">
+      <p><%= @project.justification_info %></p>
+
+      <div class="additional-info mw40">
+        <p class="checkbox">ew. cd. w załączniku nr ...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+-------------------
+STRONA 3
+-------------------
+-->
+<div class="page">
+  <!-- Kategoria tematyczna projektu -->
+  <div class="section">
+    <h3>Kategoria tematyczna projektu</h3>
+    <table class="w100 collapse">
+      <tbody>
+        <% Decidim::Area.active.all.each_slice(2) do |cat1, cat2| %>
+          <tr>
+            <td class="w40">
+              <p class="checkbox large <%= @project.categories.include?(cat1) ? 'checked' : nil %>"><%= cat1.name['pl'] %></p>
+            </td>
+            <td class="w10"></td>
+            <% if cat2 %>
+              <td class="w50">
+                <p class="checkbox large <%= @project.categories.include?(cat2) ? 'checked' : nil %>"><%= cat2.name['pl'] %></p>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td class="w30">
+            <p class="checkbox large <%= 'checked' if @project.custom_categories.present? %>">inna</p>
+          </td>
+          <td class="w70" colspan="2">
+            <div class="fill"><%= @project.custom_categories %></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Potencjalni odbiorcy projektu -->
+  <div class="section">
+    <h3>Potencjalni odbiorcy projektu</h3>
+    <table class="w100 collapse">
+      <tbody>
+        <% Decidim::AdminExtended::Recipient.sorted_by_name.each_slice(2) do |rec1, rec2| %>
+          <tr>
+            <td class="w40">
+              <p class="checkbox large <%= @project.recipients.include?(rec1) ? 'checked' : nil %>"><%= rec1.name %></p>
+            </td>
+            <td class="w10"></td>
+            <% if rec2 %>
+              <td class="w50">
+                <p class="checkbox large <%= @project.recipients.include?(rec2) ? 'checked' : nil %>"><%= rec2.name %></p>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+        <tr>
+          <td class="w30">
+            <p class="checkbox large <%= 'checked' if @project.custom_recipients.present? %>">inni</p>
+          </td>
+          <td class="w70" colspan="2">
+            <div class="fill"><%= @project.custom_recipients %></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Szacunkowy koszt realizacji projektu -->
+  <div class="section">
+    <h3>Szacunkowy koszt realizacji projektu</h3>
+    <p>
+      Oszacuj koszt realizacji projektu. Uwzględnij również koszt jego
+      eksploatacji w roku wykonania i koszt oznakowania graficznego
+      informującego, że projekt powstał w ramach budżetu obywatelskiego.
+      Skorzystaj z przykładowego cennika na stronie
+      bo.um.warszawa.pl/pages/ile-kosztuje-miasto. Ostateczny koszt realizacji projektu
+      oszacują urzędnicy.
+    </p>
+    <div class="fill price"><%= budget_to_currency @project.budget_value %></div>
+    <p class="center">(wpisz kwotę w zł)</p>
+  </div>
+</div>
+
+<!--
+-------------------
+STRONA 4
+-------------------
+-->
+<div class="page">
+  <!-- Załączniki -->
+  <div class="section">
+    <h3>Załączniki:</h3>
+
+    <h3>A. Wymagane</h3>
+    <p>
+      Lista poparcia dla projektu do budżetu obywatelskiego w m.st.
+      Warszawie na rok <%= @project.edition_year %>.
+    </p>
+    <% if @project.endorsements.any? %>
+      <% @project.endorsements.each_with_index do |file, i| %>
+        <div class="fill"><%= "#{i + 1}. #{translated_attribute file.title}" %></div>
+      <% end %>
+    <% else %>
+      <div class="fill">1.</div>
+      <div class="fill">2.</div>
+      <div class="fill">3.</div>
+    <% end %>
+
+    <h3 style="padding-top: 16px">B. Dodatkowe</h3>
+    <p>
+      Zgoda autora na wykorzystanie utworu dla celów budżetu obywatelskiego,
+      w tym zgoda na nieodpłatne opublikowanie utworu w ESOG.<br />
+      Dołącz taki dokument, jeżeli załączasz utwór np. zdjęcie,
+      wizualizację, ilustrację itp.
+    </p>
+    <% if @project.files.any? %>
+      <% @project.files.each_with_index do |file, i| %>
+        <div class="fill"><%= "#{i + 1}. #{translated_attribute file.title}" %></div>
+      <% end %>
+    <% else %>
+      <div class="fill">1.</div>
+      <div class="fill">2.</div>
+      <div class="fill">3.</div>
+    <% end %>
+  </div>
+</div>
+
+<!--
+-------------------
+STRONA 5
+-------------------
+-->
+<div class="page">
+  <!-- Dane projektodawców -->
+  <h2>Dane projektodawców</h2>
+  <div class="section">
+    <h2>A. Dane projektodawcy wyznaczonego do kontaktu:</h2>
+    <table class="w100 collapse pt12 pb12">
+      <tbody>
+      <tr>
+        <td class="w30">
+          <p class="checkbox large <%= 'checked' if @project.gender == 'male' %>">mieszkaniec</p>
+        </td>
+        <td class="w70">
+          <p class="checkbox large  <%= 'checked' if @project.gender == 'female' %>">mieszkanka</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="w100 collapse">
+      <tbody>
+      <tr>
+        <td class="w25">
+          <p>Imię i nazwisko</p>
+        </td>
+        <td class="w75" colspan="3">
+          <p class="fill"><%= @project.first_name %> <%= @project.last_name %></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="w25">
+          <p>Adres zamieszkania</p>
+        </td>
+        <td class="w50">
+          <div class="fill"><%= @project.street %></div>
+          <p class="center">Nazwa ulicy</p>
+        </td>
+        <td class="w125">
+          <div class="fill"><%= @project.street_number %></div>
+          <p class="center">Nr domu</p>
+        </td>
+        <td class="w125">
+          <div class="fill"><%= @project.flat_number %></div>
+          <p class="center">Nr mieszkania</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="w25"></td>
+        <td class="w75" colspan="3">
+          <div class="postcode">
+            <span><%= @project.zip_code[0] if @project.zip_code.present? %></span>
+            <span><%= @project.zip_code[1] if @project.zip_code.present? %></span>
+            -
+            <span><%= @project.zip_code[3] if @project.zip_code.present? %></span>
+            <span><%= @project.zip_code[4] if @project.zip_code.present? %></span>
+            <span><%= @project.zip_code[5] if @project.zip_code.present? %></span>
+            <strong><%= @project.city %></strong>
+          </div>
+          <p style="padding: 4px 0 0 36px">Kod pocztowy</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="w25">
+          <p>Numer telefonu</p>
+        </td>
+        <td class="w75" colspan="3">
+          <p class="fill"><%= @project.phone_number %></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="w25">
+          <p>Adres e-mail</p>
+        </td>
+        <td class="w75" colspan="3">
+          <p class="fill"><%= @project.email %></p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p class="msg-info">
+      Podanie adresu e-mail lub numeru telefonu projektodawcy wskazanego do
+      kontaktu jest konieczne.
+    </p>
+
+    <h3 style="padding-top: 36px">
+      Fakultatywnie. <span>Wyrażam zgodę na:</span>
+    </h3>
+    <table class="w100 collapse agreements">
+      <tbody>
+      <tr>
+        <td>
+          <p class="checkbox <%= 'checked' if @project.show_author_name %>"></p>
+        </td>
+        <td>
+          <%= I18n.t('show_author_name', scope: 'activemodel.attributes.project') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="checkbox <%= 'checked' if @project.inform_author_about_implementations %>"></p>
+        </td>
+        <td>
+          <%= I18n.t('inform_author_about_implementations', scope: 'activemodel.attributes.project', edition_year: @project.edition_year) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="checkbox <%= 'checked' if @project.email_on_notification %>"></p>
+        </td>
+        <td>
+          <%= I18n.t('email_on_notification', scope: 'activemodel.attributes.project', edition_year: @project.edition_year) %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p style="padding-top: 16px">
+      Szczegółowe informacje na temat przetwarzania Twoich danych znajdziesz
+      na stronie bo.um.warszawa.pl w zakładce „Klauzula informacyjna” lub w
+      wydziałach obsługi mieszkańców w urzędach dzielnic.
+    </p>
+
+    <div class="signature">
+      ..................................................................<br />
+      <span>Podpis projektodawcy lub jego opiekuna prawnego</span>
+    </div>
+  </div>
+</div>
+
+<!--
+-------------------
+STRONA 6 & 7
+-------------------
+-->
+
+<% if project_coauthors_list(@project).any? %>
+  <% project_coauthors_list(@project).each_with_index do |coauthor, i| %>
+    <div class="page">
+      <!-- Dane pozostałych projektodawców -->
+      <div class="section">
+        <% if i == 0 %>
+          <p class="msg-info">
+            Wypełnia się tylko, gdy projekt został zgłoszony przez kilku
+            mieszkańców.
+          </p>
+          <h2 style="padding-top: 24px">B. Dane pozostałych projektodawców</h2>
+        <% end %>
+        <table class="w100 collapse pt12 pb12">
+          <tbody>
+          <tr>
+            <td class="w30">
+              <p class="checkbox large <%= 'checked' if coauthor.gender == 'male' %>">mieszkaniec</p>
+            </td>
+            <td class="w70">
+              <p class="checkbox large <%= 'checked' if coauthor.gender == 'female' %>">mieszkanka</p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="w100 collapse">
+          <tbody>
+          <tr>
+            <td class="w25">
+              <p>Imię i nazwisko</p>
+            </td>
+            <td class="w75" colspan="3">
+              <p class="fill">
+                <%= coauthor.first_name %> <%= coauthor.last_name %>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="w25">
+              <p>Adres zamieszkania</p>
+            </td>
+            <td class="w50">
+              <div class="fill">
+                <%= coauthor.street %>
+              </div>
+              <p class="center">Nazwa ulicy</p>
+            </td>
+            <td class="w125">
+              <div class="fill">
+                <%= coauthor.street_number %>
+              </div>
+              <p class="center">Nr domu</p>
+            </td>
+            <td class="w125">
+              <div class="fill">
+                <%= coauthor.flat_number %>
+              </div>
+              <p class="center">Nr mieszkania</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="w25"></td>
+            <td class="w75" colspan="3">
+              <div class="postcode">
+                <span><%= coauthor.zip_code[0] if coauthor.zip_code.present? %></span>
+                <span><%= coauthor.zip_code[1] if coauthor.zip_code.present? %></span>
+                -
+                <span><%= coauthor.zip_code[3] if coauthor.zip_code.present? %></span>
+                <span><%= coauthor.zip_code[4] if coauthor.zip_code.present? %></span>
+                <span><%= coauthor.zip_code[5] if coauthor.zip_code.present? %></span>
+                <strong><%= coauthor.city %></strong>
+              </div>
+              <p style="padding: 4px 0 0 36px">Kod pocztowy</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="w25">
+              <p>Numer telefonu</p>
+            </td>
+            <td class="w75" colspan="3">
+              <p class="fill"><%= coauthor.phone_number %></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="w25">
+              <p>Adres e-mail</p>
+            </td>
+            <td class="w75" colspan="3">
+              <p class="fill"><%= coauthor.email %></p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <p class="msg-info">
+          Podanie adresu e-mail lub numeru telefonu projektodawcy wskazanego do
+          kontaktu jest konieczne.
+        </p>
+
+        <h3 style="padding-top: 36px">
+          Fakultatywnie. <span>Wyrażam zgodę na:</span>
+        </h3>
+        <table class="w100 collapse agreements">
+          <tbody>
+          <tr>
+            <td>
+              <p class="checkbox <%= 'checked' if coauthor.show_author_name %>"></p>
+            </td>
+            <td>
+              <%= I18n.t('show_author_name', scope: 'activemodel.attributes.project') %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="checkbox  <%= 'checked' if coauthor.inform_author_about_implementations %>"></p>
+            </td>
+            <td>
+              <%= I18n.t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="checkbox  <%= 'checked' if coauthor.email_on_notification %>"></p>
+            </td>
+            <td>
+              <%= I18n.t('email_on_notification', scope: 'activemodel.attributes.project', edition_year: @project.edition_year) %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <p style="padding-top: 16px">
+          Szczegółowe informacje na temat przetwarzania Twoich danych znajdziesz
+          na stronie bo.um.warszawa.pl w zakładce „Klauzula informacyjna” lub w
+          wydziałach obsługi mieszkańców w urzędach dzielnic.
+        </p>
+
+        <div class="signature">
+          ..................................................................<br />
+          <span>Podpis projektodawcy lub jego opiekuna prawnego</span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <!--
+  -------------------
+  STRONA 6 pusta
+  -------------------
+  -->
+  <div class="page">
+    <!-- Dane pozostałych projektodawców -->
+    <div class="section">
+      <p class="msg-info">
+        Wypełnia się tylko, gdy projekt został zgłoszony przez kilku
+        mieszkańców.
+      </p>
+      <h2 style="padding-top: 24px">B. Dane pozostałych projektodawców</h2>
+      <table class="w100 collapse pt12 pb12">
+        <tbody>
+        <tr>
+          <td class="w30">
+            <p class="checkbox large">mieszkaniec</p>
+          </td>
+          <td class="w70">
+            <p class="checkbox large">mieszkanka</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <table class="w100 collapse">
+        <tbody>
+        <tr>
+          <td class="w25">
+            <p>Imię i nazwisko</p>
+          </td>
+          <td class="w75" colspan="3">
+            <p class="fill">
+              <!-- Lorem -->
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="w25">
+            <p>Adres zamieszkania</p>
+          </td>
+          <td class="w50">
+            <div class="fill">
+              <!-- Lorem -->
+            </div>
+            <p class="center">Nazwa ulicy</p>
+          </td>
+          <td class="w125">
+            <div class="fill">
+              <!-- Lorem -->
+            </div>
+            <p class="center">Nr domu</p>
+          </td>
+          <td class="w125">
+            <div class="fill">
+              <!-- Lorem -->
+            </div>
+            <p class="center">Nr mieszkania</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="w25"></td>
+          <td class="w75" colspan="3">
+            <div class="postcode">
+              <span><!-- Lorem --></span>
+              <span><!-- Lorem --></span>
+              -
+              <span><!-- Lorem --></span>
+              <span><!-- Lorem --></span>
+              <span><!-- Lorem --></span>
+              <strong>Warszawa</strong>
+            </div>
+            <p style="padding: 4px 0 0 36px">Kod pocztowy</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="w25">
+            <p>Numer telefonu</p>
+          </td>
+          <td class="w75" colspan="3">
+            <p class="fill"><!-- Lorem --></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="w25">
+            <p>Adres e-mail</p>
+          </td>
+          <td class="w75" colspan="3">
+            <p class="fill"><!-- Lorem --></p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p class="msg-info">
+        Podanie adresu e-mail lub numeru telefonu projektodawcy wskazanego do
+        kontaktu jest konieczne.
+      </p>
+
+      <h3 style="padding-top: 36px">
+        Fakultatywnie. <span>Wyrażam zgodę na:</span>
+      </h3>
+      <table class="w100 collapse agreements">
+        <tbody>
+        <tr>
+          <td>
+            <p class="checkbox"></p>
+          </td>
+          <td>
+            <%= I18n.t('show_author_name', scope: 'activemodel.attributes.project') %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="checkbox"></p>
+          </td>
+          <td>
+            <%= I18n.t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="checkbox"></p>
+          </td>
+          <td>
+            <%= I18n.t('email_on_notification', scope: 'activemodel.attributes.project', edition_year: @project.edition_year) %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p style="padding-top: 16px">
+        Szczegółowe informacje na temat przetwarzania Twoich danych znajdziesz
+        na stronie bo.um.warszawa.pl w zakładce „Klauzula informacyjna” lub w
+        wydziałach obsługi mieszkańców w urzędach dzielnic.
+      </p>
+
+      <div class="signature">
+        ..................................................................<br />
+        <span>Podpis projektodawcy lub jego opiekuna prawnego</span>
+      </div>
+    </div>
+  </div>
+<% end %>
+</body>
+</html>

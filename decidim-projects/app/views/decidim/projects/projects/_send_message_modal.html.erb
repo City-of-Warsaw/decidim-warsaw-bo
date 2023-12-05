@@ -1,0 +1,65 @@
+<div class="reveal confirm-reveal"
+     id="send-private-message"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="send-private-message-title"
+     aria-describedby="send-private-message-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="send-private-message-title"><%= t(".title") %></h2>
+    <button class="close-button" data-close aria-label="<%= t(".close_modal") %>"
+            type="button" tabindex="0">
+      <span aria-hidden="true">&times;<span class="wcag-invisible">Zamknij okno</span></span>
+    </button>
+  </div>
+  <div class="confirm-content">
+    <div class="" id="send-private-message-content" role="document" tabindex="0">
+      <%= decidim_form_for form, url: send_private_message_project_path(project), as: :private_message, method: :post do |f| %>
+        <%= invisible_captcha %>
+
+        <%= text_editor_for(f, :body, { rows: 5, label: 'Treść wiadomości'}) %>
+
+        <%= f.email_field :email,
+                          label: 'Twój adres e-mail',
+                          help_text: 'Na ten adres skontaktuje się z Tobą autor projektu',
+                          autocomplete: 'email' %>
+
+        <%= f.file_field :add_documents,
+                            multiple: true,
+                            label: 'Załączniki',
+                            class: 'multifile block'
+        %>
+
+        <%= f.submit 'Wyślij wiadomość', class: 'button mt-s' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<%= javascript_include_tag "decidim/projects/attachment_button.js" %>
+
+<%= nonced_javascript_tag do %>
+    $(function(){
+        $("input[type=file].multifile").MultiFile({
+            max: 10,
+            accept: '<%= current_organization.settings.upload_allowed_file_extensions.join("|") %>',
+            STRING: {
+                // remove: '(x)',
+                remove: '<span class="button tiny">usuń<span class="wcag-invisible"> plik o nazwie $file</span></span>',
+                denied: 'Ten format pliku $ext jest niedozwolony.',
+                file: '$file',
+                selected: 'Wybrany plik: $file',
+                duplicate: 'Ten plik już został wybrany:\n$file',
+                toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+                toomany: 'Niedozwolona liczba plików (maks: $max)',
+                toobig: '$file ma za duży rozmiar (maks: $size)'
+            }
+        });
+    });
+<% end %>

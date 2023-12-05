@@ -1,0 +1,47 @@
+<div class="row column">
+  <%= form.text_field :first_name, label: t(".user_name") %>
+</div>
+<div class="row column">
+  <%= form.text_field :last_name, label: t(".user_surname") %>
+</div>
+<div class="row column">
+  <%= form.email_field :email, label: t(".email") %>
+</div>
+<div class="row column">
+  <%= form.select :gender,
+                  Decidim::User::GENDERS.map { |g| [I18n.t("gender.#{g}", scope: "decidim.users"), g] },
+                  { include_blank: t(".select_gender") },
+                  { multiple: false } %>
+</div>
+<div class="row column">
+  <%= form.text_area :about, rows: 5 %>
+</div>
+<fieldset class='mb-s mt-m pt-s border-top'>
+  <legend class='strong text-center'>Stan zgód</legend>
+  <%= form.check_box :email_on_notification, label: t('activemodel.attributes.user.email_on_notification') %>
+  <br>
+  <%= form.check_box :allow_private_message, label: t('activemodel.attributes.user.allow_private_message') %>
+  <br>
+  <%= form.check_box :inform_me_about_comments, label: t('activemodel.attributes.user.inform_me_about_comments') %>
+  <br>
+  <%= form.check_box :newsletter, label: t('activemodel.attributes.user.newsletter') %>
+  <br>
+  <%= form.check_box :watched_implementations_updates, label: t('activemodel.attributes.user.watched_implementations_updates') %>
+  <br>
+  <%= form.check_box :inform_about_admin_changes, label: t('activemodel.attributes.user.inform_about_admin_changes') %>
+
+</fieldset>
+<div class="row column">
+  <%= form.text_field :password, label: t(".password") %>
+</div>
+<fieldset class='mb-s mt-m pt-s border-top'>
+  <legend class='strong text-center'>Potwierdzenie konta</legend>
+  <div class="row column">
+    <% if form.object.confirmed_at %>
+      <label class="styled-label" for="normal_user_password">Data potwierdzenia</label>
+      <%= l form.object.confirmed_at, format: :short %>
+    <% else %>
+      <%= form.check_box :confirmed, label: 'Konto potwierdzone' %>
+    <% end %>
+  </div>
+</fieldset>

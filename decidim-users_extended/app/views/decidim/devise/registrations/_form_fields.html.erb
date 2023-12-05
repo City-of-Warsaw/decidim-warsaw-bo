@@ -1,0 +1,70 @@
+<div class="field">
+  <% if controller_name == 'coauthorship_acceptances' %>
+    <%= f.email_field :email,
+                      disabled: true,
+                      label: "Twój email, na który zostałeś zaproszony"
+    %>
+  <% else %>
+    <%= f.email_field :email, autocomplete: 'email' %>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.password_field :password,
+                       help_text: t("decidim.devise.registrations.new.password_help", minimun_characters: NOBSPW.configuration.min_password_length),
+                       # onkeyup: "checkPasswordStrength()",
+                       class: 'check-password-strength-js',
+                       data: { confirmation: '#registration_user_password_confirmation' },
+                       aria: { describedby: 'requirements' } %>
+
+  <ul class="password-rules" id="requirements">
+    <li id="length"><span class="wcag-invisible">Musi zawierać </span>10 znaków</li>
+    <li id="lowercase"><span class="wcag-invisible">Musi zawierać </span>jedną, małą literę</li>
+    <li id="uppercase"><span class="wcag-invisible">Musi zawierać </span>jedną, wielką literę</li>
+    <li id="number"><span class="wcag-invisible">Musi zawierać </span>jedną cyfrę</li>
+    <li id="special"><span class="wcag-invisible">Musi zawierać </span>jeden znak specjalny</li>
+  </ul>
+</div>
+
+<div class="field">
+  <%= f.password_field :password_confirmation,
+                       class: 'password-confirmation-js',
+                       data: { password: '#registration_user_password' },
+                       required: true %>
+</div>
+
+<div class="field pt-s pb-s custom-radio-field">  
+  <small class="mb-xs"><%= t('activemodel.attributes.user.show_my_name_info') %></small> 
+  <label>
+    <%= radio_button_tag "user[gender]", "male" %> <%= t('decidim.users.gender.male') %>
+  </label>
+
+  <label>
+    <%= radio_button_tag "user[gender]", "female" %> <%= t('decidim.users.gender.female') %>
+  </label>  
+</div>
+
+<div class="user-person">
+  <div class="field">
+    <%= f.text_field :first_name, autocomplete: 'given-name' %>
+  </div>
+</div>
+
+<div class="user-person">
+  <div class="field">
+    <%= f.text_field :last_name, autocomplete: 'family-name' %>
+  </div>
+</div>
+
+<small><%= t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new..terms"), page_path("terms-and-conditions"), class: 'underlined', target: '_blank')).html_safe %></small>
+
+<div class="gray-info-box mt-s">
+  <div class="checkboxed">
+    <%= f.check_box :rodo, label: "#{t('activemodel.attributes.user.rodo', link: '/')} *".html_safe %>
+  </div>
+</div>
+
+<div class="card explanation mt-s pl-s pt-s pr-s pb-s">
+  <div class='strong'><%= t('information_clause_label', scope: 'decidim.projects.projects.edit', link: '/pages/klauzula-informacyjna').html_safe %></div>
+  <%= t('information_clause_explanation', scope: 'decidim.projects.projects.edit') %>
+</div>

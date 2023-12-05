@@ -1,0 +1,99 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Odwołania > ", appeals_path %>
+
+      <% if allowed_to? :edit, :appeal, appeal: @appeal %>
+        <%= icon_link_to "pencil", edit_appeal_path(@appeal), 'Edytuj odwołanie', class: "action-icon--edit-project" %>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <strong>Dotyczy projektu:</strong>
+      <p><%= link_to decidim_html_escape(project_title_for_admin(@appeal.project)).html_safe, project_path(@appeal.project) %></p>
+    </div>
+    <div class="row column">
+      <strong>Weryfikator:</strong>
+      <% if @appeal.project.reevaluator %>
+        <p><%= @appeal.project.reevaluator.ad_full_name %></p>
+      <% else %>
+        <p>Do projektu jeszcze nie przydzielono weryfikatora do ponownej oceny</p>
+      <% end %>
+    </div>
+    <div class="row column">
+      <strong>Stan:</strong>
+      <p><%= reevaluation_status(@appeal.project).capitalize.html_safe %></p>
+    </div>
+    <div class="row column">
+      <strong>Sposób wpłynięcia:</strong>
+      <% if @appeal.is_paper %>
+        <p>Odwołanie papierowe, wprowadzone przez Urząd
+        <br>Wprowadził/a: <%= @appeal.author.ad_full_name  %></p>
+      <% else %>
+        <p>Odwołanie złożone elektronicznie przez Autora</p>
+      <% end %>
+
+    </div>
+    <div class="row column">
+      <strong>Data złożenia odwołania:</strong>
+      <% if @appeal.time_of_submit %>
+        <p><%= l @appeal.time_of_submit, format: :decidim_short %></p>
+      <% else %>
+        <p>Jeszcze nie zostało złożone</p>
+      <% end %>
+    </div>
+    <div class="row column">
+      <strong>Treść:</strong>
+      <p><%= decidim_html_escape(@appeal.body).html_safe %></p>
+    </div>
+    <div class="row column">
+      <strong>Imię i nazwisko autora projektu:</strong>
+      <p><%= @appeal.project.creator_author.name_and_surname %></p>
+    </div>
+    <div class="row column">
+      <strong>Załączniki:</strong>
+      <div>
+        <% if @appeal && @appeal.documents.any? %>
+          <% @appeal.documents.each do |e| %>
+            <label>
+              <%= link_to translated_attribute(e.title), e.url, target: '_blank' %>
+            </label>
+          <% end %>
+        <% else %>
+          Nie załączono
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% project = @appeal.project %>
+<div class="button--double form-general-submit">
+  <% if allowed_to? :edit, :appeal, appeal: @appeal %>
+    <%= link_to "Edytuj", edit_appeal_path(@appeal), class: "button" %>
+  <% end %>
+
+  <% if allowed_to?(:show, :appeal, appeal: @appeal) %>
+    <%= link_to 'gen PDF - odwołanie', appeal_path(@appeal, format: 'pdf'), class: 'button reversed' %>
+  <% end %>
+
+  <% if allowed_to? :show, :project, project: project %>
+    <% if project.reevaluation %>
+      <%= link_to 'PDF - ponowna ocena', project_reevaluation_path(project, project.reevaluation, format: 'pdf'), class: 'button reversed hollow' %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="button--double form-general-submit">
+  <% if allowed_to? :edit_reevaluation, :project_evaluate, project: project %>
+    <% if project.reevaluation %>
+      <%= link_to t("actions.edit_project_reevaluation", scope: "decidim.projects"), edit_project_reevaluation_path(project, project.reevaluation), class: "button" %>
+    <% else %>
+      <%= link_to t("actions.create_project_reevaluation", scope: "decidim.projects"), new_project_reevaluation_path(project), class: "button" %>
+    <% end %>
+  <% end %>
+
+  <%= reevaluation_actions(project, 'button') %>
+</div>

@@ -1,0 +1,9 @@
+<% if projects.any? %>
+  <% projects.each do |project| %>
+    <%= card_for project, size: :m %>
+  <% end %>
+<% else %>
+  <p><%= t("decidim.projects.projects_lists.projects.empty") %></p>
+<% end %>
+
+

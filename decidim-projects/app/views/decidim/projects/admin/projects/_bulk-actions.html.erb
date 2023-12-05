@@ -1,0 +1,40 @@
+<div class="flex--cc flex-gap--1">
+  <%= render partial: "decidim/projects/admin/projects/bulk_actions/dropdown" %>
+
+  <div id="js-other-actions-wrapper" class="text-right">
+    <% if allowed_to? :export, :projects %>
+      <%#= export_dropdown %>
+
+      <span class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+      <div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+        <ul class="vertical menu add-components">
+          <li class="exports--format--xlsx exports--xlsx">
+            <%= link_to 'Pełna lista projektów', full_export_projects_path(format: 'xlsx') + "?" + applied_params_hash.to_param, target: '_blank' %>
+          </li>
+          <li>
+            <%= link_to 'Listę projektów', projects_export_projects_path(format: 'xlsx') + "?" + applied_params_hash.to_param, target: '_blank' %>
+          </li>
+          <li>
+            <%= link_to 'Dane autorów', authors_export_projects_path(format: 'xlsx') + "?" + applied_params_hash.to_param, target: '_blank' %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= render 'index_list_cta_buttons' %>
+  </div>
+
+  <% if allowed_to? :bulk_action, :project, component: current_component %>
+    <%# ONLY ADMINS AND COORDINATORS %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/register_to_signum" %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/accept_changes" %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/accept_evaluations" %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/send_messages" %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/forward_to_department" %>
+  <% end %>
+
+  <% if allowed_to? :bulk_subcoordinator_action, :project, component: current_component %>
+    <%# ALSO SUB_COORDINATORS %>
+    <%= render partial: "decidim/projects/admin/projects/bulk_actions/assign_to_valuator" %>
+  <% end %>
+</div>

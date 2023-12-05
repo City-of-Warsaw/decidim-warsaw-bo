@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Karty oceny
+    </h2>
+  </div>
+  <div class="card-section">
+    <ul>
+      <% if project.formal_evaluation && project.formal_evaluation.attachments.any? %>
+        <strong>Ocena formalna:</strong>
+        <% project.formal_evaluation.attachments.each do |attachment| %>
+          <li><%= link_to translated_attribute(attachment.title), attachment.url %></li>
+        <% end %>
+      <% end %>
+
+      <% if project.meritorical_evaluation && project.meritorical_evaluation.attachments.any? %>
+        <strong>Ocena merytoryczna:</strong>
+        <% project.meritorical_evaluation.attachments.each do |attachment| %>
+          <li><%= link_to translated_attribute(attachment.title), attachment.url %></li>
+        <% end %>
+      <% end %>
+
+      <% if project.reevaluation && project.reevaluation.attachments.any? %>
+        <strong>Ponowna ocena:</strong>
+        <% project.reevaluation.attachments.each do |attachment| %>
+          <li><%= link_to translated_attribute(attachment.title), attachment.url %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

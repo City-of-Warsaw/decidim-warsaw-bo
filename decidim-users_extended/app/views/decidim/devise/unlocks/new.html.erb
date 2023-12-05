@@ -1,0 +1,47 @@
+<% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
+
+<% content_for :devise_links do %>
+<ul class="primary-info-box">
+  <li class="text-center">
+    <%= t("decidim.devise.registrations.new.already_have_an_account?") %>
+    <%= link_to t("decidim.devise.registrations.new.sign_in"), new_user_session_path %>
+  </li>
+
+  <li class="text-center">
+    <%= t("decidim.devise.sessions.new.are_you_new?") %>
+    <%= link_to t("decidim.devise.sessions.new.register"), new_user_registration_path %>
+  </li>
+</ul>
+
+<% end %>
+
+<div class="wrapper with-double-decor">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1  class='devise-header'><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
+        <%= yield :devise_links %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns large-6 medium-10 medium-centered">
+        <div class="card no-border">
+          <div class="card__content">
+            <%= decidim_form_for(resource, namespace: "unlock", as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="field">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="actions text-center">
+                <%= f.submit t("devise.unlocks.new.resend_unlock_instructions"), class: "button hollow devise" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

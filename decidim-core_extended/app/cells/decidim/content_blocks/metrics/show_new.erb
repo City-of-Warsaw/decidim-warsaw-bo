@@ -1,0 +1,21 @@
+<section class="wrapper-home costs-section home-section">
+  <div class="row">
+    <div class="heading-div">
+      <h2 class="section-heading white"><%= t(".title").html_safe %></h2>
+      <div class="body white"><%= t(".body").html_safe %></div>
+    </div>
+    <div class="row archive-flex-row costs-row slicked">
+      <% costs.each do |c| %>
+        <div class="column large-4">
+          <%= cell("decidim/core_extended/cost", c) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-m pb-m border-bottom">
+    <div class="column text-center">
+      <% url = cost_page ? decidim.page_path(cost_page) : decidim.pages_path %>
+      <%= link_to t(".show_more"), url, class: "button hollow button--sc subhero-cta" %>
+    </div>
+  </div>
+</section>

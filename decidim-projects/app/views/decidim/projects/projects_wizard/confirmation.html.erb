@@ -1,0 +1,19 @@
+<% add_decidim_page_title(project_wizard_step_title(wizard)) %>
+
+<%= render partial: "wizard_aside" %>
+<%= render partial: "wizard_header" %>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="legend"><%= render partial: "decidim/projects/projects_wizard/explanation/step_4_confirmation" %></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="actions submit-project">
+      <%= link_to t(".add_another"), path_for_new_project, class: "button hollow mt-s mb-none mr-s" %>
+      <%= link_to t(".see_project"), Decidim::ResourceLocatorPresenter.new(@project).path, class: "button hollow mt-s mb-none" %>
+    </div>
+  </div>
+</div>

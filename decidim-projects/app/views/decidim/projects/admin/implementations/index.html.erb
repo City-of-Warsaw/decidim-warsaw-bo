@@ -1,0 +1,59 @@
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        Realizacje
+        <span id="js-selected-projects-count" class="component-counter component-counter--inline" title="<%= t("decidim.projects.admin.projects.index.selected") %>"></span>
+      </div>
+
+      <%= render partial: "bulk-actions" %>
+    </h2>
+  </div>
+  <%= admin_filter_selector(:projects) %>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+
+        <tr>
+          <th>
+            <%= sort_link(query, :esog_number, t("models.project.fields.esog_number", scope: "decidim.projects"), default_order: :desc ) %>
+          </th>
+          <th>
+            <%= sort_link(query, :title, 'Nazwa projektu' ) %>
+          </th>
+          <th>
+            Opis stanu realizacji
+          </th>
+          <th>
+            Poziom/<br>dzielnica/<br>obszar
+          </th>
+          <th>
+            Realizator
+          </th>
+          <th>
+            <%= sort_link(query, :implementation_status, t("models.project.fields.implementation_status", scope: "decidim.projects") ) %>
+          </th>
+          <th>
+            <%= sort_link(query, :updated_at, t("models.project.fields.updated_at", scope: "decidim.projects") ) %>
+          </th>
+          <th>
+            Posiada zdjęcia
+          </th>
+
+          <th class="actions">Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% projects.each do |project| %>
+          <%= render partial: "decidim/projects/admin/implementations/project-tr", locals: { project: project } %>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate projects, theme: "decidim" %>
+      <%= paginated_counter(projects) %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/projects" %>

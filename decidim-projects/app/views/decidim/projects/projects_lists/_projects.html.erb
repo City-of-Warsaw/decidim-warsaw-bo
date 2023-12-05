@@ -1,0 +1,11 @@
+<tbody id="projects-list">
+  <% if projects.any? %>
+    <% projects.each do |project| %>
+      <%= card_for project, size: :list_item %>
+    <% end %>
+  <% else %>
+    <tr>
+      <td class="no-border text-center" colspan="4"><%= t(".empty") %></td>
+    </tr>
+  <% end %>
+</tbody>

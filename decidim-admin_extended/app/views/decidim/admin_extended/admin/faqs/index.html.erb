@@ -1,0 +1,100 @@
+<div class="card with-overflow" id='user-groups'>
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div><%= t("decidim.admin.titles.faqs") %></div>
+      <div class="flex--cc flex-gap--1">
+        <div id="js-other-actions-wrapper" class="text-right">
+          <%= link_to t("actions.add_faq", scope: "decidim.admin_extended.admin.faqs"), new_faq_path, class: "button tiny button--simple" %>
+          <%= link_to t("actions.add_faq_group", scope: "decidim.admin_extended.admin.faq_groups"), new_faq_group_path, class: "button tiny button--simple" %>
+        </div>
+      </div>
+    </h2>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".groupes") %></h2>
+  </div>
+  <fieldset class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".title") %></th>
+            <th><%= t(".subtitle") %></th>
+            <th><%= t(".published") %></th>
+            <th><%= t(".created_at") %></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% faq_groups.each do |faq_group| %>
+          </tr>
+            <td><%= faq_group.title %></td>
+            <td><%= faq_group.subtitle.presence || "-" %></td>
+            <td><%= faq_group.published.present? ? t(".published_yes") : t(".published_no") %></td>
+            <td><%= l faq_group.created_at, format: :decidim_short %></td>
+            <td class="table-list__actions">
+              <%= icon_link_to "pencil",
+                                    edit_faq_group_path(faq_group),
+                                    t("actions.edit_faq_group", scope: "decidim.admin_extended.admin.faq_groups"),
+                                    class: "action-icon--edit",
+                                    method: :get %>
+              <%= icon_link_to "circle-x",
+                                    [faq_group],
+                                    t("actions.destroy_faq_group", scope: "decidim.admin_extended.admin.faq_groups"),
+                                    class: "action-icon--remove",
+                                    method: :delete, 
+                                    data: { confirm: t("actions.confirm_destroy_faq_group", scope: "decidim.admin_extended.admin.faq_groups") } %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".faqs") %></h2>
+  </div>
+  <fieldset class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".group_name") %></th>
+            <th><%= t(".title") %></th>
+            <th><%= t(".published") %></th>
+            <th><%= t(".created_at") %></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% faq_groups.each do |faq_group| %>
+          <tr>
+            <td><strong><%= faq_group.title %></strong></td>
+            <td colspan="4"></td>
+          </tr>
+          <% faq_group.faqs.sorted_by_weight.each do |faq| %>
+            <tr>
+              <td> </td>
+              <td><%= faq.title %></td>
+              <td><%= faq.published.present? ? t(".published_yes") : t(".published_no") %></td>
+              <td><%= l faq.created_at, format: :decidim_short %></td>
+              <td class="table-list__actions">
+                <%= icon_link_to "pencil",
+                                      edit_faq_path(faq),
+                                      t("actions.edit_faq", scope: "decidim.admin_extended.admin.faqs"),
+                                      class: "action-icon--edit",
+                                      method: :get %>
+                <%= icon_link_to "circle-x",
+                                      [faq],
+                                      t("actions.destroy_faq", scope: "decidim.admin_extended.admin.faqs"),
+                                      class: "action-icon--remove",
+                                      method: :delete, 
+                                      data: { confirm: t("actions.confirm_destroy_faq", scope: "decidim.admin_extended.admin.faqs") } %>
+              </td>
+            </tr>
+          <% end %>    
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+</div>

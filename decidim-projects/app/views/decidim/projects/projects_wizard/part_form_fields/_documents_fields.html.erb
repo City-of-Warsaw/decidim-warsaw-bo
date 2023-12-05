@@ -1,0 +1,121 @@
+<div class="row column card card-for-attachment">
+  <div class="card__content">
+    <label for="project_add_endorsements">
+      <%= t("add_images", scope: "decidim.projects.projects.edit", link: actual_edition_endorsement_list_path(format: 'pdf')).html_safe %>
+    </label>
+    <span class="help-text"><%= t("add_images_helper", scope: "decidim.projects.projects.edit") %></span>
+    <%= form.file_field :add_endorsements,
+                        multiple: true,
+                        label: false,
+                        class: 'multifile hidden',
+                        'aria-describedby': 'requirements-for-endorsements',
+                        'aria-required': true
+    %>
+    <button class='button hollow attachment-button-js' type="button" data-target="#project_add_endorsements">
+      <span>+</span>
+      Dodaj plik
+    </button>
+    <%= project_files_count(@project,'add_endorsements') %>
+  </div>
+  <% if @project %>
+    <% @project.endorsements.visible.each do |e| %>
+      <label>
+        <%= translated_attribute(e.title) %>
+        <%= check_box_tag 'project[remove_endorsements][]', e.id, false, class: "file-delete-checkbox" %>
+        <span class='tiny'>usuń<span class="wcag-invisible"> plik o nazwie <%= e.title %></span></span>
+      </label>
+    <% end %>
+  <% end %>
+  <div class="card__footer" id="requirements-for-endorsements">
+    <%= t('add_images_size', scope: "decidim.projects.projects.edit") %>
+  </div>
+</div>
+
+<div class="row column card card-for-attachment">
+  <div class="card__content">
+    <label for="project_add_files">
+      <%= t("add_documents", scope: "decidim.projects.projects.edit").html_safe %>
+    </label>
+    <span class="help-text"><%= t("add_documents_helper", scope: "decidim.projects.projects.edit") %></span>
+    <%= form.file_field :add_files,
+                        multiple: true,
+                        label: false,
+                        class: 'multifile hidden',
+                        'aria-describedby': 'requirements-for-files requirements-for-files-warning'
+    %>
+    <button class='button hollow attachment-button-js' type="button" data-target="#project_add_files">
+      <span>+</span>
+      Dodaj plik
+    </button>
+    <%= project_files_count(@project,'add_files') %>
+  </div>
+  <% if @project %>
+    <% @project.files.visible.each do |e| %>
+      <label>
+        <%= translated_attribute(e.title) %>
+        <%= check_box_tag 'project[remove_files][]', e.id, false, class: "file-delete-checkbox" %>
+        <span class='tiny'>usuń<span class="wcag-invisible"> plik o nazwie <%= e.title %></span></span>
+      </label>
+    <% end %>
+  <% end %>
+  <div class="card__footer" id="requirements-for-files">
+    <%= t('add_documents_size', scope: "decidim.projects.projects.edit") %>
+  </div>
+  <div class="card__footer warning" id="requirements-for-files-warning">
+    <%= t('add_documents_warning', scope: "decidim.projects.projects.edit") %>
+  </div>
+</div>
+
+<div class="row column card card-for-attachment">
+  <div class="card__content">
+    <label for="project_add_files">
+      <%= t("add_more_documents", scope: "decidim.projects.projects.edit", link: "/zgoda_autora_utworu_2025.docx").html_safe %>
+    </label>
+    <span class="help-text"><%= t("add_more_documents_helper", scope: "decidim.projects.projects.edit") %></span>
+    <%= form.file_field :add_consents,
+                        multiple: true,
+                        label: false,
+                        class: 'multifile hidden',
+                        'aria-describedby': 'requirements-for-consents'
+    %>
+    <button class='button hollow attachment-button-js' type="button" data-target="#project_add_consents">
+      <span>+</span>
+      Dodaj plik
+    </button>
+    <%= project_files_count(@project,'add_consents') %>
+  </div>
+  <% if @project %>
+    <% @project.consents.visible.each do |e| %>
+      <label>
+        <%= translated_attribute(e.title) %>
+        <%= check_box_tag 'project[remove_consents][]', e.id, false, class: "file-delete-checkbox" %>
+        <span class='tiny'>usuń<span class="wcag-invisible"> plik o nazwie <%= e.title %></span></span>
+      </label>
+    <% end %>
+  <% end %>
+  <div class="card__footer" id="requirements-for-consents">
+    <%= t('add_more_documents_size', scope: "decidim.projects.projects.edit") %>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/attachment_button.js" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      max: 10,
+      accept: '<%= current_organization.settings.upload_allowed_file_extensions.join("|") %>',
+      STRING: {
+        // remove: '(x)',
+        remove: '<span class="button tiny">usuń<span class="wcag-invisible"> plik o nazwie $file</span></span>',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

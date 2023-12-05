@@ -1,0 +1,108 @@
+      <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
+      <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
+      <div class="">
+        <div class="user-profile__form">
+          <%= decidim_form_for(@account, url: decidim.account_path, method: :put, html: { autocomplete: "on" }) do |f| %>
+            <input autocomplete="on" name="hidden" type="password" class="hidden" />
+            <div class="custom-user-avatar">
+              <%= f.upload :avatar,
+                    label: false, 
+                    class: "custom-user-avatar__input hidden"
+              %>
+
+              <div class="avatar-file-controls"> 
+                <span class="avatar-filename avatar-filename-js"></span>
+                <button type="button" class="avatar-file-button avatar-file-button-js">Dodaj nowe zdjęcie</button>
+
+                <%= f.check_box :remove_avatar %> 
+              </div>
+            </div>
+      
+
+            <label>
+              Twój e-mail
+              <small>Nie możesz zmienić adresu e-mail samodzielnie, jeżeli chcesz go zmienić napisz na adres <a href="mailto:bo@um.warszawa.pl">bo@um.warszawa.pl</a>.</small>
+              <input type='text' value="<%= current_user.email %>" disabled="true">
+            </label> 
+
+            <%= f.hidden_field :name %>
+        
+            <div class="row">
+              <div class="columns medium-6">
+                <%= f.text_field :first_name %> 
+              </div>
+
+              <div class="columns medium-6">
+                <%= f.text_field :last_name %> 
+              </div>
+            </div> 
+            
+            <hr class='full-width'>
+
+            <small><%= t('activemodel.attributes.user.show_my_name_info') %></small>
+          
+            <div class="radio-field">
+              <label>
+                <%= radio_button_tag "user[gender]", "male", checked = current_user.gender == "male" %> Mieszkaniec
+              </label>
+              <label>
+                <%= radio_button_tag "user[gender]", "female", checked = current_user.gender == "female" %> Mieszkanka
+              </label> 
+            </div>
+            
+            <hr class='full-width'>
+
+            <fieldset class='mb-s'>
+              <span class="checkboxed"><%= f.check_box :email_on_notification, label: t('activemodel.attributes.user.email_on_notification') %></span>
+              <span class="checkboxed"><%= f.check_box :allow_private_message, label: t('activemodel.attributes.user.allow_private_message') %></span>
+              <span class="checkboxed"><%= f.check_box :inform_me_about_comments, label: t('activemodel.attributes.user.inform_me_about_comments') %></span>
+              <span class="checkboxed"><%= f.check_box :newsletter, label: t('activemodel.attributes.user.newsletter') %></span>
+              <span class="checkboxed"><%= f.check_box :watched_implementations_updates, label: t('activemodel.attributes.user.watched_implementations_updates') %></span>
+              <span class="checkboxed"><%= f.check_box :inform_about_admin_changes, label: t('activemodel.attributes.user.inform_about_admin_changes') %></span>
+            </fieldset>
+
+            <%= f.submit "Zapisz zmiany", class: "button submit wide" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="user-profile gray-bg">
+  <div class="row">
+    <div class="main-container__content">
+        <div class="user-profile__form user-profile__form--narrow">
+          <h2>Zmiana <span>hasła</span></h2>
+
+          <% if current_organization.sign_in_enabled? %>
+            <%= decidim_form_for(password_form, url: decidim_core_extended.account_user_password_path, method: :put, html: { autocomplete: "off", id: 'account-password' }) do |f| %>
+              <%= render "decidim/account/password_fields", form: f %>
+              <%= f.submit "Zapisz nowe hasło", class: "button submit wide" %>
+            <%end %>
+          <% end %>
+
+          <%= nonced_javascript_tag do %>
+            $(function(){
+              $('#user_zip_code').mask('00-000');
+            }); 
+
+            fileField = $("#user_avatar");
+            uploadButton = $(".avatar-file-button-js"); 
+            fileName = $(".avatar-filename-js");
+
+            uploadButton.click(function() {
+              fileField.click();
+            });
+
+            fileField.change(function() {
+              if (fileField.val()) {
+                fileName.html(fileField.val().match(
+                  /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1]);
+          
+              }
+            }); 
+          <% end %>
+        </div>

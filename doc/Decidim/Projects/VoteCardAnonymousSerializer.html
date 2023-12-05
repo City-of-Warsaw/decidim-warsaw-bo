@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::VoteCardAnonymousSerializer
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::VoteCardAnonymousSerializer";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">VoteCardAnonymousSerializer</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::VoteCardAnonymousSerializer
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="VoteCardSerializer.html" title="Decidim::Projects::VoteCardSerializer (class)">VoteCardSerializer</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Exporters::Serializer</li>
+          
+            <li class="next"><span class='object_link'><a href="VoteCardSerializer.html" title="Decidim::Projects::VoteCardSerializer (class)">VoteCardSerializer</a></span></li>
+          
+            <li class="next">Decidim::Projects::VoteCardAnonymousSerializer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/lib/decidim/projects/vote_card_anonymous_serializer.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class serializes a Vote so can be exported to CSV, JSON or other formats.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="VoteCardSerializer.html" title="Decidim::Projects::VoteCardSerializer (class)">VoteCardSerializer</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="VoteCardSerializer.html#index-instance_method" title="Decidim::Projects::VoteCardSerializer#index (method)">#index</a></span>, <span class='object_link'><a href="VoteCardSerializer.html#vote_card-instance_method" title="Decidim::Projects::VoteCardSerializer#vote_card (method)">#vote_card</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#serialize-instance_method" title="#serialize (instance method)">#<strong>serialize</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public: Exports a hash with the serialized data for this vote.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="VoteCardSerializer.html" title="Decidim::Projects::VoteCardSerializer (class)">VoteCardSerializer</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="VoteCardSerializer.html#component-instance_method" title="Decidim::Projects::VoteCardSerializer#component (method)">#component</a></span>, <span class='object_link'><a href="VoteCardSerializer.html#headers-instance_method" title="Decidim::Projects::VoteCardSerializer#headers (method)">#headers</a></span>, <span class='object_link'><a href="VoteCardSerializer.html#initialize-instance_method" title="Decidim::Projects::VoteCardSerializer#initialize (method)">#initialize</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Admin/VotesCardsHelper.html" title="Decidim::Projects::Admin::VotesCardsHelper (module)">Admin::VotesCardsHelper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Admin/VotesCardsHelper.html#column_selected%3F-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#column_selected? (method)">#column_selected?</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#columns_for_selection-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#columns_for_selection (method)">#columns_for_selection</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#concat_two_dates-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#concat_two_dates (method)">#concat_two_dates</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#ip_number_info-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#ip_number_info (method)">#ip_number_info</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#list_of_warnings-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#list_of_warnings (method)">#list_of_warnings</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#selected_columns-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#selected_columns (method)">#selected_columns</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#sort_column_link-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#sort_column_link (method)">#sort_column_link</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#stats_timetable-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#stats_timetable (method)">#stats_timetable</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#time_between_date-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#time_between_date (method)">#time_between_date</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#vote_status-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#vote_status (method)">#vote_status</a></span>, <span class='object_link'><a href="Admin/VotesCardsHelper.html#yes_or_no_icon-instance_method" title="Decidim::Projects::Admin::VotesCardsHelper#yes_or_no_icon (method)">#yes_or_no_icon</a></span></p>
+
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="VoteCardSerializer.html#initialize-instance_method" title="Decidim::Projects::VoteCardSerializer#initialize (method)">Decidim::Projects::VoteCardSerializer</a></span></p>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="serialize-instance_method">
+  
+    #<strong>serialize</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public: Exports a hash with the serialized data for this vote.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/lib/decidim/projects/vote_card_anonymous_serializer.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_serialize'>serialize</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+    <span class='label'>ip_number:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='label'>card_number:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_card_number'>card_number</span><span class='comma'>,</span>
+    <span class='label'>created_at:</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_l'>l</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_created_at'>created_at</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:decidim_short</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='comment'># &#39;Data utworzenia&#39;,
+</span>    <span class='label'>d:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_activated_at'>activated_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_l'>l</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_activated_at'>activated_at</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:decidim_long</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>d2:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_submitted_at'>submitted_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_l'>l</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_submitted_at'>submitted_at</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:decidim_long</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>first_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>     <span class='comment'># &#39;Imię&#39;,
+</span>    <span class='label'>last_name:</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='comment'># &#39;Nazwisko&#39;,
+</span>    <span class='label'>pesel_number:</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># &#39;Nr PESEL&#39;,
+</span>    <span class='label'>sex:</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim.projects.admin.votes_cards.show</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='comment'># &#39;Płeć&#39;,
+</span>    <span class='label'>age:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age'>age</span><span class='comma'>,</span>                   <span class='comment'># &#39;Wiek&#39;,
+</span>    <span class='label'>age_0_3:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='comma'>,</span>      <span class='comment'># &#39;Wiek 0-3&#39;,
+</span>    <span class='label'>age_4_6:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span> <span class='int'>6</span><span class='rparen'>)</span><span class='comma'>,</span>      <span class='comment'># &#39;Wiek 4-6&#39;,
+</span>    <span class='label'>age_7_10:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>7</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span><span class='comma'>,</span>    <span class='comment'># &#39;Wiek 7-10&#39;,
+</span>    <span class='label'>age_11_14:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>11</span><span class='comma'>,</span> <span class='int'>14</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 11-14&#39;,
+</span>    <span class='label'>age_15_18:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>15</span><span class='comma'>,</span> <span class='int'>18</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 15-18&#39;,
+</span>    <span class='label'>age_19_24:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>19</span><span class='comma'>,</span> <span class='int'>24</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 19-24&#39;,
+</span>    <span class='label'>age_25_34:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>25</span><span class='comma'>,</span> <span class='int'>34</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 25-34&#39;,
+</span>    <span class='label'>age_35_44:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>35</span><span class='comma'>,</span> <span class='int'>44</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 35-44&#39;,
+</span>    <span class='label'>age_45_64:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>45</span><span class='comma'>,</span> <span class='int'>64</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 45-64&#39;,
+</span>    <span class='label'>age_65_79:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>65</span><span class='comma'>,</span> <span class='int'>79</span><span class='rparen'>)</span><span class='comma'>,</span>  <span class='comment'># &#39;Wiek 65-79&#39;,
+</span>    <span class='label'>age_80:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age_in'>age_in</span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='int'>150</span><span class='rparen'>)</span><span class='comma'>,</span>    <span class='comment'># &#39;Wiek 80+&#39;,
+</span>    <span class='label'>age_missing:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_age'>age</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Tak</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='comment'>#           &#39;Wiek b.d.&#39;
+</span>    <span class='label'>city:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'>#             &#39;Miejscowość&#39;,
+</span>    <span class='label'>street:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># &#39;Adres zamieszkania - ulica&#39;,
+</span>    <span class='label'>street_number:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'>#           &#39;Adres zamieszkania - nr domu&#39;,
+</span>    <span class='label'>flat_number:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># &#39;Adres zamieszkania - nr lokalu&#39;,
+</span>    <span class='label'>zip_code:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='comment'># &#39;Adres zamieszkania - kod pocztowy&#39;,
+</span>    <span class='label'>email:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>             <span class='comment'># &#39;Adres e-mail&#39;,
+</span>    <span class='label'>submitting_method:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_submitting_method'>submitting_method</span><span class='comma'>,</span> <span class='comment'># &#39;Sposób głosowania&#39;,
+</span>    <span class='label'>status:</span> <span class='id identifier rubyid_vote_status'>vote_status</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='comment'># &#39;Status karty do głosowania&#39;,
+</span>    <span class='comment'># error_global_projects_count_exceeded: &#39;&#39;,             # &#39;Błąd: liczba projektów ogólnomiejskich ponad limit&#39;,
+</span>    <span class='comment'># error_district_projects_count_exceeded: &#39;&#39;,           # &#39;Błąd: liczba projektów dzielnicowych ponad limit&#39;,
+</span>    <span class='comment'># error_pesel_number_blank: &#39;&#39;,                         # &#39;Błąd: brak nr PESEL&#39;,
+</span>    <span class='comment'># error_pesel_number_invalid: &#39;&#39;,                       # &#39;Błąd: błędny nr PESEL&#39;,
+</span>    <span class='comment'># error_card_not_signed: &#39;&#39;,                            # &#39;Błąd: brak podpisu&#39;,
+</span>    <span class='comment'># error_identity_not_checked: &#39;&#39;,                       # &#39;Błąd: tożsamość niepotwierdzona&#39;,
+</span>    <span class='comment'># error_pesel_used: &#39;&#39;,                                 # &#39;Błąd: karta oddana wielokrotnie na te same dane&#39;,
+</span>    <span class='comment'># error_empty_projects: &#39;&#39;,                             # &#39;Błąd: brak wybranych projektów&#39;,
+</span>    <span class='comment'># error_card_received_late: &#39;&#39;,                         # &#39;Błąd: karta oddana poza terminem głosowania&#39;,
+</span>    <span class='comment'># error_unreadable: &#39;&#39;,                                 # &#39;Błąd: dane nieczytelne&#39;,
+</span>    <span class='comment'># error_invalid_card: &#39;&#39;,                               # &#39;Błąd: niepoprawna karta&#39;,
+</span>    <span class='label'>scope:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span> <span class='op'>?</span> <span class='id identifier rubyid_translated_attribute'>translated_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_scope'>scope</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='comment'># &#39;Dzielnica&#39;,
+</span>    <span class='label'>projects_count:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_global_projects_count'>global_projects_count</span> <span class='op'>+</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_district_projects_count'>district_projects_count</span><span class='comma'>,</span> <span class='comment'># &#39;Liczba wybranych projektów&#39;,
+</span>    <span class='label'>global_projects_count:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_global_projects_count'>global_projects_count</span><span class='comma'>,</span>                              <span class='comment'># &#39;Liczba wybranych projektów ogólnomiejskich&#39;,
+</span>    <span class='label'>district_projects_count:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_district_projects_count'>district_projects_count</span><span class='comma'>,</span>                          <span class='comment'># &#39;Liczba wybranych projektów dzielnicowych&#39;,
+</span>    <span class='label'>c1:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects_cost</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>             <span class='comment'># &#39;Łączny koszt&#39;,
+</span>    <span class='label'>c2:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>global_projects_cost</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>      <span class='comment'># &#39;Koszt projektów ogólomiejskich&#39;,
+</span>    <span class='label'>c3:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>district_projects_cost</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>    <span class='comment'># &#39;Koszt projektów dzielnicowych&#39;,
+</span>    <span class='label'>c4:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>global_projects_numbers</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>   <span class='comment'># &#39;Numery projektów ogólnomiejskich&#39;,
+</span>    <span class='label'>c5:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>district_projects_numbers</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>   <span class='comment'># &#39;Numery projektów dzielnicowych&#39;,
+</span>    <span class='label'>c6:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>global_projects_cost_list</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>   <span class='comment'># &#39;Koszty projektów ogólnomiejskich&#39;,
+</span>    <span class='label'>c7:</span> <span class='id identifier rubyid_vote_card'>vote_card</span><span class='period'>.</span><span class='id identifier rubyid_verification_results'>verification_results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>district_projects_costs_list</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='comment'># &#39;Koszty projektów dzielnicowych&#39;,
+</span>    <span class='label'>c8:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># &#39;Imię z bazy do weryfikacji&#39;,
+</span>    <span class='label'>c9:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span> <span class='comment'># &#39;Nazwisko z bazy do weryfikacji&#39;,
+</span>    <span class='comment'># c10: &#39;&#39; # &#39;Które dane nieprawidłowe&#39;
+</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:27 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

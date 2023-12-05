@@ -1,0 +1,8 @@
+<% add_decidim_page_title(wider_step_info(wizard)) %>
+
+<%= render partial: "decidim/projects/votes_cards/wizard_aside" %>
+<%= render "decidim/projects/votes_cards/wizard_header", title: vote_wizard_step_title(wizard, current_participatory_space.edition_year), wider_step_info: wider_step_info(wizard) %>
+
+<%= render "decidim/projects/votes_cards/step_6" %>
+
+<%= javascript_include_tag "decidim/projects/voting_form" %>

@@ -1,0 +1,42 @@
+<%= render "layouts/decidim/application" do %>
+  <div class="row text-center mt-m"> 
+    <h1 class="user-header devise-header">
+      <%= t(".my_account_header").html_safe %>
+    </h1> 
+  </div> 
+
+  <div class="my-account-nav">
+    <div class="row column">
+      <div class="my-account-nav__items">
+        <%= link_to t('.my_projects'), decidim_core_extended.account_projects_path, class: user_menu_class('projects') +  user_menu_class('messages') %>
+        <%= link_to t('.watched_projects'), decidim_core_extended.account_watched_projects_path, class: user_menu_class('watched_projects') %>
+        <%= link_to t('.my_account'), decidim.account_path, class: user_menu_class('account') %>
+        <%= link_to t('.my_notes'), decidim_core_extended.account_notes_path, class: user_menu_class('notes') %>
+        <%= link_to t('.my_appeals'), decidim_core_extended.account_appeals_path, class: user_menu_class('appeals') %>
+
+        <select title="Wybierz podstronę">
+          <option value="<%= decidim_core_extended.account_projects_path %>" <%= %(selected) if controller_name == "projects" %> ><%= t('.my_projects') %></option>
+          <option value="<%= decidim_core_extended.account_watched_projects_path %>" <%= %(selected) if controller_name == "watched_projects" %> ><%= t('.watched_projects') %></option>
+          <option value="<%= decidim.account_path %>" <%= %(selected) if controller_name == "account" %> ><%= t('.my_account') %></option>
+          <option value="<%= decidim_core_extended.account_notes_path %>" <%= %(selected) if controller_name == "notes" %> ><%= t('.my_notes') %></option>
+          <option value="<%= decidim_core_extended.account_appeals_path %>" <%= %(selected) if controller_name == "appeals" %> ><%= t('.my_appeals') %></option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrapper user-profile"> 
+    <div class="row">
+      <div class="main-container__content">
+        <%= yield %>
+      </div>
+    </div>
+  </div> 
+<% end %>
+
+<%= nonced_javascript_tag do %>
+  $('.my-account-nav__items select').change(function(){
+    window.location = $(this).val();
+  });
+<% end %>

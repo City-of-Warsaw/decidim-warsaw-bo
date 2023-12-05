@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .page {
+      page-break-after: always !important;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    h1 {
+      padding-top: 12px;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 18px;
+    }
+
+    h3 span {
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .caption {
+      font-size: 120%;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .version {
+      padding: 24px 0;
+      text-align: right;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .fill {
+      position: relative;
+      padding: 12px;
+      min-height: 21px;
+      border: 1px solid;
+      font-size: 130%;
+    }
+
+    .additional-info {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 8px;
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+    }
+
+    div.fill {
+      margin: 4px 0;
+    }
+
+    .text-small {
+      font-size: 13px;
+    }
+
+    .fill.price {
+      margin-top: 8px;
+      padding: 16px 0;
+      text-align: center;
+      font-size: 400%;
+      line-height: 1;
+    }
+
+    .mh50 {
+      min-height: 50px;
+    }
+    .mh100 {
+      min-height: 100px;
+    }
+    .mw20 {
+      min-width: 20%;
+    }
+    .mw40 {
+      min-width: 40%;
+    }
+    .w5 {
+      width: 5%;
+    }
+    .w10 {
+      width: 10%;
+    }
+    .w15 {
+      width: 15%;
+    }
+    .w18 {
+      width: 18%;
+    }
+    .w125 {
+      width: 12.5%;
+    }
+    .w20 {
+      width: 20%;
+    }
+    .w25 {
+      width: 25%;
+    }
+    .w30 {
+      width: 30%;
+    }
+    .w40 {
+      width: 40%;
+    }
+    .w50 {
+      width: 50%;
+    }
+    .w60 {
+      width: 60%;
+    }
+    .w70 {
+      width: 70%;
+    }
+    .w75 {
+      width: 75%;
+    }
+    .w80 {
+      width: 80%;
+    }
+    .w90 {
+      width: 90%;
+    }
+    .w95 {
+      width: 95%;
+    }
+    .w100 {
+      width: 100%;
+    }
+
+    .checkbox {
+    }
+
+    .checkbox.large {
+      font-size: 140%;
+      line-height: 100%;
+    }
+
+    .checkbox::before {
+      margin-right: 8px;
+      display: inline-block;
+      content: "";
+      width: 16px;
+      height: 16px;
+      border: #000 1px solid;
+      vertical-align: middle;
+    }
+
+    .checkbox.large::before {
+      width: 20px;
+      height: 20px;
+    }
+
+    .checkbox.checked::before {
+      background: #000;
+    }
+
+    .float-left {
+      float: left;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 16px;
+      overflow-x: visible;
+    }
+
+    th {
+      background-color: #cccccc;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid;
+    }
+
+    td,
+    th {
+      padding: 8px 6px;
+    }
+
+    table,
+    tr,
+    td,
+    th,
+    tbody,
+    thead,
+    tfoot {
+      page-break-inside: avoid !important;
+    }
+
+    p.foottext {
+      margin-top: 8px;
+    }
+
+    ol {
+      counter-reset: list;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    ol > li {
+      list-style: none;
+      position: relative;
+    }
+    ol > li:before {
+      counter-increment: list;
+      content: counter(list, decimal) ") ";
+      position: absolute;
+      left: -1.4em;
+    }
+  </style>
+</head>
+<body>
+<!--
+  -------------------
+  STRONA 1
+  -------------------
+ -->
+<div class="page">
+  <p class="text-center">
+    <img src="<%= participatory_process_endorsement_logo %>" width="376" height="108" alt="Logo" />
+  </p>
+  <h1>
+   <%= raw participatory_process_header %>
+  </h1>
+
+  <!-- Nazwa projektu -->
+  <div class="section">
+    <h3 class="label w18 float-left">Nazwa projektu</h3>
+
+    <div class="fill input w80 float-right">
+      <p>
+        <% if @project %>
+          <%= @project.title %>
+        <% else %>
+          <br>
+          <br>
+        <% end %>
+      </p>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+  <!-- Poziom zgłaszanego projektu -->
+  <div class="section">
+    <div class="w20 float-left" style="padding-top: 14px; vertical-align: top">
+      <h3>Poziom projektu</h3>
+    </div>
+    <div class="w20 float-left" style="padding-top: 18px; vertical-align: top">
+      <% if @project && @project.scope.citywide? %>
+        <p class="checkbox large checked">ogólnomiejski</p>
+      <% else %>
+        <p class="checkbox large">ogólnomiejski</p>
+      <% end %>
+    </div>
+    <div class="w20 float-left" style="padding-top: 18px; vertical-align: top">
+      <% if @project && !@project.scope.citywide? %>
+        <p class="checkbox large checked">dzielnicowy</p>
+      <% else %>
+        <p class="checkbox large">dzielnicowy</p>
+      <% end %>
+    </div>
+    <div class="w40 float-right">
+      <div class="fill">
+        <% if @project && !@project.scope.citywide? %>
+          <%= translated_attribute(@project.scope&.name) %>
+        <% end %>
+      </div>
+      <p class="text-center">
+        (wpisz nazwę dzielnicy - w przypadku zgłoszenia projektu na poziomie
+        dzielnicowym)
+      </p>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+  <!-- Lista podpisów -->
+  <div class="section">
+    <table>
+      <thead>
+      <tr>
+        <th width="4%" class="text-center"><strong>L.p.</strong></th>
+
+        <th width="38%" class="text-center">
+          <strong>Imię i nazwisko</strong>
+        </th>
+
+        <th width="38%" class="text-center">
+          <strong>Adres zamieszkania</strong><br />(ulica, numer domu,
+          numer mieszkania)
+        </th>
+
+        <th width="20%" class="text-center">
+          <strong>Podpis popierającego lub jego opiekuna prawnego</strong>
+        </th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <!-- Lista -->
+        <% 20.times do %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="text-small text-right">Warszawa</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="footext">
+      <%= raw participatory_process_footer %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

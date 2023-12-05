@@ -1,0 +1,71 @@
+<% add_decidim_page_title("Odwołanie - #{@form.project.title}") %>
+
+<%= render "decidim/projects/projects/project_header", project: @project, filter_link_params: nil %>
+
+<div class="row mb-m">
+  <div class="columns large-12">
+    <div class='row'>
+      <div class='column medium-4 strong'>
+        Tutuł projektu:
+      </div>
+      <div class='column medium-8'>
+        <%= @project.title %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='column medium-4 strong'>
+        Imię i nazwisko autora:
+      </div>
+      <div class='column medium-8'>
+        <%= current_user.name_and_surname %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='column medium-4 strong'>
+        Data złożenia:
+      </div>
+      <div class='column medium-8'>
+        <%= @appeal && @appeal.time_of_submit.present? ? l(@appeal.time_of_submit, format: :decidim_short) : 'Jeszcze nie zlożono' %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='column medium-4 strong'>
+        Treść:
+      </div>
+      <div class='column medium-8'>
+        <% if @appeal %>
+          <%= decidim_sanitize @appeal.body %>
+        <% else %>
+          Brak wprowadzonej treści...
+        <% end %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='column medium-4 strong'>
+        Załączniki:
+      </div>
+      <div class='column medium-8'>
+        <% if @appeal && @appeal.documents.any? %>
+          <% @appeal.documents.each do |e| %>
+            <label>
+              <%= link_to translated_attribute(e.title), e.url, target: '_blank' %>
+            </label>
+          <% end %>
+        <% else %>
+          Nie załączono
+        <% end %>
+      </div>
+    </div>
+
+    <div class='row mt-m text-right'>
+      <% if allowed_to?(:appeal, :project, project: @project) %>
+        <%= link_to 'Edytuj', edit_project_appeal_path(@project, @project.appeal), class: "button button--sc" %>
+        <%= link_to 'Wyślij', publish_project_appeal_path(@project, @project.appeal), class: "button hollow button--sc" %>
+      <% end %>
+    </div>
+  </div>
+</div>

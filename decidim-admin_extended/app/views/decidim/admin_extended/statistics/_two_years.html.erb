@@ -1,0 +1,182 @@
+<% 
+  first_edition = @statistics.first
+  second_edition = @statistics.last
+ 
+  budget_graph_max = get_maximum_graph_value([first_edition[:budget].to_i, second_edition[:budget].to_i].max)
+
+  first_edition[:number_of_projects] = first_edition[:number_of_projects_papers] + first_edition[:number_of_projects_electronic]
+  second_edition[:number_of_projects] = second_edition[:number_of_projects_papers] + second_edition[:number_of_projects_electronic]
+
+  projects_graph_max = get_maximum_graph_value([first_edition[:number_of_projects], second_edition[:number_of_projects]].max) 
+  projects_papers_graph_max = get_maximum_graph_value([first_edition[:number_of_projects_papers], second_edition[:number_of_projects_papers]].max)
+  projects_electronic_graph_max = get_maximum_graph_value([first_edition[:number_of_projects_electronic], second_edition[:number_of_projects_electronic]].max) 
+  authors_graph_max = get_maximum_graph_value([first_edition[:number_of_authors], second_edition[:number_of_authors]].max)  
+  average_authors_graph_max = get_maximum_graph_value([first_edition[:average_number_project_person], second_edition[:average_number_project_person]].max) 
+%>
+
+  <div class="row column column--stats">
+    <div class="page-title-wrapper mb-s">
+      <h2 class="section-heading">
+        <span>Składanie</span>
+        projektów
+      </h2>
+    </div> 
+
+    <div class="stats-legend">
+      <div class="stats-legend__year">
+        <%= first_edition[:edition_year] %> 
+        <span></span>
+      </div>
+
+      <div class="stats-legend__year">
+        <%= second_edition[:edition_year] %> 
+        <span></span>
+      </div>
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Kwota na budżet obywatelski w danym roku</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:budget].to_i / budget_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:budget] %> zł</strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:budget].to_i / budget_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:budget] %> zł</strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= budget_graph_max / 2 %></span>
+          <span><%= budget_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba zgłoszonych projektów</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:number_of_projects].to_i / projects_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:number_of_projects] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:number_of_projects].to_i / projects_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:number_of_projects] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= projects_graph_max / 2 %></span>
+          <span><%= projects_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+     
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba zgłoszonych projektów papierowo</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:number_of_projects_papers].to_i / projects_papers_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:number_of_projects_papers] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:number_of_projects_papers].to_i / projects_papers_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:number_of_projects_papers] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= projects_papers_graph_max / 2 %></span>
+          <span><%= projects_papers_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba zgłoszonych projektów elektronicznie</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:number_of_projects_electronic] / projects_electronic_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:number_of_projects_electronic] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:number_of_projects_electronic] / projects_electronic_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:number_of_projects_electronic] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= projects_electronic_graph_max / 2 %></span>
+          <span><%= projects_electronic_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Liczba autorów projektów</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:number_of_authors].to_i / authors_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:number_of_authors] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:number_of_authors].to_i / authors_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:number_of_authors] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= authors_graph_max / 2 %></span>
+          <span><%= authors_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+
+    <div class="single-stat">
+      <h5 class="single-stat__title">Średnia liczba zgłoszonych projektów na autora projektu</h5>
+
+      <div class="single-stat__graph">
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * first_edition[:average_number_project_person].to_i / average_authors_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= first_edition[:average_number_project_person] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-line">
+          <span style="width: <%= [1.0 * second_edition[:average_number_project_person].to_i / average_authors_graph_max * 100, 0.2].max %>%"></span>
+
+          <div><strong><%= second_edition[:average_number_project_person] %></strong></div>
+        </div>
+
+        <div class="single-stat__graph-scale">
+          <span>0</span> 
+          <span><%= average_authors_graph_max / 2 %></span>
+          <span><%= average_authors_graph_max %></span>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div> 

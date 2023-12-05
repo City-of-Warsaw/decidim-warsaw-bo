@@ -1,0 +1,19 @@
+<div id="js-forward-to-department-actions" class="hide js-bulk-action-form">
+  <%= form_tag(forward_to_department_projects_path, method: :post, remote: true, id: "js-form-forward-to-department", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% projects.each do |project| %>
+        <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-project js-project-id-#{project.id}" %>
+      <% end %>
+    </div>
+
+    <%= bulk_departments_select(t("decidim.projects.admin.projects.index.forward_to_department")) %>
+
+    <%= submit_tag(
+          t("decidim.projects.admin.projects.index.forward_projects_to_department_button"),
+          id: "js-submit-forward-to-department",
+          class: "button small button--simple float-left")
+    %>
+
+    <button id="js-cancel-forward-to-department" class="button tiny clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+  <% end %>
+</div>

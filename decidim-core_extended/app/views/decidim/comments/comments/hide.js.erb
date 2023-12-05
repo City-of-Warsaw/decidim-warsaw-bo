@@ -1,0 +1,14 @@
+(function() {
+  var rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
+  var $comments = $("#" + rootCommentableId);
+
+  var commentId = <%== @comment.id %>
+  var $comment = $("#comment_" + commentId);
+
+  $comment.remove();
+
+//  var newCount = $(".comments-count", $comments).text().split(' ')[0] - 1;
+
+  // Update the comments count
+  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments.not_hidden.count).to_json %>);
+}());

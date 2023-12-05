@@ -1,0 +1,29 @@
+<p><%= "Witaj #{@action_receiver.public_name(true)}" %></p>
+
+<p><%= t("#{@mail_scope}.mail_intro") %></p>
+
+<% if @project.evaluation_note.present? %>
+  <p><%= @project.evaluation_note.html_safe %></p>
+<% end %>
+<p><%= link_to @project.title, @project_path, class: 'button' %></p>
+
+<% if @action == 'return_to_department' && @project.return_reason.present? %>
+  <p style="padding-left: 50px;">
+    <strong>Powód zwrotu:</strong>
+    <br>
+    <%= @project.return_reason.html_safe %>
+  </p>
+<% end %>
+
+
+<p><%= t("#{@mail_scope}.email_outro") %></p>
+
+<p>
+  Pozdrawiamy
+  <br>
+  <%= h(@organization.name) %>
+  <br/>
+  <a href='<%= decidim.root_url(host: @organization.host) %>'>
+    <%= decidim.root_url(host: @organization.host).html_safe %>
+  </a>
+</p>

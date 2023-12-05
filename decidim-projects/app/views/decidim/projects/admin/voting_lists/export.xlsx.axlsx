@@ -1,0 +1,51 @@
+wb = xlsx_package.workbook
+empty_row = ['', '', '', '', '']
+wb.add_worksheet(name: "Lista") do |sheet|
+  embolden_style = sheet.styles.add_style(b: true, :font_name => "Calibri", alignment: { horizontal: :center }, fg_color: 'ff0000', :sz => 14)
+  header_style = sheet.styles.add_style(b: true, :font_name => "Calibri", alignment: { horizontal: :center }, bg_color: '6a99d0', fg_color: 'ffffff',:sz => 12)
+  highlighted_style = sheet.styles.add_style(bg_color: 'e0eaf6',:font_name => "Calibri")
+  highlighted_style_center = sheet.styles.add_style(bg_color: 'e0eaf6',:font_name => "Calibri", alignment: { horizontal: :center })
+  not_highlighted_style_center = sheet.styles.add_style(:font_name => "Calibri", alignment: { horizontal: :center })
+  not_highlighted_style = sheet.styles.add_style(:font_name => "Calibri")
+  sheet.add_image(:image_src => asset_file_path("logo.png"), :noSelect => true, :noMove => true) do |image|
+    image.width = 290
+    image.height = 80
+    image.anchor.from.rowOff = 100_000
+    image.anchor.from.colOff = 170_000_0
+    image.start_at 3, 1
+  end
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row empty_row
+  sheet.add_row [
+                  '',
+                  '',
+                  '',
+                  "POMYSŁY PODDANE POD GŁOSOWANIE #{@scope_title}",
+                  ''
+                ], style: [nil, nil, nil, embolden_style, nil]
+  sheet.add_row empty_row
+  sheet.add_row [
+                  '',
+                  '',
+                  'Nr na liście',
+                  'Tytuł projektu (numer ESOG)',
+                  'Koszty realizacji'
+                ], style: [nil, nil, header_style, header_style, header_style]
+  projects.each_with_index do |p, index|
+    sheet.add_row [
+                    '',
+                    '',
+                    p.voting_number,
+                    p.title + " (#{p.esog_number})",
+                    number_to_currency(p.budget_value, unit: Decidim.currency_unit, precision: 0, strip_insignificant_zeros: false)
+
+                  ], types: [nil,nil,:integer,:string,nil], style: (index.even? ? [nil, nil, highlighted_style_center, highlighted_style, highlighted_style_center] : [nil, nil, not_highlighted_style_center, not_highlighted_style, not_highlighted_style_center])
+  end
+  sheet.column_widths 15, 15, 15, 80, 20
+end

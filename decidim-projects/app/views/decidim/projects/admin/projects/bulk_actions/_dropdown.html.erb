@@ -1,0 +1,61 @@
+<div id="js-bulk-actions-wrapper">
+  <button
+    id="js-bulk-actions-button"
+    class="button button--nomargin tiny success light dropdown hide"
+    type="button"
+    data-toggle="js-bulk-actions-dropdown">
+    <%= t("decidim.projects.admin.projects.index.actions") %>
+  </button>
+
+  <div
+    id="js-bulk-actions-dropdown"
+    class="dropdown-pane"
+    data-position="bottom"
+    data-alignment="right"
+    data-dropdown="dropdown"
+    data-auto-focus="false"
+    data-events="resize">
+    <ul class="list-reset">
+
+      <% if allowed_to? :bulk_action, :project, component: current_component %>
+        <li>
+          <button type="button" data-action="accept-changes-projects">
+            <%= t("decidim.projects.admin.projects.index.accept_changes") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="accept-evaluations-projects">
+            <%= t("decidim.projects.admin.projects.index.accept_evaluations") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="send-messages-projects">
+            <%= t("decidim.projects.admin.projects.index.send_messages") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="forward-to-department">
+            <%= t("decidim.projects.admin.projects.index.forward_to_department") %>
+          </button>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :bulk_subcoordinator_action, :project, component: current_component %>
+        <li>
+          <button type="button" data-action="assign-to-evaluator">
+            <%= t("decidim.projects.admin.projects.index.assign_to_valuator") %>
+          </button>
+        </li>
+      <% end %>
+
+      <% if current_user.ad_admin? || current_user.ad_coordinator? %>
+        <li>
+          <button type="button" data-action="register-to-signum">
+            Zarejestruj w Signum
+          </button>
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
+</div>

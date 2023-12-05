@@ -1,0 +1,29 @@
+<div class="tiny reveal confirm-reveal vote-modal-js"
+     id="confirm-modal"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="confirm-modal-title"
+     aria-describedby="confirm-modal-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="confirm-modal-title">Czy na pewno chcesz przejść dalej?</h2>
+    <button class="close-button" data-close aria-label="Zamknij okno" type="button" tabindex="0">
+      <span aria-hidden="true">&times;<span class="wcag-invisible">Zamknij okno</span></span>
+    </button>
+  </div>
+  <div class="confirm-content">
+    <div class="confirm-modal-content" id="confirm-modal-content" role="document" tabindex="0">
+      Możesz jeszcze wybrać projekty ogólnomiejskie. Liczba głosów do wykorzystania: <strong class="remaining-votes-js"></strong>.
+    </div>
+  </div>
+  <div class="confirm-modal-footer reveal__footer">
+    <div class="buttons button--double">
+      <a class="button hollow mt-s mb-s mr-xs ml-xs clear close-js" role="button" href="#" data-confirm-cancel aria-label="Cofnij">Cofnij</a>
+      <a class="button mt-s mb-s mr-xs ml-xs voting-not-finished-js proceed-vote-js" role="button" href="#" data-confirm-ok aria-label="Przejdź dalej">Przejdź dalej</a>
+    </div>
+  </div>
+</div>

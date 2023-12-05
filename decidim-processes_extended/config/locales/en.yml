@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      processes_extended:
+        name: ProcessesExtended

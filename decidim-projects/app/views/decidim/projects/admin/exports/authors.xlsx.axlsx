@@ -1,0 +1,60 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row authors_export_header
+  index = 0
+  @authors.each do |id, author_data|
+    u = author_data[:author]
+
+    authors = [
+      # u.author_of_projects.any? ? 'TAK' : 'NIE',
+      # u.author_of_projects.size,
+      # u.author_of_projects.map(&:esog_number),
+      # u.coauthor_of_projects.any? ? 'TAK' : 'NIE',
+      # u.coauthor_of_projects.size,
+      # u.coauthor_of_projects.map(&:esog_number)
+      # author_data[:authors_of].compact.any? ? 'TAK' : 'NIE',
+      author_data[:authors_of_esog].compact.any? ? 'TAK' : 'NIE',
+      # author_data[:authors_of].compact.size,
+      author_data[:authors_of_esog].compact.size,
+      author_data[:authors_of_esog].compact.join(', '),
+      author_data[:authors_of_esog].any?{ |e| e.nil? } ? 'TAK' : 'NIE',
+      author_data[:authors_of_esog].size - author_data[:authors_of_esog].compact.size,
+      author_data[:coauthors_of].compact.any? ? 'TAK' : 'NIE',
+      author_data[:coauthors_of].compact.size,
+      author_data[:coauthors_of_esog].compact.join(', ')
+    ]
+
+    agreements = if u.is_a? Decidim::Projects::SimpleUser
+                   ['', '', '', '', '', '', '']
+                 else
+                   [
+                     u.inform_me_about_proposal ? 'TAK' : 'NIE',
+                     u.email_on_notification ? 'TAK' : 'NIE',
+                     u.allow_private_message ? 'TAK' : 'NIE',
+                     u.inform_me_about_comments ? 'TAK' : 'NIE',
+                     u.newsletter ? 'TAK' : 'NIE',
+                     u.watched_implementations_updates ? 'TAK' : 'NIE',
+                     u.inform_about_admin_changes ? 'TAK' : 'NIE'
+                   ]
+                 end
+
+    sheet.add_row [
+                    index += 1,
+                    u.id,
+                    u.nickname,
+                    u.first_name,
+                    u.last_name,
+                    u.gender ? (u.gender == 'male' ? 'Mieszkaniec' : 'Mieszkanka') : nil,
+                    u.email,
+                    u.phone_number,
+                    u.street,
+                    u.street_number,
+                    u.flat_number,
+                    u.city,
+                    u.zip_code,
+                    u.show_my_name ? 'TAK' : 'NIE',
+                  ] + agreements + authors
+  end
+  column_width = 10
+  sheet.column_widths *(Array.new(authors_export_header.size, column_width))
+end

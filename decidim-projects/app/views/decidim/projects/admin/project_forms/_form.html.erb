@@ -1,0 +1,81 @@
+<% url = decidim_admin_participatory_processes.project_form_path(current_participatory_space) %>
+<%= decidim_form_for @form, url: url, method: :patch, html: { class: "form new_project project_form_admin" } do |f| %>
+  <div class="card with-overflow">
+    <div class="card-divider">
+      <h2 class="card-title">Dane projektu</h2>
+    </div>
+    <fieldset class="card-section">
+      <legend style="padding: 10px 0; font-size: 18px;">
+        <strong class="alert">
+          Pola z danymi projektu nie mogą być usunięte, ponieważ są wymagane przez funkcjonalności systemu.<br>
+          Można jedynie edytować nazwę pól wyświetlanych użytkownikowi na formualrzu projektu.
+        </strong>
+      </legend>
+      <% Decidim::Projects::Admin::ProjectCustomizationForm::BASIC_ATTRIBUTES.each do |el| %>
+        <%= customizable_attribute_fields(el, f, 'activemodel.attributes.project') %>
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="card with-overflow">
+    <div class="card-divider">
+      <h2 class="card-title">Dane użytkownika</h2>
+    </div>
+    <fieldset class="card-section">
+      <legend style="padding: 10px 0; font-size: 18px;">
+        <strong class="alert">
+          Pola z danymi użytkowników nie mogą być usunięte, ponieważ są wymagane przez funkcjonalności systemu.<br>
+          Można jedynie edytować nazwy pól wyświetlanych użytkownikowi na formualrzu projektu.
+        </strong>
+      </legend>
+      <% Decidim::Projects::Admin::ProjectCustomizationForm::BASIC_USER_ATTRIBUTES.each do |el| %>
+        <%= customizable_attribute_fields(el, f, 'decidim.projects.projects.part_form_fields.author_fields') %>
+      <% end %>
+
+      <%= customizable_attribute_fields('coauthor_email_one', f, 'activemodel.attributes.project') %>
+    </fieldset>
+  </div>
+
+  <div class="card with-overflow">
+    <div class="card-divider">
+      <h2 class="card-title">
+        Dodatkowe pola
+        <%= link_to 'Dodaj', '', class: "button tiny button--simple pull-right", id: "add_new_customize" %>
+      </h2>
+    </div>
+    <div class="card-section" >
+      <fieldset id="add-new-row-for-customize">
+        <legend style="padding: 10px 0; font-size: 18px;">
+          <strong class="success">Po wprowadzeniu danych - w tym usunięciu pól - należy zapisać formualrz</strong>
+        </legend>
+
+        <% if @project_customization.additional_attributes.present? %>
+          <% fields = @project_customization.additional_attributes[0].map { |k, v| k } %>
+
+          <% form_field_name = 'project_customization[additional_attributes][]' %>
+
+          <div class="customize-form-rows">
+            <% fields.each_with_index do |el, i| %> 
+              <%= render 'additional_fields', form_field_name: form_field_name, el: el, hash: @form.additional_attributes[0][el][0] %> 
+            <% end %>
+          </div>
+        <% end %>
+      </fieldset>
+    </div>
+  </div>
+
+  <%= f.submit 'Zapisz' %>
+<% end %>
+
+<div class="hidden customize-form-blank-js">
+  <%= render 'additional_fields', form_field_name: 'project_customization[additional_attributes][]', el: 'SUBSTITUTE', hash: nil %>
+</div>
+
+<%= javascript_tag do %>
+  $('#add_new_customize').click( function(e) {
+      e.preventDefault();
+      var count = $('#add-new-row-for-customize .customize-form-row').length * <%= rand(9999999) %>;
+      var fields_copy = $('.customize-form-blank-js').html().replaceAll('SUBSTITUTE', count);
+      $('#add-new-row-for-customize > .customize-form-rows').append(fields_copy);
+  })
+<% end %>

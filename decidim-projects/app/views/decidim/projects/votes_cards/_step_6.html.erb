@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="columns large-12">
+    <legend>
+      <p>
+        <strong>Dziękujemy za zagłosowanie w warszawskim budżecie obywatelskim.</strong> Cieszymy się, że chcesz decydować, na co przeznaczyć pieniądze z budżetu miasta.
+      </p>
+
+      <div class="primary-info-box info-graph">
+        Na podany adres mailowy przesłaliśmy potwierdzenie oddania głosu.
+      </div>
+
+      <p>
+        Jeśli chcesz sprawdzić, czy Twoje projekty wygrały, zajrzyj na stronę niebawem. Wyniki głosowania ogłosimy
+        <%= current_participatory_space.results_step.end_date.present? ? l(current_participatory_space.results_step.end_date, format: :year_with_month) : l(current_participatory_space.results_step.start_date, format: :year_with_month, default: Time.current.year) %> roku.
+        <strong>Realizację zwycięskich projektów rozpoczniemy w <%= current_participatory_space.edition_year %> roku.</strong>
+      </p>
+    </legend>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="actions text-center">
+      <%= link_to t(".proceed"), '/', class: "button" %>
+    </div>
+  </div>
+</div>

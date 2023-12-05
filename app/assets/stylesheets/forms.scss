@@ -1,0 +1,98 @@
+label {
+  font-size: 14px;
+  font-weight: bold;
+
+  &.light-label {
+    font-weight: normal;
+  }
+}
+
+.label-required {
+  margin-left: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.form-input-extra-after,
+.form-input-extra-before {
+  // position: absolute;
+}
+
+[type="text"],
+[type="password"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="color"],
+textarea,
+select {
+  border-color: #8c8c8c;
+  box-shadow: unset;
+}
+
+.label-regular {
+  display: flex;
+  align-items: flex-start;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  [type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-bottom: unset;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #8c8c8c;
+    border-radius: 0.15em;
+    display: inline-grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-image: asset_url("check.svg");
+      transform: scale(0);
+      background-size: 100% 100%;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+}
+
+.additional-hint {
+  background-image: asset_url("hint-icon.png");
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.help-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.words-limit-info {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial, sans-serif !important;
+  margin-bottom: 15px;
+}

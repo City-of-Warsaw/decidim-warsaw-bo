@@ -1,0 +1,12 @@
+$("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: "#{flash[:notice].present? ? 'success' : 'alert' }", text: flash[:notice].presence || flash[:alert] }) %>").appendTo(".callout-wrapper");
+
+<% project_ids.each do |id| %>
+$(".table-list [data-id='<%= id %>']")
+    .replaceWith("<%= escape_javascript(render partial: %q{project-tr}, locals: { project: Decidim::Projects::Project.find(id) }) %>");
+<% end %>
+
+$(".js-check-all").prop('checked', false);
+$(".js-check-all-project").prop('checked', false);
+window.hideBulkActionForms();
+window.showOtherActionsButtons();
+window.selectedProjectsCountUpdate();

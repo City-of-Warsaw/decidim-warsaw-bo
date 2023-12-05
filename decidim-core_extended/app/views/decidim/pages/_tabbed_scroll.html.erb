@@ -1,0 +1,39 @@
+<div class="wrapper tabbed-scroll">
+  <div class="row column">
+    <div class="page-title-wrapper">
+      <h1 class="heading1 page-title">
+        <%= title %>
+      </h1>
+      <p class="intro--text subheading1">
+        <%= description %>
+      </p>
+    </div>
+
+    <div class="main">
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <% pages.each do |sibling| %>
+        <div id="<%= "page_#{sibling.id}_header" %>" class="page-wrapp <%= page == sibling ? "is-active" : nil %>">
+          <h2>
+            <a href="<%=page_path(sibling.slug) %>" class="tabs-title" data-target="<%= "#page_#{sibling.id}_header" %>">
+              <%= translated_attribute(sibling.title) %>
+            </a>
+          </h2>
+          <div class="static__content" id="<%= "page_#{sibling.id}" %>">
+            <%= decidim_sanitize translated_attribute sibling.content %>
+          </div>
+        </div>
+      <% end %>
+      <%= cell "decidim/tos_page", :form %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $('.tabbed-scroll .tabs-title').click( function(e) {
+     e.preventDefault();
+     var target = $(this).data('target');
+
+     $(target).toggleClass('is-active');
+  });
+<% end %>

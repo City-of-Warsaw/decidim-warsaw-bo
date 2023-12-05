@@ -1,0 +1,59 @@
+wb =  xlsx_package.workbook
+wb.add_worksheet(name: "Lista") do |sheet|
+  sheet.add_row [
+                  'Lp.',
+                  'Nazwę użytkownika',
+                  'Email',
+                  'Imię',
+                  'Nazwisko',
+                  'Nr telefonu',
+                  'Ulica',
+                  'Nr domu',
+                  'Nr mieszkania',
+                  'Kod pocztowy',
+                  'Miasto',
+                  # 'Upublicznienie mojego imienia',
+                  # 'Mailowo lub telefonicznie o postępach w realizacji',
+                  'Mailowo lub telefonicznie o ewaluacji budżetu',
+                  'Wiadomości prywatne',
+                  'Powiadomienie o komentarzach w moich projektach i w wątkach',
+                  'Newsletter',
+                  'Informowanie o aktualizacji stanu realizacji obserwowanych projektów',
+                  'Informowanie o zmianach przez pracowników UM',
+                  # 'rola',
+                  # 'dzielnica/jednostka/biuro',
+                  # 'status (aktywne, nieaktywne)',
+                  # 'nazwa wyświetlana',
+                  'Data utworzenia konta'
+                ]
+  @users.each_with_index do |user, index|
+    sheet.add_row [
+                    index + 1,
+                    user.nickname,
+                    user.email,
+                    user.first_name,
+                    user.last_name,
+                    user.phone_number,
+                    user.street,
+                    user.street_number,
+                    user.flat_number,
+                    user.zip_code,
+                    user.city,
+                    # user.show_my_name ? 'Tak' : 'Nie',
+                    # user.inform_me_about_proposal ? 'Tak' : 'Nie',
+                    user.email_on_notification ? 'Tak' : 'Nie',
+                    user.allow_private_message ? 'Tak' : 'Nie',
+                    user.inform_me_about_comments ? 'Tak' : 'Nie',
+                    user.newsletter ? 'Tak' : 'Nie',
+                    user.watched_implementations_updates ? 'Tak' : 'Nie',
+                    user.inform_about_admin_changes ? 'Tak' : 'Nie',
+                    # user.role_name,
+                    # user.department_name,
+                    # 'status (aktywne, nieaktywne)',
+                    # 'nazwa wyświetlana',
+                    l(user.created_at, format: :short)
+                  ]
+  end
+  column_width = 10
+  sheet.column_widths *(Array.new(20, column_width))
+end

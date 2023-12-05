@@ -1,0 +1,192 @@
+pl:
+  activemodel:
+    attributes:
+      proposal:
+        title: Nazwa projektu
+        short_body: Skrócony opis projektu
+        body: Opis projektu
+      organization:
+        default_locale: Domyślny język
+  decidim:
+    account:
+      update:
+        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane.
+    export_mailer:
+      export:
+        ready: W załączeniu znajdziesz wyeksportowany plik.
+    accessibility:
+      logo: Budżet Obywatelski w Warszawie
+    admin:
+      moderations:
+        report:
+          reasons:
+            does_not_belong: Nieodpowiednia treść
+      actions:
+        new_process: Nowa edycja
+      banned_words:
+        create:
+          error: Nie może zawierać wulgaryzmów
+      menu:
+        admin_log: Logi aktywności użytkowników
+        configuration: Ogólne
+        participatory_processes: Edycje
+      participatory_processes:
+        new:
+          title: Nowa edycja
+      participatory_process_steps:
+        step_title:
+          submitting: Zgłaszanie
+          rating: Ocenianie
+          voting: Głosowanie
+          results: Wyniki
+          realization: Realizacje
+      scopes:
+        edit:
+          title: Edycja dzielnicy
+        new:
+          title: Nowa dzielnica
+      titles:
+        admin_log: Logi aktywności użytkowników
+        participatory_processes: Edycje
+        endorsement_list_index: Lista poparcia - ustawienia
+    assemblies:
+      content_blocks:
+        highlighted_assemblies:
+          name: Realizowane projekty - slider
+    components:
+      add_comment_form:
+        form:
+          submit: Skomentuj
+      comments:
+        single_comment_warning: '<a href="%{url}">Sprawdź pozostałe komentarze</a>'
+      edit_comment_modal_form:
+        form:
+          submit: Skomentuj
+    content_blocks:
+      how_to_participate:
+        name: Harmonogram 10. edycji
+        title: Harmonogram 10. edycji
+      last_activity:
+        name: Archiwum wyników
+        title: Archiwum wyników
+    devise:
+      passwords:
+        edit:
+          # password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojej nazwy użytkownika i adresu e-mail."
+          password_help: "Hasło musi zawierać co najmniej:  %{minimun_characters} znaków, 1 małą literę, 1 wielką literę, 1 cyfrę, 1 znak specjalny"
+      registrations:
+        new:
+          password_help: "Hasło musi zawierać co najmniej:  %{minimun_characters} znaków, 1 małą literę, 1 wielką literę, 1 cyfrę, 1 znak specjalny"
+    map:
+      home:
+        title: Zgłoszone <span>projekty</span>
+    menu:
+      help: Dowiedz się więcej
+    meetings:
+      content_blocks:
+        upcoming_events:
+          name: Zgłoszone projekty - Mapa
+    pages:
+      home:
+        statistics:
+          headline: Statystyki
+        extended:
+          how_to_participate: Harmonogram <span>%{number}. edycji</span>
+      index:
+        title: Dowiedz się więcej
+    participatory_processes:
+      content_blocks:
+        highlighted_processes:
+          name: Realizowane projekty
+      index:
+        promoted_processes: Realizowane projekty
+      pages:
+        home:
+          highlighted_processes:
+            see_all_processes: "Pokaż wszystkie <span class='wcag-invisible'>realizowane projekty</span>"
+    proposals:
+      models:
+        proposal:
+          fields:
+#            scope: Poziom/dzielnica/obszar
+            scope: Dzielnica
+      proposals:
+        new:
+          title: Opisz swój pomysł
+        compare:
+          title: Uzupełnij swoje dane
+        complete:
+          title: Zgłoś projekt
+        preview:
+          title: Projekt zgłoszony
+        placeholder:
+          address: ''
+        wizard_creator_headers:
+          first: "<span>Dane</span>projektu"
+          second: "<span>Charakterystyka</span>projektu"
+          third: "<span>Lokalizacja</span>projektu"
+          fourth: "<span>Kosztorys</span>projektu"
+          fifth: "<span>Dokumenty</span>projektu"
+          sixth: "<span>Dodatkowe</span>informacje"
+        wizard_author_headers:
+          first: "<span>Twoje</span>dane"
+          second: "<span>Adres</span>zamieszkania"
+        wizard_steps:
+          step_1_draft: 1. Opis projektu
+          step_2_author: 2. Twoje dane
+          step_3_preview: 3. Zgłoszenie
+          step_4_confirmation: 4. Potwierdzenie
+  devise:
+    mailer:
+      confirmation_instructions:
+        instruction: "Kliknij w poniższy link aby aktywować konto w serwisie:"
+    passwords:
+      edit:
+        # password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojej nazwy użytkownika i adresu e-mail."
+        password_help: "Hasło musi zawierać co najmniej:  %{minimun_characters} znaków, 1 małą literę, 1 wielką literę, 1 cyfrę, 1 znak specjalny"
+    registrations:
+      new:
+        password_help: "Hasło musi zawierać co najmniej:  %{minimun_characters} znaków, 1 małą literę, 1 wielką literę, 1 cyfrę, 1 znak specjalny"
+  date:
+    formats:
+      decidim_short: "%d.%m.%Y"
+      year_with_month: "%d %B %Y"
+    month_names:
+      -
+      - stycznia
+      - lutego
+      - marca
+      - kwietnia
+      - maja
+      - czerwca
+      - lipca
+      - sierpnia
+      - września
+      - października
+      - listopada
+      - grudnia
+  errors:
+    messages:
+      too_short: jest za krótkie
+  layouts:
+    decidim:
+      footer:
+        decidim_logo: Platforma Decidim
+        made_with_open_source: 'Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">otwartego oprogramowania</a>.'
+      cookie_warning:
+        link_label: Dowiedz się więcej o ciasteczkach
+        description_html: 'Ta strona używa ciasteczek. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z ciasteczek. %{link}.'
+  time:
+    formats:
+      decidim_short_no_time: "%d.%m.%Y"
+      decidim_long: "%d.%m.%Y %H:%M:%S"
+      decidim_short: "%d.%m.%Y %H:%M"
+      short: "%d.%m.%Y %H:%M"
+      decidim_day_of_year: "%d.%m.%Y"
+  views:
+    pagination:
+      first: "<span aria-hidden='true'>&laquo;</span> Pierwsze"
+      last: "Ostatnie <span aria-hidden='true'>&raquo;</span>"
+      next: "Następne <span aria-hidden='true'>&rsaquo;</span>"
+      previous: "<span aria-hidden='true'>&lsaquo;</span> Poprzedni"
+      truncate: "<span aria-hidden='true'>&hellip;</span>"

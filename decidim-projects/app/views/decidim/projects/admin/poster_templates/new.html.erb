@@ -1,0 +1,24 @@
+<% add_decidim_page_title(t("participatory_processes", scope: "decidim.admin.titles")) %>
+<% url = decidim_admin_participatory_processes.create_poster_template_path(current_participatory_space) %>
+<%= decidim_form_for @form, url: url, html: { class: "form new_project project_form_admin" } do |f| %>
+<div class="card with-overflow" id="processes">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("actions.add_poster_template", scope: "decidim.projects.admin.poster_templates") %>
+    </h2>
+  </div>
+  <div class="card-section">
+      <%= render partial: "form", object: f %>
+  </div>
+</div>
+  <div class="row">
+    <div class="columns large-12 text-right">
+      <div class="actions">
+      <div class="button--double form-general-submit">
+        <%= link_to t("actions.cancel", scope: "decidim.projects.admin.poster_templates"), decidim_admin_participatory_processes.poster_templates_path, class: "button hollow" %>
+        <%= f.submit t("actions.save", scope: "decidim.projects.admin.poster_templates") %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

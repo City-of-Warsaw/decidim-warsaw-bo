@@ -1,0 +1,40 @@
+<% add_decidim_page_title(t("endorsement_list_index", scope: "decidim.admin.titles")) %>
+
+<div class="card with-overflow">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("endorsement_list_index", scope: "decidim.admin.titles") %>
+      <%= link_to t("actions.endorsement_list.edit", scope: "decidim.admin"), decidim_admin_participatory_processes.endorsement_list_setting_edit_path(current_participatory_space), class: "button tiny button--title" %>
+      <%= link_to t("actions.endorsement_list.sample_pdf", scope: "decidim.admin"), "/processes/#{current_participatory_space.slug}/f/#{current_participatory_space.id}/endorsement_list/actual_edition.pdf", class: "button tiny button--title" %>
+    </h2>
+  </div>
+  <% if endorsement_list_setting.present? %>
+    <div class="card-section">
+      <div class="card with-overflow">
+        <div class="card-divider">
+          <h2 class="card-title">Logo</h2>
+        </div>
+        <div class="card-section">
+          <% if endorsement_list_setting.image_header.present? %>
+            <%= image_tag main_app.rails_blob_path(endorsement_list_setting.image_header, only_path: true), alt: '', class: '' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="card with-overflow">
+        <div class="card-divider">
+          <h2 class="card-title">Tytuł</h2>
+        </div>
+        <div class="card-section">
+          <%= raw endorsement_list_setting.header_description %>
+        </div>
+      </div>
+      <div class="card with-overflow">
+        <div class="card-divider">
+          <h2 class="card-title">Objaśnienia</h2></div>
+        <div class="card-section">
+          <%= raw endorsement_list_setting.footer_description %>
+        </div>
+      </div>
+    </div>
+    </div>
+  <% end %>

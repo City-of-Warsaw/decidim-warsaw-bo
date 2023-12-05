@@ -1,0 +1,16 @@
+<%= render 'decidim/admin_extended/admin/documents/secondary_menu' %>
+
+<%= decidim_form_for(@form) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t("decidim.admin_extended.admin.folders.edit.folder") %></h2>
+    </div>
+    <div class="card-section">
+      <%= render partial: "form", object: f %>
+    </div>
+  </div>
+  <div class="button--double form-general-submit">
+    <%= link_to t("decidim.admin_extended.admin.documents.actions.cancel"), documents_path, class: "link" %>
+    <%= f.submit t("decidim.admin_extended.admin.folders.actions.edit_folder"), class: "button ml-s" %>
+  </div>
+<% end %>

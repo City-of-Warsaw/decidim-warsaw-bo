@@ -1,0 +1,16 @@
+<% add_decidim_page_title(t("participatory_processes", scope: "decidim.admin.titles")) %>
+
+<div class="card with-overflow" id="processes">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("edit_project_form", scope: "decidim.admin.titles") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <% if allowed_to? :maintain_form, :projects, process: current_participatory_space %>
+      <%= render 'form' %>
+    <% else %>
+      <%= render 'show' %>
+    <% end %>
+  </div>
+</div>

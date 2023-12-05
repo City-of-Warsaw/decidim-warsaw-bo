@@ -1,0 +1,72 @@
+<% if appeal %>
+  <%= form.text_field :project_name, value: "#{appeal.project.esog_number} - #{appeal.project.title}", disabled: true, label: 'Projekt' %>
+<% else %>
+  <%= form.select :project_id, latest_edition_projects.map{ |project| ["#{project.esog_number} - #{project.title}", project.id] }, required: true, label: 'Wybierz projekt *' %>
+<% end %>
+<label>
+  Treść odwołania *
+  <small>Napisz, dlaczego Twoim zdaniem projekt powinien zostać oceniony pozytywnie. Opisz swoje zastrzeżenia do oceny projektu i uzasadnij je. W odwołaniu możesz odnieść się do punktów w karcie oceny merytorycznej lub formalnej, które nie zostały spełnione.</small>
+  <%= form.text_area :body, rows: 10, label: false %>
+</label>
+
+<div class="row column card card-for-attachment">
+  <div class="card__content">
+    <label for="appeal_add_documents">
+      <%= t("add_documents", scope: "decidim.projects.projects.edit").html_safe %>
+    </label>
+    <span class="help-text"><%= t("add_documents_helper", scope: "decidim.projects.projects.edit") %></span>
+    <%= form.file_field :add_documents,
+                        multiple: true,
+                        label: false,
+                        class: 'multifile account-appeal-documents-js',
+                        style: 'display: none',
+                        'aria-describedby': 'requirements-for-files requirements-for-files-warning'
+    %>
+    <button type="button" class='button hollow attachment-button-js' type="button" data-target="#appeal_add_documents">
+      <span>+</span>
+      Dodaj plik
+    </button>
+  </div>
+
+  <% if appeal %>
+    <% appeal.documents.each do |e| %>
+      <label>
+        <%= translated_attribute(e.title) %>
+        <%= check_box_tag 'appeal[remove_documents][]', e.id, false %>
+        <span class='tiny'>usuń<span class="wcag-invisible"> plik o nazwie <%= e.title %></span></span>
+      </label>
+    <% end %>
+  <% end %>
+  <div class="card__footer" id="requirements-for-files">
+    <p><%= t('add_documents_size', scope: "decidim.projects.projects.edit") %></p>
+    <%= t('add_documents_files',file_types: current_organization.settings.upload_allowed_file_extensions.join(", ") , scope: "decidim.projects.projects.edit") %>
+  </div>
+</div>
+
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $('.attachment-button-js').click( function(e) {
+      e.preventDefault();
+
+      var target_id = $(this).data('target');
+      $(target_id + " > input").last().click();
+    });
+
+    $("input[type=file].multifile").MultiFile({
+      max: 10,
+      accept: '<%= current_organization.settings.upload_allowed_file_extensions.join("|") %>',
+      STRING: {
+        // remove: '(x)',
+        remove: '<span class="button tiny">usuń<span class="wcag-invisible"> plik o nazwie $file</span></span>',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+  });
+<% end %>

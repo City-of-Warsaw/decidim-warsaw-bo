@@ -1,0 +1,573 @@
+// shared
+.button {
+  &.voting-wizard-wide {
+    min-width: 250px;
+    max-width: 260px;
+  }
+}
+
+#content.wizard-content .wrapper .voting-bg-grey {
+  display: none;
+  background-color: #f5f6f7;
+  margin-bottom: -100px;
+  padding-top: 40px;
+  height: 310px;
+  background-image: asset_url("two-spheres-decor.svg");
+  background-position: 70% 100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .row {
+    max-width: 1200px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.bg-grey.voting {
+  margin-bottom: -100px;
+  padding-top: 40px;
+  padding-bottom: 110px;
+  //height: 230px;
+  background-image: asset_url("two-spheres-decor.svg");
+  background-position: 70% 100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.actions {
+  .button {
+    text-transform: uppercase !important;
+  }
+}
+
+/* .primary-info-box style in app/assets/stylesheets/users.scss */
+.primary-info-box.info-graph {
+  background-image: asset_url("decidim/projects/images/info-graph.svg");
+  background-position: 25px center;
+  background-size: initial;
+  background-repeat: no-repeat;
+  padding: 20px 20px 20px 90px;
+}
+
+.primary-info-box.info-graph.hollow {
+  background-image: asset_url("decidim/projects/images/info-graph-hollow.svg");
+  background-color: #f5f6f7;
+  color: #000;
+}
+
+#content.wizard-content {
+  .wrapper .row.projects-filtering,
+  .wrapper .row.projects-choosing,
+  .wrapper .row.voting {
+    max-width: 1200px;
+  }
+
+  .voting-instruction-box {
+    margin: 45px auto;
+  }
+
+  .voting-instruction {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+
+    li {
+      position: relative;
+      list-style: none;
+      width: 20%;
+      text-align: center;
+
+      &.choosing {
+        .number {
+          border: 2px solid var(--primary);
+        }
+
+        .line {
+          background-color: var(--primary);
+          color: var(--primary);
+        }
+
+        span {
+          color: var(--primary);
+        }
+      }
+
+      &.filling {
+        .number {
+          border: 2px solid var(--secondary);
+          color: var(--secondary);
+        }
+
+        .line {
+          background-color: var(--secondary);
+        }
+
+        span {
+          color: var(--secondary);
+        }
+      }
+    }
+
+    .number {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 2.25;
+      background-color: #fff;
+      z-index: 1;
+    }
+
+    .line {
+      display: block;
+      position: absolute;
+      top: 35px;
+      left: calc(50% + 30px);
+      width: 100px;
+      height: 2px;
+      background-color: #fff;
+      z-index: 0;
+    }
+
+    span {
+      font-weight: bold;
+      display: block;
+    }
+  }
+
+  .bordered-box {
+    border: 1px solid #d7d7d7;
+    padding: 30px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .primary-info-box.info-graph {
+    max-width: unset;
+    margin-bottom: 40px;
+  }
+}
+
+.projects-choosing {
+  display: none;
+}
+
+.scope-budget-value-info {
+  text-align: center;
+  margin: -20px auto 0 auto;
+  margin-bottom: 20px;
+}
+
+.voting-search-box {
+  position: relative;
+
+  .styled-label {
+    display: none;
+  }
+
+  // search & filters
+  input {
+    height: 56px;
+    padding: 10px 70px 10px 20px;
+    color: var(--primary);
+    //&::placeholder { color: var(--primary); }
+  }
+
+  a {
+    // #search-projects-submit
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 56px;
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: var(--primary);
+    border-top: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+
+    &:hover {
+      background-color: #fff;
+      color: var(--primary);
+      border-color: #8c8c8c;
+    }
+  }
+}
+
+.chosen-votes-filtering-box {
+  flex-grow: 4;
+  padding: 25px;
+  max-width: 445px;
+  background-color: #fff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  vertical-align: center;
+
+  .toggle-show-chosen {
+    width: 150px;
+    text-transform: none;
+    margin-bottom: 0;
+  }
+}
+
+.voting-filters-for-step_2,
+.voting-filters-for-step_3 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 25px;
+
+  .ms-options-wrap > button {
+    margin: 0;
+    text-transform: initial;
+  }
+}
+
+.voting-filters-for-step_2 {
+  flex-grow: 8;
+
+  .styled-label {
+    display: none;
+  }
+
+  select,
+  .ms-options-wrap,
+  & > div {
+    width: 30%;
+    margin: 0;
+  }
+
+  .scope-id-select {
+    position: relative;
+
+    .scope-id {
+      width: 100%;
+
+      &.opened {
+        outline-offset: -2px;
+        outline: 2px solid var(--primary);
+      }
+    }
+
+    .scope-id-dropdown {
+      position: absolute;
+      display: none;
+      left: 0px;
+      top: calc(100% + 5px);
+      width: 420px;
+      z-index: 21;
+      border-radius: 5px;
+
+      padding: 12px;
+      background-color: white;
+      border: 1px solid #8c8c8c;
+
+      .scope-id-warning {
+        display: none;
+        margin-bottom: 10px;
+      }
+
+      .scope-id-options {
+        display: flex;
+        flex-direction: column;
+        max-height: 280px;
+        flex-wrap: wrap;
+
+        .scope-id-option {
+          padding: 4px;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.8;
+          border: 2px dotted transparent;
+
+          &.selected {
+            background-color: var(--primary);
+            color: white;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            border-color: #373737;
+            background-color: #373737;
+            text-decoration: underline;
+            color: white;
+          }
+        }
+      }
+
+      button {
+        margin-top: 10px;
+        margin-left: unset;
+        margin-bottom: unset;
+      }
+    }
+  }
+}
+
+.voting-filters-for-step_3 {
+  flex-grow: 7;
+
+  select,
+  .ms-options-wrap,
+  & > div {
+    width: 47%;
+    margin: 0;
+  }
+}
+
+.projects-filtering {
+  display: none;
+
+  .select-row {
+    display: flex;
+    background-color: #f5f6f7;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    align-items: center;
+    padding-right: 10px;
+
+    .map-toggler {
+      background-image: asset_url(
+        "decidim/projects/images/toggle-map-marker.png"
+      );
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      background-size: 25px;
+      padding: 8px 0 8px 45px;
+      flex-grow: 1;
+      width: 95px;
+      height: 41px;
+    }
+  }
+
+  .map-toggler-box {
+    display: none;
+  }
+}
+
+.projects-list-table.voting {
+  border-spacing: 10px;
+
+  td {
+    overflow: hidden;
+  }
+
+  tr:nth-of-type(2n) {
+    td {
+      background-color: #f6f6f6;
+    }
+
+    .title-column::after {
+      background-color: #f6f6f6;
+    }
+  }
+
+  .vote-number-column {
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+
+    &.chosen {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: #fff;
+    }
+  }
+
+  tbody .title-column {
+    position: relative;
+    overflow: visible;
+    font-weight: normal;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      left: calc(100% - 20px);
+      top: -1px;
+      width: 55%;
+      height: calc(100% + 2px);
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      z-index: 0;
+    }
+  }
+
+  .budget-column {
+    position: relative;
+    border-right: 1px solid #e8e8e8;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .number-link-th {
+    width: 70px;
+  }
+
+  // to prevent width change
+  .vote-link-th {
+    width: 127px;
+  }
+
+  // to prevent width change
+
+  .vote-link-column {
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    padding: 0;
+    position: relative;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      //width: 127px;
+
+      &.chosen {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+        color: transparent;
+        background-image: asset_url("decidim/projects/images/vote-check.png");
+        background-size: initial;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &.chosen:hover,
+      &:hover {
+        background-color: var(--primary);
+        color: #fff;
+        text-decoration: none;
+        background-image: none;
+      }
+    }
+  }
+}
+
+.projects-list-table.after-voting {
+  border-spacing: 10px;
+  margin-bottom: 80px;
+
+  td {
+    overflow: hidden;
+
+    .no-data-info {
+      text-align: center;
+    }
+  }
+
+  tr:nth-of-type(2n) {
+    td {
+      background-color: #f6f6f6;
+    }
+
+    .title-column::after {
+      background-color: #f6f6f6;
+    }
+  }
+
+  .vote-number-column {
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+
+    &.chosen {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: #fff;
+    }
+  }
+
+  tbody .title-column {
+    position: relative;
+    overflow: visible;
+    font-weight: normal;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      left: 100%;
+      top: -1px;
+      width: 5%;
+      height: calc(100% + 2px);
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      z-index: 0;
+    }
+  }
+
+  .budget-column {
+    position: relative;
+    border-right: 1px solid #e8e8e8;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .number-link-th {
+    width: 70px;
+  }
+
+  // to prevent width change
+}
+
+ul.error-info-box {
+  list-style: none;
+}
+
+.error-info-box {
+  background-color: #ac2a28;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin: auto;
+  font-size: 14px;
+}
+
+.error-info-box.info-graph {
+  background-image: asset_url("decidim/projects/images/info-graph.svg");
+  background-position: 15px center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  padding: 15px 15px 15px 60px;
+}
+
+.error-info-box.info-graph.hollow {
+  background-image: asset_url("decidim/projects/images/info-graph-hollow.svg");
+  background-color: #f5f6f7;
+  color: #000;
+}
+
+.author-data-warning {
+  margin: 20px 0px 40px;
+}
+
+.instruction-text-center {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.show-for-mobile {
+  display: none;
+}

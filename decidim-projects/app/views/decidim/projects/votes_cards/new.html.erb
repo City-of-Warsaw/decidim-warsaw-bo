@@ -1,0 +1,36 @@
+<% add_decidim_page_title(t('.vote')) %>
+
+<div class="wrapper with-double-decor">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1 class="devise-header"><%= t('.vote') %></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="card no-border">
+          <div class="card__content">
+            <%= decidim_form_for(@form, url: votes_cards_path) do |f| %>
+              <div class="field">
+                <label class="styled-label" for="vote_email"><strong>E-mail</strong><span class="label-required"><span aria-hidden="true">*</span><span class="show-for-sr">Wymagane</span></span></label>
+                <small>Wpisz adres e-mail. Na ten adres wyślemy link umożliwiający głosowanie w budżecie obywatelskim.</small>
+                <%= f.email_field :email, autofocus: true,  class: "mt-xs", label: false  %>                
+              </div>
+
+              <div class="actions">
+                <%= f.submit t(".submit"), class: "button expanded" %>
+              </div>
+
+              <div class="card explanation pl-s pt-s pr-s pb-s">
+                <div class='strong'><%= t('information_clause_label', scope: 'decidim.projects.projects.edit', link: '/pages/klauzula-informacyjna').html_safe %></div>
+                <%= t('information_clause_explanation', scope: 'decidim.projects.projects.edit') %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Admin::ProjectsController
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Admin::ProjectsController";
+  relpath = '../../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span>
+     &raquo; 
+    <span class="title">ProjectsController</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Admin::ProjectsController
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationController.html" title="Decidim::Projects::Admin::ApplicationController (class)">ApplicationController</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Admin::Components::BaseController</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationController.html" title="Decidim::Projects::Admin::ApplicationController (class)">ApplicationController</a></span></li>
+          
+            <li class="next">Decidim::Projects::Admin::ProjectsController</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>ApplicationHelper, <span class='object_link'><a href="Filterable.html" title="Decidim::Projects::Admin::Filterable (module)">Filterable</a></span>, <span class='object_link'><a href="ProjectsExport.html" title="Decidim::Projects::Admin::ProjectsExport (module)">ProjectsExport</a></span>, <span class='object_link'><a href="ProjectsFilteredCollection.html" title="Decidim::Projects::Admin::ProjectsFilteredCollection (module)">ProjectsFilteredCollection</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Controller that allows managing projects in admin panel.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_changes-instance_method" title="#accept_changes (instance method)">#<strong>accept_changes</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_coautorship-instance_method" title="#accept_coautorship (instance method)">#<strong>accept_coautorship</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_evaluations-instance_method" title="#accept_evaluations (instance method)">#<strong>accept_evaluations</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#admin_filter_selector-instance_method" title="#admin_filter_selector (instance method)">#<strong>admin_filter_selector</strong>(i18n_ctx = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assign_to_valuator-instance_method" title="#assign_to_valuator (instance method)">#<strong>assign_to_valuator</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#change_status-instance_method" title="#change_status (instance method)">#<strong>change_status</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#collection-instance_method" title="#collection (instance method)">#<strong>collection</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edit-instance_method" title="#edit (instance method)">#<strong>edit</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#erase_user_data-instance_method" title="#erase_user_data (instance method)">#<strong>erase_user_data</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#filtered_collection_projects-instance_method" title="#filtered_collection_projects (instance method)">#<strong>filtered_collection_projects</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#form_presenter-instance_method" title="#form_presenter (instance method)">#<strong>form_presenter</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#forward_to_department-instance_method" title="#forward_to_department (instance method)">#<strong>forward_to_department</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index-instance_method" title="#index (instance method)">#<strong>index</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mark_conflicts-instance_method" title="#mark_conflicts (instance method)">#<strong>mark_conflicts</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mark projects with conflicts in edition - on the same location.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new-instance_method" title="#new (instance method)">#<strong>new</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_message-instance_method" title="#new_message (instance method)">#<strong>new_message</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_authors_about_all_evaluation_results-instance_method" title="#notify_authors_about_all_evaluation_results (instance method)">#<strong>notify_authors_about_all_evaluation_results</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_authors_about_evaluation_result-instance_method" title="#notify_authors_about_evaluation_result (instance method)">#<strong>notify_authors_about_evaluation_result</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_authors_about_evaluation_results-instance_method" title="#notify_authors_about_evaluation_results (instance method)">#<strong>notify_authors_about_evaluation_results</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#participatory_process-instance_method" title="#participatory_process (instance method)">#<strong>participatory_process</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#project-instance_method" title="#project (instance method)">#<strong>project</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#project_ids-instance_method" title="#project_ids (instance method)">#<strong>project_ids</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#projects-instance_method" title="#projects (instance method)">#<strong>projects</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register_all_to_signum-instance_method" title="#register_all_to_signum (instance method)">#<strong>register_all_to_signum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register_to_signum-instance_method" title="#register_to_signum (instance method)">#<strong>register_to_signum</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remind_about_drafts-instance_method" title="#remind_about_drafts (instance method)">#<strong>remind_about_drafts</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remind_about_missing_evaluations-instance_method" title="#remind_about_missing_evaluations (instance method)">#<strong>remind_about_missing_evaluations</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Before the end evaluation step, the system sends a notification to the coordinator with information about deficiencies in the evaluation of individual projects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#search_params_for_export-instance_method" title="#search_params_for_export (instance method)">#<strong>search_params_for_export</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>filter allowed params for export, used in links.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_message-instance_method" title="#send_message (instance method)">#<strong>send_message</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_messages-instance_method" title="#send_messages (instance method)">#<strong>send_messages</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sends bulk messages to projects authors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show-instance_method" title="#show (instance method)">#<strong>show</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">#<strong>status</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="Decidim::Projects::Admin::ApplicationController (class)">ApplicationController</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#create_log-instance_method" title="Decidim::Projects::Admin::ApplicationController#create_log (method)">#create_log</a></span>, <span class='object_link'><a href="ApplicationController.html#subaction_for%3F-instance_method" title="Decidim::Projects::Admin::ApplicationController#subaction_for? (method)">#subaction_for?</a></span></p>
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="accept_changes-instance_method">
+  
+    #<strong>accept_changes</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_accept_changes'>accept_changes</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:bulk_action</span><span class='comma'>,</span> <span class='symbol'>:project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AcceptChanges.html" title="Decidim::Projects::Admin::AcceptChanges (class)">AcceptChanges</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="AcceptChanges.html#call-instance_method" title="Decidim::Projects::Admin::AcceptChanges#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaden z wybranych projektów nie miał zmian do zatwierdzenia.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zatwierdzono zmiany w projektach.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="accept_coautorship-instance_method">
+  
+    #<strong>accept_coautorship</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_accept_coautorship'>accept_coautorship</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:coauthor_accept</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+
+  <span class='id identifier rubyid_coauthorship'>coauthorship</span> <span class='op'>=</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_coauthorships'>coauthorships</span><span class='period'>.</span><span class='id identifier rubyid_for_acceptance'>for_acceptance</span><span class='period'>.</span><span class='id identifier rubyid_for_decidim_users'>for_decidim_users</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>decidim_author_id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_coauthorship'>coauthorship</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało sie potwierdzić współautorstwa</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='const'><span class='object_link'><a href="AcceptCoauthorship.html" title="Decidim::Projects::Admin::AcceptCoauthorship (class)">AcceptCoauthorship</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="AcceptCoauthorship.html#call-instance_method" title="Decidim::Projects::Admin::AcceptCoauthorship#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_coauthorship'>coauthorship</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Współautorstwo zostało potwierdzone, a użytkownik otrzymał powiadomienie email.</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało sie potwierdzić współautorstwa</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="accept_evaluations-instance_method">
+  
+    #<strong>accept_evaluations</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 156</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_accept_evaluations'>accept_evaluations</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:bulk_action</span><span class='comma'>,</span> <span class='symbol'>:project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AcceptEvaluations.html" title="Decidim::Projects::Admin::AcceptEvaluations (class)">AcceptEvaluations</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="AcceptEvaluations.html#call-instance_method" title="Decidim::Projects::Admin::AcceptEvaluations#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaden z wybranych projektów nie miał oceny do zatwierdzenia.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zatwierdzono oceny projektów.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="admin_filter_selector-instance_method">
+  
+    #<strong>admin_filter_selector</strong>(i18n_ctx = nil)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_filter_selector'>admin_filter_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_i18n_ctx'>i18n_ctx</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='label'>partial:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim/projects/admin/projects/filters</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>locals:</span> <span class='lbrace'>{</span> <span class='label'>i18n_ctx:</span> <span class='id identifier rubyid_i18n_ctx'>i18n_ctx</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="assign_to_valuator-instance_method">
+  
+    #<strong>assign_to_valuator</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_assign_to_valuator'>assign_to_valuator</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:bulk_subcoordinator_action</span><span class='comma'>,</span> <span class='symbol'>:project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AssignEvaluatorToProjects.html" title="Decidim::Projects::Admin::AssignEvaluatorToProjects (class)">AssignEvaluatorToProjects</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="AssignEvaluatorToProjects.html#call-instance_method" title="Decidim::Projects::Admin::AssignEvaluatorToProjects#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:valuator</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_assigned'>assigned</span><span class='op'>|</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_assigned'>assigned</span><span class='lbracket'>[</span><span class='symbol'>:assigned</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Przypisano projekty </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_assigned'>assigned</span><span class='lbracket'>[</span><span class='symbol'>:assigned</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> do weryfikatora.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_assigned'>assigned</span><span class='lbracket'>[</span><span class='symbol'>:not_assigned</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Projekty niezmienione - </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_assigned'>assigned</span><span class='lbracket'>[</span><span class='id identifier rubyid_not_assigned'>not_assigned</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="change_status-instance_method">
+  
+    #<strong>change_status</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_change_status'>change_status</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:status_change</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ChangeStatusForm.html" title="Decidim::Projects::Admin::ChangeStatusForm (class)">ChangeStatusForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='label'>project_id:</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="UpdateProjectStatus.html" title="Decidim::Projects::Admin::UpdateProjectStatus (class)">UpdateProjectStatus</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="UpdateProjectStatus.html#call-instance_method" title="Decidim::Projects::Admin::UpdateProjectStatus#call (method)">call</a></span></span><span class='lparen'>(</span><span class='ivar'>@form</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__project'>_project</span><span class='op'>|</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaktualizowano status projektu</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało się zaktualizować statusu projektu</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:status</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid_budget_value</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Projekt musi mieć ustawioną wartość budżetu aby poprawnie zaktualizować status projektu</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:status</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="collection-instance_method">
+  
+    #<strong>collection</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+384
+385
+386</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 384</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_collection'>collection</span>
+  <span class='ivar'>@collection</span> <span class='op'>||=</span> <span class='id identifier rubyid_collection_filtered_by_user_permission'>collection_filtered_by_user_permission</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create-instance_method">
+  
+    #<strong>create</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProjectForm.html" title="Decidim::Projects::Admin::ProjectForm (class)">ProjectForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="CreateProject.html" title="Decidim::Projects::Admin::CreateProject (class)">CreateProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="CreateProject.html#call-instance_method" title="Decidim::Projects::Admin::CreateProject#call (method)">call</a></span></span><span class='lparen'>(</span><span class='ivar'>@form</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_project'>project</span><span class='op'>|</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects.create.success</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim.projects.admin</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects.create.invalid</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim.projects.admin</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>action:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>new</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="edit-instance_method">
+  
+    #<strong>edit</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:edit</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_create_log'>create_log</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='symbol'>:edit</span><span class='rparen'>)</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_ad_admin?'>ad_admin?</span> <span class='op'>||</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_ad_coordinator?'>ad_coordinator?</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_admin_changes'>admin_changes</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+            <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ChangesProjectForm.html" title="Decidim::Projects::Admin::ChangesProjectForm (class)">ChangesProjectForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_model'>from_model</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+          <span class='kw'>else</span>
+            <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProjectForm.html" title="Decidim::Projects::Admin::ProjectForm (class)">ProjectForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_model'>from_model</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="erase_user_data-instance_method">
+  
+    #<strong>erase_user_data</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 323</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_erase_user_data'>erase_user_data</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:erase_user_data</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="EraseUserData.html" title="Decidim::Projects::Admin::EraseUserData (class)">EraseUserData</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="EraseUserData.html#call-instance_method" title="Decidim::Projects::Admin::EraseUserData#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_collection'>collection</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Dane użytkowników zostały wyczyszczone</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filtered_collection_projects-instance_method">
+  
+    #<strong>filtered_collection_projects</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+375
+376
+377
+378
+379
+380
+381
+382</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 375</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filtered_collection_projects'>filtered_collection_projects</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProjectsFilterForm.html" title="Decidim::Projects::Admin::ProjectsFilterForm (class)">ProjectsFilterForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@form</span><span class='period'>.</span><span class='id identifier rubyid_invalid?'>invalid?</span>
+    <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Formularz zawiera niepoprawne pola</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span>
+  <span class='kw'>end</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended/FilteredProjects.html" title="Decidim::AdminExtended::FilteredProjects (class)">FilteredProjects</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../../AdminExtended/FilteredProjects.html#initialize-instance_method" title="Decidim::AdminExtended::FilteredProjects#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_collection'>collection</span><span class='comma'>,</span> <span class='ivar'>@form</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="../../AdminExtended/FilteredProjects.html#call-instance_method" title="Decidim::AdminExtended::FilteredProjects#call (method)">call</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="form_presenter-instance_method">
+  
+    #<strong>form_presenter</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 404</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_form_presenter'>form_presenter</span>
+  <span class='ivar'>@form_presenter</span> <span class='op'>||=</span> <span class='id identifier rubyid_present'>present</span><span class='lparen'>(</span><span class='ivar'>@form</span><span class='comma'>,</span> <span class='label'>presenter_class:</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ProjectPresenter.html" title="Decidim::Projects::ProjectPresenter (class)">ProjectPresenter</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="forward_to_department-instance_method">
+  
+    #<strong>forward_to_department</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 256</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_forward_to_department'>forward_to_department</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:bulk_action</span><span class='comma'>,</span> <span class='symbol'>:project</span>
+
+  <span class='id identifier rubyid_department'>department</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended/Department.html" title="Decidim::AdminExtended::Department (class)">Department</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:department</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:department</span><span class='rbracket'>]</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ForwardProjectsToDepartment.html" title="Decidim::Projects::Admin::ForwardProjectsToDepartment (class)">ForwardProjectsToDepartment</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="ForwardProjectsToDepartment.html#call-instance_method" title="Decidim::Projects::Admin::ForwardProjectsToDepartment#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_department'>department</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaden z wybranych projektów nie mógł zostać przekazany do wybranej komórki.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przekazano projekty do komórki.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="index-instance_method">
+  
+    #<strong>index</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
+  <span class='ivar'>@projects</span> <span class='op'>=</span> <span class='id identifier rubyid_filtered_collection_projects'>filtered_collection_projects</span>
+  <span class='ivar'>@all_projects_count</span> <span class='op'>=</span> <span class='ivar'>@projects</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+  <span class='ivar'>@projects</span> <span class='op'>=</span> <span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='ivar'>@projects</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mark_conflicts-instance_method">
+  
+    #<strong>mark_conflicts</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mark projects with conflicts in edition - on the same location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 312</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mark_conflicts'>mark_conflicts</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:mark_conflicts</span><span class='comma'>,</span> <span class='symbol'>:project</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="MarkConflictedProjects.html" title="Decidim::Projects::Admin::MarkConflictedProjects (class)">MarkConflictedProjects</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="MarkConflictedProjects.html#call-instance_method" title="Decidim::Projects::Admin::MarkConflictedProjects#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Oznaczono projekty będące w konflikcie lokalizacji.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new-instance_method">
+  
+    #<strong>new</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProjectForm.html" title="Decidim::Projects::Admin::ProjectForm (class)">ProjectForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span>
+    <span class='label'>is_paper:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>evaluator:</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span>
+    <span class='label'>state:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>admin_draft</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>attachment:</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="AttachmentForm.html" title="Decidim::Projects::Admin::AttachmentForm (class)">AttachmentForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new_message-instance_method">
+  
+    #<strong>new_message</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_new_message'>new_message</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:send_message</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_mail_template'>mail_template</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../AdminExtended/MailTemplate.html" title="Decidim::AdminExtended::MailTemplate (class)">MailTemplate</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>system_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>project_status_changed_author_info_email_template</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:body</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span> <span class='kw'>if</span> <span class='id identifier rubyid_mail_template'>mail_template</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_mail_template'>mail_template</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify_authors_about_all_evaluation_results-instance_method">
+  
+    #<strong>notify_authors_about_all_evaluation_results</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+296
+297
+298
+299
+300
+301</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 296</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify_authors_about_all_evaluation_results'>notify_authors_about_all_evaluation_results</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:notify_authors_about_all_evaluation_results</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NotifyAuthorsAboutEvaluationResultsJob.html" title="Decidim::Projects::NotifyAuthorsAboutEvaluationResultsJob (class)">NotifyAuthorsAboutEvaluationResultsJob</a></span></span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_for_all_projects'>for_all_projects</span> <span class='op'>=</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto wysyłanie powiadomienia do autorów wszystkich projektów o publikacji wyników oceny</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify_authors_about_evaluation_result-instance_method">
+  
+    #<strong>notify_authors_about_evaluation_result</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+282
+283
+284
+285
+286
+287</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 282</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify_authors_about_evaluation_result'>notify_authors_about_evaluation_result</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:notify_authors_about_evaluation_result</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NotifyAuthorsAboutEvaluationResultsJob.html" title="Decidim::Projects::NotifyAuthorsAboutEvaluationResultsJob (class)">NotifyAuthorsAboutEvaluationResultsJob</a></span></span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto wysyłanie powiadomienia do autorów projektu o publikacji wyników oceny</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notify_authors_about_evaluation_results-instance_method">
+  
+    #<strong>notify_authors_about_evaluation_results</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+289
+290
+291
+292
+293
+294</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 289</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notify_authors_about_evaluation_results'>notify_authors_about_evaluation_results</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:notify_authors_about_evaluation_results</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NotifyAuthorsAboutEvaluationResultsJob.html" title="Decidim::Projects::NotifyAuthorsAboutEvaluationResultsJob (class)">NotifyAuthorsAboutEvaluationResultsJob</a></span></span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto wysyłanie powiadomienia do autorów projektów o publikacji wyników oceny</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="participatory_process-instance_method">
+  
+    #<strong>participatory_process</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 396</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_participatory_process'>participatory_process</span>
+  <span class='ivar'>@participatory_process</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>ParticipatoryProcess</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>slug:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:participatory_process_slug</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="project-instance_method">
+  
+    #<strong>project</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+392
+393
+394</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 392</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@project</span> <span class='op'>||=</span> <span class='id identifier rubyid_collection'>collection</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="project_ids-instance_method">
+  
+    #<strong>project_ids</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+400
+401
+402</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 400</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_project_ids'>project_ids</span>
+  <span class='ivar'>@project_ids</span> <span class='op'>||=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_ids</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="projects-instance_method">
+  
+    #<strong>projects</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+388
+389
+390</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 388</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_projects'>projects</span>
+  <span class='ivar'>@projects</span> <span class='op'>||=</span> <span class='id identifier rubyid_filtered_collection'>filtered_collection</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register_all_to_signum-instance_method">
+  
+    #<strong>register_all_to_signum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 353</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register_all_to_signum'>register_all_to_signum</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RegisterAllToSignum.html" title="Decidim::Projects::Admin::RegisterAllToSignum (class)">RegisterAllToSignum</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="RegisterAllToSignum.html#call-instance_method" title="Decidim::Projects::Admin::RegisterAllToSignum#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid_login</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Projekty nie zostaną zarejestrowane z powodu braku konta &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; w Signum</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Żaden z wybranych projektów nie został zarejestrowany.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto rejestrację projektów w Signum. Odśwież stronę, żeby zobaczyć numery Signum.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register_to_signum-instance_method">
+  
+    #<strong>register_to_signum</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 334</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register_to_signum'>register_to_signum</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:register_to_signum</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RegisterToSignum.html" title="Decidim::Projects::Admin::RegisterToSignum (class)">RegisterToSignum</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="RegisterToSignum.html#call-instance_method" title="Decidim::Projects::Admin::RegisterToSignum#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:registered_already</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ten projekt już jest zarejestrowany w Signum.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid_login</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Projekt nie został zarejestrowany z powodu braku konta &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; w Signum</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zarejestrowano projekt w Signum</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remind_about_drafts-instance_method">
+  
+    #<strong>remind_about_drafts</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+276
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 276</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remind_about_drafts'>remind_about_drafts</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:remind_about_drafts</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../RemindAboutDraftProjectsJob.html" title="Decidim::Projects::RemindAboutDraftProjectsJob (class)">RemindAboutDraftProjectsJob</a></span></span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto wysyłanie przypomnienia do autorów o kopiach roboczych.</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remind_about_missing_evaluations-instance_method">
+  
+    #<strong>remind_about_missing_evaluations</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Before the end evaluation step, the system sends a notification to the coordinator with information about deficiencies in the evaluation of individual projects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+305
+306
+307
+308
+309</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 305</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remind_about_missing_evaluations'>remind_about_missing_evaluations</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:remind_about_missing_evaluations</span><span class='comma'>,</span> <span class='symbol'>:projects</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../RemindAboutMissingEvaluationsProjectsJob.html" title="Decidim::Projects::RemindAboutMissingEvaluationsProjectsJob (class)">RemindAboutMissingEvaluationsProjectsJob</a></span></span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span>
+  <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rozpoczęto wysyłanie przypomnienia do koordynatorów o brakach w ocenie.</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="search_params_for_export-instance_method">
+  
+    #<strong>search_params_for_export</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>filter allowed params for export, used in links</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+413
+414
+415
+416
+417</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 413</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_search_params_for_export'>search_params_for_export</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:q</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:q</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_permit'>permit</span><span class='lparen'>(</span><span class='symbol'>:categories_id_in</span><span class='comma'>,</span> <span class='symbol'>:is_paper_eq</span><span class='comma'>,</span> <span class='symbol'>:recipients_id_in</span><span class='comma'>,</span> <span class='symbol'>:scope_id_eq</span><span class='comma'>,</span> <span class='symbol'>:scope_scope_type_id_eq</span><span class='comma'>,</span> <span class='symbol'>:state_eq</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_message-instance_method">
+  
+    #<strong>send_message</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_message'>send_message</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:send_message</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SendMessages.html" title="Decidim::Projects::Admin::SendMessages (class)">SendMessages</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="SendMessages.html#call-instance_method" title="Decidim::Projects::Admin::SendMessages#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:body</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Wysłano wiadomość do autorów projektu.</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_projects_path'>projects_path</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało się wysłać wiadomości do autorów projektu.</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:new_message</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_messages-instance_method">
+  
+    #<strong>send_messages</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sends bulk messages to projects authors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_messages'>send_messages</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:bulk_message_send</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>component:</span> <span class='id identifier rubyid_current_component'>current_component</span>
+
+  <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SendMessages.html" title="Decidim::Projects::Admin::SendMessages (class)">SendMessages</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="SendMessages.html#call-instance_method" title="Decidim::Projects::Admin::SendMessages#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_current_component'>current_component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='id identifier rubyid_project_ids'>project_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:body</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Wysłano wiadomość do autorów wybranych projektów.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało się wysłać wiadomości do żadnego z autorów.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_js'>js</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="show-instance_method">
+  
+    #<strong>show</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:show</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_create_log'>create_log</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='symbol'>:show</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_pdf'>pdf</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>pdf:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Projekt-</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+             <span class='label'>disposition:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>attachment</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+             <span class='label'>javascript_delay:</span> <span class='int'>1000</span><span class='comma'>,</span>
+             <span class='label'>footer:</span> <span class='lbrace'>{</span>
+               <span class='label'>font_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Arial</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+               <span class='label'>font_size:</span> <span class='int'>8</span><span class='comma'>,</span>
+               <span class='label'>center:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Strona [page] / [topage]</span><span class='tstring_end'>&#39;</span></span>
+             <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="status-instance_method">
+  
+    #<strong>status</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:status_change</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ChangeStatusForm.html" title="Decidim::Projects::Admin::ChangeStatusForm (class)">ChangeStatusForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_model'>from_model</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/controllers/decidim/projects/admin/projects_controller.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
+  <span class='id identifier rubyid_enforce_permission_to'>enforce_permission_to</span> <span class='symbol'>:edit</span><span class='comma'>,</span> <span class='symbol'>:project</span><span class='comma'>,</span> <span class='label'>project:</span> <span class='id identifier rubyid_project'>project</span>
+
+  <span class='ivar'>@form</span> <span class='op'>=</span> <span class='id identifier rubyid_form'>form</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProjectForm.html" title="Decidim::Projects::Admin::ProjectForm (class)">ProjectForm</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_params'>from_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_subaction_for?'>subaction_for?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>accept</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AcceptChanges.html" title="Decidim::Projects::Admin::AcceptChanges (class)">AcceptChanges</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="AcceptChanges.html#call-instance_method" title="Decidim::Projects::Admin::AcceptChanges#call (method)">call</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_component'>component</span><span class='comma'>,</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='id identifier rubyid_project'>project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nie udało sie zatwierdzić zmian w projekcie.</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:edit</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_project'>project</span><span class='op'>|</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zatwierdzono zmiany w projekcie.</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="../Admin.html" title="Decidim::Projects::Admin (module)">Admin</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="UpdateProject.html" title="Decidim::Projects::Admin::UpdateProject (class)">UpdateProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="UpdateProject.html#call-instance_method" title="Decidim::Projects::Admin::UpdateProject#call (method)">call</a></span></span><span class='lparen'>(</span><span class='ivar'>@form</span><span class='comma'>,</span> <span class='ivar'>@project</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:subaction</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:ok</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__project'>_project</span><span class='op'>|</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:notice</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects.update.success</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_project_path'>project_path</span><span class='lparen'>(</span><span class='id identifier rubyid__project'>_project</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:invalid</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='lbracket'>[</span><span class='symbol'>:alert</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects.update.error</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>scope:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>decidim</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:edit</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:35 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<% custom = @form.component.participatory_space.project_customization %>
+<% if @form.scopes.any? %>
+  <div class="field wizard-scope">
+    <% label = customized_attribute_texts(custom, 'scope_id', 'label') %>
+    <% hint = custom_tooltip_helper_icon(customized_attribute_texts(custom, 'scope_id_hint', 'hint')) %>
+    <% help_text = customized_attribute_texts(custom, 'scope_id_help_text', 'help_text') %>
+    <% if @form.respond_to?(:project) && @form.project && @form.project.published? %>
+      <%= form.label :scope_id, label %>
+      <%= hint %>
+      <% if help_text.present? %>
+        <span class="help-text"><%= help_text %></span>
+      <% end %>
+      <span class='like-input'>
+        <%= translated_attribute(@form.scope&.name) %>
+      </span>
+    <% else %>
+      <%= form.select :scope_id, @form.scopes_mapped,
+                      label: label,
+                      help_text: help_text,
+                      tooltip_helper: hint,
+                      include_blank: true,
+                      'aria-required': true %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form,
+                      :localization_info,
+                      label: customized_attribute_texts(custom, 'localization_info', 'label'),
+                      help_text: customized_attribute_texts(custom, 'localization_info_help_text', 'help_text'),
+                      tooltip_helper: customized_attribute_texts(custom, 'localization_info_hint', 'hint'),
+                      rows: 5,
+                      maxLength: 2000,
+                      'aria-required': true) %>
+</div>
+
+<div class="field hashtags__container">
+  <%= text_editor_for(form,
+                      :localization_additional_info,
+                      rows: 5,
+                      label: customized_attribute_texts(custom, 'localization_additional_info', 'label'),
+                      help_text: customized_attribute_texts(custom, 'localization_additional_info_help_text', 'help_text'),
+                      tooltip_helper: customized_attribute_texts(custom, 'localization_additional_info_hint', 'hint'),
+                      maxLength: 2000
+      ) %>
+</div>
+
+<div class="field">
+  <label class="map-toggler map-toggler-js" id="location-with-toggle">
+    <%= image_tag 'decidim/projects/images/toggle-map-marker.png', alt: '' %>
+    Pokaż/ukryj mapę
+
+    <span class="help-text">
+      <strong class="bigger">Wskaż na mapie</strong><br>
+      Aby dodać punkt:
+      <ul class="pl-s help-text mb-none">
+        <li>kliknij w odpowiednie miejsce na mapie lub</li>
+        <li>wpisz adres albo nazwę miejsca w polu tekstowym pod mapą.</li>
+      </ul>
+      Przytrzymaj znacznik i przesuń go, żeby ustawić dodany punkt w innym miejscu.
+      <br>
+      Możesz wskazać kilka lokalizacji.
+    </span>
+  </label>
+
+  <div class="map-toggler-box">
+    <div id="map" class="map"></div>
+
+    <div class="field mt-s locations locations-list">
+      <%= form.hidden_field :locations_json, id: 'all_locations' %>
+    </div>
+    <div class="auto-search-wrapper">
+      <input type="text" autocomplete="off" id="search" class="full-width" placeholder="Wpisz adres, podając pełną nazwę np. ulicy" aria-describedby="location-with-toggle">
+    </div>
+  </div>
+</div>
+
+<div class="tiny reveal out-of-bounds-modal-js"
+     id="out-of-bounds-modal"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="out-of-bounds-modal-title"
+     aria-describedby="out-of-bounds-modal-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="out-of-bounds-modal-title">Błąd</h2>
+  </div>
+  <div class="confirm-content">
+    <div class="confirm-modal-content" id="out-of-bounds-modal-content" role="document" tabindex="0">
+      Wskazana na mapie lokalizacja jest niedostępna. 
+    </div>
+  </div>
+  <div class="confirm-modal-footer reveal__footer  mt-s">
+    <div class="buttons">
+      <%= link_to "OK", '/', class: "button close-js" %> 
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/locations-map" %>
+
+<%= nonced_javascript_tag do %>
+  $('.map-toggler-js').click( function() {
+    $('.map-toggler-box').toggle();
+  });
+
+  $('.out-of-bounds-modal-js .close-js').click(function(e){
+    e.preventDefault();
+      
+    $('.out-of-bounds-modal-js').closest('.reveal-overlay').hide();
+    $('.out-of-bounds-modal-js').hide();
+  });
+
+  $(document).ready(function() {
+    // $(window).keydown(function(event){
+    $('input#search').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+<% end %>

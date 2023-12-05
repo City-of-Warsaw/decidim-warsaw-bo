@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Decidim::AdminExtended::MailTemplates
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::AdminExtended::MailTemplates";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span>
+     &raquo; 
+    <span class="title">MailTemplates</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Decidim::AdminExtended::MailTemplates
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="MailTemplatesGenerator.html" title="Decidim::AdminExtended::MailTemplatesGenerator (class)">MailTemplatesGenerator</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-admin_extended/app/lib/decidim/admin_extended/mail_templates.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Module with mail templates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#templates-instance_method" title="#templates (instance method)">#<strong>templates</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method system_name: Hash with attributes.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="templates-instance_method">
+  
+    #<strong>templates</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method system_name: Hash with attributes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/lib/decidim/admin_extended/mail_templates.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_templates'>templates</span>
+  <span class='lbrace'>{</span>
+    <span class='comment'># users
+</span>    <span class='label'>activation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Aktywacja konta w systemie dla użytkownika</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Aktywacja konta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;Dziękujemy za założenie konta na stronie budżetu obywatelskiego w&amp;nbsp;Warszawie.&lt;/p&gt;
+      &lt;p&gt;W celu potwierdzenia rejestracji, prosimy o kliknięcie w poniższy link:&lt;/p&gt;
+      &lt;a href=&#39;%{activation_link}&#39; class=&#39;button&#39;&gt;Aktywuj konto&lt;/a&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>password_change_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zmiana hasła w systemie dla użytkownika</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Zmiana hasła</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;Otrzymaliśmy prośbę o zmianę hasła na stronie budżetu obywatelskiego w&amp;nbsp;Warszawie.&lt;/p&gt;
+      &lt;p&gt;Jeżeli&amp;nbsp;chcesz zmienić hasło, kliknij w poniższy link&lt;/p&gt;
+      &lt;a href=&#39;%{password_reset_link}&#39; class=&#39;button&#39;&gt;Link do zmiany hasła&lt;/a&gt;
+      &lt;p&gt;W przeciwnym wypadku prosimy zignorować ten e-mail.&lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>new_private_message:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Powiadomienie o wiadomości prywatnej dla użytkowników</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Prywatna wiadomość</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;Jeden z użytkowników budżetu obywatelskiego w&amp;nbsp;Warszawie chciał się z Tobą skontaktować.&lt;/p&gt;
+      &lt;p&gt;Poniżej znajduje się jego adres e-mail, na który możesz odpisać, oraz treść wiadomości:&lt;/p&gt;
+      &lt;p&gt;%{sender_email}&lt;/p&gt;
+      &lt;p&gt;%{private_message_body}&lt;/p&gt;
+      &lt;p&gt;Jeśli treść jest nieodpowiednia, zgłoś ją nam.&lt;/p&gt;
+      &lt;p&gt;Z poważaniem
+      &lt;br&gt;
+      Urząd m.st. Warszawy&lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+
+    <span class='comment'># project
+</span>    <span class='label'>remind_about_draft_project_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przypomnienie o kopii roboczej</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - dokończ zgłaszanie projektu!</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+&lt;p&gt;jeszcze nie wszystkie Twoje pomysły zostały zgłoszone do budżetu obywatelskiego. Na Twoim koncie wciąż znajdują się kopie robocze projektów.
+&lt;br&gt;Jeśli chcesz je zgłosić w tej edycji, masz ostatnią szansę! Możesz to zrobić jeszcze tylko dzisiaj (do godz. 23:59).
+&lt;br&gt;Wejdź na stronę &lt;a href=&#39;https://bo.um.warszawa.pl&#39;&gt;bo.um.warszawa.pl&lt;/a&gt;, dokończ opisywanie swojego pomysłu i zgłoś go!
+&lt;/p&gt;
+&lt;p&gt;
+  Jeśli potrzebujesz pomocy lub uważasz, że ten e-mail został wysłany do Ciebie przez pomyłkę,
+  napisz na adres &lt;a href=&#39;mailto:bo@um.warszawa.pl&#39;&gt;bo@um.warszawa.pl&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;Z poważaniem
+&lt;br&gt;Urząd m.st. Warszawy&lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_published_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Zgłoszony”</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Dziękujemy za złożenie projektu!</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+    &lt;p&gt;potwierdzamy złożenie projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; do budżetu obywatelskiego w Warszawie na rok 2023.&lt;/p&gt;
+    &lt;p&gt;Pamiętaj, że zgłoszony pomysł możesz jeszcze edytować do 25 stycznia 2022 (do godz. 23:59).&lt;/p&gt;
+    &lt;p&gt;Wszystkie złożone projekty są opublikowane na stronie internetowej bo.um.warszawa.pl w zakładce Przeglądaj projekty.&lt;/p&gt;
+
+    &lt;p&gt;Z poważaniem
+    &lt;br&gt;
+    Urząd m.st. Warszawy&lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>author_invitation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla autora projektu w wersji papierowej z informacją o możliwości założenia konta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój projekt został wprowadzony do systemu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+    &lt;p&gt;ponieważ zgłosiłaś(-eś) projekt na formularzu papierowym, pracownicy Urzędu wprowadzili go do systemu internetowego.
+    Przy użyciu adres e-mail podanego w formularzu możesz zalogować się na swoje konto, żeby odpowiadać na komentarze innych użytkowników. Kliknij w &lt;a href=&#39;%{password_reset_link}&#39;&gt;link do zmiany hasła&lt;/a&gt;, żeby ustawić hasło.&lt;/p&gt;
+    &lt;p&gt;Jeśli potrzebujesz pomocy lub uważasz, że ten e-mail został wysłany do Ciebie przez pomyłkę, napisz na adres: bo@um.warszawa.pl.&lt;/p&gt;
+    &lt;p&gt;
+    Z poważaniem
+    Urząd m.st. Warszawy
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>coauthor_invitation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla współautora z informacją o możliwości założenia konta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Zostałaś(-eś) dodana(-y) jako współautor projektu </span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+&lt;p&gt;zostałaś(-eś) dodana(-y) jako współautor projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+zgłoszonego w ramach budżetu obywatelskiego w Warszawie.&lt;/p&gt;
+&lt;p&gt;Aby potwierdzić status współautora, musisz założyć konto w systemie internetowym.&lt;/p&gt;
+&lt;p&gt;W celu założenia konta, prosimy przejść na stronę: &lt;a href=&#39;%{registration_link}&#39;&gt;link do rejestracji&lt;/a&gt;.
+Pamiętaj, aby przy zakładaniu konta użyć adresu e-mail, na który otrzymałeś tę wiadomość.
+Inaczej nie będziemy w stanie zidentyfikować Ciebie jako współautora projektu.&lt;/p&gt;
+&lt;p&gt;Jeśli potrzebujesz pomocy lub uważasz, że ten e-mail został wysłany do Ciebie przez pomyłkę, napisz na adres: bo@um.warszawa.pl.&lt;/p&gt;
+&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy
+&lt;/p&gt;
+</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>coauthorship_confirmation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla współautora z informacją o potwierdzeniu statusu współautora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Zostałaś(-eś) dodana(-y) jako współautor projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+    &lt;p&gt;zostałaś(-eś) dodana(-y) jako współautor projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+    zgłoszonego w ramach budżetu obywatelskiego w Warszawie.&lt;/p&gt;
+    &lt;p&gt;Aby potwierdzić status współautora kliknij w link: &lt;a href=&#39;%{coauthorship_acceptance_link}&#39;&gt;potwierdzenie współautorstwa&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;Jeśli potrzebujesz pomocy lub uważasz, że ten e-mail został wysłany do Ciebie przez pomyłkę, napisz na adres: bo@um.warszawa.pl.&lt;/p&gt;
+    &lt;p&gt;
+    Z poważaniem
+    Urząd m.st. Warszawy
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>applicant_information_after_project_edit_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla wnioskodawców wysyłanej po edycji projektu przez autora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Potwierdzenie edycji projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+ &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+&lt;p&gt;potwierdzamy wprowadzenie zmian do treści projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; zgłoszonego do budżetu obywatelskiego w Warszawie na rok 2023.&lt;/p&gt;
+&lt;p&gt;Zgłoszony pomysł może być ponownie modyfikować do 25 stycznia 2022 (do godz. 23:59).&lt;/p&gt;
+&lt;p&gt;Jeśli potrzebujesz pomocy lub uważasz, że ten e-mail został wysłany do Ciebie przez pomyłkę, napisz do nas na adres: bo@um.warszawa.pl.&lt;/p&gt;
+&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy&lt;/p&gt;
+</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>admin_edition_project_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail wysyłanej do projektodawcy po aktualizacji projektu przez pracowników urzędu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój projekt został zmieniony</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;w Twoim projekcie &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; zgłoszonym w ramach budżetu obywatelskiego w Warszawie
+      pracownicy Urzędu wprowadzili zmiany.&lt;/p&gt;
+      &lt;p&gt;Zakres zmian możesz sprawdzić na karcie projektu w sekcji &#39;Modyfikacje&#39;.&lt;/p&gt;
+      &lt;p&gt;Jeśli masz pytania lub wątpliwości, skontaktuj się z pracownikiem urzędu oceniającym projekt lub właściwym koordynatorem ds. budżetu obywatelskiego.&lt;/p&gt;
+      &lt;p&gt;
+      Z poważaniem
+      Urząd m.st. Warszawy&lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>withdrawn_project_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Wycofany przez autora”</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – Projekt został wycofany</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;
+      potwierdzamy wycofanie projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;. Projekt nadal będzie widoczny na stronie, ale nie będzie już dalej procedowany.
+      &lt;/p&gt;
+      &lt;p&gt;
+      Jeśli masz pytania, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego lub napisz do nas na adres bo@um.warszawa.pl.
+      &lt;/p&gt;
+      &lt;p&gt;
+      Z poważaniem
+      Urząd m.st. Warszawy
+      &lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>withdrawn_project_email_coauthor_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Wycofany przez autora” - powiadomienie dla współautorów</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – Projekt został wycofany</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+    &lt;p&gt;
+    Autor wycofał projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;. Projekt nadal będzie widoczny na stronie, ale nie będzie już dalej procedowany.
+    &lt;/p&gt;
+    &lt;p&gt;
+    Jeśli masz pytania, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego lub napisz do nas na adres bo@um.warszawa.pl.
+    &lt;/p&gt;
+    &lt;p&gt;
+    Z poważaniem
+    Urząd m.st. Warszawy
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>withdrawn_project_email_inner_users_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Wycofany przez autora” - powiadomienie dla użytkowników wewnętrznych</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – Projekt został wycofany</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;p&gt;Projekt został wycofany przez autora &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;.&lt;/p&gt; </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>negative_evaluation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Oceniony negatywnie”</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – Twój projekt został oceniony negatywnie</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+&lt;p&gt;
+Twój projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został oceniony negatywnie. Niestety, nie zostanie poddany pod głosowanie mieszkańców.
+&lt;/p&gt;&lt;p&gt;
+Uzasadnienie:
+&lt;/p&gt;&lt;p&gt;
+%{reason_body}
+&lt;/p&gt;&lt;p&gt;
+Jeśli masz pytania dotyczące przebiegu oceny, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+&lt;/p&gt;&lt;p&gt;
+Autorom projektów przysługuje prawo odwołania się od wyniku oceny. Odwołanie można złożyć elektronicznie (logując się na swoje konto na stronie bo.um.warszawa.pl) lub papierowo od 4 do 11 maja 2022 r.
+&lt;/p&gt;&lt;p&gt;
+Informacja o wyniku ponownej oceny zostanie przekazana projektodawcom najpóźniej 31 maja 2022 roku. Wynik ponownej oceny będzie ostateczny.
+&lt;/p&gt;&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy
+&lt;/p&gt;
+</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>positive_evaluation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości e-mail dla projektu przechodzącego w stan “Dopuszczony do głosowania”</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój projekt został dopuszczony do głosowania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,
+&lt;/p&gt;&lt;p&gt;
+Twój projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został oceniony pozytywnie i będzie poddany pod głosowanie mieszkańców.
+&lt;/p&gt;&lt;p&gt;
+Warto wypromować swój projekt i zachęcić jak najwięcej osób do głosowania.
+&lt;/p&gt;&lt;p&gt;
+Kolejność projektów na listach do głosowania zostanie ustalona poprzez losowanie i opublikowana najpóźniej do 1 czerwca. Głosowanie na projekty będzie trwało od 15 do 30 czerwca br. Można głosować przez Internet na stronie bo.um.warszawa.pl albo papierowo – wypełnioną kartę do głosowania należy przynieść do właściwego urzędu dzielnicy.
+&lt;/p&gt;&lt;p&gt;
+Jeśli masz pytania dotyczące przebiegu oceny lub głosowania, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+&lt;/p&gt;&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy&lt;/p&gt;
+</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='comment'># selectedt_project_email_template: {
+</span>    <span class='comment'>#   # Not implemented
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail dla projektu przechodzącego w stan “Wybrany w głosowaniu”&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>    <span class='comment'># not_selected_project_email_template: {
+</span>    <span class='comment'>#   # not implemented
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail dla projektu przechodzącego w stan “Niewybrany w głosowaniu”&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>    <span class='comment'># Appeal &amp; Reevaluation
+</span>    <span class='label'>appeal_submited_admin_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Informacja o odwołaniu wysyłana do koordynatorów/weryfikatorów/podkoordynatorów</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – Informacja o złożonym odwołaniu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+          &lt;p&gt;Wpłynęło odwołanie od negatywnej oceny projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;. Z  treścią odwołania możesz się zapoznać po zalogowaniu do panelu administratora.
+          &lt;/p&gt;&lt;p&gt;
+          Bezpośredni link to treści odwołania: &lt;a href=&#39;%{appeal_link}&#39;&gt;link do odwołania&lt;/a&gt;.
+          &lt;/p&gt;
+          </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>appeal_submitted_author_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Informacja o odwołaniu wysyłana do autora odwołania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski – potwierdzenie złożenia odwołania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,
+&lt;/p&gt;&lt;p&gt;
+potwierdzamy złożenia odwołania od oceny projektu  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;. Informacja o wyniku ponownej oceny zostanie przekazana  (wraz z uzasadnieniem) najpóźniej 31 maja 2022 roku. Wynik ponownej oceny będzie ostateczny.
+&lt;/p&gt;&lt;p&gt;
+Treść odwołania: %{appeal_body}
+&lt;/p&gt;&lt;p&gt;
+Jeśli masz pytania dotyczące przebiegu ponownej oceny, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+&lt;/p&gt;&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy
+&lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>finish_appeal_draft:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Użytkownik wewnętrzny zgłosił wprowadzone odwołanie papierowe</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zgłoszono papierowe odwołanie</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+          &lt;p&gt;Wpłynęło odwołanie od negatywnej oceny projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;.&lt;br&gt;
+          Z treścią odwołania możesz się zapoznać po zalogowaniu do panelu administratora.
+          &lt;/p&gt;&lt;p&gt;
+          Bezpośredni link to treści odwołania: &lt;a href=&#39;%{appeal_link}&#39;&gt;link do odwołania&lt;/a&gt;.
+          &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>positive_reevaluation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Pozytywny wynik ponownej oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój projekt został dopuszczony do głosowania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+&lt;p&gt;
+Szanowna Mieszkanko, Szanowny Mieszkańcu,
+&lt;/p&gt;&lt;p&gt;
+wynik oceny Twojego projektu  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został zmieniony na pozytywny. Projekt będzie poddany pod głosowanie mieszkańców.
+&lt;/p&gt;&lt;p&gt;
+Warto wypromować swój projekt i zachęcić jak najwięcej osób do głosowania.
+&lt;/p&gt;&lt;p&gt;
+Kolejność projektów na listach do głosowania zostanie ustalona poprzez losowanie i opublikowana najpóźniej do 1 czerwca. Głosowanie na projekty będzie trwało od 15 do 30 czerwca br. Można głosować przez Internet na stronie bo.um.warszawa.pl albo papierowo – wypełnioną kartę do głosowania należy przynieść do właściwego urzędu dzielnicy.
+&lt;/p&gt;&lt;p&gt;
+Jeśli masz pytania dotyczące przebiegu ponownej oceny lub głosowania, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+&lt;/p&gt;&lt;p&gt;
+Z poważaniem
+Urząd m.st. Warszawy
+&lt;/p&gt;
+</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>negative_reevaluation_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Negatywny wynik ponownej oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój projekt został oceniony negatywnie </span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+    &lt;p&gt;
+    Twój projekt  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został ponownie sprawdzony przez pracowników Urzędu. Niestety, wynik ponownej oceny nie zmienił się i projekt nie zostanie poddany pod głosowanie mieszkańców. Uzasadnienie znajdziesz w karcie ponownej oceny dostępnej pod Twoim projektem.
+    &lt;/p&gt;&lt;p&gt;
+    Jeśli masz pytania dotyczące przebiegu ponownej oceny, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+    &lt;/p&gt;&lt;p&gt;
+    Z poważaniem
+    Urząd m.st. Warszawy
+    &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+
+    <span class='comment'># Assignement to verification
+</span>    <span class='label'>project_assigned_for_verification_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zmiana weryfikatora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przypisaniu projektu do oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+      %{current_role} ds. budżetu obywatelskiego w %{current_type} %{current_department}
+      przekazał Ci projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; do oceny.
+      Jeżeli masz pytania dotyczące zasad przebiegu oceny, skontaktuj się z właściwym
+      koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_assigned_for_formal_verification:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przydzielenie weryfikatora do oceny formalnej</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przypisaniu projektu do oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+      %{current_role} ds. budżetu obywatelskiego w %{current_type} %{current_department}
+      przekazał Ci projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; do oceny formalnej.
+      Jeżeli masz pytania dotyczące zasad przebiegu oceny, skontaktuj się z właściwym
+      koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_assigned_for_meritorical_verification:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przydzielenie weryfikatora do oceny merytorycznej</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przypisaniu projektu do oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+      %{current_role} ds. budżetu obywatelskiego w %{current_type} %{current_department}
+      przekazał Ci projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; do oceny merytorycznej.
+      Jeżeli masz pytania dotyczące zasad przebiegu oceny, skontaktuj się z właściwym
+      koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_assigned_for_reevaluation_verification:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przydzielenie weryfikatora do ponownej oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przypisaniu projektu do oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+      %{current_role} ds. budżetu obywatelskiego w %{current_type} %{current_department}
+      przekazał Ci projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; do ponownej oceny.
+      Jeżeli masz pytania dotyczące zasad przebiegu oceny, skontaktuj się z właściwym
+      koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;
+      </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_assigned_for_management_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przydzielenie podkoordynatora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przypisaniu projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+      Koordynator ds. budżetu obywatelskiego w biurze / jednostce %{current_department}
+      przekazał Ci projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+      do %{evaluation_name}. Jeżeli masz pytania dotyczące zasad przebiegu oceny, skontaktuj się z
+      koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>project_assigned_to_department_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przypisanie projektu do jednostki</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o przekazaniu projektu do Twojej komórki</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Koordynator ds. budżetu obywatelskiego przekazał projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+    do Twojej komórki. Zaloguj się do systemu, aby przydzielić projekt do podkoordynatora lub weryfikatora
+    odpowiedzialnego za ocenę merytoryczną.&lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>meritorical_finished:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaakceptowanie oceny</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - weryfikator zakończył ocenę merytoryczną projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Witaj %{user_name},&lt;/p&gt;
+    &lt;p&gt;
+    Weryfikator %{verifier_name} zakończył ocenę merytoryczną projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+    &lt;br&gt;Pamiętaj o zatwierdzeniu ostatecznej oceny projektu.
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>finish_appeal_verification:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przekazanie ponownej oceny do koordynatora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - weryfikator zakończył ponowną ocenę projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Witaj %{user_name},&lt;/p&gt;
+    &lt;p&gt;
+    Weryfikator %{verifier_name} zakończył ponowną ocenę projektu &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;
+    &lt;br&gt;Pamiętaj o zatwierdzeniu oceny.
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>invitation_for_voting:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości email z zaproszeniem do głosowania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rozpocznij głosowanie w budżecie obywatelskim</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;Rozpocząłeś/aś głosowanie w warszawskim budżecie obywatelskim na %{edition_year}  rok.
+         Kliknij w poniższy link, aby kontynuować głosowanie:&lt;/p&gt;
+      %{voting_button}
+      &lt;p&gt;
+        Zagłosować możesz do %{voting_end_date}.
+      &lt;/p&gt;&lt;p&gt;
+    Z poważaniem&lt;br&gt;
+Urząd m.st. Warszawy&lt;br&gt;
+Budżet obywatelski w Warszawie
+    &lt;/p&gt;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>resend_invitation_for_voting:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości email z ponownym zaproszeniem do głosowania</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rozpocznij głosowanie w budżecie obywatelskim</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;Dokończ głosowanie w warszawskim budżecie obywatelskim na %{edition_year}  rok.
+         Kliknij w poniższy link, aby kontynuować głosowanie:&lt;/p&gt;
+       %{voting_button}
+        Zagłosować możesz do %{voting_end_date}.
+      &lt;/p&gt;&lt;p&gt;
+    Z poważaniem&lt;br&gt;
+    Urząd m.st. Warszawy&lt;br&gt;
+    Budżet obywatelski w Warszawie
+    &lt;/p&gt;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>thank_you_for_voting:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Treść wiadomości email z podziękowaniem o głosowaniu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Dziękujemy za Twój głos w budżecie obywatelskim</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+      &lt;p&gt;dziękujemy za zagłosowanie w warszawskim budżecie obywatelskim na %{edition_year} rok. Zagłosowałeś/aś na następujące propozycje:&lt;/p&gt;
+      %{districts_projects}
+      %{global_projects}
+      &lt;p&gt;
+      Wyniki ogłosimy %{voting_publication_time} roku.
+     &lt;br&gt;
+     Pomysły, które zwyciężą w głosowaniu, zostaną zrealizowane przez Miasto.
+     &lt;/p&gt;&lt;p&gt;
+    Z poważaniem&lt;br&gt;
+    Urząd m.st. Warszawy&lt;br&gt;
+    Budżet obywatelski w Warszawie
+    &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='comment'># projects_assignet_to_bureau_email_template: {
+</span>    <span class='comment'>#   # NO WAY FOR IMPLEMENTATION
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail z informacją o przypisaniu projektu do biura&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>    <span class='comment'># Statuses
+</span>    <span class='comment'># project_status_changed_author_info_email_template: {
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail dla poinformowania autora o zmianie statusu projektu&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>    <span class='label'>implementation_status_changed_author_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowania autora o zmianie stanu realizacji</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Informacja o realizacji Twojego projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+     &lt;p&gt;
+      Szanowna Mieszkanko, Szanowny Mieszkańcu,
+      &lt;/p&gt;&lt;p&gt;
+      na stronie bo.um.warszawa.pl pojawiła się aktualizacji dotycząca realizacji projektu  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;.
+      &lt;/p&gt;&lt;p&gt;
+      Status: %{implementation_status}
+      &lt;/p&gt;&lt;p&gt;
+      Informacja o stanie realizacji: %{implementation_body}
+      &lt;/p&gt;&lt;p&gt;
+      Jeśli masz pytania dotyczące realizacji projektu, skontaktuj się z właściwym koordynatorem ds. budżetu obywatelskiego.
+      &lt;/p&gt;&lt;p&gt;
+      Z poważaniem
+      Urząd m.st. Warszawy
+      &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>new_conversation:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nowa wiadomość prywatna z użytkownikiem</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Wiadomość prywatna od innego użytkownika</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+     &lt;p&gt;
+      Szanowna Mieszkanko, Szanowny Mieszkańcu,
+      &lt;/p&gt;&lt;p&gt;
+      Na stronie bo.um.warszawa.pl pojawiła się nowa wiadomość prywatna od innego użytkownika.
+      &lt;/p&gt;&lt;p&gt;
+      Aby przeczytać wiadomość wejdź: &lt;a href=&#39;https://bo.um.warszawa.pl/conversations&#39;&gt;konwersacje&lt;/a&gt;.
+      &lt;/p&gt;&lt;p&gt;
+      Z poważaniem
+      Urząd m.st. Warszawy
+      &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+
+    <span class='comment'># Comments
+</span>    <span class='label'>new_comment_project_author_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowanie autora projektu o nowym komentarzu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Pojawił się nowy komentarz do Twojego projektu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+      &lt;p&gt;
+        Szanowna Mieszkanko, Szanowny Mieszkańcu,
+        &lt;/p&gt;&lt;p&gt;
+        Pojawił się nowy komentarz na karcie Twojego projektu  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;.
+        &lt;/p&gt;&lt;p&gt;
+        Treść komentarza: %{comment_body}
+        &lt;/p&gt;&lt;p&gt;
+        Aby odpowiedzieć, zaloguj się na swoje konto w systemie.
+        &lt;/p&gt;&lt;p&gt;
+        Z poważaniem
+        Urząd m.st. Warszawy
+        &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>new_comment_interlocutor_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowania uczestnika dyskusji o nowym komentarzu</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Pojawił się nowy komentarz w dyskusji, w której uczestniczysz</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;
+    Szanowna Mieszkanko, Szanowny Mieszkańcu,
+    &lt;/p&gt;&lt;p&gt;
+    Pojawił się nowy komentarz w dyskusji, w której uczestniczysz: &lt;a href=&#39;%{comment_link}&#39;&gt;%{project_title}&lt;/a&gt;.
+    &lt;/p&gt;&lt;p&gt;
+    Treść komentarza: %{comment_body}
+    &lt;/p&gt;&lt;p&gt;
+    Aby odpowiedzieć, zaloguj się na swoje konto w systemie.
+    &lt;/p&gt;&lt;p&gt;
+    Z poważaniem
+    Urząd m.st. Warszawy
+    &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='comment'># comment_updated_project_author_info_email_template: {
+</span>    <span class='comment'>#   # Not implemented
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail dla poinformowania autora projektu o edycji komentarza&#39;,
+</span>    <span class='comment'>#   system_name: &#39;comment_updated_project_author_info_email_template&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>    <span class='comment'># comment_edited_interlocutor_info_email_template: {
+</span>    <span class='comment'>#   # not implemented
+</span>    <span class='comment'>#   name: &#39;Treść wiadomości e-mail dla poinformowania uczestnika dyskusji o edycji komentarza&#39;,
+</span>    <span class='comment'>#   system_name: &#39;comment_edited_interlocutor_info_email_template&#39;,
+</span>    <span class='comment'>#   subject: &#39;&#39;,
+</span>    <span class='comment'>#   body: &quot;&quot;
+</span>    <span class='comment'># },
+</span>
+    <span class='comment'># NOT IMPLEMENTED
+</span>    <span class='label'>comment_deleted_comment_author_info_email_template:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowania użytkownika o usunięciu jego komentarza przez administracje</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Budżet obywatelski - Twój komentarz został usunięty</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;p&gt;
+      Szanowna Mieszkanko, Szanowny Mieszkańcu,
+      &lt;/p&gt;&lt;p&gt;
+      Twój komentarz zamieszczony pod projektem  &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został usunięty
+      przez Administratora z powodu naruszenia regulaminu korzystania z systemu:  &lt;a href=&#39;%{terms_and_conditions_link}&#39;&gt;link do regulaminu&lt;/a&gt;.
+      &lt;/p&gt;&lt;p&gt;
+      Treść komentarza: %{comment_body}
+      &lt;/p&gt;&lt;p&gt;
+      Z poważaniem
+      Urząd m.st. Warszawy
+      &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>final_acceptance_admin_info:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowanie administratora o przydzieleniu projektu do finalnej akceptacji</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Przekazano projekt do akceptacji</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Witaj %{user_name},&lt;/p&gt;
+    &lt;p&gt;
+    Ponowna ocena projektu została przekazana do ostatecznej weryfikacji&lt;/p&gt;
+    &lt;p&gt; &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;&lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>return_reevaluation_from_admin_to_coordinator:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowanie koordynatorów o zwróceniu projektu przez CKS do ponownej weryfikacji</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zwrócono projekt do akceptacji/weryfikacji</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Witaj %{user_name},&lt;/p&gt;
+    &lt;p&gt;
+    Projekt &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt; został zwrócony przez %{verifier_name} do ponownej weryfikacji
+    &lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>result_voting_loosing_project:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wyniki głosowania - Projekt przegrany</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Budżet obywatelski - wyniki głosowania</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+            &lt;p&gt;ogłosiliśmy wyniki głosowania w budżecie obywatelskim.&lt;/p&gt;
+            &lt;p&gt;Niestety Twój projekt &lt;a href=&#39;%{project_public_link}&#39;&gt; %{project_title}&lt;/a&gt;  nie uzyskał wystarczającego poparcia mieszkańców w głosowaniu i nie zostanie zrealizowany.&lt;/p&gt;
+            &lt;p&gt;
+              Szczegółowe wyniki znajdziesz na stronie:
+               &lt;a href=&#39;http://bo.um.warszawa.pl/&#39;&gt;http://bo.um.warszawa.pl/&lt;/a&gt;.
+            &lt;/p&gt;&lt;p&gt;
+            Z poważaniem
+            Urząd m.st. Warszawy
+            &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>result_voting_winning_project:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wyniki głosowania - Projekt wygrany</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Budżet obywatelski - wyniki głosowania</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;p&gt;Szanowna Mieszkanko, Szanowny Mieszkańcu,&lt;/p&gt;
+            &lt;p&gt;ogłosiliśmy wyniki głosowania w budżecie obywatelskim.&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Gratulujemy!&lt;/strong&gt;
+              &lt;br&gt;
+              Twój projekt &lt;a href=&#39;%{project_public_link}&#39;&gt; %{project_title}&lt;/a&gt; został wybrany przez mieszkańców w głosowaniu i zostanie zrealizowany przez Miasto w %{realization_year} roku.
+            &lt;/p&gt;
+            &lt;p&gt;
+              Szczegółowe wyniki znajdziesz na stronie:
+              &lt;a href=&#39;http://bo.um.warszawa.pl/&#39;&gt;http://bo.um.warszawa.pl/&lt;/a&gt;.
+            &lt;/p&gt;&lt;p&gt;
+            Z poważaniem
+            Urząd m.st. Warszawy
+            &lt;/p&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='label'>accept_coordinator_reevaluation:</span> <span class='lbrace'>{</span>
+      <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Poinformowanie administratorów o akceptacji projektu przez koordynatora</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zaakceptowano projekt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>body:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    &lt;p&gt;Witaj %{user_name},&lt;/p&gt;
+    &lt;p&gt;
+     Ponowna ocena projektu została zaakceptowana przez koordynatora&lt;/p&gt;
+    &lt;p&gt; &lt;a href=&#39;%{project_link}&#39;&gt;%{project_title}&lt;/a&gt;&lt;/p&gt;
+    </span><span class='tstring_end'>&quot;</span></span>
+    <span class='rbrace'>}</span>
+
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:03 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

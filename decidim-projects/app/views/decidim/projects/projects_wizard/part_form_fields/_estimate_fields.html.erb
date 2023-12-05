@@ -1,0 +1,12 @@
+<% custom = @form.component.participatory_space.project_customization %>
+<div class="field hashtags__container">
+  <%= form.number_field :budget_value,
+                        label: customized_attribute_texts(custom, 'budget_value', 'label'),
+                        help_text: customized_attribute_texts(custom, 'budget_value_help_text', 'help_text'),
+                        tooltip_helper: customized_attribute_texts(custom, 'budget_value_hint', 'hint'),
+                        class: 'budget-value-js',
+                        'aria-required': true
+  %>
+</div>
+
+<%= javascript_include_tag "decidim/projects/budget_limits_handling.js" %>

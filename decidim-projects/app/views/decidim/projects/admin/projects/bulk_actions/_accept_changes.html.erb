@@ -1,0 +1,14 @@
+<div id="js-accept-changes-projects-actions" class="hide js-bulk-action-form">
+  <%= form_tag(accept_changes_projects_path, method: :post, remote: true, id: "js-form-accept-changes", class: "flex--cc flex-gap--1") do %>
+    <div class="checkboxes hide">
+      <% projects.each do |project| %>
+        <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-project js-project-id-#{project.id}" %>
+      <% end %>
+    </div>
+    <p><%= t("decidim.projects.admin.projects.accept_changes.number_of_projects", number: '<span id="js-form-accept-changes-number"></span>').html_safe %></p>
+
+    <%= submit_tag('Zatwiedź', id: "js-submit-accept-changes", class: "button small button--simple float-left") %>
+
+    <button id="js-cancel-accept-changes" class="button tiny clear compact js-cancel-bulk-action" type="button">Anuluj</button>
+  <% end %>
+</div>

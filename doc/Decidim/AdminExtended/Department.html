@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::AdminExtended::Department
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::AdminExtended::Department";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span>
+     &raquo; 
+    <span class="title">Department</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::AdminExtended::Department
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationRecord.html" title="Decidim::AdminExtended::ApplicationRecord (class)">ApplicationRecord</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationRecord.html" title="Decidim::AdminExtended::ApplicationRecord (class)">ApplicationRecord</a></span></li>
+          
+            <li class="next">Decidim::AdminExtended::Department</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-admin_extended/app/models/decidim/admin_extended/department.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Department are used to provide: mapping between Scopes and Users mapping between Projects (via Scopes) and Users establish permissions of projects delegations between each other</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coordinators-instance_method" title="#coordinators (instance method)">#<strong>coordinators</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method searches for Users that are ad_coordinators (or admins for &#39;cks&#39;) with ad_role corresponding with department ad_name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_delegations_to_departments-instance_method" title="#create_delegations_to_departments (instance method)">#<strong>create_delegations_to_departments</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method For test only.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#editors-instance_method" title="#editors (instance method)">#<strong>editors</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method searches for Users that are ad_editors with ad_role corresponding with department ad_name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_coordinators-instance_method" title="#sub_coordinators (instance method)">#<strong>sub_coordinators</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method searches for Users that are ad_sub_coordinators with ad_role corresponding with department ad_name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verificators-instance_method" title="#verificators (instance method)">#<strong>verificators</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>public method searches for Users that are ad_verificators with ad_role corresponding with department ad_name.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="coordinators-instance_method">
+  
+    #<strong>coordinators</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method searches for Users that are ad_coordinators (or admins for &#39;cks&#39;) with ad_role corresponding with department ad_name</p>
+
+<p>returns  ActiveRecord::Relation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/models/decidim/admin_extended/department.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coordinators'>coordinators</span>
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_none'>none</span> <span class='kw'>unless</span> <span class='id identifier rubyid_ad_name'>ad_name</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_ad_name'>ad_name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cks</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>ad_role:</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_admin</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_koord</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>ad_role:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_koord</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_delegations_to_departments-instance_method">
+  
+    #<strong>create_delegations_to_departments</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method For test only</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/models/decidim/admin_extended/department.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_delegations_to_departments'>create_delegations_to_departments</span>
+  <span class='comment'># CKS
+</span>  <span class='id identifier rubyid_cks'>cks</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Decidim::AdminExtended::Department (class)">Department</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Decidim::AdminExtended::Department (class)">Department</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='period'>.</span><span class='id identifier rubyid_not'>not</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>2</span><span class='words_sep'> </span><span class='tstring_content'>1</span><span class='words_sep'> </span><span class='tstring_content'>205</span><span class='words_sep'> </span><span class='tstring_content'>206</span><span class='words_sep'> </span><span class='tstring_content'>222</span><span class='words_sep'> </span><span class='tstring_content'>221</span><span class='words_sep'> </span><span class='tstring_content'>225</span><span class='words_sep'> </span><span class='tstring_content'>231</span><span class='words_sep'> </span><span class='tstring_content'>228</span><span class='words_sep'> </span><span class='tstring_content'>232</span><span class='words_sep'> </span><span class='tstring_content'>234</span><span class='words_sep'> </span><span class='tstring_content'>235</span><span class='words_sep'> </span><span class='tstring_content'>236</span><span class='words_sep'> </span><span class='tstring_content'>237</span><span class='words_sep'> </span><span class='tstring_content'>238</span><span class='words_sep'> </span><span class='tstring_content'>253</span><span class='words_sep'> </span><span class='tstring_content'>183</span><span class='words_sep'> </span><span class='tstring_content'>184</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dep'>dep</span><span class='op'>|</span>
+    <span class='id identifier rubyid_cks'>cks</span><span class='period'>.</span><span class='id identifier rubyid_department_delegations'>department_delegations</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>to_department_id:</span> <span class='id identifier rubyid_dep'>dep</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_bemowo'>bemowo</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Decidim::AdminExtended::Department (class)">Department</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='qwords_beg'>%w[</span><span class='tstring_content'>205</span><span class='words_sep'> </span><span class='tstring_content'>206</span><span class='words_sep'> </span><span class='tstring_content'>222</span><span class='words_sep'> </span><span class='tstring_content'>221</span><span class='words_sep'> </span><span class='tstring_content'>225</span><span class='words_sep'> </span><span class='tstring_content'>231</span><span class='words_sep'> </span><span class='tstring_content'>228</span><span class='words_sep'> </span><span class='tstring_content'>232</span><span class='words_sep'> </span><span class='tstring_content'>234</span><span class='words_sep'> </span><span class='tstring_content'>235</span><span class='words_sep'> </span><span class='tstring_content'>236</span><span class='words_sep'> </span><span class='tstring_content'>237</span><span class='words_sep'> </span><span class='tstring_content'>238</span><span class='words_sep'> </span><span class='tstring_content'>253</span><span class='words_sep'> </span><span class='tstring_content'>183</span><span class='words_sep'> </span><span class='tstring_content'>184</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_id'>id</span><span class='op'>|</span>
+    <span class='id identifier rubyid_dep'>dep</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../AdminExtended.html" title="Decidim::AdminExtended (module)">AdminExtended</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Decidim::AdminExtended::Department (class)">Department</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bemowo'>bemowo</span><span class='period'>.</span><span class='id identifier rubyid_department_delegations'>department_delegations</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_delegation'>delegation</span><span class='op'>|</span>
+      <span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='id identifier rubyid_dep'>dep</span><span class='period'>.</span><span class='id identifier rubyid_department_delegations'>department_delegations</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>to_department_id:</span> <span class='id identifier rubyid_delegation'>delegation</span><span class='period'>.</span><span class='id identifier rubyid_to_department_id'>to_department_id</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_ap'>ap</span> <span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="editors-instance_method">
+  
+    #<strong>editors</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method searches for Users that are ad_editors with ad_role corresponding with department ad_name</p>
+
+<p>returns  ActiveRecord::Relation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/models/decidim/admin_extended/department.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_editors'>editors</span>
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_none'>none</span> <span class='kw'>unless</span> <span class='id identifier rubyid_ad_name'>ad_name</span>
+
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>ad_role:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_edytor</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sub_coordinators-instance_method">
+  
+    #<strong>sub_coordinators</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method searches for Users that are ad_sub_coordinators with ad_role corresponding with department ad_name</p>
+
+<p>returns  ActiveRecord::Relation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/models/decidim/admin_extended/department.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sub_coordinators'>sub_coordinators</span>
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_none'>none</span> <span class='kw'>unless</span> <span class='id identifier rubyid_ad_name'>ad_name</span>
+
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>ad_role:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_podkoord</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verificators-instance_method">
+  
+    #<strong>verificators</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>public method searches for Users that are ad_verificators with ad_role corresponding with department ad_name</p>
+
+<p>returns  ActiveRecord::Relation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-admin_extended/app/models/decidim/admin_extended/department.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verificators'>verificators</span>
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_none'>none</span> <span class='kw'>unless</span> <span class='id identifier rubyid_ad_name'>ad_name</span>
+
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>ad_role:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>decidim_bo_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_name'>ad_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_weryf</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec  5 11:38:05 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

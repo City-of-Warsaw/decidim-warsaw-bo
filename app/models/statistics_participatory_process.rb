@@ -1,0 +1,2 @@
+class StatisticsParticipatoryProcess < ApplicationRecord
+end

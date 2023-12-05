@@ -1,0 +1,621 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "#{t ".projects"} > ", projects_path %>
+      <%= "#{project.esog_number} - " if project.esog_number.present? %>
+      <%= decidim_html_escape(project&.title).html_safe %>
+
+      <% if project.admin_changes&.any? %>
+        <br>
+        <span class="text-alert">Niepubliczna karta projektu nie uwzględnia zmian oczekujących na akceptację</span>
+        <br>
+      <% end %>
+
+      <% if allowed_to? :edit, :project, project: project %>
+        <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit_project", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Zarządzanie projektem
+        </h2>
+      </div>
+      <div class="card-section">
+        <div class="row column">
+          <strong>Aktualny podkoordynator:</strong>
+          <% if project.current_sub_coordinator %>
+            <p><%= project.current_sub_coordinator.ad_full_name %></p>
+          <% else %>
+            <p>Projekt aktualnie nie jest przypisany do podkoordynatora</p>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Aktualnie przypisano do:</strong>
+          <% if project.evaluator %>
+            <p><%= project&.evaluator&.ad_full_name %></p>
+          <% else %>
+            <p>Projekt aktualnie nie jest przypisany do konkretnej osoby</p>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Wszystkie dotychczasowe przypisania:</strong>
+            <% if project.users.any? %>
+              <p>
+                <% project.user_assignments.order(created_at: :asc).each do |ua| %>
+                  <span class="pl-s"><%= ua.user.ad_full_name %></span>
+                  - przypisano:
+                  <%= l ua.created_at, format: :decidim_short %>
+                  <br>
+                <% end %>
+              </p>
+            <% else %>
+              <p>-</p>
+            <% end %>
+        </div>
+        <div class="row column">
+          <strong>Aktualna komórka:</strong>
+          <% if project.current_department %>
+            <p><%= project.current_department&.name%></p>
+          <% else %>
+            <p>Projekt nie jest przypisany do żadnej komórki</p>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Wszystkie komórki:</strong>
+          <% if project.departments.any? %>
+            <p>
+              <% project.department_assignments.order(created_at: :asc).each do |da| %>
+                <strong class="pl-s"><%= da.department.name %></strong>
+                - przekazano:
+                <%= l da.created_at, format: :decidim_short %>
+                <br>
+              <% end %>
+            </p>
+          <% else %>
+            <p>-</p>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Uwagi robocze:</strong>
+          <% if project.evaluation_note.present? %>
+            <p class='text-alert'><%= project.evaluation_note %></p>
+          <% else %>
+            <p>-</p>
+          <% end %>
+        </div>
+        <% if project.return_reason.present? %>
+          <div class="row column">
+            <strong>Projekt został zwrócony:</strong>
+            <p class='text-alert'><%= project.return_reason %></p>
+          </div>
+        <% end %>
+
+        <div class="row column">
+          <strong>Powiadomienie o publikacji wyników oceny:</strong>
+          <p>
+            <% if project.notification_about_evaluation_results_send_at.present? %>
+              <strong class="pl-s">Data wysłania:</strong>
+              <%= l project.notification_about_evaluation_results_send_at, format: :decidim_short %>
+              <br>
+              <strong class="pl-s">Wysłane przez:</strong>
+              <%= project.notification_about_evaluation_results_send_by.ad_full_name %>
+            <% else %>
+              - powiadomienie jeszcze nie zostało wysłane
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <% if project.appeal && project.appeal.time_of_submit %>
+      <div class="card">
+        <div class="card-divider">
+          <h2 class="card-title">
+            Złożono odwołanie od oceny
+            <% if allowed_to? :show, :appeal, appeal: project.appeal %>
+              <%= icon_link_to "eye", appeal_path(project.appeal), 'Podejrzyj odwołanie', class: "action-icon--edit-appeal" %>
+            <% end %>
+          </h2>
+        </div>
+        <div class="card-section">
+          <div class="row column">
+            <strong>Treść:</strong>
+            <p><%= project.appeal.body %></p>
+          </div>
+          <div class="row column">
+            <strong>Data złożenia odwołania:</strong>
+            <p><%= l project.appeal.time_of_submit, format: :decidim_short %></p>
+          </div>
+          <div class="row column">
+            <strong>Stan:</strong>
+            <p><%= reevaluation_status(project).capitalize.html_safe %></p>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Dane projektu
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Nazwa projektu:</strong>
+          <p><%= project.title %></p>
+        </div>
+
+        <div class="row column">
+          <strong>Skrócony opis projektu:</strong>
+          <%= simple_format(project.short_description) %>
+        </div>
+        <div class="row column">
+          <strong>Opis projektu:</strong> <%= simple_format(project.body) %>
+        </div>
+        <div class="row column">
+          <strong>Projektowanie uniwersalne:</strong> <%= project.universal_design.nil? ? 'brak informacji' : project.universal_design ? 'Tak' : 'Nie' %>
+        </div>
+        <div class="row column">
+          <strong>Projektowanie uniwersalne - uzasadnienie:</strong> <%= simple_format(project.universal_design_argumentation) %>
+        </div>
+        <div class="row column">
+          <strong>Uzasadnienie realizacji projektu:</strong> <%= simple_format(project.justification_info) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Charakterystyka projektu
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Kategoria tematyczna projektu:</strong>
+          <ul id="valuators">
+            <% project.categories.each do |category| %>
+              <li>
+                <%= translated_attribute(category.name) %>
+              </li>
+            <% end %>
+            <% if project.custom_categories.present? %>
+              <% project.custom_categories.split(',').each do |category| %>
+                <li>
+                  <%= category %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <div class="row column">
+          <strong>Potencjalni odbiorcy projektu:</strong>
+          <ul id="recipients">
+            <% project.recipients.each do |recipient| %>
+              <li>
+                <%= translated_attribute(recipient.name) %>
+              </li>
+            <% end %>
+            <% if project.custom_recipients.present? %>
+              <% project.custom_recipients.split(',').each do |recipients| %>
+                <li>
+                  <%= recipients %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Lokalizacja projektu
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Poziom zgłaszanego projektu / dzielnica:</strong>
+          <% if project.no_scope_selected %>
+            Brak wskazania poziomu
+          <% else %>
+            <%= "#{translated_attribute(project.scope_type&.name)}/#{translated_attribute(project.scope&.name)}" %>
+          <% end %>
+        </div>
+        <div class="row column">
+          <strong>Lokalizacja projektu - ulica i nr / rejon ulic w Warszawie:</strong> <%= simple_format(project.localization_info) %>
+        </div>
+        <div class="row column">
+          <strong>Inne istotne informacje dotyczące lokalizacji:</strong> <%= simple_format(project.localization_additional_info) %>
+        </div>
+        <% if project.locations.present? %>
+          <div class="row column">
+            <div id="map" class="without-legend" style="width:100%; height: 400px;"></div>
+            <%= hidden_field_tag 'markersMap', project.locations.to_json %>
+          </div>
+        <% end %>
+        <div class="row column">
+          <% if project.list_locations.any? %>
+            <ul>
+              <% project.list_locations.each do |l| %>
+                <li><%= l %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Kosztorys projektu
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Szacunkowy koszt realizacji projektu:</strong> <%= budget_to_currency project.budget_value %>
+        </div>
+      </div>
+
+      <% if project && project.published? %>
+      <div class="card-section">
+        <div class="row column">
+          <strong><%= t('activemodel.attributes.project.budget_description') %>:</strong> <%= project.budget_description %>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="row column">
+          <strong>Szacunkowy podział kosztów między realizatorów (pole nie jest widoczne dla mieszkańców):</strong> <%= project.contractors_and_costs %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Dokumenty projektu
+        </h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <strong>Lista poparcia:</strong>
+          <% if project.endorsements.any? %>
+            <ul id="documents">
+              <% project.endorsements.each do |endorsement| %>
+                <li>
+                  <%= link_to strip_tags(translated_attribute(endorsement.title)), attachment_path(endorsement.id), target: "_blank", rel: "noopener" %>
+                  <small><%= endorsement.file_type %> <%= number_to_human_size(endorsement.file_size) %></small>
+                  <%= " - zostanie usunięty po akceptacji" if check_endorsements_to_delete(project, endorsement) %>
+                  <%= " - zostanie dodany po akceptacji" if endorsement.temporary_file == true %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            brak
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong><%= t ".documents" %>:</strong>
+          <% if project.files.any? %>
+            <ul id="documents">
+              <% project.files.each do |file| %>
+                <li>
+                  <%= link_to translated_attribute(file.title), file.url, target: "_blank", rel: "noopener" %>
+                  <small><%= file.file_type %> <%= number_to_human_size(file.file_size) %></small>
+                  <%= " - zostanie usunięty po akceptacji" if check_files_to_delete(project, file) %>
+                  <%= " - zostanie dodany po akceptacji" if file.temporary_file == true %>
+
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            brak
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Zgoda na wykorzystanie utworu:</strong>
+          <% if project.consents.any? %>
+            <ul id="documents">
+              <% project.consents.each do |consent| %>
+                <li>
+                  <%= link_to strip_tags(translated_attribute(consent.title)), consent.url, target: "_blank", rel: "noopener" %>
+                  <small><%= consent.file_type %> <%= number_to_human_size(consent.file_size) %></small>
+                  <%= " - zostanie usunięty po akceptacji" if check_consents_to_delete(project, consent) %>
+                  <%= " - zostanie dodany po akceptacji" if consent.temporary_file == true %>
+
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            brak
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Dokumenty wewnętrzne:</strong>
+          <% if project.internal_documents.any? %>
+            <ul id="documents">
+              <% project.internal_documents.each do |consent| %>
+                <li>
+                  <%= link_to strip_tags(translated_attribute(consent.title)), consent.url, target: "_blank", rel: "noopener" %>
+                  <small><%= consent.file_type %> <%= number_to_human_size(consent.file_size) %></small>
+                  <%= " - zostanie usunięty po akceptacji" if check_internal_documents_to_delete(project, consent) %>
+                  <%= " - zostanie dodany po akceptacji" if consent.temporary_file == true %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            brak
+          <% end %>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Informacje wprowadzającego
+        </h2>
+      </div>
+      <div class="card-section">
+
+        <div class="row column">
+          <strong>Wniosek nieczytelny:</strong>
+          <% if !project.is_paper %>
+            nie dotyczy
+          <% else %>
+            <%= project.unreadable ? 'tak' : 'nie' %>
+          <% end %>
+        </div>
+
+        <div class="row column">
+          <strong>Uwagi osoby wprowadzającej formularz papierowy:</strong> <%= simple_format(project.remarks) %>
+        </div>
+      </div>
+    </div>
+
+     <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Dodatkowe informacje
+        </h2>
+      </div>
+      <div class="card-section">
+        <div class="row column">
+          <strong><%= t("activemodel.attributes.project.offensive") %>:</strong>
+          <%= project.offensive ? 'tak' : 'nie' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Autor projektu
+        </h2>
+      </div>
+      <div class="card-section">
+        <div class="row column">
+          <strong>Imię:</strong> <%= project.first_name %>
+        </div>
+        <div class="row column">
+          <strong>Nazwisko:</strong> <%= project.last_name %>
+        </div>
+        <div class="row column">
+          <strong>Płeć:</strong> <%= gender_for(project) %>
+        </div>
+        <div class="row column">
+          <strong>Telefon kontaktowy:</strong> <%= project.phone_number %>
+        </div>
+        <div class="row column">
+          <strong>Adres e-mail:</strong> <%= project.email %>
+        </div>
+        <div class="row column">
+          <strong>Adres:</strong> <%= project.user_address %>
+        </div>
+
+        <div class="row column">
+          <strong><%= t('show_author_name', scope: 'activemodel.attributes.project', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= project.show_author_name ? 'tak' : 'nie' %>
+        </div>
+        <div class="row column">
+          <strong><%= t('inform_author_about_implementations', scope: 'activemodel.attributes.project', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= project.inform_author_about_implementations ? 'tak' : 'nie' %>
+        </div>
+        <div class="row column">
+          <strong><%= t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>:</strong>
+          <%= project.email_on_notification ? 'tak' : 'nie' %>
+        </div>
+
+        <div class="row column">
+          <strong>Autor podpisał wniosek:</strong>
+          <% if project.is_paper %>
+            <%= project.signed_by_author ? 'tak' : 'nie' %>
+          <% else %>
+            nie dotyczy
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+    <%= render "decidim/projects/admin/projects/coauthor_list" %>
+    <%= render "decidim/projects/admin/projects/evaluation_list" %>
+
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          Dane z Signum
+        </h2>
+      </div>
+      <div class="card-section">
+        <% if project.signum_znak_sprawy.present? %>
+          <div class="row column">
+            <strong>Znak sprawy:</strong> <%= project.signum_znak_sprawy %>
+          </div>
+          <div class="row column">
+            <strong>Nr kancelaryjny:</strong> <%= project.signum_nr_kancelaryjny %>
+          </div>
+          <div class="row column">
+            <strong>ID korespondenta:</strong> <%= project.signum_kor_id %>
+          </div>
+          <div class="row column">
+            <strong>ID sprawy:</strong> <%= project.signum_spr_id %>
+          </div>
+          <div class="row column">
+            <strong>Wprowadził:</strong> <%= Decidim::User.find(project.signum_registered_by_user_id).ad_full_name %>
+          </div>
+          <div class="row column">
+            <strong>Data rejestracji:</strong> <%= l project.signum_registered_at, format: :decidim_short %>
+          </div>
+        <% else %>
+          Projekt jeszcze nie został przesłany do Signum
+          <br>
+        <% end %>
+
+        <% if allowed_to? :register_to_signum, :project, project: project %>
+          <%= link_to 'Zarejestruj w Signum', [:register_to_signum, project], method: :post, class: 'button' %>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- BUTTONY -->
+
+<div class="button--double form-general-submit">
+
+  <% if allowed_to? :edit, :project, project: project %>
+    <%= link_to 'Edytuj', [:edit, project], class: 'button' %>
+  <% end %>
+
+  <%= forward_to_department(project, 'button') %>
+  <%= return_to_department(project, 'button') %>
+  <%= forward_to_user(project, 'button') %>
+
+</div>
+<div class="button--double form-general-submit">
+
+  <% if allowed_to? :edit_formal, :project_evaluate, project: project %>
+    <% if project.formal_evaluation %>
+      <%= link_to t("actions.edit_project_formal", scope: "decidim.projects"), edit_project_formal_evaluation_path(project, project.formal_evaluation), class: "button warning" %>
+    <% else %>
+      <%= link_to t("actions.create_project_formal", scope: "decidim.projects"), new_project_formal_evaluation_path(project), class: "button warning" %>
+    <% end %>
+  <% end %>
+  <% if allowed_to? :edit_meritorical, :project_evaluate, project: project %>
+    <% if project.meritorical_evaluation %>
+      <%= link_to t("actions.edit_project_meritorical", scope: "decidim.projects"), edit_project_meritorical_evaluation_path(project, project.meritorical_evaluation), class: "button warning" %>
+    <% else %>
+      <%= link_to t("actions.create_project_meritorical", scope: "decidim.projects"), new_project_meritorical_evaluation_path(project), class: "button warning" %>
+    <% end %>
+  <% end %>
+  <% if allowed_to? :edit_reevaluation, :project_evaluate, project: project %>
+    <% if project.reevaluation %>
+      <%= link_to t("actions.edit_project_reevaluation", scope: "decidim.projects"), edit_project_reevaluation_path(project, project.reevaluation), class: "button warning" %>
+    <% else %>
+      <%= link_to t("actions.create_project_reevaluation", scope: "decidim.projects"), new_project_reevaluation_path(project), class: "button warning" %>
+    <% end %>
+  <% end %>
+
+  <%= evaluation_actions(project, 'button') %>
+  <%= reevaluation_actions(project, 'button') %>
+  <%= change_verificator(project, 'button') %>
+
+  <% if allowed_to? :notify_authors_about_evaluation_result, :projects, project: project %>
+    <%= link_to 'Powiadom o publikacji wyników oceny', notify_authors_about_evaluation_result_project_path(project), method: :post, class: 'button warning' %>
+  <% end %>
+
+</div>
+<div class="button--double form-general-submit">
+
+  <% if allowed_to?(:show, :project, project: project) %>
+    <%= link_to 'gen PDF - projekt', project_path(project.id, format: 'pdf'), class: 'button reversed' %>
+  <% elsif allowed_to?(:show, :project, project: project) && project.edition_year == Current.actual_edition.edition_year %>
+    <% if project.published? && project.formal_evaluation %>
+      <%= link_to 'gen PDF - ocena formalna', project_formal_evaluation_path(project.id, format: 'pdf'), class: 'button reversed' %>
+    <% end %>
+    <% if project.meritorical_evaluation %>
+      <%= link_to 'gen PDF - ocena merytoryczna', project_meritorical_evaluation_path(project.id, format: 'pdf'), class: 'button reversed' %>
+    <% end %>
+    <% if project.reevaluation %>
+      <%= link_to 'gen PDF - ponowna ocena', project_reevaluation_path(project.id, format: 'pdf'), class: 'button reversed' %>
+    <% end %>
+  <% end %>
+
+  <% if current_user.ad_admin? %>
+    <%= link_to 'LOGI', decidim_admin.logs_path(project_id: project.id), class: 'button reversed' %>
+  <% end %>
+</div>
+
+<% if false %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".valuators" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <strong><%= t ".assigned_valuators" %>:</strong>
+      <ul id="valuators">
+        <% project.valuation_assignments.each do |assignment| %>
+          <% presented_valuator = present(assignment.valuator) %>
+            <li>
+              <%= link_to(
+                presented_valuator.name,
+                presented_valuator.profile_path,
+                target: :blank
+              ) %>
+
+              <% if allowed_to? :unassign_from_valuator, :projects, valuator: assignment.valuator %>
+                <%= icon_link_to(
+                  "circle-x",
+                  project_valuation_assignment_path(project, assignment.valuator_role),
+                  t(".remove_assignment"),
+                  method: :delete,
+                  data: { confirm: t(".remove_assignment_confirmation") },
+                  class: "red-icon"
+                ) %>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if allowed_to?(:create, :project_note, project: project) %>
+  <%= render "decidim/projects/admin/project_notes/project_notes" %>
+<% end %>
+
+<%= javascript_include_tag "decidim/projects/leaflet-src.1.8.0.modCS" %>
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+<%= javascript_include_tag "decidim/projects/markers-map" %>

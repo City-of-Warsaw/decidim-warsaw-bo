@@ -1,0 +1,876 @@
+<%= form.hidden_field :is_paper %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column hashtags__container">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong><%= t('title', scope: 'activemodel.attributes.project') %></strong>
+          <span id="project_title_source_compare" style="display:none"><%= project.title.presence || '-' %></span>
+          <span id="project_title_result_compare"></span>
+        </div>
+      <% end %>
+      <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+    </div>
+    <div class="clear"></div>
+
+    <div class="row column hashtags__container">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong><%= t('short_description', scope: 'activemodel.attributes.project') %></strong>
+          <span id="project_short_description_source_compare" style="display:none"><%= project.short_description.presence || '-' %></span>
+          <span id="project_short_description_result_compare"></span>
+        </div>
+      <% end %>
+      <%= form.text_area :short_description, { rows: 20 } %>
+    </div>
+    <div class="clear"></div>
+
+    <div class="row column hashtags__container">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong><%= t('body', scope: 'activemodel.attributes.project') %></strong>
+          <span id="project_body_source_compare" style="display:none"><%= project.body.presence || '-' %></span>
+          <span id="project_body_result_compare"></span>
+        </div>
+      <% end %>
+      <%= form.text_area :body, { rows: 25 } %>
+    </div>
+    <div class="clear"></div>
+    <div class="row column hashtags__container universal-design-js">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong>Projektowanie uniwersalne</strong>
+          <%= project.universal_design.nil? ? 'brak informacji' : project.universal_design ? 'Tak' : 'Nie' %>
+        </div>
+      <% end %>
+      <div class="current-data">
+        <label>Projektowanie uniwersalne</label>
+        <br>
+        <%= form.collection_check_boxes :universal_design,
+                                        [
+                                          [true, "#{t(:true, scope: 'booleans')}<span class='wcag-invisible'>to jest projektowanie uniwersalne</span>".html_safe],
+                                          [false, "#{t(:false, scope: 'booleans')}<span class='wcag-invisible'>to nie jest projektowanie uniwersalne</span>".html_safe]
+                                        ],
+                                        :first, :last, {}, name: 'project[universal_design]' %>
+      </div>
+    </div>
+    <div class="field hashtags__container" id="universal_design_argumentation">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong><%= t('universal_design_argumentation', scope: 'activemodel.attributes.project') %></strong>
+          <%= project.universal_design_argumentation.presence || '-' %>
+        </div>
+      <% end %>
+      <%= form.text_area :universal_design_argumentation, { rows: 10, id: "universal_design_argumentation" } %>
+    </div>
+    <div class="clear"></div>
+
+    <div class="field hashtags__container">
+      <% if admin_changes %>
+        <div class="current-data">
+          <strong><%= t('justification_info', scope: 'activemodel.attributes.project') %></strong>
+          <span id="project_justification_info_source_compare" style="display:none"><%= project.justification_info.presence || '-' %></span>
+          <span id="project_justification_info_result_compare"></span>
+        </div>
+      <% end %>
+      <%= form.text_area :justification_info, { rows: 15 } %>
+    </div>
+
+    <div class="clear"></div>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Charakterystyka projektu</legend>
+        </div>
+        <div class="card-section">
+          <% if @form.available_categories.any? %>
+            <div class="field hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong><%= t('category_ids', scope: 'activemodel.attributes.project') %></strong>
+                  <%= project.categories.map { |c| translated_attribute(c.name) }.join(', ').presence || '-' %>
+                </div>
+              <% end %>
+              <div class="current-data">
+                <%= form.label :category_ids, nil, for: nil %>
+                <div class="checkboxes" style="column-count: <%= admin_changes ? 2 : 4 %>; display: block;">
+                  <% if admin_changes %>
+                    <%= form.collection_check_boxes :category_ids, @form.available_categories.map { |cat| [cat.id, translated_attribute(cat.name)] }, :first, :last do |option|
+                      option.label { option.check_box(checked: project.admin_changes['categories'].map{ |r| r['id'] }.member?(option.value)) + option.text }
+                    end %>
+                  <% else %>
+                    <%= form.collection_check_boxes :category_ids, @form.available_categories.map { |cat| [cat.id, translated_attribute(cat.name)] }, :first, :last do |option|
+                      option.label { option.check_box(checked: @form.category_checked?(option.value)) + option.text }
+                    end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('custom_categories', scope: 'activemodel.attributes.project') %></strong>
+                <span id="project_custom_categories_source_compare" style="display:none"><%= project.custom_categories.presence || '-' %></span>
+                <span id="project_custom_categories_result_compare"></span>
+              </div>
+            <% end %>
+            <div class="current-data">
+              <%= form.text_field :custom_categories, placeholder: 'wpisz po przecinku', style: 'width: 100%' %>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <% if @form.potential_recipients.any? %>
+            <div class="field hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong><%= t('potential_recipient_ids', scope: 'activemodel.attributes.project') %></strong>
+                  <%= project.recipients.map(&:name).join(', ').presence || '-' %>
+                </div>
+              <% end %>
+              <div class="current-data">
+                <%= form.label :potential_recipient_ids, nil, for: nil %>
+                <div class="checkboxes" style="column-count: 4; display: block;">
+                  <% if admin_changes %>
+                    <%= form.collection_check_boxes :potential_recipient_ids, @form.potential_recipients.map { |recipient| [recipient.id, recipient.name] }, :first, :last do |option|
+                      option.label { option.check_box(checked: project.admin_changes['recipients'].map{ |r| r['id'] }.member?(option.value)) + option.text }
+                    end %>
+                  <% else %>
+                    <%= form.collection_check_boxes :potential_recipient_ids, @form.potential_recipients.map { |recipient| [recipient.id, recipient.name] }, :first, :last do |option|
+                      option.label { option.check_box(checked: @form.potential_recipient_checked?(option.value)) + option.text }
+                    end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('custom_recipients', scope: 'activemodel.attributes.project') %></strong>
+                <span id="project_custom_recipients_source_compare" style="display:none"><%= project.custom_recipients.presence || '-' %></span>
+                <span id="project_custom_recipients_result_compare"></span>
+              </div>
+            <% end %>
+            <div class="current-data">
+              <%= form.text_field :custom_recipients, placeholder: 'wpisz po przecinku', style: 'width: 100%' %>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Lokalizacja projektu</legend>
+        </div>
+        <div class="card-section">
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>
+                  Brak wskazania poziomu:
+                  <%= project.no_scope_selected ? 'Tak' : 'Nie' %>
+                </strong>
+              </div>
+            <% end %>
+            <%= form.check_box :no_scope_selected, label: 'Brak wskazania poziomu' %>
+          </div>
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('scope', scope: 'activemodel.attributes.project') %></strong>
+                <%= project.scope ? translated_attribute(project.scope&.name) : '-' %>
+              </div>
+            <% end %>
+            <% if admin_changes && project.admin_changes['project_attrs']['scope'] %>
+              <%= form.select :scope_id, @form.scopes.map{ |scope| [translated_attribute(scope.name), scope.id] }, include_blank: true, selected: project.admin_changes['project_attrs']['scope']['id'] %>
+            <% else %>
+              <%= form.select :scope_id, @form.scopes.map{ |scope| [translated_attribute(scope.name), scope.id] }, include_blank: true %>
+            <% end %>
+          </div>
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('localization_info', scope: 'activemodel.attributes.project') %></strong>
+                <span id="project_localization_info_source_compare" style="display:none"><%= project.localization_info.presence || '-' %></span>
+                <span id="project_localization_info_result_compare"></span>
+              </div>
+            <% end %>
+            <%= form.text_area :localization_info, { rows: 10 } %>
+          </div>
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('localization_additional_info', scope: 'activemodel.attributes.project') %></strong>
+                <span id="project_localization_additional_info_source_compare" style="display:none"><%= project.localization_additional_info.presence || '-' %></span>
+                <span id="project_localization_additional_info_result_compare"></span>
+              </div>
+            <% end %>
+            <%= form.text_area :localization_additional_info, { rows: 10 } %>
+          </div>
+
+          <div class="row column hashtags__container">
+            <div class="field hashtags__container">
+              <label  style="margin-bottom: 15px">Wskaż lokalizacje na mapie</label>
+              <span class="help-text"></span>
+
+              <div id="map" class="map" style="width: 100%; height: 400px;"></div>
+              <% if admin_changes %>
+                <div class="current-data">
+                  <% if project.list_locations.any? %>
+                    <ul>
+                      <% project.list_locations.each do |l| %>
+                      <li><%= l %></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="map-toggler-box">
+                <div id="map" class="map"></div>
+
+                <div class="field mt-s locations locations-list">
+                  <%= form.hidden_field :locations_json, id: 'all_locations' %>
+                </div>
+                <div class="auto-search-wrapper">
+                  <input type="text" autocomplete="off" id="search" class="full-width" placeholder="Wpisz adres, podając pełną nazwę np. ulicy" aria-describedby="location-with-toggle">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Kosztorys projektu</legend>
+        </div>
+        <div class="card-section">
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('budget_value', scope: 'activemodel.attributes.project') %></strong>
+                <span id="project_budget_value_source_compare" style="display:none"><%= project.budget_value&.to_i.presence || '-' %></span>
+                <span id="project_budget_value_result_compare"></span>
+              </div>
+            <% end %>
+            <%= form.text_field :budget_value %>
+          </div>
+          <div class="clear"></div>
+
+          <% if project && project.published? %>
+            <div class="field hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong><%= t('activemodel.attributes.project.budget_description') %></strong>
+                  <span id="project_budget_description_source_compare" style="display:none"><%= project.budget_description.presence || '-' %></span>
+                  <span id="project_budget_description_result_compare"></span>
+                </div>
+              <% end %>
+              <%= form.text_area :budget_description, rows: 10 %>
+            </div>
+            <div class="clear"></div>
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>Szacunkowy podział kosztów między realizatorów (pole nie jest widoczne dla mieszkańców)</strong>
+                <span id="project_contractors_and_costs_source_compare" style="display:none"><%= project.contractors_and_costs.presence || '-' %></span>
+                <span id="project_contractors_and_costs_result_compare"></span>
+              </div>
+            <% end %>
+            <%= form.text_area :contractors_and_costs, label: 'Szacunkowy podział kosztów między realizatorów (pole nie jest widoczne dla mieszkańców)', rows: 3 %>
+          </div>
+            <div class="clear"></div>
+
+        <% end %>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Dokumenty projektu</legend>
+        </div>
+        <div class="card-section">
+
+          <div class="field hashtags__container">
+            <strong><%= t("add_images", scope: "decidim.projects.projects.edit", link: asset_path("documents/lista_poparcia.docx")).html_safe %>:</strong>
+            <p class="help-text" style="margin-top: 5px">
+              <%= t("add_images_helper", scope: "decidim.projects.projects.edit") %>
+            </p>
+            <%= form.file_field :add_endorsements, multiple: true,
+                                label: false,
+                                class: 'multifile', style: 'display: block'
+            %>
+
+            <% if project && project.endorsements.visible.any? %>
+              <div class="row column">
+                <div id="photos" class="gallery row">
+                  <% project.endorsements.visible.each do |endorsement| %>
+                    <%= link_to attachment_path(endorsement.id), target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(endorsement.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                  <%= check_box_tag 'project[remove_endorsements][]', endorsement.id, @form.to_remove_endorsements.present? && @form.to_remove_endorsements.include?(endorsement.id) ? true : false %> usuń
+                </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @form.to_add_endorsements.any? %>
+              <p style="margin-bottom:0px;padding-top:15px">Proponowane przez weryfikatora:</p>
+              <div class="row column" style="padding-bottom: 20px;">
+                <div id="photos" class="gallery row">
+                  <% @form.to_add_endorsements.each do |endorsement| %>
+                    <%= hidden_field_tag 'project[to_add_endorsements][]', endorsement.id %>
+
+                    <%= link_to attachment_path(endorsement.id), target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(endorsement.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                  <%= check_box_tag 'project[remove_endorsements][]', endorsement.id, @form.to_remove_endorsements.present? && @form.to_remove_endorsements.include?(endorsement.id) ? true : false %> usuń
+
+                </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+
+          <div class="field hashtags__container">
+            <strong><%= t("add_documents", scope: "decidim.projects.projects.edit").html_safe %>:</strong>
+            <p class="help-text" style="margin-top: 5px">
+              <%= t("add_documents_helper", scope: "decidim.projects.projects.edit") %>
+            </p>
+            <%= form.file_field :add_files,
+                                multiple: true,
+                                label: false,
+                                class: 'multifile', style: 'display: block'
+            %>
+
+            <% if project && project.files.visible.any? %>
+              <div class="row column">
+                <div id="photos" class="gallery row">
+                  <% project.files.visible.each do |photo| %>
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                      <%= check_box_tag 'project[remove_files][]', photo.id,  @form.to_remove_files.present? && @form.to_remove_files.include?(photo.id) ? true : false %> usuń
+
+                    </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @form.to_add_files.any? %>
+              <p style="margin-bottom:0px;padding-top:15px">Proponowane przez weryfikatora:</p>
+              <div class="row column" style="padding-bottom: 20px;">
+                <div id="photos" class="gallery row">
+                  <% @form.to_add_files.each do |photo| %>
+                    <%= hidden_field_tag 'project[to_add_files][]', photo.id %>
+
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                      <%= check_box_tag 'project[remove_files][]', photo.id, @form.to_remove_files.present? && @form.to_remove_files.include?(photo.id) ? true : false %> usuń
+                    </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="field hashtags__container">
+            <strong><%= t("add_more_documents", scope: "decidim.projects.projects.edit", link: "/zgoda_autora_utworu_2025.docx").html_safe %>:</strong>
+            <p class="help-text" style="margin-top: 5px">
+              <%= t("add_more_documents_helper", scope: "decidim.projects.projects.edit") %>
+            </p>
+            <%= form.file_field :add_consents,
+                                multiple: true,
+                                label: false,
+                                class: 'multifile', style: 'display: block'
+            %>
+            <% if project && project.consents.visible.any? %>
+              <div class="row column">
+                <div id="photos" class="gallery row">
+                  <% project.consents.visible.each do |photo| %>
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                      <%= check_box_tag 'project[remove_consents][]', photo.id,  @form.to_remove_consents.present? && @form.to_remove_consents.include?(photo.id) ? true : false %> usuń
+                    </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @form.to_add_consents.any? %>
+              <p style="margin-bottom:0px; padding-top:15px">Proponowane przez weryfikatora:</p>
+
+              <div class="row column" style="padding-bottom: 20px;">
+                <div id="photos" class="gallery row">
+                  <% @form.to_add_consents.each do |photo| %>
+                    <%= hidden_field_tag 'project[to_add_consents][]', photo.id %>
+
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                  <%= check_box_tag 'project[remove_consents][]', photo.id, @form.to_remove_consents.present? && @form.to_remove_consents.include?(photo.id) ? true : false %> usuń
+                </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="field hashtags__container">
+            <strong>Dokumenty wewnętrzne:</strong>
+            <%= form.file_field :add_internal_documents,
+                                multiple: true,
+                                label: false,
+                                class: 'multifile', style: 'display: block'
+            %>
+            <% if project && project.internal_documents.visible.any? %>
+              <div class="row column">
+                <div id="photos" class="gallery row">
+                  <% project.internal_documents.visible.each do |photo| %>
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                      <%= check_box_tag 'project[remove_internal_documents][]', photo.id, @form.to_remove_internal_documents.present? && @form.to_remove_internal_documents.include?(photo.id) ? true : false %> usuń
+                    </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @form.to_add_internal_documents.any? %>
+              <p style="margin-bottom:0px;padding-top:15px">Proponowane przez weryfikatora:</p>
+              <div class="row column" style="padding-bottom: 20px;">
+                <div id="photos" class="gallery row">
+                  <% @form.to_add_internal_documents.each do |photo| %>
+                    <%= hidden_field_tag 'project[to_add_internal_documents][]', photo.id %>
+                    <%= link_to photo.url, target: "_blank", rel: "noopener" do %>
+                      <%= strip_tags(translated_attribute(photo.title)) %>
+                    <% end %>
+                    (<label style="display: inline">
+                  <%= check_box_tag 'project[remove_internal_documents][]', photo.id, @form.to_remove_internal_documents.present? && @form.to_remove_internal_documents.include?(photo.id) ? true : false %> usuń
+                </label>)
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Informacje wprowadzającego</legend>
+        </div>
+        <div class="card-section">
+          <% if @form.is_paper %>
+            <div class="field label-regular hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong>
+                    Wniosek nieczytelny:
+                    <%= project.unreadable.presence || '-' %>
+                  </strong>
+                </div>
+              <% end %>
+              <%= form.check_box :unreadable, label: 'Wniosek nieczytelny' %>
+            </div>
+            <div class="row column hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong>Uwagi osoby wprowadzającej formularz papierowy</strong>
+                  <%= project.remarks.presence || '-' %>
+                </div>
+              <% end %>
+              <%= form.text_area :remarks, { rows: 3, label: 'Uwagi osoby wprowadzającej formularz papierowy' } %>
+            </div>
+          <% else %>
+            Nie dotyczy, projekt złożony elektronicznie
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+
+    <% if current_user.ad_admin? %>
+      <fieldset>
+        <div class="card">
+          <div class="card-divider">
+            <legend>Dodatkowe informacje</legend>
+          </div>
+          <div class="card-section">
+            <div class="field label-regular hashtags__container">
+              <%= form.check_box :offensive %>
+            </div>
+            <p class="help-text" style="margin-top: 5px">
+              Spowoduje schowanie opisu proejktu na stronie publicznej
+            </p>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Dane zgłaszającego</legend>
+        </div>
+        <div class="card-section">
+
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('first_name', scope: 'activemodel.attributes.user') %></strong>
+                <%= project.first_name %>
+              </div>
+            <% end %>
+            <%= form.text_field :first_name, label: t('.first_name') %>
+          </div>
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('last_name', scope: 'activemodel.attributes.user') %></strong>
+                <%= project.last_name.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :last_name, label: t('.last_name') %>
+          </div>
+
+          <div class="row column hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>
+                  <%= t('gender', scope: 'activemodel.attributes.user') %>:
+                  <%= gender_for(project) %>
+                </strong>
+              </div>
+            <% end %>
+            <div class="current-data">
+              <%= form.collection_radio_buttons :gender, [['male', t('.male')], ['female', t('.female')]], :first, :last %>
+            </div>
+          </div>
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('phone_number', scope: 'activemodel.attributes.user') %></strong>
+                <%= project.phone_number.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :phone_number, label: t('.phone_number') %>
+          </div>
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.email') %></strong>
+                <%= project.email.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :email, label: t('.email') %>
+          </div>
+
+          <!-- Address-->
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.street') %></strong>
+                <%= project.street.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :street, label: t('.street') %>
+          </div>
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.street_number') %></strong>
+                <%= project.street_number.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :street_number, label: t('.street_number') %>
+          </div>
+
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.flat_number') %></strong>
+                <%= project.flat_number.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :flat_number, label: t('.flat_number') %>
+          </div>
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.zip_code') %></strong>
+                <%= project.zip_code.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :zip_code, label: t('.zip_code') %>
+          </div>
+          <div class="field hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong><%= t('.city') %></strong>
+                <%= project.city.presence || '-' %>
+              </div>
+            <% end %>
+            <%= form.text_field :city, label: t('.city') %>
+          </div>
+
+          <div class="field label-regular hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>
+                  <%= t('show_author_name', scope: 'activemodel.attributes.project') %>:
+                  <%= project.show_author_name ? 'Tak' : 'Nie' %>
+                </strong>
+              </div>
+            <% end %>
+            <%= form.check_box :show_author_name, label: t('show_author_name', scope: 'activemodel.attributes.project') %>
+          </div>
+
+          <div class="field label-regular hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>
+                  <%= t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>:
+                  <%= project.inform_author_about_implementations ? 'Tak' : 'Nie' %>
+                </strong>
+              </div>
+            <% end %>
+            <%= form.check_box :inform_author_about_implementations, label: t('inform_author_about_implementations', scope: 'activemodel.attributes.project') %>
+          </div>
+
+          <div class="field label-regular hashtags__container">
+            <% if admin_changes %>
+              <div class="current-data">
+                <strong>
+                  <%= t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>:
+                  <%= project.email_on_notification ? 'Tak' : 'Nie' %>
+                </strong>
+              </div>
+            <% end %>
+            <%= form.check_box :email_on_notification, label: t('email_on_notification', scope: 'activemodel.attributes.user', edition_year: current_component.participatory_space&.edition_year) %>
+          </div>
+
+          <% if @form.is_paper %>
+            <div class="field label-regular hashtags__container">
+              <% if admin_changes %>
+                <div class="current-data">
+                  <strong>
+                    Autor podpisał wniosek:
+                    <%= project.email_on_notification ? 'Tak' : 'Nie' %>
+                  </strong>
+                </div>
+              <% end %>
+              <%= form.check_box :signed_by_author, label: 'Autor podpisał wniosek' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="card">
+        <div class="card-divider">
+          <legend>Dane współautorów</legend>
+        </div>
+        <div class="card-section">
+          <fieldset>
+            <div class="card">
+              <div class="card-divider coauthors-unfold-js" data-target="#coauthor-one-js">
+                <legend>Współautor 1</legend>
+                <%= icon "caret-bottom", class: "icon--small ", aria_label: 'Rozwiń', role: "img" %>
+              </div>
+
+              <div class="card-section" id='coauthor-one-js'>
+                                <!-- first coauthor-->
+                <%= render 'coauthor_fields', form: form, project: project, admin_changes: admin_changes, coauthor_index: 1 %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="card">
+              <div class="card-divider coauthors-unfold-js" data-target="#coauthor-two-js">
+                <legend>Współautor 2</legend>
+                <%= icon "caret-bottom", class: "icon--small ", aria_label: 'Rozwiń', role: "img" %>
+              </div>
+              <div class="card-section" id='coauthor-two-js'>
+                <!-- second coauthor-->
+                <%= render 'coauthor_fields', form: form, project: project, admin_changes: admin_changes, coauthor_index: 2 %>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/leaflet-src.1.8.0.modCS" %>
+<%= javascript_include_tag "decidim/projects/autocomplete.min" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.compare_text" %>
+<%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+<%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+<%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+
+<%= javascript_include_tag "decidim/projects/admin/projects_form" %>
+<%= javascript_include_tag "decidim/projects/project_form" %>
+<%= javascript_include_tag "decidim/projects/universal_choose.js" %>
+<%= javascript_include_tag "decidim/projects/locations-map" %>
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+<%= javascript_include_tag "decidim/projects/jquery.mask.min" %>
+
+<%= nonced_javascript_tag do %>
+  function init_compare_text() {
+    if ($("#project_body_source_compare").length != 1) return;
+
+    compareText($("#project_body_source_compare"), $("#project_body"), $("#project_body_result_compare"));
+    compareText($("#project_title_source_compare"), $("#project_title"), $("#project_title_result_compare"));
+    compareText($("#project_short_description_source_compare"), $("#project_short_description"), $("#project_short_description_result_compare"));
+    compareText($("#project_justification_info_source_compare"), $("#project_justification_info"), $("#project_justification_info_result_compare"));
+    compareText($("#project_custom_categories_source_compare"), $("#project_custom_categories"), $("#project_custom_categories_result_compare"));
+    compareText($("#project_custom_recipients_source_compare"), $("#project_custom_recipients"), $("#project_custom_recipients_result_compare"));
+    compareText($("#project_budget_value_source_compare"), $("#project_budget_value"), $("#project_budget_value_result_compare"));
+    compareText($("#project_budget_description_source_compare"), $("#project_budget_description"), $("#project_budget_description_result_compare"));
+    compareText($("#project_contractors_and_costs_source_compare"), $("#project_contractors_and_costs"), $("#project_contractors_and_costs_result_compare"));
+    compareText($("#project_localization_additional_info_source_compare"), $("#project_localization_additional_info"), $("#project_localization_additional_info_result_compare"));
+    compareText($("#project_localization_info_source_compare"), $("#project_localization_info"), $("#project_localization_info_result_compare"));
+  }
+
+  $(function(){
+    $('#project_zip_code').mask('00-000');
+    init_compare_text();
+
+    $("#project_body").keyup(function() {
+      compareText($("#project_body_source_compare"), $("#project_body"), $("#project_body_result_compare"));
+    });
+    $("#project_short_description").keyup(function(){
+      compareText($("#project_short_description_source_compare"), $("#project_short_description"), $("#project_short_description_result_compare"));
+    });
+    $("#project_title").keyup(function(){
+      compareText($("#project_title_source_compare"), $("#project_title"), $("#project_title_result_compare"));
+    });
+    $("#project_localization_info").keyup(function(){
+      compareText($("#project_localization_info_source_compare"), $("#project_localization_info"), $("#project_localization_info_result_compare"));
+    });
+    $("#project_justification_info").keyup(function(){
+      compareText($("#project_justification_info_source_compare"), $("#project_justification_info"), $("#project_justification_info_result_compare"));
+    });
+    $("#project_custom_categories").keyup(function(){
+      compareText($("#project_custom_categories_source_compare"), $("#project_custom_categories"), $("#project_custom_categories_result_compare"));
+    });
+    $("#project_custom_recipients").keyup(function(){
+      compareText($("#project_custom_recipients_source_compare"), $("#project_custom_recipients"), $("#project_custom_recipients_result_compare"));
+    });
+    $("#project_budget_value").keyup(function(){
+      compareText($("#project_budget_value_source_compare"), $("#project_budget_value"), $("#project_budget_value_result_compare"));
+    });
+    $("#project_budget_description").keyup(function(){
+     compareText($("#project_budget_description_source_compare"), $("#project_budget_description"), $("#project_budget_description_result_compare"));
+    });
+    $("#project_contractors_and_costs").keyup(function(){
+      compareText($("#project_contractors_and_costs_source_compare"), $("#project_contractors_and_costs"), $("#project_contractors_and_costs_result_compare"));
+    });
+    $("#project_localization_additional_info").keyup(function(){
+      compareText($("#project_localization_additional_info_source_compare"), $("#project_localization_additional_info"), $("#project_localization_additional_info_result_compare"));
+    });
+
+    $("input[type=file].multifile").MultiFile({
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)'
+      }
+    });
+
+    $('input#search').keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+
+    $('.coauthors-unfold-js').click(function() {
+      var target = $(this).data('target');
+      $(target).toggle();
+      // $(this).find('.icon').css('transform', 'rotate(180deg)');
+    });
+
+  });
+
+  // Restricts input for the set of matched elements to the given inputFilter function.
+  (function($) {
+    $.fn.inputFilter = function(callback, errMsg) {
+      return this.on("input keydown keyup mousedown mouseup select contextmenu drop focusout", function(e) {
+        if (callback(this.value)) {
+          // Accepted value
+          if (["keydown","mousedown","focusout"].indexOf(e.type) >= 0){
+            $(this).removeClass("input-error");
+            this.setCustomValidity("");
+          }
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          // Rejected value - restore the previous one
+          $(this).addClass("input-error");
+          this.setCustomValidity(errMsg);
+          this.reportValidity();
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        } else {
+          // Rejected value - nothing to restore
+          this.value = "";
+        }
+      });
+    };
+  }(jQuery));
+
+  $(document).ready(function() {
+    $("#project_budget_value").inputFilter(function(value) {
+      return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+    },"Dozwolone tylko cyfry");
+  });
+<% end %>

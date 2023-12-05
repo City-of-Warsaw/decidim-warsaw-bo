@@ -1,0 +1,14 @@
+<section class="wrapper-home home-section">
+  <div class="row" id="highlighted-proposals-slider">
+    <h2 class="section-heading proposals-heading"><%= t("realized_proposals", scope: 'decidim.proposals.pages.home.highlighted_proposals').html_safe %></h2>
+    <div class="row collapse proposals-slider">
+      <div class="small-up-1 smallmedium-up-1 mediumlarge-up-1
+        large-up-1 slider-element">
+        <% highlighted_items.each do |item| %>
+          <%= card_for item, size: :highlighted_list_item %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="blur-box"><div></div></div>
+</section>

@@ -1,0 +1,27 @@
+<% add_decidim_page_title(t('edit', scope: 'decidim.projects.projects_wizard.wizard_title')) %>
+
+
+<div class='no-wizard-separator'></div>
+<%= render "decidim/projects/projects_wizard/wizard_header", hide_wcag_title: true %>
+
+
+<%= decidim_form_for(@form, url: projects_wizard_path(@project), method: :patch) do |form| %>
+  <%= render partial: "decidim/projects/projects_wizard/form", locals: { form: form } %>
+  <%= render partial: "decidim/projects/projects_wizard/part_form_fields/author_fields", locals: { form: form } %>
+
+  <div class="card fieldset">
+    <div class="row">
+      <div class="columns large-12 text-right">
+        <div class="actions">
+          <%= link_to t(".cancel"), decidim_core_extended.account_projects_path, class: "button button-link mt-s mb-none" %>
+          <% if @project.draft? %>
+            <%= form.button t(".draft"), type: 'input', class: "button hollow mt-s mb-none", name: "subaction", value: "draft" %>
+          <% end %>
+          <%= form.submit "Zapisz", class: "button submit mt-s mb-none", data: { confirm: 'Czy jesteś pewien?' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "decidim/projects/add_project" %>

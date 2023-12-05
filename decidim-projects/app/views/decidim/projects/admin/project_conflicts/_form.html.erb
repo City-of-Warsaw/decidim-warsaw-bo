@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t('.title', project_name: link_to(@form.project_title, project)).html_safe %></h2>
+  </div>
+
+  <div class="card-section">
+
+    <div class="row">
+      <div class="card">
+        <div class="card-divider">
+          <h2 class="card-title"><%= t('.potential_conflicts', project_name: link_to(project.title, project)).html_safe %></h2>
+        </div>
+        <div class="card-section">
+          <% if projects_in_potential_conflict.any? %>
+            <ul>
+              <% projects_in_potential_conflict.each do |project| %>
+                  <li><%= link_to "[#{project.scope.name['pl'] if project.scope}] #{project.voting_number} - #{project.title}", project_path(project), class: 'link' %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <%= t('.potential_conflicts_not_found') %>
+          <% end %>
+        </div>
+
+        <div class="card-divider">
+          <h2 class="card-title"><%= t('.pick', project_name: project.title) %></h2>
+        </div>
+        <div class="card-section">
+          <% if @form.projects_for_select.any? %>
+            <%= form.collection_check_boxes :project_ids, @form.projects_for_select, :last, :first do |b| %>
+              <%= b.label { b.check_box(data: { "abide-ignore": true }) + b.text } %>
+            <% end %>
+          <% else %>
+            Brak projektów do wybrania
+          <% end %>
+        </div>
+
+        <div class="card-divider">
+          <h2 class="card-title">Oznacz czy projekt jest w konflikcie</h2>
+        </div>
+        <div class="card-section">
+          <fieldset>
+            <label>
+              <%= form.radio_button :conflict_status, 'waiting', label: false %>
+              <%= t(".conflict_status.waiting") %>
+            </label>
+            <label>
+              <%= form.radio_button :conflict_status, 'with_conflicts', label: false %>
+              <%= t(".conflict_status.with_conflicts") %>
+            </label>
+            <label>
+              <%= form.radio_button :conflict_status, 'no_conflicts', label: false %>
+              <%= t(".conflict_status.no_conflicts") %>
+            </label>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

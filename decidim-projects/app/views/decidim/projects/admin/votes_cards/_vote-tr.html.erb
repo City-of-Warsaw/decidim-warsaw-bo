@@ -1,0 +1,90 @@
+<tr data-id="<%= vote.id %>">
+  <% if column_selected? 'card_number' %>
+    <td>
+      <%= vote.card_number %><br>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'is_paper' %>
+    <td>
+      <%= vote.submitting_method %><br>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'pesel_number' %>
+    <td>
+      <%= vote.pesel_number %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'status' %>
+    <td>
+      <%= vote_status(vote) %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'email' %>
+    <td>
+      <%= mail_to vote.email %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'first_name' %>
+    <td>
+      <%= vote.first_name %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'last_name' %>
+    <td>
+      <%= vote.last_name %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'created_at' %>
+    <td>
+      <%= l(vote.created_at, format: :decidim_short) %>
+    </td>
+  <% end %>
+
+  <% if column_selected? 'updated_at' %>
+    <td>
+      <%= l(vote.updated_at, format: :decidim_short) %>
+    </td>
+  <% end%>
+
+  <% if column_selected? 'author' %>
+    <td>
+      <%= vote.author_name %>
+    </td>
+  <% end%>
+
+  <% if column_selected? 'ip_number' %>
+    <td>
+      <%= ip_number_info(vote) %>
+    </td>
+  <% end%>
+
+
+  <td class="table-list__actions">
+    <% if allowed_to? :edit, :votes, vote: vote %>
+      <%= icon_link_to "pencil", edit_votes_card_path(vote), t("actions.edit_vote", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+    <% end %>
+
+    <% if allowed_to? :publish, :votes, vote: vote %>
+      <%= icon_link_to "check", publish_votes_card_path(vote), t("actions.publish", scope: "decidim.projects"), class: "action-icon--edit-project" %>
+    <% end %>
+
+    <% if allowed_to? :status_change, :votes, vote: vote %>
+      <%= icon_link_to "aperture", status_votes_card_path(vote), 'Zmień status', class: "action-icon--edit-project" %>
+    <% end %>
+
+    <% if allowed_to? :resend_email_vote, :votes, vote: vote %>
+    <%= icon_link_to "envelope-open", resend_email_votes_card_path(vote), 'Wyślij ponownie link do głosowania', method: :post, class: "action-icon--edit-project" %>
+    <% end %>
+
+    <% if allowed_to? :read, :votes, vote: vote %>
+      <%= icon_link_to "magnifying-glass", votes_card_path(vote), t("actions.preview", scope: "decidim.projects.admin"), class: "action-icon--preview", target: :blank %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,75 @@
+pl:
+  activemodel:
+    attributes:
+      address:
+        full_address: Pełny adres
+      assembly:
+        document: Plik
+        import_categories: Zaimportuj kategorie wewnętrzne
+        import_attachments: Zaimportuj załączniki
+        import_components: Zaimportuj komponenty
+      assembly_member:
+        position_other: Inna funkcja
+        weight: Kolejność na stronie
+      attachment:
+        weight: Kolejność na stronie
+      attachment_collection:
+        weight: Kolejność na stronie
+      close_meeting:
+        proposals: Propozycje
+      debate:
+        scope_id: Dzielnica
+      help_section:
+        content: Treść
+      import_participatory_text:
+        title: Tytuł
+        description: Opis
+      invite:
+        nickname: Pseudonim
+      meeting:
+        registration_type: Typ rejestracji
+        reserved_slots: Zarezerowane miejsca
+      meeting_registration_invite:
+        name: Imię
+        email: E-mail
+        user_id: Użytkownik
+      participatory_process:
+        private_space: Przestrzeń prywatna
+        document: Plik
+        import_steps: Zaimportuj etapy
+        import_categories: Zaimportuj kategorie wewnętrzne
+        import_attachments: Zaimportuj załączniki
+        import_components: Zaimportuj komponenty
+      participatory_space_private_user:
+        name: Imię
+        email: Adres e-mail
+      revocations_before_date:
+        before_date: Sprzed daty
+        impersonated_only: Tylko konflikty weryfikacji
+      static_page:
+        topic_id: Temat
+      user:
+        avatar: Awatar
+      validate_registration_code:
+        code: Kod
+
+    models:
+      decidim/amendment_created_event: Dodano poprawkę
+      decidim/meetings/meeting_registration_notification_event: Rejestraca na spotkanie
+      decidim/user_group_created_event: Utworzono grupę
+      decidim/welcome_notification_event: Powitanie
+
+  decidim:
+    admin:
+      filters:
+        moderations:
+          reportable_type_string_eq:
+            values:
+              Decidim::Comments::Comment: Komentarze
+              Decidim::Comments::Proposal: Propozycje
+        state_eq:
+          label: Status
+  forms:
+    length_validator:
+      minimum:
+        other: Co najmniej %{count} znaków

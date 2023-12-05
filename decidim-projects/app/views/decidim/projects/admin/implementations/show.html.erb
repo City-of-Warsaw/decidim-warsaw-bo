@@ -1,0 +1,287 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "Realizacje >", implementations_path %>
+      <%= "Realizacje projektu: #{project.title}" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div>
+      <strong>Status realizacji: </strong>
+      <br>
+      <%= implementation_status(project) %>
+    </div>
+    <br>
+    <div>
+      <strong>Faktyczny koszt realizacji:</strong>
+      <br>
+      <% if project.factual_budget_value %>
+        <%= budget_to_currency(project.factual_budget_value) %>
+      <% else %>
+        Nie podano jeszcze wartości faktycznej, poniżej wyświetlono całkowity koszt projektu:
+        <br>
+        <%= budget_to_currency(project.budget_value) %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <strong>Jednostka odpowiadająca za realizację:</strong>
+      <br>
+      <%= project.producer_list %>
+    </div>
+    <br>
+    <div>
+      <strong>Wyświetlany na stronie głownej - miniatury:</strong>
+      <br>
+      <%= t(!!project.implementation_on_main_site, scope: 'booleans') %>
+    </div>
+    <div>
+      <strong>Wyświetlany na stronie głownej - slider:</strong>
+      <br>
+      <%= t(!!project.implementation_on_main_site_slider, scope: 'booleans') %>
+    </div>
+    <% implementation = project.implementations.visible.ordered.last %>
+    <% if implementation %>
+      <br>
+      <strong>TREŚĆ AKTUALNIE WYŚWIETLANA NA STRONIE PUBLICZNEJ PROJEKTU:</strong>
+      <br>
+      <%= l implementation.implementation_date, format: :decidim_short %>
+      <%= implementation.body.html_safe %>
+    <% end %>
+
+    <hr style='margin: 2rem auto;'>
+    <div class="field hashtags__container">
+      <strong>Zdjęcia z realizacji:</strong>
+      <% if project && project.implementation_photos.any? %>
+        <div class="row column">
+          <div id="photos" class="gallery row">
+            <% project.implementation_photos.each do |photo| %>
+              <div class='implementation-photo-box'>
+                <%= link_to main_app.rails_blob_path(photo.file, only_path: true), target: "_blank", rel: "noopener" do %>
+                  <%= image_tag main_app.rails_representation_path(photo.thumbnail) %>
+                  <br>
+                  <%= strip_tags(photo.file.filename.to_s) %>
+                <% end %>
+                <strong style="display: block; margin-bottom: 1rem;">
+                  Tekst alternatywny:
+                  <span style="font-weight: normal"><%= photo.image_alt %></span>
+                  <br>
+                  <%= link_to 'Edytuj ALT', edit_alt_project_attachment_path(project, photo), class: 'button tiny' %>
+                </strong>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<% if allowed_to? :implementation, :project, project: project %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">Edytuj stan realizacji</h2>
+    </div>
+    <div class="card-section">
+      <%= decidim_form_for(@form, url: implementations_path(project_id: project.id), method: :post, html: { class: "form edit_project project_form_admin" })  do |form| %>
+        <div class="row column hashtags__container">
+          <%= form.select :implementation_status,
+                          implementations_for_select,
+                          include_blank: true,
+                          label: 'Status realizacji' %>
+        </div>
+
+        <div class="row column hashtags__container">
+          <%= form.number_field :factual_budget_value, label: 'Faktyczny koszt realizacji' %>
+        </div>
+
+        <div class="row column hashtags__container">
+          <%= form.text_field :producer_list, label: 'Jednostka odpowiadająca za realizację' %>
+        </div>
+        <% if current_user.ad_admin? %>
+          <div class="row column hashtags__container">
+            <%= form.check_box :implementation_on_main_site, label: 'Wyświetlany na stronie głównej - miniatury' %>
+          </div>
+
+          <div class="row column hashtags__container">
+            <%= form.check_box :implementation_on_main_site_slider, label: 'Wyświetlany na stronie głównej - slider' %>
+          </div>
+        <% end %>
+
+        <div class="row column hashtags__container">
+          <%= form.editor :implementation_body, label: 'Nowa aktualizacja' %>
+        </div>
+
+        <div class="row column hashtags__container">
+          <%= form.datetime_field :implementation_date, value: l(DateTime.current, format: :decidim_short), label: 'Data aktualizacji stanu realizacji', help_text: 'Jeśli podasz przyszłą datę, aktualizacja wyświetli się dopiero wtedy' %>
+        </div>
+
+        <div class="field hashtags__container">
+          <!-- <strong>Zdjęcia z realizacji:</strong>-->
+          <%= form.file_field :add_implementation_photos,
+                              multiple: true,
+                              label: 'Zdjęcia z realizacji:',
+                              class: 'multifile with-preview', style: 'display: block'
+          %>
+          <% if project && project.implementation_photos.any? %>
+            <div class="row column">
+              <div id="photos" class="gallery row">
+                <% project.implementation_photos.each do |photo| %>
+                  <%= link_to main_app.rails_blob_path(photo.file, only_path: true), target: "_blank", rel: "noopener" do %>
+                    <%= strip_tags(photo.file.filename.to_s) %>
+                  <% end %>
+                  (<label style="display: inline">
+                <%= check_box_tag 'implementation[remove_implementation_photos][]', photo.id, false %> usuń
+              </label>)
+                  <br>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="button--double form-general-submit">
+          <%= form.submit 'Zapisz' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">Historia zmian</h2>
+  </div>
+  <div class="card-section">
+
+    <% if project.implementations.any? %>
+      <% project.implementations.order(created_at: :desc).each do |imp| %>
+        <div>
+          <div>
+            <strong>
+              <% if imp.implementation_date %>
+                <%= "Aktualizacja: #{l imp.implementation_date, format: :decidim_short}" %>
+                <span style='font-style: italic; font-weight: normal'><%= imp.implementation_date > DateTime.current ? '(jeszcze nie wyświetla się na karcie publicznej projektu)' : nil %></span>
+              <% else %>
+                <%= "Aktualizacja bez treści: #{l imp.created_at, format: :decidim_short}" %>
+              <% end %>
+            </strong>
+            <br>
+            <strong>Zaktualizował(a):</strong>
+            <%= imp.user.ad_full_name %>
+            <br>
+            <% if imp.update_data&.any? %>
+              <% if imp.update_data['factual_budget_value'] %>
+                <strong>Faktyczny koszt realizacji:</strong>
+                <%= budget_to_currency(imp.update_data['factual_budget_value']) %>
+                <br>
+              <% end %>
+              <% if imp.update_data['implementation_status'] %>
+                <strong>Status realizacji:</strong>
+                <%= imp.update_data['implementation_status'] %>
+                <br>
+              <% end %>
+              <% if imp.update_data['producer_list'] %>
+                <strong>Jednostka odpowiadająca za realizację:</strong>
+                <%= imp.update_data['producer_list'] %>
+                <br>
+              <% end %>
+              <% if imp.update_data['implementation_on_main_site'] %>
+                <strong>Wyświetlany na stronie głównej - minatury:</strong>
+                <%= imp.update_data['implementation_on_main_site'] ? 'Tak' : 'Nie' %>
+                <br>
+              <% end %>
+              <% if imp.update_data['implementation_on_main_site_slider'] %>
+                <strong>Wyświetlany na stronie głównej - slider:</strong>
+                <%= imp.update_data['implementation_on_main_site_slider'] ? 'Tak' : 'Nie' %>
+                <br>
+              <% end %>
+              <% if imp.update_data['photos'] && imp.update_data['photos'].any? %>
+                <strong>Dodane zdjęcia:</strong>
+                <ul>
+                  <% imp.update_data['photos'].each do |pp| %>
+                    <li><strong><%= pp[0] %></strong>
+                      <% if pp[1].present? %>
+                        - Tekst alternatywny: <%= pp[1] %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+                <br>
+              <% end %>
+              <% if imp.update_data['photos_update'] %>
+                <strong>Edytowane zdjęcia:</strong>
+                <ul>
+                  <% imp.update_data['photos_update'].each do |pp| %>
+                    <li><strong><%= pp[0] %></strong>
+                      <% if pp[1].present? %>
+                        <%= pp[1] %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+                <br>
+              <% end %>
+            <% end %>
+            <% if imp.body.present? %>
+              <strong>Treść:</strong>
+              <br>
+              <%= imp.body.html_safe %>
+            <% end %>
+          </div>
+          <% if allowed_to? :edit_implementation, :project, project: project %>
+            <%= link_to 'Edytuj', edit_implementation_path(imp.id), class: 'button tiny', style: 'margin: 0' %>
+          <% end %>
+        </div>
+        <hr style="margin: 1rem auto 2rem">
+      <% end %>
+    <% else %>
+      Nie dodano jeszcze żadnych aktualizacji
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/projects/admin/jquery.MultiFile" %>
+
+<%= nonced_javascript_tag do %>
+  $(function(){
+    $("input[type=file].multifile").MultiFile({
+      accept: 'jpeg|jpg|png|gif',
+      afterFileAppend: function(element, value, master_element) {
+          var processed_value = value.replaceAll(' ', '').replaceAll('-', '').replaceAll('_', '');
+        $('#implementation_add_implementation_photos_list .MultiFile-label')
+            .last()
+            .append("<label class='MultiFile-alt-label'>Tekst alternatywny dla pliku: " + value + "* [Wymagane]<input type='text' required='true' name='implementation[add_implementation_photos_alt][" + processed_value + "]' ></label>");
+      },
+      STRING: {
+        remove: '(x)',
+        denied: 'Ten format pliku $ext jest niedozwolony.',
+        file: '$file',
+        selected: 'Wybrany plik: $file',
+        duplicate: 'Ten plik już został wybrany:\n$file',
+        toomuch: 'Łączny rozmiar plików przekracza limit ($size)',
+        toomany: 'Niedozwolona liczba plików (maks: $max)',
+        toobig: '$file ma za duży rozmiar (maks: $size)',
+      }
+    });
+  });
+
+  // preventing form from being send when alt is not
+  $('form').on('submit', function(e) {
+      empty = $('.MultiFile-alt-label input').filter(function () {
+          return $(this).val() == "";
+      });
+
+      if (empty.length ==  0) {
+          // $('form').submit();
+      } else {
+          e.preventDefault();
+          empty.each( function() {
+             $(this).addClass('is-invalid-input');
+             $(this).parent().addClass('is-invalid-label');
+          });
+          empty.first().focus();
+      }
+  });
+<% end %>

@@ -1,0 +1,20 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <div>
+      <%= l version.created_at, format: :decidim_short %>
+      /
+      <strong>
+        <% if version.try(:signature).present? %>
+          <%= version.signature %>
+        <% elsif version.whodunnit.present? %>
+          <%= render_resource_editor(version).author_name %>
+        <% end %>
+      </strong>
+    </div>
+  </div>
+  <div class="card--list__data">
+    <%= link_to version_path, class: "card--list__data__icon" do %>
+      sprawdź zmiany
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+var projects = $('#projects-list');
+
+projects.html('<%= j(render "realizations", projects: @projects).strip.html_safe %>');

@@ -1,0 +1,25 @@
+<div class="tiny reveal confirm-reveal"
+     id="session-expired-modal"
+     aria-hidden="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="session-expired-modal-title"
+     aria-describedby="session-expired-modal-content"
+     data-reveal
+     data-multiple-opened="true"
+     tabindex="-1"
+>
+  <div class="reveal__header">
+    <h2 class="reveal__title" id="session-expired-modal-title">Sesja wygasła</h2>
+  </div>
+  <div class="confirm-content">
+    <div class="expired-modal-content" id="session-expired-modal-content" role="document" tabindex="0">
+      Byłeś nieaktywny przez 30 minut. Twoja sesja głosowania wygasła, rozpocznij proces od nowa.
+    </div>
+  </div>
+  <div class="confirm-modal-footer reveal__footer">
+    <div class="buttons button--double">
+      <%= link_to "Wróć do strony głównej", '/', class: "button" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+---
+pl:
+  decidim:
+    content_blocks:
+      costs:
+        title:
+          cost_01: Posadzenie drzewa
+          cost_02: Latarnia uliczna
+          cost_03: Ławka z oparciem
+          cost_04: Budowa lub remont chodnika
+          cost_05: Budowa lub remont drogi dla rowerów
+          cost_06: Piknik sąsiedzki
+          cost_07: Tłumaczenie na język migowy (1 godz.)
+          cost_08: "Budowa nowego placu zabaw 200m²"
+          cost_09: Budka dla ptaków
+        body:
+          cost_01: koszt materiału roślinnego i posadzenia, obwód pnia 16-18 cm
+          cost_02: zakup i montaż, cena zależy od typu, warunkiem wykonania w ciągu 1 roku jest możliwość wykorzystania istniejących przyłączy
+          cost_03: zakup i montaż
+          cost_04: "100 m², cena dla standardowej nawierzchni z płyt betonowych, nawierzchnia z lastryko lub kamienia będzie odpowiednio droższa"
+          cost_05: 100 m.b., szerokość 2,5m., asfalt, bez projektu i sygnalizacji świetlnej
+          cost_06: 'koszty: atrakcje dla dzieci, warsztaty sąsiedzkie, gry i zabawy, koncert zespołu coverowego, zabezpieczenie techniczne (agregat, mikrofony) wraz z obsługą techniczną, ubezpieczenie imprezy oraz koszty ZAIKS, bez kosztów promocji'
+          cost_07: ''
+          cost_08: wraz z projektem, koszt orientacyjny (zależy od liczby i rodzaju urządzeń)
+          cost_09: zakup i montaż, cena zależna od typu budki
+        value:
+          cost_01: '1 800 zł'
+          cost_02: '13 000 - 18 000 zł'
+          cost_03: '2 500 - 3 500 zł'
+          cost_04: '40 000 zł'
+          cost_05: '100 000 zł'
+          cost_06: '12 000 - 30 000 zł'
+          cost_07: '200 - 300 zł'
+          cost_08: '200 000 - 500 000 zł'
+          cost_09: '100 - 200 zł'

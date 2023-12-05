@@ -1,0 +1,601 @@
+<% add_decidim_meta_tags({
+  description: present(@project).body,
+  title: present(@project).title,
+  url: project_url(@project.id)
+}) %>
+
+<%
+edit_link(
+  resource_locator(@project).edit,
+  :edit,
+  :project,
+  project: @project
+)
+%>
+
+<%
+extra_admin_link(
+  resource_locator(@project).show,
+  :create,
+  :project_answer,
+  { project: @project },
+  { name: t(".edit"), icon: "comment-square" }
+)
+%>
+
+<%= render "project_header", project: @project %>
+<%= render "project_data", project: @project %>
+
+<div class="row">
+  <div class="columns mediumlarge-8 large-9 short-description-column mb-s">
+    <% if @project.offensive? %>
+      <%= I18n.t('decidim.projects.offensive') %>
+    <% else %>
+      <%= simple_format decidim_sanitize @project.short_description %>
+    <% end %>
+  </div>
+
+  <div class="columns section view-side mediumlarge-4 large-3 right-column-above-all">
+    <% if @vote_card %>
+      <input type="hidden" id="limit-count-js" value="<%= @wizard.step_limit %>">
+      <%= link_to 'Wróć do głosowania', path_for_wizard_vote(@vote_card, params[:step], fp: 1, fm: params[:fm], scope_id: @project.decidim_scope_id), class: 'button expanded hollow button--sc' %>
+      <button class="button secondary expanded button--sc vote-button-js" data-url="<%= votes_card_vote_path(@vote_card.voting_token, @project.id) %>"><span>Zagłosuj na ten projekt</span></button>
+
+      <hr class="full-width" />
+    <% end %>
+
+
+    <% if allowed_to?(:edit, :project, project: @project) %>
+      <% if @project.draft? %>
+        <%= link_to t(".edit_project_draft"), project_locator(@project).edit, class: "button hollow expanded button--sc" %>
+      <% else %>
+        <%= link_to t(".edit_project"), project_locator(@project).edit, class: "button hollow expanded button--sc" %>
+      <% end %>
+    <% end %>
+
+    <% if allowed_to?(:withdraw, :project, project: @project) %>
+      <%= link_to t(".withdraw_project"), project_locator(@project).withdraw, method: :put, class: "button alert expanded button--sc", data: { confirm: t('.confirm.withdraw') } %>
+    <% end %>
+
+    <% if allowed_to?(:appeal, :project, project: @project) %>
+      <% if @project.appeal %>
+        <%= link_to t(".appeal_project"), decidim_core_extended.edit_account_appeal_path(@project.appeal), class: "button warning expanded button--sc" %>
+      <% else %>
+        <%= link_to t(".appeal_project"), decidim_core_extended.new_account_appeal_path(project_id: @project.id), class: "button warning expanded button--sc" %>
+      <% end %>
+    <% elsif @project.appeal && allowed_to?(:read_appeal, :project, project: @project) %>
+      <%= link_to 'Zobacz odwołanie', project_appeal_path(@project, @project.appeal), class: "button warning expanded button--sc" %>
+    <% end %>
+
+    <% id_for_href = current_user ? "#new_comment_for_Project_#{@project.id}" : '#no-user-add-comment' %>
+    <%= link_to t(".comment").html_safe, id_for_href, class: "button expanded button--sc comment" %>
+    <% if path_for_new_project.present? && allowed_to?(:create, :project, component: current_component) %>
+      <%= link_to t(".add_project"), path_for_new_project, class: "button secondary expanded button--sc" %>
+    <% elsif path_for_new_project.present? && !current_user %>
+      <%= link_to t(".add_project"), '', class: "button secondary expanded button--sc no-user-new-project-js" %>
+    <% end %>
+
+    <%= conversation_with_author(@project) %>
+
+    <% if current_user && current_user != @project.creator_author && @project.chosen_for_implementation? %>
+      <%= cell "decidim/follow_button", @project, inline: false, large: true %>
+    <% end %>
+
+    <% if @project.can_generate_endorsement_list? %>
+      <%= link_to 'Lista poparcia', project_endorsement_list_path(@project, format: 'pdf'), class: "button hollow expanded button--sc" %>
+    <% end %>
+
+    <% if allowed_to?(:coauthor, :project, project: @project) %>
+      <%= link_to 'Potwierdź współautorstwo', edit_coauthorship_path(@project), class: "button success expanded button--sc" %>
+    <% end %>
+    <% if posters.any? && @project.can_generate_posters? %>
+      <div class="print-assets">
+        <div class="print-assets__header">
+          <strong>Pobierz materiały</strong><br />
+          promujące projekt:
+        </div>
+
+        <ul class="print-assets__list">
+
+          <% posters.each do |poster| %>
+          <li>
+            <strong><%= poster.title %></strong> / <%= poster.subtitle %>
+
+            <a href="<%= project_poster_path(@project, poster, format: :jpg) %>">
+              <svg id="Download" xmlns="http://www.w3.org/2000/svg" width="19.712" height="14.141" viewBox="0 0 19.712 14.141">
+                <path id="Path_249" data-name="Path 249" d="M20.055,17h-4.6a.642.642,0,0,0-.526.283l-1.774,2.545h-4.6L6.782,17.283A.642.642,0,0,0,6.257,17h-4.6A.684.684,0,0,0,1,17.707v6.364a.684.684,0,0,0,.657.707h18.4a.684.684,0,0,0,.657-.707V17.707A.684.684,0,0,0,20.055,17ZM19.4,23.364H2.314V18.414H5.928L7.7,20.96a.642.642,0,0,0,.526.283h5.257a.642.642,0,0,0,.526-.283l1.774-2.545H19.4Z" transform="translate(-1 -10.636)" fill="currentColor"/>
+                <path id="Path_250" data-name="Path 250" d="M14.328,12.278a.707.707,0,0,0,1,0l2.121-2.121a.707.707,0,0,0-1-1l-.914.914V4.707a.707.707,0,0,0-1.414,0v5.364l-.914-.914a.707.707,0,0,0-1,1Z" transform="translate(-4.972 -4)" fill="currentColor"/>
+              </svg>
+            </a>
+          </li>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if @project.in_implementation? %>
+  <div class="project-segment realizations-segment">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <h3 class='section-heading'>
+            <span>Realizacja</span> projektu
+          </h3>
+          <% implementation = @project.implementations.visible.ordered.last %>
+          <% if implementation %>
+            <strong class="mini-header">Aktualizacja:</strong>
+            <%= l implementation.implementation_date, format: "%d.%m.%Y %H:%M" %>
+            <%= simple_format implementation.body.html_safe %>
+          <% end %>
+          <% if @project.producer_list.present? %>
+            <strong class="mini-header">Jednostka odpowiadająca za realizację:</strong>
+            <%= @project.producer_list %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if @project.implementation_photos.any? %>
+    <div class='project-segment implementation-photos'>
+      <div class='row'>
+        <div class='column mediumlarge-8 large-9'>
+          <div class='row slicked'>
+            <% @project.implementation_photos.each do |photo| %>
+              <div class="columns">
+                <%= image_tag main_app.rails_representation_path(photo.big), alt: photo.image_alt %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @all_locations || @project.any_localization_info? %>
+  <div class="project-segment">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <h3 class='section-heading'>
+            <span>Lokalizacja</span> projektu
+          </h3>
+          <% if @all_locations %>
+            <div id="map" class="without-legend"></div>
+            <%= hidden_field_tag 'markersMap', @all_locations %>
+          <% end %>
+
+          <% if @project.address.present? %>
+            <strong><%= t('activemodel.attributes.project.address') %>:</strong>
+            <%= simple_format decidim_sanitize @project.address %>
+          <% end %>
+
+          <% if @project.localization_info.present? %>
+            <strong><%= t('activemodel.attributes.project.localization_info') %>:</strong>
+            <%= simple_format decidim_sanitize @project.localization_info %>
+          <% end %>
+
+          <% if @project.localization_additional_info.present? %>
+            <strong><%= t('activemodel.attributes.project.localization_additional_info') %>:</strong>
+            <%= simple_format decidim_sanitize @project.localization_additional_info %>
+          <% end %>
+
+          <% if @project.participatory_space.edition_year >= 2020 %>
+            <% if @project.scope&.scope_type && @project.scope.code != 'om' %>
+              <strong><%= t('.scope') %>:</strong>
+              <%= translated_attribute @project.scope.scope_type.name %>
+            <% end %>
+          <% else %>
+            <% if @project.scope&.scope_type && @project.scope.code != 'om' %>
+              <strong><%= t('.scope') %>:</strong>
+              <% if @project.local_area.present? %>
+                Lokalny
+              <% else %>
+                Ogólnodzielnicowy
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <% if @project.local_area.present? %>
+            <strong><%= t('.local_area') %>:</strong>
+            <%= @project.local_area %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="project-segment gray">
+  <div class="row">
+    <div class="columns mediumlarge-8 large-9">
+      <div class="section">
+
+        <h3 class='section-heading'>
+          <span>Dane</span> projektu
+        </h3>
+        <% if @project.offensive? %>
+          <strong><%= t('activemodel.attributes.project.body') %>:</strong>
+          <%= I18n.t('decidim.projects.offensive') %>
+        <% else %>
+          <% if @project.short_description.present? %>
+            <strong><%= t('activemodel.attributes.project.short_description') %>:</strong>
+            <%= simple_format decidim_sanitize @project.short_description %>
+          <% end %>
+          <% if @project.body.present? %>
+            <strong><%= t('activemodel.attributes.project.body') %>:</strong>
+            <%= render_project_body(@project) %>
+          <% end %>
+
+          <% if @project.participatory_space.edition_year >= 2021 %>
+            <hr class='full-width'>
+
+            <strong><%= t('activemodel.attributes.project.universal_design') %>:</strong>
+            <% if @project.universal_design.nil? %>
+              brak informacji
+            <% else %>
+              <%= t(!!@project.universal_design, scope: 'booleans') %>
+              <br>
+              <% if !@project.universal_design && @project.universal_design_argumentation.present? %>
+                <%= simple_format decidim_sanitize @project.universal_design_argumentation %>
+              <% end %>
+            <% end %>
+
+          <% end %>
+
+          <hr class='full-width'>
+
+          <% if @project.justification_info.present? %>
+            <strong><%= t('activemodel.attributes.project.justification_info') %>:</strong>
+            <%= simple_format decidim_sanitize @project.justification_info %>
+          <% end %>
+
+          <%= render 'historical_data', project: @project %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @project.categories.any? || @project.recipients.any? || @project.custom_categories.present? || @project.custom_recipients.present? %>
+  <div class="project-segment">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <h3 class='section-heading'>
+            <span>Charakterystyka</span> projektu
+          </h3>
+          <% if @project.categories.any? || @project.custom_categories.present? %>
+            <strong><%= t('activemodel.attributes.project.categories') %>:</strong>
+            <ul>
+              <% @project.categories.each do |cat| %>
+                <li><%= translated_attribute cat.name %></li>
+              <% end %>
+              <% if @project.custom_categories.present? %>
+                <% @project.custom_categories.split(',').each do |cat| %>
+                  <li><%= cat %></li>
+                  <% end %>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if (@project.categories.any? || @project.custom_categories.present?) && (@project.recipients.any? || @project.custom_recipients.present?) %>
+            <hr class='full-width'>
+          <% end %>
+
+          <% if @project.recipients.any? || @project.custom_recipients.present? %>
+            <strong><%= t('activemodel.attributes.project.recipients') %>:</strong>
+            <ul>
+              <% @project.recipients.each do |rec| %>
+                <li><%= rec.name %></li>
+              <% end %>
+              <% if @project.custom_recipients.present? %>
+                <% @project.custom_recipients.split(',').each do |rep| %>
+                  <li><%= rep %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @project.budget_description.present? || @project.budget_value.present? || @project.edition_year <= 2019 %>
+  <div class="project-segment gray">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+
+          <h3 class='section-heading'>
+            <span>Kosztorys</span> projektu
+          </h3>
+
+          <% if @project.budget_description.present? && @project.edition.evaluation_publish_date < DateTime.current %>
+            <strong><%= t('activemodel.attributes.project.budget_description') %>:</strong>
+            <%= simple_format decidim_sanitize @project.budget_description %>
+            <hr class='full-width'>
+          <% end %>
+
+          <strong><%= t('activemodel.attributes.project.budget_value') %>:</strong>
+          <%= budget_to_currency @project.budget_value %>
+
+          <% if @project.edition_year <= 2019 %>
+            <hr class='full-width'>
+            <strong>Czy projekt generuje koszty utrzymania w kolejnych latach:</strong>
+            <%= t(!!@project.future_maintenance, scope: 'booleans', default: '') %>
+            <% if @project.future_maintenance_value.present? %>
+              <strong><%= t('activemodel.attributes.project.future_maintenance_value') %>:</strong>
+              <%= budget_to_currency @project.future_maintenance_value %>
+            <% end %>
+            <% if @project.future_maintenance_description.present? %>
+              <strong><%= t('activemodel.attributes.project.future_maintenance_description') %>:</strong>
+              <%= decidim_sanitize @project.future_maintenance_description %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @project.can_we_show_verification_text_reason? %>
+  <div class="project-segment">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <% if @project.accepted? && @project.project_implementation_effects.present? %>
+            <h3 class='section-heading'>
+              <span>Skutki</span> realizacji projektu
+            </h3>
+            <%= @project.project_implementation_effects %>
+          <% elsif @project.rejected? && @project.negative_verification_reason %>
+            <h3 class='section-heading'>
+              <span>Powód</span> negatywnej oceny
+            </h3>
+            <%= @project.negative_verification_reason %><% if @project.formal_evaluation.negative_verification_reason.present? && !@project.old_id %>:
+              <ul>
+                <% FormalEvaluationFieldsDefinition::FORMAL_FIELDS.each do |ff| %>
+                  <% if @project.formal_evaluation.details["#{ff[:name]}_negative_reason"].present? %>
+                    <li><%= @project.formal_evaluation.details["#{ff[:name]}_negative_reason"] %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @project.has_any_public_documents? %>
+  <div class="project-segment gray">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <h3 class='section-heading'>
+            <span>Dokumenty</span> projektu
+          </h3>
+          <%= render partial: "project_attachments", locals: { project: @project } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if current_participatory_space&.project_customization %>
+  <% if @project.additional_data&.any? %>
+    <div class="project-segment gray">
+      <div class="row">
+        <div class="columns mediumlarge-8 large-9">
+          <div class="section">
+            <h3 class='section-heading'>
+              <span>Dodatkowe</span> informacje
+            </h3>
+            <% @project.additional_data.each do |k, v| %>
+              <% if v.present? %>
+                <strong><%= @project.custom_label(k) %>:</strong>
+                <%= v %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if Decidim::Projects::ProjectPresenter.new(@project).versions.any? %>
+  <div class="project-segment">
+    <div class="row">
+      <div class="columns mediumlarge-8 large-9">
+        <div class="section">
+          <h3 class='section-heading'>
+            <span>Modyfikacje</span> projektu
+          </h3>
+          <div class="documents">
+            <% if Decidim::Projects::ProjectPresenter.new(@project).versions.count > 3 %>
+              <div class="card card--list" id='versions-show' data-toggler=".hide">
+                <div class="card--list__item" data-toggle="versions-list versions-show versions-close">
+                  <div class="card--list__text">
+                    <div>
+                      Pokaż wszystkie modyfikacje
+                    </div>
+                  </div>
+                  <div class="card--list__data blue">
+                    <span>
+                      <%= icon "plus", role: "img", aria_label: t("decidim.versions_list.see") %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="card card--list hide"  id='versions-close' data-toggler=".hide">
+                <div class="card--list__item" data-toggle="versions-list versions-show versions-close">
+                  <div class="card--list__text">
+                    <div>
+                      Ukryj modyfikacje
+                    </div>
+                  </div>
+                  <div class="card--list__data blue">
+                    <span>
+                      <%= icon "x", role: "img", aria_label: t("decidim.versions_list.see") %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="card card--list hide" id='versions-list' data-toggler=".hide">
+                <% Decidim::Projects::ProjectPresenter.new(@project).versions.each_with_index do |version, index| %>
+                  <%= cell(
+                    "decidim/versions_list_item",
+                    version,
+                    index: index,
+                    versioned_resource: @project,
+                    version_path: proc { |version_index| project_version_path(@project, version_index) },
+                    i18n_scope: "decidim.projects.versions.projects"
+                  ) %>
+                <% end %>
+              </div>
+
+            <% else %>
+              <div class="card card--list" id='versions-list'>
+                <% Decidim::Projects::ProjectPresenter.new(@project).versions.each_with_index do |version, index| %>
+                  <%= cell(
+                    "decidim/versions_list_item",
+                    version,
+                    index: index,
+                    versioned_resource: @project,
+                    version_path: proc { |version_index| project_version_path(@project, version_index) },
+                    i18n_scope: "decidim.projects.versions.projects"
+                  ) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= comments_for @project %>
+
+<%= cell("decidim/flag_modal", @project) %>
+<%= render 'decidim/projects/projects/new_project_sign_in_modal' %>
+
+<%= render 'sign_in_modal', project: @project %>
+<%= render 'send_message_modal', project: @project, form: @private_message_form %>
+
+<% if @all_locations %>
+  <%= javascript_include_tag "decidim/projects/leaflet.legend" %>
+  <%= javascript_include_tag "decidim/projects/leaflet.markercluster" %>
+  <%= javascript_include_tag "decidim/projects/leaflet-gesture-handling.min" %>
+  <%= javascript_include_tag "decidim/projects/markers-map" %>
+<% end %>
+
+<%= nonced_javascript_tag do %>
+  $('.please-sign-up-js').click( function(e) {
+      e.preventDefault();
+      $('#sign-in-modal').closest('.reveal-overlay').show();
+      $('#sign-in-modal').show();
+  });
+
+  $('#sign-in-modal .close-button').click( function(e) {
+      e.preventDefault();
+      $('#sign-in-modal').closest('.reveal-overlay').hide();
+      $('#sign-in-modal').hide();
+  });
+
+  $('.sending-private-email-js').click( function(e) {
+      e.preventDefault();
+      $('#send-private-message').closest('.reveal-overlay').show();
+      $('#send-private-message').show();
+  });
+
+  $('#send-private-message .close-button').click( function(e) {
+      e.preventDefault();
+      $('#send-private-message').closest('.reveal-overlay').hide();
+      $('#send-private-message').hide();
+  });
+
+  $('.no-user-new-project-js').click( function(e) {
+      e.preventDefault();
+      $('#new-project-sign-in-modal').closest('.reveal-overlay').show();
+      $('#new-project-sign-in-modal').show();
+  });
+
+  $('#new-project-sign-in-modal .close-button').click( function(e) {
+      e.preventDefault();
+      $('#new-project-sign-in-modal').closest('.reveal-overlay').hide();
+      $('#new-project-sign-in-modal').hide();
+  });
+
+  $(document).ready(function() {
+    // always pass csrf tokens on ajax calls
+    $.ajaxSetup({
+      headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+    });
+
+    let votingState = localStorage.getItem("voting_state");
+    let isVoted = false;
+    let votesLimit = $('#limit-count-js').val() ? $('#limit-count-js').val() : 0;
+
+    const votingStateArray = votingState ? votingState.split(",").map(value => parseInt(value)) : [];
+
+    if (votingStateArray.includes(<%= @project.id %>)) {
+      isVoted = true;
+      $('.vote-button-js span').text("Cofnij głos");
+    }
+
+    listenToLocalStorage();
+
+    $('.vote-button-js').click( function(e) {
+      const votingState = localStorage.getItem("voting_state");
+      let votingStateArray = votingState ? votingState.split(",").map(value => parseInt(value)) : [];
+      let canVote = parseInt(votesLimit) > votingStateArray.length;
+
+      let href = $(this).attr('href')
+      $.post(
+        $('.vote-button-js').data('url'),
+        {_method: 'patch', remote: true, format: 'json'},
+        // preselectProjects,
+        function(data) {
+          $('input[class="selected-projects-js"]').val(data["ids"]);
+        },
+        "json"
+      );
+
+      if (isVoted) {
+        votingStateArray = votingStateArray.filter(value => value !== <%= @project.id %>);
+        $(this).children().text("Zagłosuj na ten projekt");
+        isVoted = false;
+      } else if (canVote) {
+        votingStateArray.push(<%= @project.id %>);
+        $(this).children().text("Cofnij głos");
+        isVoted = true;
+      }
+
+      localStorage.setItem("voting_state", votingStateArray.join(","));
+    });
+  })
+
+
+  function listenToLocalStorage() {
+    const interval = setInterval(function() {
+      votingState = localStorage.getItem("voting_state");
+      const votingStateArray = votingState ? votingState.split(",").map(value => parseInt(value)) : [];
+
+      if (votingStateArray.includes(<%= @project.id %>)) {
+        isVoted = true;
+        $('.vote-button-js span').text("Cofnij głos");
+      } else {
+        isVoted = false;
+        $('.vote-button-js span').text("Zagłosuj na ten projekt");
+      }
+    }, 300);
+  }
+<% end %>

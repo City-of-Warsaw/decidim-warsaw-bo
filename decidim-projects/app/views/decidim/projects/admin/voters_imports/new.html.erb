@@ -1,0 +1,33 @@
+<% url = decidim_admin_participatory_processes.voters_imports_path(current_participatory_space) %>
+<%= decidim_form_for(@form, url: url, method: :post, html: { class: "form new_project project_form_admin" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">Import bazy danych osób uprawnionych do głosowania</h2>
+    </div>
+    <div class="card-section">
+      <div class="row column hashtags__container">
+        <h2>Ostatni import:</h2>
+        <p>
+          <% if @last_import_date %>
+            Data importu: <%= @last_import_date %>
+            <br>
+            Liczba rekordów: <%= @last_import_size %>
+          <% else %>
+            Brak zaimportowanych danych
+          <% end %>
+        </p>
+      </div>
+      <div class="row column hashtags__container">
+        <%= f.file_field :file, multiple: false, label: 'Plik CSV' %>
+        <p class="help-text">Import nowego pliku zawsze usuwa poprzednie dane. Plik w formacie CSV: pesel; imię; nazwisko. Separatorem jest średnik. Pierwszy wiersz musi zawierać nagłówek. Obsługiwane kodowanie pliku UTF-8 oraz ISO-8859-2</p>
+      </div>
+      <div class="row column hashtags__container">
+        <%= f.check_box :remove_voters_only, label: 'Tylko usuń bazę osób' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("decidim.votes.actions.create") %>
+  </div>
+<% end %>

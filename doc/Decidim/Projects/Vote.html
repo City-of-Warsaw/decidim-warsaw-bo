@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Decidim::Projects::Vote
+  
+    &mdash; Dokumentacja Decidim BO
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Decidim::Projects::Vote";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span>
+     &raquo; 
+    <span class="title">Vote</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Decidim::Projects::Vote
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationRecord.html" title="Decidim::Projects::ApplicationRecord (class)">ApplicationRecord</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationRecord.html" title="Decidim::Projects::ApplicationRecord (class)">ApplicationRecord</a></span></li>
+          
+            <li class="next">Decidim::Projects::Vote</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>HasComponent, Loggable</dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>decidim-projects/app/models/decidim/projects/vote.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Vote is the model representing vote card for user, supports voting process on Projects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Vote/STATUSES.html" title="Decidim::Projects::Vote::STATUSES (module)">STATUSES</a></span>
+    
+  
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="ADMIN_STATES_FOR_SEARCH-constant" class="">ADMIN_STATES_FOR_SEARCH =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>votes states for search in admin panel</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w(</span><span class='tstring_content'>link_sent</span><span class='words_sep'> </span><span class='tstring_content'>waiting</span><span class='words_sep'> </span><span class='tstring_content'>submitted</span><span class='words_sep'> </span><span class='tstring_content'>valid</span><span class='words_sep'> </span><span class='tstring_content'>pesel_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>name_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>invalid</span><span class='tstring_end'>)</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="ADMIN_STATUS_FOR_UPDATE-constant" class="">ADMIN_STATUS_FOR_UPDATE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>votes states for update in admin panel</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w(</span><span class='tstring_content'>waiting</span><span class='words_sep'> </span><span class='tstring_content'>submitted</span><span class='words_sep'> </span><span class='tstring_content'>valid</span><span class='words_sep'> </span><span class='tstring_content'>pesel_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>name_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>invalid</span><span class='tstring_end'>)</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="STATUSES_ACCEPTED-constant" class="">STATUSES_ACCEPTED =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>votes statuses for checking if pesel was used</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w{</span><span class='tstring_content'>submitted</span><span class='words_sep'> </span><span class='tstring_content'>valid</span><span class='words_sep'> </span><span class='tstring_content'>pesel_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>name_not_verified</span><span class='words_sep'> </span><span class='tstring_content'>invalid</span><span class='tstring_end'>}</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pesel_warnings-instance_method" title="#pesel_warnings (instance method)">#<strong>pesel_warnings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_user_data-class_method" title="clear_user_data (class method)">.<strong>clear_user_data</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_card_number-class_method" title="generate_card_number (class method)">.<strong>generate_card_number</strong>(component)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log_presenter_class_for-class_method" title="log_presenter_class_for (class method)">.<strong>log_presenter_class_for</strong>(_log)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#author_name-instance_method" title="#author_name (instance method)">#<strong>author_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#birth_date-instance_method" title="#birth_date (instance method)">#<strong>birth_date</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_user_data_for_unfinished_voting!-instance_method" title="#clear_user_data_for_unfinished_voting! (instance method)">#<strong>clear_user_data_for_unfinished_voting!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close_all_opened_statistics!-instance_method" title="#close_all_opened_statistics! (instance method)">#<strong>close_all_opened_statistics!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method setting finished_voting_time for all of the open statistics.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_projects-instance_method" title="#district_projects (instance method)">#<strong>district_projects</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_projects_cost_summary-instance_method" title="#district_projects_cost_summary (instance method)">#<strong>district_projects_cost_summary</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_projects_ids-instance_method" title="#district_projects_ids (instance method)">#<strong>district_projects_ids</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finish_active_statistic!-instance_method" title="#finish_active_statistic! (instance method)">#<strong>finish_active_statistic!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method that finishes last active statistic for voting.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gender-instance_method" title="#gender (instance method)">#<strong>gender</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_projects-instance_method" title="#global_projects (instance method)">#<strong>global_projects</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_projects_ids-instance_method" title="#global_projects_ids (instance method)">#<strong>global_projects_ids</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_scope_budget_value-instance_method" title="#global_scope_budget_value (instance method)">#<strong>global_scope_budget_value</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#global_scope_projects_cost_summary-instance_method" title="#global_scope_projects_cost_summary (instance method)">#<strong>global_scope_projects_cost_summary</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_active_statistic-instance_method" title="#last_active_statistic (instance method)">#<strong>last_active_statistic</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_statistic-instance_method" title="#last_statistic (instance method)">#<strong>last_statistic</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pesel-instance_method" title="#pesel (instance method)">#<strong>pesel</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>private.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#publisher_name-instance_method" title="#publisher_name (instance method)">#<strong>publisher_name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retrieve_last_statistic-instance_method" title="#retrieve_last_statistic (instance method)">#<strong>retrieve_last_statistic</strong>(link_sent = false)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Public method retrieve last active statistic or create it if there is no one.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scope_budget_value-instance_method" title="#scope_budget_value (instance method)">#<strong>scope_budget_value</strong>(scope_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#submitting_method-instance_method" title="#submitting_method (instance method)">#<strong>submitting_method</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_pesel_number-instance_method" title="#valid_pesel_number (instance method)">#<strong>valid_pesel_number</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Method used for paper votes show view to indicate that no data can be taken from pesel as it is invalid.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#voting_finish_time-instance_method" title="#voting_finish_time (instance method)">#<strong>voting_finish_time</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#voting_finished%3F-instance_method" title="#voting_finished? (instance method)">#<strong>voting_finished?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#voting_in_progress%3F-instance_method" title="#voting_in_progress? (instance method)">#<strong>voting_in_progress?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="pesel_warnings=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="pesel_warnings-instance_method">
+  
+    #<strong>pesel_warnings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 222</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pesel_warnings'>pesel_warnings</span>
+  <span class='ivar'>@pesel_warnings</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="clear_user_data-class_method">
+  
+    .<strong>clear_user_data</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clear_user_data'>clear_user_data</span>
+  <span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span>
+    <span class='label'>voting_token:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>first_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>last_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>email:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>pesel_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='comment'># address
+</span>    <span class='label'>street:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>street_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>flat_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>zip_code:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>city:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>cleared_data:</span> <span class='kw'>true</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="generate_card_number-class_method">
+  
+    .<strong>generate_card_number</strong>(component)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+233
+234
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 233</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_generate_card_number'>generate_card_number</span><span class='lparen'>(</span><span class='id identifier rubyid_component'>component</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>decidim_component_id:</span> <span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='period'>.</span><span class='id identifier rubyid_not'>not</span><span class='lparen'>(</span><span class='label'>card_number:</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_count'>count</span> <span class='op'>+</span> <span class='int'>1</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_component'>component</span><span class='period'>.</span><span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_edition_year'>edition_year</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="log_presenter_class_for-class_method">
+  
+    .<strong>log_presenter_class_for</strong>(_log)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method</p>
+
+<p>Method defines Admin Log Presenter class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 229</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log_presenter_class_for'>log_presenter_class_for</span><span class='lparen'>(</span><span class='id identifier rubyid__log'>_log</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AdminLog.html" title="Decidim::Projects::AdminLog (module)">AdminLog</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="AdminLog/VotePresenter.html" title="Decidim::Projects::AdminLog::VotePresenter (class)">VotePresenter</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="author_name-instance_method">
+  
+    #<strong>author_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_author_name'>author_name</span>
+  <span class='id identifier rubyid_is_paper'>is_paper</span> <span class='op'>?</span> <span class='id identifier rubyid_author'>author</span><span class='period'>.</span><span class='id identifier rubyid_ad_full_name'>ad_full_name</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="birth_date-instance_method">
+  
+    #<strong>birth_date</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_birth_date'>birth_date</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_valid_pesel_number'>valid_pesel_number</span>
+
+  <span class='id identifier rubyid_pesel'>pesel</span><span class='period'>.</span><span class='id identifier rubyid_birth_date'>birth_date</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clear_user_data_for_unfinished_voting!-instance_method">
+  
+    #<strong>clear_user_data_for_unfinished_voting!</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_clear_user_data_for_unfinished_voting!'>clear_user_data_for_unfinished_voting!</span>
+  <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
+    <span class='label'>first_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>last_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='comment'># email: &#39;&#39;, # we keep an email
+</span>    <span class='label'>pesel_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='comment'># address
+</span>    <span class='label'>street:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>street_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>flat_number:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>zip_code:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>city:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Warszawa</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># we set default city
+</span>  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="close_all_opened_statistics!-instance_method">
+  
+    #<strong>close_all_opened_statistics!</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method setting finished_voting_time for all of the open statistics. This method is used, when User publishes his vote to close all of the hanging statistics</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 155</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_close_all_opened_statistics!'>close_all_opened_statistics!</span>
+  <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_close_all!'>close_all!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_projects-instance_method">
+  
+    #<strong>district_projects</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_projects'>district_projects</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='period'>.</span><span class='id identifier rubyid_in_district_scope'>in_district_scope</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_projects_cost_summary-instance_method">
+  
+    #<strong>district_projects_cost_summary</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_projects_cost_summary'>district_projects_cost_summary</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='period'>.</span><span class='id identifier rubyid_in_district_scope'>in_district_scope</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:budget_value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_projects_ids-instance_method">
+  
+    #<strong>district_projects_ids</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_projects_ids'>district_projects_ids</span>
+  <span class='id identifier rubyid_district_projects'>district_projects</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="finish_active_statistic!-instance_method">
+  
+    #<strong>finish_active_statistic!</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method that finishes last active statistic for voting</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_finish_active_statistic!'>finish_active_statistic!</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_last_active_statistic'>last_active_statistic</span>
+
+  <span class='id identifier rubyid_last_active_statistic'>last_active_statistic</span><span class='period'>.</span><span class='id identifier rubyid_finish!'>finish!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gender-instance_method">
+  
+    #<strong>gender</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gender'>gender</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_valid_pesel_number'>valid_pesel_number</span>
+
+  <span class='id identifier rubyid_pesel'>pesel</span><span class='period'>.</span><span class='id identifier rubyid_gender'>gender</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_projects-instance_method">
+  
+    #<strong>global_projects</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_projects'>global_projects</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='period'>.</span><span class='id identifier rubyid_in_global_scope'>in_global_scope</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_projects_ids-instance_method">
+  
+    #<strong>global_projects_ids</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_projects_ids'>global_projects_ids</span>
+  <span class='id identifier rubyid_global_projects'>global_projects</span><span class='period'>.</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_scope_budget_value-instance_method">
+  
+    #<strong>global_scope_budget_value</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_scope_budget_value'>global_scope_budget_value</span>
+   <span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_budget_value_for'>budget_value_for</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'>Scope</span><span class='period'>.</span><span class='id identifier rubyid_citywide'>citywide</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="global_scope_projects_cost_summary-instance_method">
+  
+    #<strong>global_scope_projects_cost_summary</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_global_scope_projects_cost_summary'>global_scope_projects_cost_summary</span>
+  <span class='id identifier rubyid_projects'>projects</span><span class='period'>.</span><span class='id identifier rubyid_in_global_scope'>in_global_scope</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:budget_value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="last_active_statistic-instance_method">
+  
+    #<strong>last_active_statistic</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_last_active_statistic'>last_active_statistic</span>
+  <span class='comment'># statistics.where(finished_voting_time: nil).order(created_at: :desc)&amp;.first
+</span>  <span class='id identifier rubyid_stat'>stat</span> <span class='op'>=</span> <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+  <span class='id identifier rubyid_stat'>stat</span> <span class='kw'>if</span> <span class='id identifier rubyid_stat'>stat</span><span class='period'>.</span><span class='id identifier rubyid_finished_voting_time'>finished_voting_time</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="last_statistic-instance_method">
+  
+    #<strong>last_statistic</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_last_statistic'>last_statistic</span>
+  <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span> <span class='kw'>if</span> <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span>
+
+  <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pesel-instance_method">
+  
+    #<strong>pesel</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>private</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pesel'>pesel</span>
+  <span class='const'><span class='object_link'><a href="../../Decidim.html" title="Decidim (module)">Decidim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Projects.html" title="Decidim::Projects (module)">Projects</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="PeselValue.html" title="Decidim::Projects::PeselValue (class)">PeselValue</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PeselValue.html#initialize-instance_method" title="Decidim::Projects::PeselValue#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_pesel_number'>pesel_number</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="publisher_name-instance_method">
+  
+    #<strong>publisher_name</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 123</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_publisher_name'>publisher_name</span>
+  <span class='id identifier rubyid_is_paper'>is_paper</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_publisher'>publisher</span> <span class='op'>?</span> <span class='id identifier rubyid_publisher'>publisher</span><span class='period'>.</span><span class='id identifier rubyid_ad_full_name'>ad_full_name</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="retrieve_last_statistic-instance_method">
+  
+    #<strong>retrieve_last_statistic</strong>(link_sent = false)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Public method retrieve last active statistic or create it if there is no one.</p>
+
+<p>Returns object - VoteStatistic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retrieve_last_statistic'>retrieve_last_statistic</span><span class='lparen'>(</span><span class='id identifier rubyid_link_sent'>link_sent</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_link_sent'>link_sent</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_clear_user_data_for_unfinished_voting!'>clear_user_data_for_unfinished_voting!</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_last_active_statistic'>last_active_statistic</span> <span class='kw'>if</span> <span class='id identifier rubyid_last_active_statistic'>last_active_statistic</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_statistics'>statistics</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="scope_budget_value-instance_method">
+  
+    #<strong>scope_budget_value</strong>(scope_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope_budget_value'>scope_budget_value</span><span class='lparen'>(</span><span class='id identifier rubyid_scope_id'>scope_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_participatory_space'>participatory_space</span><span class='period'>.</span><span class='id identifier rubyid_scope_budgets'>scope_budgets</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>decidim_scope_id:</span> <span class='id identifier rubyid_scope_id'>scope_id</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_budget_value'>budget_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="submitting_method-instance_method">
+  
+    #<strong>submitting_method</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_submitting_method'>submitting_method</span>
+  <span class='id identifier rubyid_is_paper'>is_paper</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Papierowo</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Elektronicznie</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_pesel_number-instance_method">
+  
+    #<strong>valid_pesel_number</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Method used for paper votes show view to indicate that no data can be taken from pesel as it is invalid</p>
+
+<p>returns Boolean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_valid_pesel_number'>valid_pesel_number</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_pesel_number'>pesel_number</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+
+  <span class='id identifier rubyid_pesel'>pesel</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="voting_finish_time-instance_method">
+  
+    #<strong>voting_finish_time</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 166</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_voting_finish_time'>voting_finish_time</span>
+  <span class='id identifier rubyid_voting_finished?'>voting_finished?</span> <span class='op'>?</span> <span class='id identifier rubyid_last_statistic'>last_statistic</span><span class='period'>.</span><span class='id identifier rubyid_finished_voting_time'>finished_voting_time</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="voting_finished?-instance_method">
+  
+    #<strong>voting_finished?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 170</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_voting_finished?'>voting_finished?</span>
+  <span class='op'>!</span><span class='id identifier rubyid_voting_in_progress?'>voting_in_progress?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="voting_in_progress?-instance_method">
+  
+    #<strong>voting_in_progress?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'decidim-projects/app/models/decidim/projects/vote.rb', line 174</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_voting_in_progress?'>voting_in_progress?</span>
+  <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Vote/STATUSES.html" title="Decidim::Projects::Vote::STATUSES (module)">STATUSES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Vote/STATUSES.html#LINK_SENT-constant" title="Decidim::Projects::Vote::STATUSES::LINK_SENT (constant)">LINK_SENT</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Vote/STATUSES.html" title="Decidim::Projects::Vote::STATUSES (module)">STATUSES</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Vote/STATUSES.html#WAITING-constant" title="Decidim::Projects::Vote::STATUSES::WAITING (constant)">WAITING</a></span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Wed Oct 12 12:35:55 2022 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.27 (ruby-2.7.3).
+</div>
+
+    </div>
+  </body>
+</html>

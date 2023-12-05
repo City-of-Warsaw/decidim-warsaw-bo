@@ -1,0 +1,3 @@
+var projects_box = $('.fill-with-projects-js');
+
+projects_box.html('<%= j(render "radio_buttons", projects: @projects).html_safe %>');
