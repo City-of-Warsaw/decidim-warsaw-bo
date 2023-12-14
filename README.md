@@ -1,4 +1,4 @@
-# Decidim – budget of participatory process platform
+# Decidim – participatory budget platform
 
 The main objective of the Project is to launch a new digital service by the City of Warsaw in the form of an online Platform, integrated with other selected urban digital solutions, ready to support consultative processes carried out by the City of Warsaw.
 
