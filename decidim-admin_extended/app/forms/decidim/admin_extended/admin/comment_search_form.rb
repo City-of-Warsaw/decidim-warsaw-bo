@@ -30,7 +30,7 @@ module Decidim
             comments = comments.where('DATE(decidim_comments_comments.created_at) >= ?', start_date) if start_date.present?
             comments = comments.where('DATE(decidim_comments_comments.created_at) <= ?', end_date) if end_date.present?
           end
-          comments.order(created_at: :desc)
+          comments.search_default.order(created_at: :desc)
         end
       end
     end

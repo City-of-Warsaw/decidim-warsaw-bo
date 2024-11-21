@@ -39,7 +39,7 @@ module Decidim
             else
               # without reevaluation we set public state based on formal and meritorical result values
               if I18n.t('accepted', scope: scope)
-                project.formal_result && project.meritorical_result ? I18n.t('accepted', scope: scope)
+                project.formal_result && project.meritorical_result ? I18n.t('accepted', scope: scope) : I18n.t('rejected', scope: scope)
               else
                 I18n.t('rejected', scope: scope)
               end

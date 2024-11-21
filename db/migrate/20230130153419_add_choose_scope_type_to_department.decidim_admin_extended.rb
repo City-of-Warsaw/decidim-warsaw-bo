@@ -5,7 +5,7 @@ class AddChooseScopeTypeToDepartment < ActiveRecord::Migration[5.2]
 
     reversible do |direction|
       direction.up do
-        Decidim::AdminExtended::Department.update_all department_type: 'districts'
+        Decidim::AdminExtended::Department.update_all department_type: 'district'
       end
     end
   end
